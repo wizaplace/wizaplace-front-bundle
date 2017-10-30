@@ -1,0 +1,7 @@
+/vendor/
+/var/
+
+# CI artifacts
+*-checkstyle.xml
+phpunit-result.xml
+clover.xml

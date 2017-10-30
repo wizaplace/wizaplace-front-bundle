@@ -1,0 +1,44 @@
+{
+  "name": "wizaplace/front-bundle",
+  "type": "symfony-bundle",
+  "authors": [
+    {
+      "name": "Wizaplace",
+      "email": "dev@wizaplace.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.1",
+    "symfony/symfony": "^3.3",
+    "wizaplace/sdk": "^0.11.3",
+    "symfony/monolog-bundle": "^3.1",
+    "twig/twig": "^2.4",
+    "roave/security-advisories": "@dev"
+  },
+  "autoload": {
+    "psr-4": {
+      "WizaplaceFrontBundle\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "WizaplaceFrontBundle\\Tests\\": "tests/"
+    }
+  },
+  "require-dev": {
+    "wizaplace/php-coding-standard": "^1.1",
+    "squizlabs/php_codesniffer": "^3.1",
+    "phpunit/phpunit": "^6.4",
+    "php-vcr/php-vcr": "^1.4",
+    "bmancone/guzzle-stopwatch-middleware": "^1.0",
+    "symfony/phpunit-bridge": "^3.3",
+    "phpstan/phpstan": "^0.8.5",
+    "lookyman/phpstan-symfony": "@dev"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/hectorj/phpstan-symfony.git"
+    }
+  ]
+}
