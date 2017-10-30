@@ -1,10 +1,12 @@
 all: install
 
-install:
+install: var/translations var/cache var/logs
 	composer install
+	tests/console --env=test cache:clear
 
 install-ci:
 	composer install --no-interaction --no-progress --ignore-platform-reqs
+	tests/console --env=test cache:clear --no-interaction
 
 lint: lint-php lint-twig lint-yaml lint-xliff
 

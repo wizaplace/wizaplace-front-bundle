@@ -33,7 +33,7 @@ pipeline {
                         sh 'make -j lint-ci'
                     },
                     'stan': {
-                        sh 'make stan'
+                        sh 'make stan-ci'
                     },
                     'test': {
                         sh 'make test-phpunit-ci'
