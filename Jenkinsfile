@@ -11,9 +11,8 @@ pipeline {
             }
             steps {
                 withCredentials([string(credentialsId: 'e18082c0-a95c-4c22-9bf5-803fd091c764', variable: 'GITHUB_TOKEN')]) {
-                    sh 'rm -rf var/logs/*'
-                    sh 'rm -rf var/cache/*'
-                    sh 'rm -rf var/translations/*'
+                    sh 'mkdir -p var/logs var/cache var/translations'
+                    sh 'rm -rf var/logs/* var/cache/* var/translations/*'
                     sh 'echo -e "machine github.com\n  login $GITHUB_TOKEN" >> ~/.netrc'
                     sh 'composer config -g github-oauth.github.com $GITHUB_TOKEN'
                     sh 'composer install --no-interaction --no-progress --ignore-platform-reqs'
