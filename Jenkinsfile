@@ -17,6 +17,7 @@ pipeline {
                     sh 'echo -e "machine github.com\n  login $GITHUB_TOKEN" >> ~/.netrc'
                     sh 'composer config -g github-oauth.github.com $GITHUB_TOKEN'
                     sh 'composer install --no-interaction --no-progress --ignore-platform-reqs'
+                    sh 'tests/console --env=test cache:clear --no-interaction'
                 }
             }
         }
