@@ -14,6 +14,7 @@ use Wizaplace\SDK\Catalog\CatalogService;
 use Wizaplace\SDK\Catalog\Option;
 use Wizaplace\SDK\Catalog\OptionVariant;
 use Wizaplace\SDK\Catalog\Product;
+use Wizaplace\SDK\Catalog\ProductCategory;
 use Wizaplace\SDK\Catalog\Review\ReviewService;
 use Wizaplace\SDK\Favorite\FavoriteService;
 use Wizaplace\SDK\Seo\SeoService;
@@ -69,7 +70,9 @@ class ProductController extends Controller
             $declinationId = $product->getDeclinations()[0]->getId();
         }
 
-        $realCategoryPath = implode('/', $product->getCategorySlugs());
+        $realCategoryPath = implode('/', array_map(function (ProductCategory $category) : string {
+            return $category->getSlug();
+        }, $product->getCategoryPath()));
         if ($categoryPath !== $realCategoryPath) {
             return $this->redirect($this->productUrlGenerator->generateUrlFromProduct($product));
         }

@@ -106,7 +106,7 @@ class AppExtension extends \Twig_Extension
 
         $imageId = ($image instanceof Image) ? $image->getId() : $image;
 
-        return $this->imageService->getImageLink($imageId, $width, $height);
+        return (string) $this->imageService->getImageLink($imageId, $width, $height);
     }
 
     public function getCategoryTree():array

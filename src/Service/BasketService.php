@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Wizaplace\SDK\Basket\Basket;
 use Wizaplace\SDK\Basket\Comment;
 use Wizaplace\SDK\Basket\PaymentInformation;
+use Wizaplace\SDK\Catalog\DeclinationId;
 
 class BasketService
 {
@@ -50,14 +51,14 @@ class BasketService
         return $this->basket;
     }
 
-    public function addProductToBasket(string $declinationId, int $quantity): int
+    public function addProductToBasket(DeclinationId $declinationId, int $quantity): int
     {
         $this->basket = null;
 
         return $this->baseService->addProductToBasket($this->getBasketId(), $declinationId, $quantity);
     }
 
-    public function removeProductFromBasket(string $declinationId): void
+    public function removeProductFromBasket(DeclinationId $declinationId): void
     {
         $this->basket = null;
 
@@ -71,7 +72,7 @@ class BasketService
         $this->baseService->cleanBasket($this->getBasketId());
     }
 
-    public function updateProductQuantity(string $declinationId, int $quantity): int
+    public function updateProductQuantity(DeclinationId $declinationId, int $quantity): int
     {
         $this->basket = null;
 
