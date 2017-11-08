@@ -1,12 +1,7 @@
 {
   "name": "wizaplace/front-bundle",
   "type": "symfony-bundle",
-  "authors": [
-    {
-      "name": "Wizaplace",
-      "email": "dev@wizaplace.com"
-    }
-  ],
+  "license": "proprietary",
   "require": {
     "php": ">=7.1",
     "symfony/symfony": "^3.3",
