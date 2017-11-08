@@ -7,23 +7,23 @@ declare(strict_types=1);
 
 namespace WizaplaceFrontBundle\Service;
 
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
+use Symfony\Component\Security\Http\Logout\LogoutHandlerInterface;
 use Wizaplace\SDK\Catalog\DeclinationSummary;
 
-class FavoriteService
+class FavoriteService implements LogoutHandlerInterface
 {
     /** @var \Wizaplace\SDK\Favorite\FavoriteService */
     private $baseService;
 
-    /** @var SessionInterface */
-    private $session;
+    /** @var null|array */
+    private $favoritesIdsCache;
 
-    private const FAVORITES_IDS_CACHE_SESSION_KEY = self::class.'::FAVORITES_IDS_CACHE_SESSION_KEY';
-
-    public function __construct(\Wizaplace\SDK\Favorite\FavoriteService $baseService, SessionInterface $session)
+    public function __construct(\Wizaplace\SDK\Favorite\FavoriteService $baseService)
     {
         $this->baseService = $baseService;
-        $this->session = $session;
     }
 
     /**
@@ -35,10 +35,9 @@ class FavoriteService
         $result = $this->baseService->getAll();
 
         // re-build cache entirely
-        $cache = array_reverse(array_map(function (DeclinationSummary $declination): string {
+        $this->favoritesIdsCache = array_reverse(array_map(function (DeclinationSummary $declination): string {
             return $declination->getId();
         }, $result));
-        $this->session->set(self::FAVORITES_IDS_CACHE_SESSION_KEY, $cache);
 
         return $result;
     }
@@ -48,13 +47,11 @@ class FavoriteService
      */
     public function isInFavorites(string $declinationId) : bool
     {
-        $cache = $this->session->get(self::FAVORITES_IDS_CACHE_SESSION_KEY, null);
-        if (!is_array($cache)) {
+        if (!is_array($this->favoritesIdsCache)) {
             $this->getAll();
         }
-        $cache = $this->session->get(self::FAVORITES_IDS_CACHE_SESSION_KEY, []);
 
-        return isset($cache[$declinationId]);
+        return isset($this->favoritesIdsCache[$declinationId]);
     }
 
     /**
@@ -65,9 +62,7 @@ class FavoriteService
         $this->baseService->addDeclinationToUserFavorites($declinationId);
 
         // add ID to cache
-        $cache = $this->session->get(self::FAVORITES_IDS_CACHE_SESSION_KEY, null);
-        $cache[$declinationId] = true;
-        $this->session->set(self::FAVORITES_IDS_CACHE_SESSION_KEY, $cache);
+        $this->favoritesIdsCache[$declinationId] = true;
     }
 
     /**
@@ -78,8 +73,14 @@ class FavoriteService
         $this->baseService->removeDeclinationToUserFavorites($declinationId);
 
         // remove ID from cache
-        $cache = $this->session->get(self::FAVORITES_IDS_CACHE_SESSION_KEY, null);
-        unset($cache[$declinationId]);
-        $this->session->set(self::FAVORITES_IDS_CACHE_SESSION_KEY, $cache);
+        unset($this->favoritesIdsCache[$declinationId]);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function logout(Request $request, Response $response, TokenInterface $token): void
+    {
+        $this->favoritesIdsCache = null;
     }
 }
