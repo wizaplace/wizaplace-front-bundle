@@ -39,6 +39,8 @@ class FavoriteService
             return $declination->getId();
         }, $result));
         $this->session->set(self::FAVORITES_IDS_CACHE_SESSION_KEY, $cache);
+
+        return $result;
     }
 
     /**
