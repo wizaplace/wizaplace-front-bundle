@@ -8,10 +8,12 @@ declare(strict_types=1);
 namespace WizaplaceFrontBundle\Service;
 
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Wizaplace\SDK\Catalog\DeclinationId;
 use Wizaplace\SDK\Catalog\DeclinationSummary;
 use Wizaplace\SDK\Catalog\Product;
 use Wizaplace\SDK\Catalog\ProductCategory;
 use Wizaplace\SDK\Catalog\ProductSummary;
+use Wizaplace\SDK\Catalog\SearchCategoryPath;
 
 class ProductUrlGenerator
 {
@@ -26,7 +28,7 @@ class ProductUrlGenerator
     /**
      * @param Product|ProductSummary|DeclinationSummary $product
      */
-    public function generateProductUrl($product, ?string $declinationId = null): string
+    public function generateProductUrl($product, ?DeclinationId $declinationId = null): string
     {
         if ($product instanceof Product) {
             return $this->generateUrlFromProduct($product, $declinationId);
@@ -41,20 +43,24 @@ class ProductUrlGenerator
         throw new \InvalidArgumentException('Cannot generate an url from given $product');
     }
 
-    public function generateUrlFromProduct(Product $product, ?string $declinationId = null): string
+    public function generateUrlFromProduct(Product $product, ?DeclinationId $declinationId = null): string
     {
         return $this->generateUrl(
             $product->getSlug(),
-            $product->getCategorySlugs(),
+            array_map(static function (ProductCategory $category) : string {
+                return $category->getSlug();
+            }, $product->getCategoryPath()),
             $declinationId
         );
     }
 
-    public function generateUrlFromProductSummary(ProductSummary $productSummary, ?string $declinationId = null): string
+    public function generateUrlFromProductSummary(ProductSummary $productSummary, ?DeclinationId $declinationId = null): string
     {
         return $this->generateUrl(
             $productSummary->getSlug(),
-            $productSummary->getCategorySlugs(),
+            array_map(static function (SearchCategoryPath $category) : string {
+                return $category->getSlug();
+            }, $productSummary->getCategoryPath()),
             $declinationId
         );
     }
@@ -73,12 +79,16 @@ class ProductUrlGenerator
     /**
      * @param string[] $categoryPath
      */
-    private function generateUrl(string $productSlug, array $categoryPath, ?string $declinationId = null): string
+    private function generateUrl(string $productSlug, array $categoryPath, ?DeclinationId $declinationId = null): string
     {
-        return $this->urlGenerator->generate('product', [
+        $params = [
             'categoryPath' => join('/', $categoryPath),
             'slug' => $productSlug,
-            'd' => $declinationId,
-        ]);
+        ];
+        if ($declinationId !== null) {
+            $params['d'] = (string) $declinationId;
+        }
+
+        return $this->urlGenerator->generate('product', $params);
     }
 }

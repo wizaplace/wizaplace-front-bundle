@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace WizaplaceFrontBundle\Tests\Service;
 
 use Wizaplace\SDK\Catalog\CatalogService;
+use Wizaplace\SDK\Catalog\DeclinationId;
 use Wizaplace\SDK\Favorite\FavoriteService;
 use WizaplaceFrontBundle\Service\AuthenticationService;
 use WizaplaceFrontBundle\Service\ProductUrlGenerator;
@@ -54,9 +55,10 @@ class ProductUrlGeneratorTest extends BundleTestCase
 
         $favoriteService = $container->get(FavoriteService::class);
 
-        $favoriteService->addDeclinationToUserFavorites('1');
+        $declinationId = new DeclinationId('1');
+        $favoriteService->addDeclinationToUserFavorites($declinationId);
         $declinations = $favoriteService->getAll();
-        $favoriteService->removeDeclinationToUserFavorites('1'); // cleanup
+        $favoriteService->removeDeclinationToUserFavorites($declinationId); // cleanup
 
         $result = $container->get(ProductUrlGenerator::class)->generateProductUrl($declinations[0]);
 

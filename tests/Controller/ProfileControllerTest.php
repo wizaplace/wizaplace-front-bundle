@@ -95,7 +95,7 @@ class ProfileControllerTest extends BundleTestCase
             /** @var UserAddress $address */
             $this->assertSame('Janet', $address->getFirstname());
             $this->assertSame('Jackson', $address->getLastname());
-            $this->assertSame(UserTitle::MRS()->getValue(), $address->getTitle());
+            $this->assertTrue(UserTitle::MRS()->equals($address->getTitle()));
             $this->assertSame('69009', $address->getZipCode());
             $this->assertSame('Lyon', $address->getCity());
             $this->assertSame('FR', $address->getCountry());
