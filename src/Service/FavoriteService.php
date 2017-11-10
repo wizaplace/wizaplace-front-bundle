@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Http\Logout\LogoutHandlerInterface;
+use Wizaplace\SDK\Catalog\DeclinationId;
 use Wizaplace\SDK\Catalog\DeclinationSummary;
 
 class FavoriteService implements LogoutHandlerInterface
@@ -36,7 +37,7 @@ class FavoriteService implements LogoutHandlerInterface
 
         // re-build cache entirely
         $this->favoritesIdsCache = array_reverse(array_map(function (DeclinationSummary $declination): string {
-            return $declination->getId();
+            return (string) $declination->getId();
         }, $result));
 
         return $result;
@@ -45,35 +46,35 @@ class FavoriteService implements LogoutHandlerInterface
     /**
      * @see \Wizaplace\SDK\Favorite\FavoriteService::isInFavorites
      */
-    public function isInFavorites(string $declinationId) : bool
+    public function isInFavorites(DeclinationId $declinationId) : bool
     {
         if (!is_array($this->favoritesIdsCache)) {
             $this->getAll();
         }
 
-        return isset($this->favoritesIdsCache[$declinationId]);
+        return isset($this->favoritesIdsCache[(string) $declinationId]);
     }
 
     /**
      * @see \Wizaplace\SDK\Favorite\FavoriteService::addDeclinationToUserFavorites
      */
-    public function addDeclinationToUserFavorites(string $declinationId) : void
+    public function addDeclinationToUserFavorites(DeclinationId $declinationId) : void
     {
         $this->baseService->addDeclinationToUserFavorites($declinationId);
 
         // add ID to cache
-        $this->favoritesIdsCache[$declinationId] = true;
+        $this->favoritesIdsCache[(string) $declinationId] = true;
     }
 
     /**
      * @see \Wizaplace\SDK\Favorite\FavoriteService::removeDeclinationToUserFavorites
      */
-    public function removeDeclinationToUserFavorites(string $declinationId) : void
+    public function removeDeclinationToUserFavorites(DeclinationId $declinationId) : void
     {
         $this->baseService->removeDeclinationToUserFavorites($declinationId);
 
         // remove ID from cache
-        unset($this->favoritesIdsCache[$declinationId]);
+        unset($this->favoritesIdsCache[(string) $declinationId]);
     }
 
     /**
