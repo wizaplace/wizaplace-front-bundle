@@ -28,3 +28,4 @@ security:
                 csrf_parameter: !php/const:WizaplaceFrontBundle\Controller\AuthController::CSRF_FIELD_NAME
                 csrf_token_id: !php/const:WizaplaceFrontBundle\Controller\AuthController::CSRF_LOGOUT_ID
                 csrf_token_generator: security.csrf.token_manager
+                handlers: ['WizaplaceFrontBundle\Service\BasketService']

@@ -12,8 +12,12 @@ use Psr\Log\LoggerInterface;
 use Psr\Log\LogLevel;
 use Psr\Log\NullLogger;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\AuthenticationEvents;
+use Symfony\Component\Security\Http\Logout\LogoutHandlerInterface;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Basket\Basket;
 use Wizaplace\SDK\Basket\Comment;
@@ -23,7 +27,7 @@ use Wizaplace\SDK\Catalog\DeclinationId;
 /**
  * Wraps {@see \Wizaplace\SDK\Basket\BasketService}, storing the basketID for you.
  */
-class BasketService implements EventSubscriberInterface
+class BasketService implements EventSubscriberInterface, LogoutHandlerInterface
 {
     private const ID_SESSION_KEY = '_basketId';
 
@@ -53,7 +57,7 @@ class BasketService implements EventSubscriberInterface
     public function getBasket(): Basket
     {
         $basketId = $this->getBasketId();
-        if (!$this->basket) {
+        if (!$this->basket || $this->basket->getId() !== $basketId) {
             try {
                 $this->basket = $this->baseService->getBasket($basketId);
             } catch (ClientException $e) {
@@ -215,5 +219,13 @@ class BasketService implements EventSubscriberInterface
     private function setCurrentBasketId(string $basketId): void
     {
         $this->session->set(self::ID_SESSION_KEY, $basketId);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function logout(Request $request, Response $response, TokenInterface $token): void
+    {
+        $this->forgetBasket();
     }
 }
