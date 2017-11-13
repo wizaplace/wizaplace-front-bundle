@@ -27,8 +27,8 @@ class BasketServiceTest extends BundleTestCase
         $orderService = new OrderService($apiClient);
 
         $basket = $basketService->getBasket();
-        $this->assertInstanceOf(Basket::class, $basket);
-        $this->assertNotEmpty($basket->getId());
+        self::assertInstanceOf(Basket::class, $basket);
+        self::assertNotEmpty($basket->getId());
 
         $newQuantity = $basketService->addProductToBasket(new DeclinationId('1'), 1);
         self::assertSame(1, $newQuantity);
