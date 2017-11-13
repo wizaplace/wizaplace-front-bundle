@@ -14,6 +14,9 @@ use Wizaplace\SDK\Basket\Comment;
 use Wizaplace\SDK\Basket\PaymentInformation;
 use Wizaplace\SDK\Catalog\DeclinationId;
 
+/**
+ * Wraps {@see \Wizaplace\SDK\Basket\BasketService}, storing the basketID for you.
+ */
 class BasketService
 {
     private const ID_SESSION_KEY = '_basketId';
@@ -91,6 +94,10 @@ class BasketService
         $this->baseService->removeCoupon($this->getBasketId(), $coupon);
     }
 
+    /**
+     * @see \Wizaplace\SDK\Basket\BasketService::getPayments
+     * @return \Wizaplace\SDK\Basket\Payment[]
+     */
     public function getPayments(): array
     {
         return $this->baseService->getPayments($this->getBasketId());
