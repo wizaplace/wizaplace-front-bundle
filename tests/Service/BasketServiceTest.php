@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace WizaplaceFrontBundle\Tests\Service;
 
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Wizaplace\SDK\ApiClient;
 use Wizaplace\SDK\Basket\Basket;
 use Wizaplace\SDK\Catalog\DeclinationId;
