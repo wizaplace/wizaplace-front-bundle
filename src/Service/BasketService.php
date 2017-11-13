@@ -190,6 +190,14 @@ class BasketService implements EventSubscriberInterface, LogoutHandlerInterface
     }
 
     /**
+     * @inheritdoc
+     */
+    public function logout(Request $request, Response $response, TokenInterface $token): void
+    {
+        $this->forgetBasket();
+    }
+
+    /**
      * Gets current basket ID, or create a new one
      * @return string
      */
@@ -205,6 +213,7 @@ class BasketService implements EventSubscriberInterface, LogoutHandlerInterface
         return $basketId;
     }
 
+
     /**
      * Gets current basket ID, if it exists.
      * Most of the time you should not use this , {@see \WizaplaceFrontBundle\Service\BasketService::getBasketId} instead.
@@ -215,17 +224,8 @@ class BasketService implements EventSubscriberInterface, LogoutHandlerInterface
         return $this->session->get(self::ID_SESSION_KEY, null);
     }
 
-
     private function setCurrentBasketId(string $basketId): void
     {
         $this->session->set(self::ID_SESSION_KEY, $basketId);
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function logout(Request $request, Response $response, TokenInterface $token): void
-    {
-        $this->forgetBasket();
     }
 }
