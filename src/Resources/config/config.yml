@@ -27,6 +27,8 @@ services:
             $locales: [ '%locale%' ]
             $translationsDir: "%kernel.project_dir%/var/translations"
         public: true
+    WizaplaceFrontBundle\Service\BasketService:
+        public: true
     WizaplaceFrontBundle\Service\AuthenticationService:
         public: true
         arguments:
