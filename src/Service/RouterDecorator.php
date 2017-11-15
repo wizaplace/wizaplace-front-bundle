@@ -71,7 +71,7 @@ class RouterDecorator implements RouterInterface
 
     private static function stringifyRecursively($value)
     {
-        if (is_array($value)) {
+        if (is_array($value) || $value instanceof \Traversable) {
             return array_map([self::class, 'stringifyRecursively'], $value);
         }
 
