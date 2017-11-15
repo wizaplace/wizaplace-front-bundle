@@ -11,6 +11,7 @@
 
 - `\WizaplaceFrontBundle\Service\AuthenticationService::authenticate` was not triggering authentication events
 - Update SDK to v1.0.1
+- Fix bug causing `DeclinationId` to be ignored by the URL generator when put into the URL query
 
 </details>
 

@@ -7,6 +7,10 @@ services:
     WizaplaceFrontBundle\:
         resource: '../../'
         exclude: '../../{Twig,Entity,Repository}'
+    WizaplaceFrontBundle\Service\RouterDecorator:
+        decorates: router
+        arguments:
+            - '@WizaplaceFrontBundle\Service\RouterDecorator.inner'
     WizaplaceFrontBundle\Service\AttributeVariantUrlGenerator:
         public: true
     WizaplaceFrontBundle\Service\ProductUrlGenerator:
