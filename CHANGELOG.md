@@ -10,6 +10,7 @@
 ### Bugfixes
 
 - `\WizaplaceFrontBundle\Service\AuthenticationService::authenticate` was not triggering authentication events
+- Update SDK to v1.0.1
 
 </details>
 
