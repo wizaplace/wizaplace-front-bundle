@@ -11,6 +11,12 @@ use Symfony\Component\Routing\RequestContext;
 use Symfony\Component\Routing\RouteCollection;
 use Symfony\Component\Routing\RouterInterface;
 
+/**
+ * Decorates the Symfony router so we can cast parameters to strings before URL generation.
+ *
+ * This was made specifically because \Wizaplace\SDK\Catalog\DeclinationId were getting ignored.
+ * \http_build_query does not call __toString() on objects, so we do it ourselves.
+ */
 class RouterDecorator implements RouterInterface
 {
     /** @var RouterInterface */
