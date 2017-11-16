@@ -14,6 +14,10 @@ use Symfony\Component\Security\Http\Logout\LogoutHandlerInterface;
 use Wizaplace\SDK\Catalog\DeclinationId;
 use Wizaplace\SDK\Catalog\DeclinationSummary;
 
+/**
+ * Decorates {@see \Wizaplace\SDK\Favorite\FavoriteService}.
+ * Adds a request-scoped cache.
+ */
 class FavoriteService implements LogoutHandlerInterface
 {
     /** @var \Wizaplace\SDK\Favorite\FavoriteService */
