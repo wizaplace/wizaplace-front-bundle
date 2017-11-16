@@ -16,6 +16,7 @@ use Wizaplace\SDK\Image\ImageService;
 use Wizaplace\SDK\User\UserService;
 use WizaplaceFrontBundle\Service\AttributeVariantUrlGenerator;
 use WizaplaceFrontBundle\Service\BasketService;
+use WizaplaceFrontBundle\Service\FavoriteService;
 use WizaplaceFrontBundle\Service\ProductUrlGenerator;
 
 class AppExtension extends \Twig_Extension
@@ -42,6 +43,8 @@ class AppExtension extends \Twig_Extension
     private $productUrlGenerator;
     /** @var AttributeVariantUrlGenerator */
     private $attributeVariantUrlGenerator;
+    /** @var FavoriteService */
+    private $favoriteService;
 
     public function __construct(
         CatalogService $catalogService,
@@ -54,7 +57,8 @@ class AppExtension extends \Twig_Extension
         string $recaptchaKey,
         Packages $assets,
         ProductUrlGenerator $productUrlGenerator,
-        AttributeVariantUrlGenerator $attributeVariantUrlGenerator
+        AttributeVariantUrlGenerator $attributeVariantUrlGenerator,
+        FavoriteService $favoriteService
     ) {
         $this->catalogService = $catalogService;
         $this->session = $session;
@@ -67,6 +71,7 @@ class AppExtension extends \Twig_Extension
         $this->assets = $assets;
         $this->productUrlGenerator = $productUrlGenerator;
         $this->attributeVariantUrlGenerator = $attributeVariantUrlGenerator;
+        $this->favoriteService = $favoriteService;
     }
 
     public function getFunctions()
@@ -78,6 +83,7 @@ class AppExtension extends \Twig_Extension
             new \Twig_SimpleFunction('basket', [$this->basketService, 'getBasket']),
             new \Twig_SimpleFunction('recaptchaKey', [$this, 'getRecaptchaKey']),
             new \Twig_SimpleFunction('menus', [$this->cmsService, 'getAllMenus']),
+            new \Twig_SimpleFunction('isInFavorites', [$this->favoriteService, 'isInFavorites']),
         ];
     }
 
