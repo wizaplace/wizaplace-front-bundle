@@ -12,21 +12,26 @@ use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Http\Authentication\DefaultAuthenticationSuccessHandler;
 use Symfony\Component\Security\Http\HttpUtils;
+use Symfony\Component\Translation\TranslatorInterface;
 
 class AuthenticationSuccessHandler extends DefaultAuthenticationSuccessHandler
 {
     /** @var FlashBagInterface */
     private $flashBag;
 
-    public function __construct(HttpUtils $httpUtils, array $options = array(), FlashBagInterface $flashBag)
+    /** @var TranslatorInterface */
+    private $translator;
+
+    public function __construct(HttpUtils $httpUtils, array $options = array(), FlashBagInterface $flashBag, TranslatorInterface $translator)
     {
         $this->flashBag = $flashBag;
+        $this->translator = $translator;
         parent::__construct($httpUtils, $options);
     }
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token)
     {
-        $this->flashBag->add('success', 'Vous vous êtes connecté avec succès.');
+        $this->flashBag->add('success', $this->translator->trans('auth.login.notification.success'));
 
         return parent::onAuthenticationSuccess($request, $token);
     }
