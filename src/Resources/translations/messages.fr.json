@@ -1,4 +1,7 @@
 {
+    "auth.login.notification.success": "Vous vous êtes connecté avec succès.",
+    "auth.login.notification.error.invalid_credentials": "Identifiants invalides, merci de réessayer.",
+    "auth.login.notification.error.invalid_csrf_token": "L'action n'a pas pu être effectuée car elle a expirée, merci de réessayer.",
     "page_title_default": "Marketplace",
     "marketplace_name": "Marketplace",
     "category": "Catégorie",
