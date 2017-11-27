@@ -11,6 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Wizaplace\SDK\Catalog\CatalogService;
+use Wizaplace\SDK\Catalog\DeclinationId;
 use Wizaplace\SDK\Catalog\Option;
 use Wizaplace\SDK\Catalog\OptionVariant;
 use Wizaplace\SDK\Catalog\Product;
@@ -66,8 +67,10 @@ class ProductController extends Controller
         }
 
         // Recovering the declinationId from url, if none passed, declination = first declination of the product
-        if (!$declinationId = $request->query->get('d')) {
+        if (!$request->query->has('d')) {
             $declinationId = $product->getDeclinations()[0]->getId();
+        } else {
+            $declinationId = new DeclinationId($request->query->get('d'));
         }
 
         $realCategoryPath = implode('/', array_map(function (ProductCategory $category) : string {

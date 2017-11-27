@@ -11,6 +11,10 @@
 
 </details>
 
+## 0.2.3
+
+- fix declination ID unserialization
+
 ## 0.2.2
 
 ### New features

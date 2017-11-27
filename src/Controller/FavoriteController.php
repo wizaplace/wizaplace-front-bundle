@@ -11,6 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Wizaplace\SDK\Catalog\DeclinationId;
 use Wizaplace\SDK\Favorite\Exception\FavoriteAlreadyExist;
 use Wizaplace\SDK\Favorite\FavoriteService;
 
@@ -18,7 +19,7 @@ class FavoriteController extends Controller
 {
     public function addToFavoriteAction(FavoriteService $favoriteService, Request $request): JsonResponse
     {
-        $declinationId = $request->request->get('declinationId');
+        $declinationId = new DeclinationId($request->request->get('declinationId'));
         try {
             $favoriteService->addDeclinationToUserFavorites($declinationId);
         } catch (FavoriteAlreadyExist $e) {
@@ -36,7 +37,7 @@ class FavoriteController extends Controller
 
     public function removeFromFavoriteAction(FavoriteService $favoriteService, Request $request): JsonResponse
     {
-        $declinationId = $request->request->get('declinationId');
+        $declinationId = new DeclinationId($request->request->get('declinationId'));
         $favoriteService->removeDeclinationToUserFavorites($declinationId);
 
         return new JsonResponse($declinationId);
