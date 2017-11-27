@@ -13,6 +13,8 @@
 
 ## 0.2.3
 
+### Bugfixes
+
 - fix declination ID unserialization
 
 ## 0.2.2
