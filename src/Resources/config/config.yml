@@ -68,6 +68,9 @@ services:
             -
                 base_uri: '%api.base_url%'
                 handler: '@wizaplace.guzzle.handler'
+                connect_timeout: 2
+                read_timeout: 5
+                timeout: 5
     Wizaplace\SDK\ApiClient:
         arguments: ['@wizaplace.http.client']
         public: true
