@@ -7,13 +7,17 @@
 
 ### New features
 
-- New `\WizaplaceFrontBundle\Service\FavoriteService` which decorates the SDK's `FavoriteService` with a request-scoped cache
-- Translate authentication flash messages
-- Set timeouts for API client
-
 ### Bugfixes
 
 </details>
+
+## 0.2.2
+
+### New features
+
+- New `\WizaplaceFrontBundle\Service\FavoriteService` which decorates the SDK's `FavoriteService` with a request-scoped cache
+- Translate authentication flash messages
+- Set timeouts for API client
 
 ## 0.2.1
 
