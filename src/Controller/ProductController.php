@@ -17,6 +17,7 @@ use Wizaplace\SDK\Catalog\OptionVariant;
 use Wizaplace\SDK\Catalog\Product;
 use Wizaplace\SDK\Catalog\ProductCategory;
 use Wizaplace\SDK\Catalog\Review\ReviewService;
+use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Favorite\FavoriteService;
 use Wizaplace\SDK\Seo\SeoService;
 use Wizaplace\SDK\Seo\SlugTargetType;
@@ -127,6 +128,17 @@ class ProductController extends Controller
             'options' => $options,
             'isFavorite' => $isFavorite,
         ]);
+    }
+
+    public function previewAction(string $productId)
+    {
+        try {
+            $product = $this->get(CatalogService::class)->getProductById($productId);
+        } catch (NotFound $e) {
+            throw $this->createNotFoundException("Product '${productId}' Not Found");
+        }
+
+        return $this->redirect($this->get(ProductUrlGenerator::class)->generateUrlFromProduct($product));
     }
 
     protected function getProductFromSlug(string $slug): ?Product

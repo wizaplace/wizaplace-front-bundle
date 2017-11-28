@@ -1,0 +1,3 @@
+wizaplace_front_bundle_product_preview:
+    path:  /product/{productId}
+    defaults: { _controller: WizaplaceFrontBundle:Product:preview }
