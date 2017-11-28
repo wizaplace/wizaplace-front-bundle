@@ -6,6 +6,7 @@
 ### BREAKING CHANGES
 
 ### New features
+ - Add a route to allow product preview from back office
 
 ### Bugfixes
 
