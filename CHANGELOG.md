@@ -7,11 +7,15 @@
 
 ### New features
 
-- make API client timeouts configurable
-
 ### Bugfixes
 
 </details>
+
+## 0.2.4
+
+### New features
+
+- make API client timeouts configurable
 
 ## 0.2.3
 
