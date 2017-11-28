@@ -68,9 +68,9 @@ services:
             -
                 base_uri: '%api.base_url%'
                 handler: '@wizaplace.guzzle.handler'
-                connect_timeout: 2
-                read_timeout: 5
-                timeout: 5
+                connect_timeout: '%api.connect_timeout%'
+                read_timeout: '%api.read_timeout%'
+                timeout: '%api.timeout%'
     Wizaplace\SDK\ApiClient:
         arguments: ['@wizaplace.http.client']
         public: true
@@ -108,3 +108,8 @@ services:
         arguments:
             $cache: '@cache.app'
             $recaptchaKey: '%recaptcha.key%'
+
+parameters:
+    api.connect_timeout: 3
+    api.read_timeout: 5
+    api.timeout: 5

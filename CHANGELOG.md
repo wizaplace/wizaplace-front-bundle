@@ -7,6 +7,8 @@
 
 ### New features
 
+- make API client timeouts configurable
+
 ### Bugfixes
 
 </details>
