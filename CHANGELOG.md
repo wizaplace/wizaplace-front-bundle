@@ -12,6 +12,8 @@
 
 ### Bugfixes
 
+ - Authentication token was not properly stored when calling `\WizaplaceFrontBundle\Service\AuthenticationService::authenticate`: now fixed
+
 </details>
 
 ## 0.2.4

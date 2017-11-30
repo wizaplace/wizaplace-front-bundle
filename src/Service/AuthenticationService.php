@@ -3,11 +3,12 @@
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace WizaplaceFrontBundle\Service;
 
 use Symfony\Component\Security\Core\Authentication\AuthenticationManagerInterface;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use Wizaplace\SDK\Authentication\BadCredentials;
 
@@ -15,10 +16,15 @@ class AuthenticationService
 {
     /** @var AuthenticationManagerInterface */
     private $authManager;
+    /**
+     * @var TokenStorageInterface
+     */
+    private $tokenStorage;
 
-    public function __construct(AuthenticationManagerInterface $authManager)
+    public function __construct(AuthenticationManagerInterface $authManager, TokenStorageInterface $tokenStorage)
     {
         $this->authManager = $authManager;
+        $this->tokenStorage = $tokenStorage;
     }
 
     /**
@@ -31,6 +37,7 @@ class AuthenticationService
     public function authenticate(string $email, string $password): void
     {
         $token = new UsernamePasswordToken($email, $password, 'main', []);
-        $this->authManager->authenticate($token);
+        $authToken = $this->authManager->authenticate($token);
+        $this->tokenStorage->setToken($authToken);
     }
 }
