@@ -1,6 +1,5 @@
 <?php
 /**
- * @author      Wizacha DevTeam <dev@wizacha.com>
  * @copyright   Copyright (c) Wizacha
  * @license     Proprietary
  */
@@ -50,7 +49,7 @@ class InvoiceServiceTest extends BundleTestCase
         $invoiceService = new InvoiceService($orderService);
         $response = $invoiceService->downloadPdf($order->getId());
         self::assertSame('application/pdf', $response->headers->get('content-type'));
-        self::assertSame('attachment', $response->headers->get('content-disposition'));
+        self::assertSame('attachment; filename: "Invoice.pdf"', $response->headers->get('content-disposition'));
         $pdfHeader = '%PDF-1.4';
         $pdfContent = $response->getContent();
         self::assertStringStartsWith($pdfHeader, $pdfContent);

@@ -14,6 +14,9 @@ use Wizaplace\SDK\Order\OrderService;
 
 class InvoiceService
 {
+    /**
+     * @var OrderService
+     */
     private $orderService;
 
     public function __construct(OrderService $orderService)
@@ -21,13 +24,13 @@ class InvoiceService
         $this->orderService = $orderService;
     }
 
-    public function downloadPdf(int $orderId): Response
+    public function downloadPdf(int $orderId, string $filename = "Invoice"): Response
     {
         $pdf = $this->orderService->downloadPdfInvoice($orderId);
 
         $response = new Response($pdf->getContents());
         $response->headers->set('Content-Type', 'application/pdf');
-        $response->headers->set('Content-Disposition', 'attachment');
+        $response->headers->set('Content-Disposition', 'attachment; filename: "'. $filename .'.pdf"');
 
         return $response;
     }
