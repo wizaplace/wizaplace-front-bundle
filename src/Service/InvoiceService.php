@@ -29,7 +29,7 @@ class InvoiceService
 
         $response = new Response($pdf->getContents());
         $response->headers->set('Content-Type', 'application/pdf');
-        $response->headers->set('Content-Disposition', 'attachment; filename: "'. $filename .'.pdf"');
+        $response->headers->set('Content-Disposition', 'attachment; filename: "' . $filename . '.pdf"');
 
         return $response;
     }
