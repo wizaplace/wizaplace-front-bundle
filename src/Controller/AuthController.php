@@ -59,17 +59,19 @@ class AuthController extends Controller
 
     public function loginAction(Request $request): Response
     {
-        if ($this->getUser()) {
-            $redirectUrl = $request->get(static::REDIRECT_URL_FIELD_NAME, null) ?? $this->generateUrl('home');
+        $redirectUrl = $request->get(static::REDIRECT_URL_FIELD_NAME, null) ?? $this->generateUrl('home');
 
-            // we are already logged in, redirecting
+        // redirect already logged in user
+        if ($this->getUser()) {
             return $this->redirect($redirectUrl);
         }
 
         // logging in requires an existing session
         $this->get('session')->start();
 
-        return $this->render('@WizaplaceFront/auth/login.html.twig');
+        return $this->render('@WizaplaceFront/auth/login.html.twig', [
+            'redirectUrl' => $redirectUrl,
+        ]);
     }
 
     public function initiateResetPasswordAction(Request $request): Response
