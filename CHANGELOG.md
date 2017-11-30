@@ -12,7 +12,7 @@
 
 ### Bugfixes
 
- - Now properly authenticate User after register
+ - Authentication token was not properly stored when calling `\WizaplaceFrontBundle\Service\AuthenticationService::authenticate`: now fixed
 
 </details>
 
