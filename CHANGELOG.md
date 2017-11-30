@@ -6,7 +6,9 @@
 ### BREAKING CHANGES
 
 ### New features
+
  - Add a route to allow product preview from back office
+ - SDK updated from `1.0.1` to `1.2.0`
 
 ### Bugfixes
 
