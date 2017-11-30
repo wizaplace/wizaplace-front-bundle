@@ -7,13 +7,11 @@
 declare(strict_types=1);
 
 
-namespace WizaplaceFrontBundle\tests\Service;
+namespace WizaplaceFrontBundle\Tests\Service;
 
 use Wizaplace\SDK\ApiClient;
-use Wizaplace\SDK\Basket\Basket;
 use Wizaplace\SDK\Catalog\DeclinationId;
 use Wizaplace\SDK\Order\OrderService;
-use Wizaplace\SDK\Order\OrderStatus;
 use WizaplaceFrontBundle\Service\BasketService;
 use WizaplaceFrontBundle\Service\InvoiceService;
 use WizaplaceFrontBundle\Tests\BundleTestCase;
@@ -34,12 +32,9 @@ class InvoiceServiceTest extends BundleTestCase
 
         $shippings = [];
         foreach ($basket->getCompanyGroups() as $companyGroup) {
-
             foreach ($companyGroup->getShippingGroups() as $shippingGroup) {
-
                 $availableShippings = $shippingGroup->getShippings();
                 $shippings[$shippingGroup->getId()] = end($availableShippings)->getId();
-
             }
         }
         $basketService->selectShippings($shippings);
