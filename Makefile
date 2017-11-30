@@ -35,7 +35,7 @@ stan:
 stan-ci:
 	./vendor/bin/phpstan --no-interaction --no-progress analyse --errorFormat=checkstyle -c phpstan.neon -l 5 src tests > phpstan-checkstyle.xml
 
-test: test-phpunit test-behat
+test: test-phpunit
 
 test-phpunit: var/cache var/logs var/translations
 	./vendor/bin/phpunit --configuration ./phpunit.xml
