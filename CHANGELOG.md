@@ -12,6 +12,8 @@
 
 ### Bugfixes
 
+ - Now properly authenticate User after register
+
 </details>
 
 ## 0.2.4
