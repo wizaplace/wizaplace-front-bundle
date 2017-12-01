@@ -7,6 +7,14 @@
 
 ### New features
 
+### Bugfixes
+
+</details>
+
+## 0.2.5
+
+### New features
+
  - Add `\WizaplaceFrontBundle\Service\InvoiceService::downloadPdf`
  - Add a route to allow product preview from back office
  - SDK updated from `1.0.1` to `1.2.0`
@@ -14,8 +22,6 @@
 ### Bugfixes
 
  - Authentication token was not properly stored when calling `\WizaplaceFrontBundle\Service\AuthenticationService::authenticate`: now fixed
-
-</details>
 
 ## 0.2.4
 
