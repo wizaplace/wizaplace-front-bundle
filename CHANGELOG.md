@@ -7,6 +7,8 @@
 
 ### New features
 
+- Deprecated `\WizaplaceFrontBundle\Controller\CmsController`
+
 ### Bugfixes
 
 </details>
