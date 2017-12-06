@@ -11,6 +11,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use WizaplaceFrontBundle\Service\CmsPageService;
 
+/**
+ * @deprecated use the \WizaplaceFrontBundle\Service\CmsPageService directly instead
+ */
 class CmsController extends Controller
 {
     /** @var CmsPageService */
