@@ -7,6 +7,10 @@
 
 ### New features
 
+- Added `\WizaplaceFrontBundle\Service\AuthenticationService::getInitiateResetPasswordForm`
+- Added `\WizaplaceFrontBundle\Service\AuthenticationService::initiateResetPassword`
+- Deprecated `\WizaplaceFrontBundle\Controller\AuthController::initiateResetPasswordAction`
+
 ### Bugfixes
 
 </details>
