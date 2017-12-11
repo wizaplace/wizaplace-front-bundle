@@ -11,7 +11,15 @@
 
 </details>
 
+## 0.2.7
+
+### Bugfixes
+
+- remove obsolete `getCurrentUser` from Twig Extension, as the corresponding method was already deleted
+
 ## 0.2.6
+
+### New features
 
 - Deprecated `\WizaplaceFrontBundle\Controller\CmsController`
 - Upgraded SDK to v1.3.1
