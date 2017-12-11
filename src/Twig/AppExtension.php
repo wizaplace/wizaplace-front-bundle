@@ -79,7 +79,6 @@ class AppExtension extends \Twig_Extension
         return [
             //Le service est appelé directement pour pouvoir mettre du cache dessus.
             new \Twig_SimpleFunction('categoryTree', [$this, 'getCategoryTree']),
-            new \Twig_SimpleFunction('currentUser', [$this, 'getCurrentUser']),
             new \Twig_SimpleFunction('basket', [$this->basketService, 'getBasket']),
             new \Twig_SimpleFunction('recaptchaKey', [$this, 'getRecaptchaKey']),
             new \Twig_SimpleFunction('menus', [$this->cmsService, 'getAllMenus']),
