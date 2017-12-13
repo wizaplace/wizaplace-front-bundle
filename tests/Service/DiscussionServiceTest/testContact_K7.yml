@@ -1,0 +1,25 @@
+
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/contact-request'
+        headers:
+            Content-Length: '148'
+            Content-Type: application/json
+            Host: wizaplace.loc
+            VCR-index: '0'
+        body: '{"senderEmail":"john.doe@email.com","subject":"I have a request","message":"firstName : John\nlastName : Doe\n\nI would like to contact an admin\n"}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Date: 'Wed, 13 Dec 2017 16:42:23 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 26a1bb
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/26a1bb'
+            Content-Length: '0'
+            Content-Type: 'text/html; charset=UTF-8'
