@@ -8,6 +8,7 @@
 ### New features
 
  - Added `\WizaplaceFrontBundle\Service\DiscussionService::contact`
+ - Upgraded SDK to v1.4.0
 
 ### Bugfixes
 
