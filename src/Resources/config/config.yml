@@ -104,6 +104,8 @@ services:
         public: true
     WizaplaceFrontBundle\Service\FavoriteService:
         public: true
+    WizaplaceFrontBundle\Service\DiscussionService:
+        public: true
     WizaplaceFrontBundle\Twig\AppExtension:
         arguments:
             $cache: '@cache.app'
