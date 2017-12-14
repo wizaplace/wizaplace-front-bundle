@@ -104,7 +104,7 @@ services:
         public: true
     WizaplaceFrontBundle\Service\FavoriteService:
         public: true
-    WizaplaceFrontBundle\Service\DiscussionService:
+    WizaplaceFrontBundle\Service\ContactService:
         public: true
     WizaplaceFrontBundle\Twig\AppExtension:
         arguments:
