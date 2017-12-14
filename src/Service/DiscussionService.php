@@ -29,6 +29,16 @@ class DiscussionService
         $this->environment = $environment;
     }
 
+    /**
+     * This will send an email to the marketplace's Admin.
+     *
+     * You need to specify the sender's email, the subject and the message. (required)
+     *
+     * If you have other fields, like Name or Company, you can pass them with the $extraData parameter,
+     * with the fieldName as key, and fieldValue as value. (facultative)
+     *
+     * You can also use your own template, and pass it with the 5th parameter. (facultative)
+     */
     public function contact(
         string $email,
         string $subject,
