@@ -35,8 +35,7 @@ class DiscussionService
         string $message,
         array $extraData = [],
         string $templateName = '@WizaplaceFront/contact_template.html.twig'
-    ): void
-    {
+    ): void {
         $message = $this->environment->render($templateName, [
             'extraData' => $extraData,
             'message' => $message,
