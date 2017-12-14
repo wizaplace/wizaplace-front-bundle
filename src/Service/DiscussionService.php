@@ -19,14 +19,14 @@ class DiscussionService
     private $discussionService;
 
     /**
-     * @var \Twig_Environment
+     * @var TwigEngine
      */
-    private $environment;
+    private $twigEngine;
 
-    public function __construct(BaseService $baseService, TwigEngine $environment)
+    public function __construct(BaseService $baseService, TwigEngine $twigEngine)
     {
         $this->discussionService = $baseService;
-        $this->environment = $environment;
+        $this->twigEngine = $twigEngine;
     }
 
     /**
@@ -46,7 +46,7 @@ class DiscussionService
         array $extraData = [],
         string $templateName = '@WizaplaceFront/contact_template.html.twig'
     ): void {
-        $message = $this->environment->render($templateName, [
+        $message = $this->twigEngine->render($templateName, [
             'extraData' => $extraData,
             'message' => $message,
         ]);
