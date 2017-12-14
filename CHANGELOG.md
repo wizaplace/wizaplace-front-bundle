@@ -7,14 +7,16 @@
 
 ### New features
 
+ - Added `\WizaplaceFrontBundle\Service\DiscussionService::contact`
+
 ### Bugfixes
 
 </details>
 
 ## 0.2.6
 
-- Deprecated `\WizaplaceFrontBundle\Controller\CmsController`
-- Upgraded SDK to v1.3.1
+ - Deprecated `\WizaplaceFrontBundle\Controller\CmsController`
+ - Upgraded SDK to v1.3.1
 
 ## 0.2.5
 
