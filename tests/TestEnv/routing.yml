@@ -2,6 +2,8 @@ home:
     path: /
     defaults: { _controller: WizaplaceFrontBundle:Home:home }
     methods: [GET]
+    options:
+        sitemap: true
 
 login: # see security.yml
     path: /login
@@ -64,6 +66,13 @@ attribute_variant:
     path: /a/{slug}
     #defaults: { _controller: WizaplaceFrontBundle:Attribute:viewVariant }
     methods: [GET]
+
+company:
+    path: /v/{slug}
+#    defaults: { _controller: AppBundle:Company:view }
+    methods: [GET]
+    requirements:
+        slug: "%slug.regexp%"
 
 cms_page:
     path: /{slug}

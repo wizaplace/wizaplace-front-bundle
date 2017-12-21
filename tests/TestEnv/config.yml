@@ -69,6 +69,9 @@ services:
             - ['setMode', [!php/const:VCR\VCR::MODE_ONCE]]
     WizaplaceFrontBundle\Tests\TestEnv\Service\VcrGuzzleMiddleware:
         autowire: true
+    test.WizaplaceFrontBundle\Service\SitemapGenerator:
+        alias: 'WizaplaceFrontBundle\Service\SitemapGenerator'
+        public: true
     wizaplace.guzzle.decorating_handler2:
         factory: 'GuzzleHttp\HandlerStack::create'
         class: 'GuzzleHttp\HandlerStack'
