@@ -7,6 +7,9 @@
 
 ### New features
 
+ - Added `\WizaplaceFrontBundle\Service\ContactService::contact`
+ - Upgraded SDK to v1.4.0
+
 ### Bugfixes
 
 </details>
@@ -32,8 +35,8 @@
 
 ### New features
 
-- Deprecated `\WizaplaceFrontBundle\Controller\CmsController`
-- Upgraded SDK to v1.3.1
+ - Deprecated `\WizaplaceFrontBundle\Controller\CmsController`
+ - Upgraded SDK to v1.3.1
 
 ## 0.2.5
 
