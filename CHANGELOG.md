@@ -14,6 +14,17 @@
 
 </details>
 
+## 0.2.8
+
+### New features
+
+- update SDK to v1.5.1
+
+### Bugfixes
+
+- prevent upgrade to Symfony 3.4
+
+
 ## 0.2.7
 
 ### Bugfixes
