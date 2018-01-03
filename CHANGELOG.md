@@ -9,6 +9,8 @@
 
 ### Bugfixes
 
+ - fix "Illegal offset [..]" error in `\WizaplaceFrontBundle\Controller\ProfileController::createOrderReturnAction`
+
 </details>
 
 ## 0.2.9

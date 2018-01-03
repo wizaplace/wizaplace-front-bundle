@@ -120,8 +120,8 @@ class ProfileController extends Controller
 
         foreach ($order->getOrderItems() as $orderItem) {
             $id = $orderItem->getDeclinationId();
-            if (in_array($id, $selectedItems)) {
-                $createOrderReturn->addItem($id, (int) $selectedReasons[$id], $orderItem->getAmount());
+            if (in_array((string) $id, $selectedItems)) {
+                $createOrderReturn->addItem($id, (int) $selectedReasons[(string) $id], $orderItem->getAmount());
             }
         }
         $orderService->createOrderReturn($createOrderReturn);
