@@ -7,29 +7,33 @@
 
 ### New features
 
- - Added `\WizaplaceFrontBundle\Service\ContactService::contact`
- - Upgraded SDK to v1.4.0
-
 ### Bugfixes
 
 </details>
+
+## 0.2.9
+
+### New features
+
+ - Added `\WizaplaceFrontBundle\Service\ContactService::contact`
+ - Upgraded SDK to v1.4.0
 
 ## 0.2.8
 
 ### New features
 
-- update SDK to v1.5.1
+ - update SDK to v1.5.1
 
 ### Bugfixes
 
-- prevent upgrade to Symfony 3.4
+ - prevent upgrade to Symfony 3.4
 
 
 ## 0.2.7
 
 ### Bugfixes
 
-- remove obsolete `getCurrentUser` from Twig Extension, as the corresponding method was already deleted
+ - remove obsolete `getCurrentUser` from Twig Extension, as the corresponding method was already deleted
 
 ## 0.2.6
 
@@ -54,36 +58,36 @@
 
 ### New features
 
-- make API client timeouts configurable
+ - make API client timeouts configurable
 
 ## 0.2.3
 
 ### Bugfixes
 
-- fix declination ID unserialization
+ - fix declination ID unserialization
 
 ## 0.2.2
 
 ### New features
 
-- New `\WizaplaceFrontBundle\Service\FavoriteService` which decorates the SDK's `FavoriteService` with a request-scoped cache
-- Translate authentication flash messages
-- Set timeouts for API client
+ - New `\WizaplaceFrontBundle\Service\FavoriteService` which decorates the SDK's `FavoriteService` with a request-scoped cache
+ - Translate authentication flash messages
+ - Set timeouts for API client
 
 ## 0.2.1
 
 ### Bugfixes
 
-- `\WizaplaceFrontBundle\Service\AuthenticationService::authenticate` was not triggering authentication events
-- Update SDK to v1.0.1
-- Fix bug causing `DeclinationId` to be ignored by the URL generator when put into the URL query
+ - `\WizaplaceFrontBundle\Service\AuthenticationService::authenticate` was not triggering authentication events
+ - Update SDK to v1.0.1
+ - Fix bug causing `DeclinationId` to be ignored by the URL generator when put into the URL query
 
 ## 0.2.0
 
 ### BREAKING CHANGES
 
-- Upgrade SDK to v1.0.0 (https://github.com/wizaplace/wizaplace-php-sdk/blob/master/CHANGELOG.md#100)
-- All `string` declination IDs are now `\Wizaplace\SDK\Catalog\DeclinationId`s instead (due to the SDK upgrade)
+ - Upgrade SDK to v1.0.0 (https://github.com/wizaplace/wizaplace-php-sdk/blob/master/CHANGELOG.md#100)
+ - All `string` declination IDs are now `\Wizaplace\SDK\Catalog\DeclinationId`s instead (due to the SDK upgrade)
 
 ## 0.1.0
 

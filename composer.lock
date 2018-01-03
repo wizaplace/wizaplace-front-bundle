@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1cdd34cacf78b3b7916a3edd47cb5276",
+    "content-hash": "754d06a03f5180d4b44c40711b2da9a4",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -2001,16 +2001,16 @@
         },
         {
             "name": "wizaplace/sdk",
-            "version": "v1.5.1",
+            "version": "v1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wizaplace/wizaplace-php-sdk.git",
-                "reference": "fbf8618d29aefab36d5ed36b9f5e7dfbb6a354d7"
+                "reference": "0fddddc2b5ea71af21ce015897f9c72bc41fcf0b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wizaplace/wizaplace-php-sdk/zipball/fbf8618d29aefab36d5ed36b9f5e7dfbb6a354d7",
-                "reference": "fbf8618d29aefab36d5ed36b9f5e7dfbb6a354d7",
+                "url": "https://api.github.com/repos/wizaplace/wizaplace-php-sdk/zipball/0fddddc2b5ea71af21ce015897f9c72bc41fcf0b",
+                "reference": "0fddddc2b5ea71af21ce015897f9c72bc41fcf0b",
                 "shasum": ""
             },
             "require": {
@@ -2047,7 +2047,7 @@
                 "proprietary"
             ],
             "description": "Wizaplace's PHP SDK",
-            "time": "2017-12-18T09:31:34+00:00"
+            "time": "2018-01-02T08:55:50+00:00"
         }
     ],
     "packages-dev": [
@@ -2388,7 +2388,7 @@
             "support": {
                 "source": "https://github.com/hectorj/phpstan-symfony/tree/master"
             },
-            "time": "2017-07-18T10:15:23+00:00"
+            "time": "2017-07-18 10:15:23"
         },
         {
             "name": "myclabs/deep-copy",
