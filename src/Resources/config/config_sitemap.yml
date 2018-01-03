@@ -1,0 +1,6 @@
+services:
+    WizaplaceFrontBundle\Service\SitemapGenerator:
+        public: false
+        autowire: true
+        tags:
+            - { name: sitemap.provider }

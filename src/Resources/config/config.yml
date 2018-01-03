@@ -6,7 +6,7 @@ services:
 
     WizaplaceFrontBundle\:
         resource: '../../'
-        exclude: '../../{Twig,Entity,Repository}'
+        exclude: '../../{Twig,Entity,Repository,Service/SitemapGenerator.php}'
     WizaplaceFrontBundle\Service\RouterDecorator:
         decorates: router
         arguments:

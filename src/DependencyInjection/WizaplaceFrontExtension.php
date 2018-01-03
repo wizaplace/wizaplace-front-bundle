@@ -22,5 +22,9 @@ class WizaplaceFrontExtension extends Extension
         );
 
         $loader->load("config_{$container->getParameter('kernel.environment')}.yml");
+
+        if (interface_exists('SitemapGenerator\Provider\ProviderInterface', true)) {
+            $loader->load("config_sitemap.yml");
+        }
     }
 }
