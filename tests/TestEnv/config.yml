@@ -57,18 +57,21 @@ monolog:
             channels: ['!event']
 
 services:
+    _defaults:
+        autowire: true
+        public: true
     WizaplaceFrontBundle\Tests\TestEnv\Service\TwigEngineLogger:
         decorates: templating.engine.twig
         arguments: [ '@WizaplaceFrontBundle\Tests\TestEnv\Service\TwigEngineLogger.inner' ]
-        public: true
     WizaplaceFrontBundle\Tests\TestEnv\Controller\ExceptionController:
         autowire: true
+        public: true
         parent: twig.controller.exception
     VCR\Configuration:
         calls:
             - ['setMode', [!php/const:VCR\VCR::MODE_ONCE]]
     WizaplaceFrontBundle\Tests\TestEnv\Service\VcrGuzzleMiddleware:
-        autowire: true
+    test.WizaplaceFrontBundle\Service\BasketService: '@WizaplaceFrontBundle\Service\BasketService'
     test.WizaplaceFrontBundle\Service\SitemapGenerator:
         alias: 'WizaplaceFrontBundle\Service\SitemapGenerator'
         public: true
