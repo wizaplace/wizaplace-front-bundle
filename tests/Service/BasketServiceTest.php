@@ -131,8 +131,8 @@ class BasketServiceTest extends BundleTestCase
 
         // create a basket associated to my account
         $container->get(AuthenticationService::class)->authenticate('customer-1@world-company.com', 'password-customer-1');
-         $container->get('test.WizaplaceFrontBundle\Service\BasketService')->addProductToBasket(new DeclinationId('1_0'), 1);
-         $container->get('test.WizaplaceFrontBundle\Service\BasketService')->addProductToBasket(new DeclinationId('3_8_7'), 1);
+        $container->get('test.WizaplaceFrontBundle\Service\BasketService')->addProductToBasket(new DeclinationId('1_0'), 1);
+        $container->get('test.WizaplaceFrontBundle\Service\BasketService')->addProductToBasket(new DeclinationId('3_8_7'), 1);
         $authenticatedBasketId =  $container->get('test.WizaplaceFrontBundle\Service\BasketService')->getBasket()->getId();
 
         // Simulate a new browsing session : reboot the kernel, clear the session
@@ -148,7 +148,7 @@ class BasketServiceTest extends BundleTestCase
 
         // login, which should trigger the basket merge
         $container->get(AuthenticationService::class)->authenticate('customer-1@world-company.com', 'password-customer-1');
-        self::assertSame($authenticatedBasketId,  $container->get('test.WizaplaceFrontBundle\Service\BasketService')->getBasket()->getId());
+        self::assertSame($authenticatedBasketId, $container->get('test.WizaplaceFrontBundle\Service\BasketService')->getBasket()->getId());
 
         // check that the authenticated basket was properly affected by the merge
         $mergedBasket =  $container->get('test.WizaplaceFrontBundle\Service\BasketService')->getBasket();
