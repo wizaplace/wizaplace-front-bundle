@@ -16,7 +16,7 @@
 ### New features
 
  - Added `\WizaplaceFrontBundle\Service\ContactService::contact`
- - Upgraded SDK to v1.4.0
+ - Upgraded SDK to v1.6.0
 
 ## 0.2.8
 
