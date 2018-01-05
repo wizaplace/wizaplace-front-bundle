@@ -7,11 +7,15 @@
 
 ### New features
 
- - Added optional `\WizaplaceFrontBundle\Service\SitemapGenerator`, meant to be used with `kphoen/sitemap-bundle`
-
 ### Bugfixes
 
 </details>
+
+## 0.2.11
+
+### New features
+
+ - Added optional `\WizaplaceFrontBundle\Service\SitemapGenerator`, meant to be used with `kphoen/sitemap-bundle`
 
 ## 0.2.10
 
