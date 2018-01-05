@@ -56,7 +56,7 @@ class SitemapGenerator implements ProviderInterface
         foreach ($routeCollection as $routeName => $route) {
             if ($route->getOption(self::SITEMAP_ROUTE_OPTION_NAME)) {
                 $url = new Url();
-                $url->setLoc($this->router->generate($routeName, [], UrlGeneratorInterface::ABSOLUTE_URL));
+                $url->setLoc($this->router->generate($routeName, [], UrlGeneratorInterface::ABSOLUTE_PATH));
                 $sitemap->add($url);
             }
         }
@@ -95,13 +95,13 @@ class SitemapGenerator implements ProviderInterface
             $url = new Url();
 
             if ($cmsPageRouteExists && $type->equals(SlugTargetType::CMS_PAGE())) {
-                $url->setLoc($this->router->generate($cmsPageRoute, ['slug' => $slugCatalogItem->getSlug()], UrlGeneratorInterface::ABSOLUTE_URL));
+                $url->setLoc($this->router->generate($cmsPageRoute, ['slug' => $slugCatalogItem->getSlug()], UrlGeneratorInterface::ABSOLUTE_PATH));
             } elseif ($categoryRouteExists && $type->equals(SlugTargetType::CATEGORY())) {
-                $url->setLoc($this->router->generate($categoryRoute, ['slug' => $slugCatalogItem->getSlug()], UrlGeneratorInterface::ABSOLUTE_URL));
+                $url->setLoc($this->router->generate($categoryRoute, ['slug' => $slugCatalogItem->getSlug()], UrlGeneratorInterface::ABSOLUTE_PATH));
             } elseif ($attrVariantRouteExists && $type->equals(SlugTargetType::ATTRIBUTE_VARIANT())) {
-                $url->setLoc($this->router->generate($attrVariantRoute, ['slug' => $slugCatalogItem->getSlug()], UrlGeneratorInterface::ABSOLUTE_URL));
+                $url->setLoc($this->router->generate($attrVariantRoute, ['slug' => $slugCatalogItem->getSlug()], UrlGeneratorInterface::ABSOLUTE_PATH));
             } elseif ($companyRouteExists && $type->equals(SlugTargetType::COMPANY())) {
-                $url->setLoc($this->router->generate($companyRoute, ['slug' => $slugCatalogItem->getSlug()], UrlGeneratorInterface::ABSOLUTE_URL));
+                $url->setLoc($this->router->generate($companyRoute, ['slug' => $slugCatalogItem->getSlug()], UrlGeneratorInterface::ABSOLUTE_PATH));
             } elseif ($productRouteExists && $type->equals(SlugTargetType::PRODUCT())) {
                 $url->setLoc($this->router->generate($productRoute, [
                     'slug' => $slugCatalogItem->getSlug(),
@@ -111,7 +111,7 @@ class SitemapGenerator implements ProviderInterface
                             return $data->getSlug();
                         }, $slugCatalogItem->getCategoryPath())
                     ),
-                ], UrlGeneratorInterface::ABSOLUTE_URL));
+                ], UrlGeneratorInterface::ABSOLUTE_PATH));
             } else {
                 continue;
             }

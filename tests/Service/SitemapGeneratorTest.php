@@ -29,11 +29,11 @@ class SitemapGeneratorTest extends BundleTestCase
             return $invocation->parameters[0]->getLoc();
         }, $spy->getInvocations());
 
-        self::assertContains('http://localhost/', $urls); // static URL
-        self::assertContains('http://localhost/a/adidas', $urls); // attribute variant URL
-        self::assertContains('http://localhost/p/it/headsets/casque-corsair-gaming', $urls); // product URL
-        self::assertContains('http://localhost/c/categorie-principale', $urls); // category URL
-        self::assertContains('http://localhost/v/acme', $urls); // company URL
-        self::assertContains('http://localhost/faq', $urls); // CMS page URL
+        self::assertContains('/', $urls); // static URL
+        self::assertContains('/a/adidas', $urls); // attribute variant URL
+        self::assertContains('/p/it/headsets/casque-corsair-gaming', $urls); // product URL
+        self::assertContains('/c/categorie-principale', $urls); // category URL
+        self::assertContains('/v/acme', $urls); // company URL
+        self::assertContains('/faq', $urls); // CMS page URL
     }
 }
