@@ -17,12 +17,14 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\AuthenticationEvents;
+use Symfony\Component\Security\Core\Event\AuthenticationEvent;
 use Symfony\Component\Security\Http\Logout\LogoutHandlerInterface;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Basket\Basket;
 use Wizaplace\SDK\Basket\Comment;
 use Wizaplace\SDK\Basket\PaymentInformation;
 use Wizaplace\SDK\Catalog\DeclinationId;
+use WizaplaceFrontBundle\Security\User;
 
 /**
  * Wraps {@see \Wizaplace\SDK\Basket\BasketService}, storing the basketID for you.
@@ -153,8 +155,13 @@ class BasketService implements EventSubscriberInterface, LogoutHandlerInterface
         $this->baseService->updateComments($this->getBasketId(), $comments);
     }
 
-    public function onAuthenticationSuccess(): void
+    public function onAuthenticationSuccess(AuthenticationEvent $event): void
     {
+        $user = $event->getAuthenticationToken()->getUser();
+        if (!($user instanceof User)) {
+            return;
+        }
+
         try {
             $userBasketId = $this->baseService->getUserBasketId();
 

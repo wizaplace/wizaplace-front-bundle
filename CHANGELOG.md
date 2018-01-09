@@ -11,6 +11,12 @@
 
 </details>
 
+## 0.2.13
+
+### Bugfixes
+
+ - Don't try to get the user's basket ID on anonymous authentication
+
 ## 0.2.12
 
 ### New features
