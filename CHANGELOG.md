@@ -7,13 +7,17 @@
 
 ### New features
 
- - Added Guzzle middleware for HTTP caching
- - Upgraded SDK to v1.8.0
- - Added `image` field to options' variants in `\WizaplaceFrontBundle\Controller\ProductController::viewAction`
-
 ### Bugfixes
 
 </details>
+
+## 0.2.12
+
+### New features
+
+ - Added Guzzle middleware for HTTP caching
+ - Upgraded SDK to v1.8.0
+ - Added `image` field to options' variants in `\WizaplaceFrontBundle\Controller\ProductController::viewAction`
 
 ## 0.2.11
 
