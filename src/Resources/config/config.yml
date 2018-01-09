@@ -57,11 +57,21 @@ services:
             - '@logger'
             - '@wizaplace.http.log.formatter'
             - 'info'
+    Kevinrob\GuzzleCache\Storage\Psr6CacheStorage:
+        arguments:
+            $cachePool: '@cache.app'
+    Kevinrob\GuzzleCache\Strategy\PublicCacheStrategy:
+        arguments:
+            $cache: '@Kevinrob\GuzzleCache\Storage\Psr6CacheStorage'
+    Kevinrob\GuzzleCache\CacheMiddleware:
+        arguments:
+            $cacheStrategy: '@Kevinrob\GuzzleCache\Strategy\PublicCacheStrategy'
     wizaplace.guzzle.handler:
         factory: 'GuzzleHttp\HandlerStack::create'
         class: 'GuzzleHttp\HandlerStack'
         calls:
-            - ['push', ['@wizaplace.http.log']]
+            - ['push', ['@wizaplace.http.log', 'log']]
+            - ['push', ['@Kevinrob\GuzzleCache\CacheMiddleware', 'http_cache']]
     wizaplace.http.client:
         class: GuzzleHttp\Client
         arguments:

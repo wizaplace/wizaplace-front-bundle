@@ -37,6 +37,7 @@ abstract class BundleTestCase extends WebTestCase
     protected static function createClient(array $options = array(), array $server = array())
     {
         $client = parent::createClient($options, $server);
+        self::$kernel->getContainer()->get('cache.app')->clear();
         self::$kernel->getContainer()->get(VcrGuzzleMiddleware::class)->resetRequestIndex();
         $vcr = self::$kernel->getContainer()->get(VcrGuzzleMiddleware::class)->getVcr();
 
