@@ -75,10 +75,3 @@ services:
     test.WizaplaceFrontBundle\Service\SitemapGenerator:
         alias: 'WizaplaceFrontBundle\Service\SitemapGenerator'
         public: true
-    wizaplace.guzzle.decorating_handler2:
-        factory: 'GuzzleHttp\HandlerStack::create'
-        class: 'GuzzleHttp\HandlerStack'
-        decorates: 'wizaplace.guzzle.handler'
-        arguments: ['@wizaplace.guzzle.decorating_handler2.inner']
-        calls:
-            - ['push', ['@WizaplaceFrontBundle\Tests\TestEnv\Service\VcrGuzzleMiddleware']]

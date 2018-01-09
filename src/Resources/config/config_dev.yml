@@ -11,4 +11,4 @@ services:
         decorates: 'wizaplace.guzzle.handler'
         arguments: ['@wizaplace.guzzle.decorating_handler.inner']
         calls:
-            - ['push', ['@Leadz\GuzzleHttp\Stopwatch\StopwatchMiddleware']]
+            - ['unshift', ['@Leadz\GuzzleHttp\Stopwatch\StopwatchMiddleware', 'stopwatch']]

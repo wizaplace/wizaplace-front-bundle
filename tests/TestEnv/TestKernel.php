@@ -8,6 +8,8 @@ declare(strict_types=1);
 namespace WizaplaceFrontBundle\Tests\TestEnv;
 
 use Symfony\Component\Config\Loader\LoaderInterface;
+use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel;
 use WizaplaceFrontBundle\WizaplaceFrontBundle;
 
@@ -39,6 +41,14 @@ class TestKernel extends Kernel
     {
         // We don't need that Environment stuff, just one config
         $loader->load(__DIR__.'/config.yml');
+        $loader->load(function (ContainerBuilder $containerBuilder): void {
+            $containerBuilder->addCompilerPass(new class() implements CompilerPassInterface {
+                public function process(ContainerBuilder $container)
+                {
+                    $container->getDefinition('wizaplace.guzzle.handler')->addMethodCall('push', [$container->getDefinition('WizaplaceFrontBundle\Tests\TestEnv\Service\VcrGuzzleMiddleware'), 'vcr']);
+                }
+            });
+        });
     }
 
     public function getRootDir()
