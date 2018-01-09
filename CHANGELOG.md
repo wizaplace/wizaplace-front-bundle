@@ -7,6 +7,8 @@
 
 ### New features
 
+ - Added Guzzle middleware for HTTP caching
+
 ### Bugfixes
 
 </details>
