@@ -110,6 +110,7 @@ class ProductController extends Controller
                         'name' => $variant->getName(),
                         'selected' => $isSelected,
                         'url' => $this->productUrlGenerator->generateUrlFromProduct($product, $declinationId),
+                        'image' => $variant->getImage(),
                     ];
                 }, $option->getVariants()),
             ];
