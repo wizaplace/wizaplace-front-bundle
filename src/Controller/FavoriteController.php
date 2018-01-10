@@ -23,7 +23,7 @@ class FavoriteController extends Controller
         try {
             $favoriteService->addDeclinationToUserFavorites($declinationId);
         } catch (FavoriteAlreadyExist $e) {
-            $this->get('logger')->warn("Declination added twice in favorites'", ['declinationId' => $declinationId]);
+//            $this->get('logger')->warn("Declination added twice in favorites'", ['declinationId' => $declinationId]); TODO: Re-activate when isInFavorites works in search pages
 
             return new JsonResponse([
                 'error' => [
