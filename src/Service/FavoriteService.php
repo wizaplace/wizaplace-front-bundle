@@ -34,6 +34,7 @@ class FavoriteService implements LogoutHandlerInterface
     /**
      * @see \Wizaplace\SDK\Favorite\FavoriteService::getAll
      * @return DeclinationSummary[]
+     * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
      */
     public function getAll() : array
     {
@@ -49,6 +50,7 @@ class FavoriteService implements LogoutHandlerInterface
 
     /**
      * @see \Wizaplace\SDK\Favorite\FavoriteService::isInFavorites
+     * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
      */
     public function isInFavorites(DeclinationId $declinationId) : bool
     {
@@ -61,6 +63,9 @@ class FavoriteService implements LogoutHandlerInterface
 
     /**
      * @see \Wizaplace\SDK\Favorite\FavoriteService::addDeclinationToUserFavorites
+     * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     * @throws \Wizaplace\SDK\Favorite\Exception\CannotFavoriteDisabledOrInexistentDeclination
+     * @throws \Wizaplace\SDK\Favorite\Exception\FavoriteAlreadyExist
      */
     public function addDeclinationToUserFavorites(DeclinationId $declinationId) : void
     {
@@ -72,6 +77,7 @@ class FavoriteService implements LogoutHandlerInterface
 
     /**
      * @see \Wizaplace\SDK\Favorite\FavoriteService::removeDeclinationToUserFavorites
+     * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
      */
     public function removeDeclinationToUserFavorites(DeclinationId $declinationId) : void
     {
