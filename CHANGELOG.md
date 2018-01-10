@@ -7,6 +7,8 @@
 
 ### New features
 
+ - Added log for Guzzle cache events
+
 ### Bugfixes
 
 </details>

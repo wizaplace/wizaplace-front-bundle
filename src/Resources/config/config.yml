@@ -66,6 +66,11 @@ services:
     Kevinrob\GuzzleCache\CacheMiddleware:
         arguments:
             $cacheStrategy: '@Kevinrob\GuzzleCache\Strategy\PublicCacheStrategy'
+    WizaplaceFrontBundle\Service\GuzzleCacheLoggerDecorator:
+        decorates: 'Kevinrob\GuzzleCache\CacheMiddleware'
+        autowire: true
+        arguments:
+            $cacheMiddleware: '@WizaplaceFrontBundle\Service\GuzzleCacheLoggerDecorator.inner'
     wizaplace.guzzle.handler:
         factory: 'GuzzleHttp\HandlerStack::create'
         class: 'GuzzleHttp\HandlerStack'
