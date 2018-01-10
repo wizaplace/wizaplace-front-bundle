@@ -16,7 +16,7 @@ use Wizaplace\SDK\Discussion\DiscussionService;
 class DiscussionController extends Controller
 {
     /** @var TranslatorInterface */
-    private $translator;
+    protected $translator;
 
     public function __construct(TranslatorInterface $translator)
     {
