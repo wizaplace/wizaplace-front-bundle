@@ -1,4 +1,8 @@
 <?php
+/**
+ * @copyright Copyright (c) Wizacha
+ * @license Proprietary
+ */
 declare(strict_types=1);
 
 namespace WizaplaceFrontBundle\Service;
@@ -34,6 +38,7 @@ class GuzzleCacheLoggerDecorator
     public function __invoke(callable $handler)
     {
         $handler = ($this->cacheMiddleware)($handler);
+
         return function (RequestInterface $request, array $options) use (&$handler) {
             /** @var Promise $promise */
             $promise = $handler($request, $options);
