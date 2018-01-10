@@ -10,7 +10,7 @@ namespace WizaplaceFrontBundle\Service;
 use Symfony\Component\Security\Core\Authentication\AuthenticationManagerInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
-use Wizaplace\SDK\Authentication\BadCredentials;
+use Symfony\Component\Security\Core\Exception\AuthenticationException;
 
 class AuthenticationService
 {
@@ -32,7 +32,7 @@ class AuthenticationService
      * Normal log in should not use this method, but instead go through a Symfony firewall.
      * This method exists for special cases, like authenticating right after registering a user.
      *
-     * @throws BadCredentials
+     * @throws AuthenticationException
      */
     public function authenticate(string $email, string $password): void
     {

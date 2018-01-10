@@ -66,6 +66,7 @@ class SitemapGenerator implements ProviderInterface
      * Takes known dynamic routes, and generates them with params from the slug catalog
      *
      * @param Sitemap $sitemap
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     private function populateDynamicEntries(Sitemap $sitemap): void
     {

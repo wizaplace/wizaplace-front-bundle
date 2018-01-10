@@ -38,6 +38,8 @@ class ContactService
      * with the fieldName as key, and fieldValue as value. (facultative)
      *
      * You can also use your own template, and pass it with the 5th parameter. (facultative)
+     *
+     * @throws \Twig\Error\Error
      */
     public function contact(
         string $email,

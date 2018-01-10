@@ -74,6 +74,10 @@ class BasketService implements EventSubscriberInterface, LogoutHandlerInterface
         return $this->basket;
     }
 
+    /**
+     * @throws \Wizaplace\SDK\Basket\Exception\BadQuantity
+     * @throws \Wizaplace\SDK\Exception\NotFound
+     */
     public function addProductToBasket(DeclinationId $declinationId, int $quantity): int
     {
         $this->basket = null;
@@ -81,6 +85,9 @@ class BasketService implements EventSubscriberInterface, LogoutHandlerInterface
         return $this->baseService->addProductToBasket($this->getBasketId(), $declinationId, $quantity);
     }
 
+    /**
+     * @throws \Wizaplace\SDK\Exception\NotFound
+     */
     public function removeProductFromBasket(DeclinationId $declinationId): void
     {
         $this->basket = null;
@@ -88,6 +95,9 @@ class BasketService implements EventSubscriberInterface, LogoutHandlerInterface
         $this->baseService->removeProductFromBasket($this->getBasketId(), $declinationId);
     }
 
+    /**
+     * @throws \Wizaplace\SDK\Exception\NotFound
+     */
     public function cleanBasket(): void
     {
         $this->basket = null;
@@ -95,6 +105,10 @@ class BasketService implements EventSubscriberInterface, LogoutHandlerInterface
         $this->baseService->cleanBasket($this->getBasketId());
     }
 
+    /**
+     * @throws \Wizaplace\SDK\Basket\Exception\BadQuantity
+     * @throws \Wizaplace\SDK\Exception\NotFound
+     */
     public function updateProductQuantity(DeclinationId $declinationId, int $quantity): int
     {
         $this->basket = null;
@@ -102,12 +116,19 @@ class BasketService implements EventSubscriberInterface, LogoutHandlerInterface
         return $this->baseService->updateProductQuantity($this->getBasketId(), $declinationId, $quantity);
     }
 
+    /**
+     * @throws \Wizaplace\SDK\Basket\Exception\CouponAlreadyPresent
+     * @throws \Wizaplace\SDK\Exception\NotFound
+     */
     public function addCoupon(string $coupon): void
     {
         $this->basket = null;
         $this->baseService->addCoupon($this->getBasketId(), $coupon);
     }
 
+    /**
+     * @throws \Wizaplace\SDK\Basket\Exception\CouponNotInTheBasket
+     */
     public function removeCoupon(string $coupon): void
     {
         $this->basket = null;
@@ -117,6 +138,8 @@ class BasketService implements EventSubscriberInterface, LogoutHandlerInterface
     /**
      * @see \Wizaplace\SDK\Basket\BasketService::getPayments
      * @return \Wizaplace\SDK\Basket\Payment[]
+     * @throws AuthenticationRequired
+     * @throws \Wizaplace\SDK\Exception\NotFound
      */
     public function getPayments(): array
     {
@@ -129,6 +152,11 @@ class BasketService implements EventSubscriberInterface, LogoutHandlerInterface
         $this->baseService->selectShippings($this->getBasketId(), $selections);
     }
 
+    /**
+     * @throws AuthenticationRequired
+     * @throws \Wizaplace\SDK\Exception\NotFound
+     * @throws \Wizaplace\SDK\Exception\SomeParametersAreInvalid
+     */
     public function checkout(int $paymentId, bool $acceptTerms, string $redirectUrl): PaymentInformation
     {
         $this->basket = null;
@@ -149,6 +177,8 @@ class BasketService implements EventSubscriberInterface, LogoutHandlerInterface
 
     /**
      * @param $comments Comment[]
+     * @throws \Wizaplace\SDK\Exception\NotFound
+     * @throws \Wizaplace\SDK\Exception\SomeParametersAreInvalid
      */
     public function updateComments(array $comments): void
     {
