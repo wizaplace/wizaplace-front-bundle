@@ -8,12 +8,10 @@ namespace WizaplaceFrontBundle\Twig;
 
 use Psr\Cache\CacheItemPoolInterface;
 use Symfony\Component\Asset\Packages;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Wizaplace\SDK\Catalog\CatalogService;
 use Wizaplace\SDK\Cms\CmsService;
 use Wizaplace\SDK\Image\Image;
 use Wizaplace\SDK\Image\ImageService;
-use Wizaplace\SDK\User\UserService;
 use WizaplaceFrontBundle\Service\AttributeVariantUrlGenerator;
 use WizaplaceFrontBundle\Service\BasketService;
 use WizaplaceFrontBundle\Service\FavoriteService;
@@ -23,10 +21,6 @@ class AppExtension extends \Twig_Extension
 {
     /** @var CatalogService */
     private $catalogService;
-    /** @var SessionInterface */
-    private $session;
-    /** @var UserService */
-    private $userService;
     /** @var BasketService */
     private $basketService;
     /** @var ImageService */
@@ -48,8 +42,6 @@ class AppExtension extends \Twig_Extension
 
     public function __construct(
         CatalogService $catalogService,
-        SessionInterface $session,
-        UserService $userService,
         BasketService $basketService,
         ImageService $imageService,
         CmsService $cmsService,
@@ -61,8 +53,6 @@ class AppExtension extends \Twig_Extension
         FavoriteService $favoriteService
     ) {
         $this->catalogService = $catalogService;
-        $this->session = $session;
-        $this->userService = $userService;
         $this->basketService = $basketService;
         $this->imageService = $imageService;
         $this->cmsService = $cmsService;
@@ -83,6 +73,7 @@ class AppExtension extends \Twig_Extension
             new \Twig_SimpleFunction('recaptchaKey', [$this, 'getRecaptchaKey']),
             new \Twig_SimpleFunction('menus', [$this->cmsService, 'getAllMenus']),
             new \Twig_SimpleFunction('isInFavorites', [$this->favoriteService, 'isInFavorites']),
+            new \Twig_SimpleFunction('favoritesCount', [$this, 'getFavoritesCount']),
         ];
     }
 
@@ -114,6 +105,9 @@ class AppExtension extends \Twig_Extension
         return (string) $this->imageService->getImageLink($imageId, $width, $height);
     }
 
+    /**
+     * @throws \Psr\Cache\InvalidArgumentException
+     */
     public function getCategoryTree():array
     {
         $categoryTree = $this->cache->getItem('categoryTree');
@@ -134,5 +128,13 @@ class AppExtension extends \Twig_Extension
     public function formatPrice(float $price): string
     {
         return number_format($price, 2, ',', ' ').'€';
+    }
+
+    /**
+     * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     */
+    public function getFavoritesCount(): int
+    {
+        return count($this->favoriteService->getAll());
     }
 }
