@@ -7,12 +7,16 @@
 
 ### New features
 
- - Added log for Guzzle cache events
- - Added `\WizaplaceFrontBundle\Twig\AppExtension::getFavoritesCount`
-
 ### Bugfixes
 
 </details>
+
+## 0.2.14
+
+### New features
+
+ - Added log for Guzzle cache events
+ - Added `\WizaplaceFrontBundle\Twig\AppExtension::getFavoritesCount`
 
 ## 0.2.13
 
