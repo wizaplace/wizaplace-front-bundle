@@ -49,6 +49,8 @@ class User implements UserInterface, \Serializable
         if ($this->getWizaplaceUser()->isVendor()) {
             $roles[] = self::ROLE_VENDOR;
         }
+
+        return $roles;
     }
 
     public function getPassword(): string
