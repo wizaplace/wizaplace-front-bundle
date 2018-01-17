@@ -7,12 +7,16 @@
 
 ### New features
 
- - Added `\WizaplaceFrontBundle\Security\User::ROLE_VENDOR` as a user role for vendors
- - Upgraded SDK to v1.10.0
-
 ### Bugfixes
 
 </details>
+
+## 0.2.15
+
+### New features
+
+ - Added `\WizaplaceFrontBundle\Security\User::ROLE_VENDOR` as a user role for vendors
+ - Upgraded SDK to v1.10.0
 
 ## 0.2.14
 
