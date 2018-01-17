@@ -14,6 +14,9 @@ use Wizaplace\SDK\User\UserService;
 
 class User implements UserInterface, \Serializable
 {
+    public const ROLE_USER = 'ROLE_USER';
+    public const ROLE_VENDOR = 'ROLE_VENDOR';
+
     /** @var WizaplaceUser */
     private $wizaplaceUser;
 
@@ -41,7 +44,11 @@ class User implements UserInterface, \Serializable
 
     public function getRoles(): array
     {
-        return ['ROLE_USER'];
+        $roles = [self::ROLE_USER];
+
+        if ($this->getWizaplaceUser()->isVendor()) {
+            $roles[] = self::ROLE_VENDOR;
+        }
     }
 
     public function getPassword(): string
