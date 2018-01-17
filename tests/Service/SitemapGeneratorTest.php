@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace WizaplaceFrontBundle\Tests\Service;
 
+use PHPUnit\Framework\MockObject\Invocation\ObjectInvocation;
 use SitemapGenerator\Sitemap\Sitemap;
 use WizaplaceFrontBundle\Tests\BundleTestCase;
 
@@ -25,8 +26,8 @@ class SitemapGeneratorTest extends BundleTestCase
         $sitemapGenerator->populate($sitemap);
 
         /** @var string[] $urls */
-        $urls = array_map(function (\PHPUnit_Framework_MockObject_Invocation_Static $invocation): string {
-            return $invocation->parameters[0]->getLoc();
+        $urls = array_map(function (ObjectInvocation $invocation): string {
+            return $invocation->getParameters()[0]->getLoc();
         }, $spy->getInvocations());
 
         self::assertContains('/', $urls); // static URL
