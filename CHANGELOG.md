@@ -7,6 +7,8 @@
 
 ### New features
 
+ - Reduce the number of basket-related API calls
+
 ### Bugfixes
 
 </details>
