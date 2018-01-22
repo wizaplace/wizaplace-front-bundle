@@ -243,7 +243,8 @@ class BasketService implements EventSubscriberInterface, LogoutHandlerInterface
         $basketId = $this->getCurrentBasketId();
 
         if (null === $basketId) {
-            $basketId = $this->baseService->create();
+            $this->basket = $this->baseService->createEmptyBasket();
+            $basketId = $this->basket->getId();
             $this->setCurrentBasketId($basketId);
         }
 
