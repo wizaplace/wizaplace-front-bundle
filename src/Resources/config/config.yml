@@ -123,7 +123,6 @@ services:
         public: true
     WizaplaceFrontBundle\Twig\AppExtension:
         arguments:
-            $cache: '@cache.app'
             $recaptchaKey: '%recaptcha.key%'
 
 parameters:

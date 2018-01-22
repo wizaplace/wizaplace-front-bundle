@@ -6,7 +6,6 @@
 
 namespace WizaplaceFrontBundle\Twig;
 
-use Psr\Cache\CacheItemPoolInterface;
 use Symfony\Component\Asset\Packages;
 use Wizaplace\SDK\Catalog\CatalogService;
 use Wizaplace\SDK\Cms\CmsService;
@@ -27,8 +26,6 @@ class AppExtension extends \Twig_Extension
     private $imageService;
     /** @var CmsService */
     private $cmsService;
-    /** @var CacheItemPoolInterface */
-    private $cache;
     /** @var string */
     private $recaptchaKey;
     /** @var Packages */
@@ -45,7 +42,6 @@ class AppExtension extends \Twig_Extension
         BasketService $basketService,
         ImageService $imageService,
         CmsService $cmsService,
-        CacheItemPoolInterface $cache,
         string $recaptchaKey,
         Packages $assets,
         ProductUrlGenerator $productUrlGenerator,
@@ -56,7 +52,6 @@ class AppExtension extends \Twig_Extension
         $this->basketService = $basketService;
         $this->imageService = $imageService;
         $this->cmsService = $cmsService;
-        $this->cache = $cache;
         $this->recaptchaKey = $recaptchaKey;
         $this->assets = $assets;
         $this->productUrlGenerator = $productUrlGenerator;
@@ -110,14 +105,7 @@ class AppExtension extends \Twig_Extension
      */
     public function getCategoryTree():array
     {
-        $categoryTree = $this->cache->getItem('categoryTree');
-        if (!$categoryTree->isHit()) {
-            $categoryTree->set($this->catalogService->getCategoryTree());
-            $categoryTree->expiresAfter(3600);
-            $this->cache->save($categoryTree);
-        }
-
-        return $categoryTree->get();
+        return $this->catalogService->getCategoryTree();
     }
 
     public function getRecaptchaKey(): string
