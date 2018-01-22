@@ -7,12 +7,16 @@
 
 ### New features
 
- - Reduce the number of basket-related API calls
- - Upgraded SDK to v1.11.0
-
 ### Bugfixes
 
 </details>
+
+## 0.2.16
+
+### New features
+
+ - Reduce the number of basket-related API calls
+ - Upgraded SDK to v1.11.0
 
 ## 0.2.15
 
