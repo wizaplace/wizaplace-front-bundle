@@ -7,7 +7,7 @@
 
 ### New features
 
-- Added `\WizaplaceFrontBundle\Service\ProductListService::getProductsWithAttributes`
+- Added `\WizaplaceFrontBundle\Service\ProductListService::getLatestProductsWithAttributeChecked`
 
 ### Bugfixes
 
