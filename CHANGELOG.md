@@ -7,7 +7,10 @@
 
 ### New features
 
-- Added `\WizaplaceFrontBundle\Service\ProductListService::getLatestProductsWithAttributeChecked`
+ - Added `\WizaplaceFrontBundle\Service\ProductListService::getLatestProductsWithAttributeChecked`
+ - Added `\WizaplaceFrontBundle\Service\DeclinationService::listProductOptionSelectsFromSelectedDeclination`
+ - Added `\WizaplaceFrontBundle\Service\DeclinationService::listProductOptionSelectsFromSelectedVariantsIds`
+ - Marked `\WizaplaceFrontBundle\Controller\ProductController::viewAction` as deprecated
 
 ### Bugfixes
 
