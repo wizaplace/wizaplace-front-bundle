@@ -7,6 +7,8 @@
 
 ### New features
 
+- Added `\WizaplaceFrontBundle\Service\ProductListService::getProductsWithAttributes`
+
 ### Bugfixes
 
 </details>

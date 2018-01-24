@@ -31,4 +31,21 @@ class ProductListService
 
         return $this->productService->search('', [], ['createdAt' => 'desc'], $maxProductCount)->getProducts();
     }
+
+    /**
+     * @return ProductSummary[]
+     */
+    public function getProductsWithAttributes(array $attributesIds, int $maxProductCount = 6): array
+    {
+        if ($maxProductCount === 0) {
+            return [];
+        }
+
+        $filters = [];
+        foreach ($attributesIds as $attributesId) {
+            $filters[$attributesId] = 'Y';
+        }
+
+        return $this->productService->search('', $filters, ['createdAt' => 'desc'], $maxProductCount)->getProducts();
+    }
 }
