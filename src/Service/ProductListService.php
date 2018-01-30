@@ -21,6 +21,8 @@ class ProductListService
     }
 
     /**
+     * Fetches at most $maxProductCount products created the most recently.
+     *
      * @return ProductSummary[]
      */
     public function getLatestProducts(int $maxProductCount = 6) : array
@@ -33,6 +35,9 @@ class ProductListService
     }
 
     /**
+     * Fetches at most $maxProductCount products created the most recently with the attribute $attributeId being checked.
+     *
+     * @param int $attributeId the ID of a \Wizaplace\SDK\Catalog\AttributeType::CHECKBOX_UNIQUE attribute
      * @return ProductSummary[]
      */
     public function getLatestProductsWithAttributeChecked(int $attributeId, int $maxProductCount = 6): array
