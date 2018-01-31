@@ -8,6 +8,7 @@
 ### New features
 
 - Added `\WizaplaceFrontBundle\Service\ProductListService::getLatestProductsWithAttributeChecked`
+- Added `\WizaplaceFrontBundle\Service\FavoriteService::getUserFavoriteIds`
 
 ### Bugfixes
 

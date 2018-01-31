@@ -41,9 +41,9 @@ class FavoriteService implements LogoutHandlerInterface
         $result = $this->baseService->getAll();
 
         // re-build cache entirely
-        $this->favoritesIdsCache = array_reverse(array_map(function (DeclinationSummary $declination): string {
+        $this->favoritesIdsCache = array_map(function (DeclinationSummary $declination): string {
             return (string) $declination->getId();
-        }, $result));
+        }, $result);
 
         return $result;
     }
@@ -58,7 +58,20 @@ class FavoriteService implements LogoutHandlerInterface
             $this->getAll();
         }
 
-        return isset($this->favoritesIdsCache[(string) $declinationId]);
+        return in_array((string) $declinationId, $this->favoritesIdsCache, true);
+    }
+
+    /**
+     * @return array
+     * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     */
+    public function getUserFavoriteIds() : array
+    {
+        if (!is_array($this->favoritesIdsCache)) {
+            $this->getAll();
+        }
+
+        return $this->favoritesIdsCache;
     }
 
     /**
