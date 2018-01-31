@@ -24,7 +24,7 @@ class FavoriteService implements LogoutHandlerInterface
     /** @var \Wizaplace\SDK\Favorite\FavoriteService */
     private $baseService;
 
-    /** @var null|string[] */
+    /** @var null|DeclinationId[] */
     private $favoritesIdsCache;
 
     public function __construct(\Wizaplace\SDK\Favorite\FavoriteService $baseService)
@@ -47,8 +47,7 @@ class FavoriteService implements LogoutHandlerInterface
         // re-build cache entirely
         $this->favoritesIdsCache = [];
         foreach ($result as $declination) {
-            $id = (string) $declination->getId();
-            $this->favoritesIdsCache[$id] = $id;
+            $this->favoritesIdsCache[(string) $declination->getId()] = $declination->getId();
         }
 
         return $result;
@@ -67,7 +66,7 @@ class FavoriteService implements LogoutHandlerInterface
     }
 
     /**
-     * @return array
+     * @return DeclinationId[]
      */
     public function getFavoriteIds() : array
     {
@@ -89,8 +88,7 @@ class FavoriteService implements LogoutHandlerInterface
         $this->baseService->addDeclinationToUserFavorites($declinationId);
 
         // add ID to cache
-        $id = (string) $declinationId;
-        $this->favoritesIdsCache[$id] = $id;
+        $this->favoritesIdsCache[(string) $declinationId] = $declinationId;
     }
 
     /**
