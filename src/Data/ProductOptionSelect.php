@@ -1,11 +1,15 @@
 <?php
+/**
+ * @copyright   Copyright (c) Wizacha
+ * @license     Proprietary
+ */
 declare(strict_types=1);
 
 namespace WizaplaceFrontBundle\Data;
 
 use Wizaplace\SDK\Catalog\Option;
 
-class ProductOptionSelect
+final class ProductOptionSelect
 {
     /**
      * @var Option
