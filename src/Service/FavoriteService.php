@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Http\Logout\LogoutHandlerInterface;
+use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Catalog\DeclinationId;
 use Wizaplace\SDK\Catalog\DeclinationSummary;
 
@@ -23,7 +24,7 @@ class FavoriteService implements LogoutHandlerInterface
     /** @var \Wizaplace\SDK\Favorite\FavoriteService */
     private $baseService;
 
-    /** @var null|array */
+    /** @var null|string[] */
     private $favoritesIdsCache;
 
     public function __construct(\Wizaplace\SDK\Favorite\FavoriteService $baseService)
@@ -34,23 +35,27 @@ class FavoriteService implements LogoutHandlerInterface
     /**
      * @see \Wizaplace\SDK\Favorite\FavoriteService::getAll
      * @return DeclinationSummary[]
-     * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
      */
     public function getAll() : array
     {
-        $result = $this->baseService->getAll();
+        try {
+            $result = $this->baseService->getAll();
+        } catch (AuthenticationRequired $e) {
+            $result = [];
+        }
 
         // re-build cache entirely
-        $this->favoritesIdsCache = array_map(function (DeclinationSummary $declination): string {
-            return (string) $declination->getId();
-        }, $result);
+        $this->favoritesIdsCache = [];
+        foreach ($result as $declination) {
+            $id = (string) $declination->getId();
+            $this->favoritesIdsCache[$id] = $id;
+        }
 
         return $result;
     }
 
     /**
      * @see \Wizaplace\SDK\Favorite\FavoriteService::isInFavorites
-     * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
      */
     public function isInFavorites(DeclinationId $declinationId) : bool
     {
@@ -58,14 +63,13 @@ class FavoriteService implements LogoutHandlerInterface
             $this->getAll();
         }
 
-        return in_array((string) $declinationId, $this->favoritesIdsCache, true);
+        return isset($this->favoritesIdsCache[(string) $declinationId]);
     }
 
     /**
      * @return array
-     * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
      */
-    public function getUserFavoriteIds() : array
+    public function getFavoriteIds() : array
     {
         if (!is_array($this->favoritesIdsCache)) {
             $this->getAll();
@@ -85,7 +89,8 @@ class FavoriteService implements LogoutHandlerInterface
         $this->baseService->addDeclinationToUserFavorites($declinationId);
 
         // add ID to cache
-        $this->favoritesIdsCache[(string) $declinationId] = true;
+        $id = (string) $declinationId;
+        $this->favoritesIdsCache[$id] = $id;
     }
 
     /**

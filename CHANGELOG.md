@@ -7,8 +7,10 @@
 
 ### New features
 
-- Added `\WizaplaceFrontBundle\Service\ProductListService::getLatestProductsWithAttributeChecked`
-- Added `\WizaplaceFrontBundle\Service\FavoriteService::getUserFavoriteIds`
+ - Added `\WizaplaceFrontBundle\Service\ProductListService::getLatestProductsWithAttributeChecked`
+ - Added `\WizaplaceFrontBundle\Service\FavoriteService::getUserFavoriteIds`
+ - `\WizaplaceFrontBundle\Service\FavoriteService::getAll` does not throw `AuthenticationRequired` exceptions anymore, instead it returns an empty array
+ - `\WizaplaceFrontBundle\Service\FavoriteService::isInFavorites` does not throw `AuthenticationRequired` exceptions anymore, instead it returns `false`
 
 ### Bugfixes
 
