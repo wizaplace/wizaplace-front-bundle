@@ -60,6 +60,9 @@ class ProductController extends Controller
         $this->favoriteService = $favoriteService;
     }
 
+    /**
+     * @deprecated
+     */
     public function viewAction(string $categoryPath, string $slug, Request $request): Response
     {
         $product = $this->getProductFromSlug($slug);

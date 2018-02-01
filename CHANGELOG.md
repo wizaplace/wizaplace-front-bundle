@@ -11,6 +11,9 @@
  - Added `\WizaplaceFrontBundle\Service\FavoriteService::getFavoriteIds`
  - `\WizaplaceFrontBundle\Service\FavoriteService::getAll` does not throw `AuthenticationRequired` exceptions anymore, instead it returns an empty array
  - `\WizaplaceFrontBundle\Service\FavoriteService::isInFavorites` does not throw `AuthenticationRequired` exceptions anymore, instead it returns `false`
+ - Added `\WizaplaceFrontBundle\Service\DeclinationService::listProductOptionSelectsFromSelectedDeclination`
+ - Added `\WizaplaceFrontBundle\Service\DeclinationService::listProductOptionSelectsFromSelectedVariantsIds`
+ - Marked `\WizaplaceFrontBundle\Controller\ProductController::viewAction` as deprecated
 
 ### Bugfixes
 
