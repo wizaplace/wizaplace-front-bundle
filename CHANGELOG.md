@@ -7,6 +7,14 @@
 
 ### New features
 
+### Bugfixes
+
+</details>
+
+## 0.2.17
+
+### New features
+
  - Added `\WizaplaceFrontBundle\Service\ProductListService::getLatestProductsWithAttributeChecked`
  - Added `\WizaplaceFrontBundle\Service\FavoriteService::getFavoriteIds`
  - `\WizaplaceFrontBundle\Service\FavoriteService::getAll` does not throw `AuthenticationRequired` exceptions anymore, instead it returns an empty array
@@ -15,10 +23,6 @@
  - Added `\WizaplaceFrontBundle\Service\DeclinationService::listProductOptionSelectsFromSelectedVariantsIds`
  - Marked `\WizaplaceFrontBundle\Controller\ProductController::viewAction` as deprecated
  - Upgraded SDK to V1.12.0
-
-### Bugfixes
-
-</details>
 
 ## 0.2.16
 
