@@ -14,6 +14,7 @@
  - Added `\WizaplaceFrontBundle\Service\DeclinationService::listProductOptionSelectsFromSelectedDeclination`
  - Added `\WizaplaceFrontBundle\Service\DeclinationService::listProductOptionSelectsFromSelectedVariantsIds`
  - Marked `\WizaplaceFrontBundle\Controller\ProductController::viewAction` as deprecated
+ - Upgraded SDK to V1.12.0
 
 ### Bugfixes
 
