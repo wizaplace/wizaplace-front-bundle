@@ -3,6 +3,8 @@
 <details>
 <summary>Unreleased</summary>
 
+- Added "userFavoriteIds" variable in CategoryController::viewAction
+
 ### BREAKING CHANGES
 
 ### New features
