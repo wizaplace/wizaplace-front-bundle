@@ -46,7 +46,7 @@ class CategoryController extends Controller
             'currentCategory' => $currentCategory,
             'filters' => $filters,
             'userFavoriteIds' => $userFavoriteIds,
-         ]);
+        ]);
     }
 
     protected function getCategoryFromSlug(string $slug): ?Category
