@@ -8,14 +8,13 @@ declare(strict_types=1);
 namespace WizaplaceFrontBundle\Controller;
 
 use GuzzleHttp\Exception\ClientException;
-use GuzzleHttp\Psr7\Uri;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Translation\TranslatorInterface;
 use Wizaplace\SDK\User\UserService;
+use WizaplaceFrontBundle\Service\AuthenticationService;
 
 class AuthController extends Controller
 {
@@ -52,9 +51,13 @@ class AuthController extends Controller
     /** @var TranslatorInterface */
     protected $translator;
 
-    public function __construct(TranslatorInterface $translator)
+    /** @var AuthenticationService */
+    private $authService;
+
+    public function __construct(TranslatorInterface $translator, AuthenticationService $authService)
     {
         $this->translator = $translator;
+        $this->authService = $authService;
     }
 
     public function loginAction(Request $request): Response
@@ -74,37 +77,34 @@ class AuthController extends Controller
         ]);
     }
 
+    /**
+     * @deprecated use \WizaplaceFrontBundle\Service\AuthenticationService::initiateResetPasswordFromRequest instead
+     */
     public function initiateResetPasswordAction(Request $request): Response
     {
         // redirection url
         $referer = $request->headers->get('referer') ?? $this->generateUrl('home');
 
-        // CSRF token validation
-        $submittedToken = $request->get('csrf_token');
+        try {
+            $form = $this->authService->getInitiateResetPasswordForm();
 
-        if (!$this->isCsrfTokenValid('password_token', $submittedToken)) {
-            $message = $this->translator->trans('csrf_error_message');
-            $this->addFlash('warning', $message);
+            $form->handleRequest($request);
 
-            return $this->redirect($referer);
+            if (!$form->isSubmitted() || !$form->isValid()) {
+                foreach ($form->getErrors() as $error) {
+                    $this->addFlash('warning', $error->getMessage());
+                }
+
+                return $this->redirect($referer);
+            }
+
+            $this->authService->initiateResetPassword($form->getData());
+
+            $message = $this->translator->trans('password_reset_confirmation_message');
+            $this->addFlash('success', $message);
+        } catch (\Throwable $e) {
+            $this->addFlash('error', $this->translator->trans('@TODO'));
         }
-
-        // form validation
-        $email = $request->get('email');
-
-        if ($email === null) {
-            $message = $this->translator->trans('email_field_required_error_message');
-            $this->addFlash('danger', $message);
-
-            return $this->redirect($referer);
-        }
-
-        // send password recovery email
-        $recoveryUrl = new Uri(str_replace('token_placeholder', '', $this->generateUrl('reset_password_form', ['token' => 'token_placeholder'], UrlGeneratorInterface::ABSOLUTE_URL)));
-        $this->get(UserService::class)->recoverPassword($email, $recoveryUrl);
-
-        $message = $this->translator->trans('password_reset_confirmation_message');
-        $this->addFlash('success', $message);
 
         return $this->redirect($referer);
     }

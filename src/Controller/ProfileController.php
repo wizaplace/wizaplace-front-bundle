@@ -10,6 +10,7 @@ namespace WizaplaceFrontBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Intl\Intl;
 use Symfony\Component\Translation\TranslatorInterface;
 use Wizaplace\SDK\ApiClient;
 use Wizaplace\SDK\Authentication\BadCredentials;
@@ -29,7 +30,6 @@ use Wizaplace\SDK\User\UpdateUserCommand;
 use Wizaplace\SDK\User\UserService;
 use Wizaplace\SDK\User\UserTitle;
 use WizaplaceFrontBundle\Security\User;
-use Symfony\Component\Intl\Intl;
 
 class ProfileController extends Controller
 {

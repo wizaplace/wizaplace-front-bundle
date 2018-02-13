@@ -7,24 +7,47 @@ declare(strict_types = 1);
 
 namespace WizaplaceFrontBundle\Service;
 
+use GuzzleHttp\Psr7\Uri;
+use Symfony\Component\Form\FormFactoryInterface;
+use Symfony\Component\Form\FormInterface;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Core\Authentication\AuthenticationManagerInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
+use Wizaplace\SDK\User\UserService;
+use WizaplaceFrontBundle\Entity\InitiateResetPasswordCommand;
+use WizaplaceFrontBundle\Form\InitiateResetPasswordType;
 
 class AuthenticationService
 {
     /** @var AuthenticationManagerInterface */
     private $authManager;
-    /**
-     * @var TokenStorageInterface
-     */
+
+    /** @var TokenStorageInterface */
     private $tokenStorage;
 
-    public function __construct(AuthenticationManagerInterface $authManager, TokenStorageInterface $tokenStorage)
-    {
+    /** @var FormFactoryInterface */
+    private $formFactory;
+
+    /** @var UserService */
+    private $userService;
+
+    /** @var UrlGeneratorInterface */
+    private $urlGenerator;
+
+    public function __construct(
+        AuthenticationManagerInterface $authManager,
+        TokenStorageInterface $tokenStorage,
+        FormFactoryInterface $formFactory,
+        UserService $userService,
+        UrlGeneratorInterface $urlGenerator
+    ) {
         $this->authManager = $authManager;
         $this->tokenStorage = $tokenStorage;
+        $this->formFactory = $formFactory;
+        $this->userService = $userService;
+        $this->urlGenerator = $urlGenerator;
     }
 
     /**
@@ -39,5 +62,33 @@ class AuthenticationService
         $token = new UsernamePasswordToken($email, $password, 'main', []);
         $authToken = $this->authManager->authenticate($token);
         $this->tokenStorage->setToken($authToken);
+    }
+
+    /**
+     * @param InitiateResetPasswordCommand $command
+     * @param string $resetPasswordFormRoute The route which will be linked from the password recovery email.
+     * @param string $tokenParamKey The key of the route param which will receive the token.
+     * @throws \Exception
+     */
+    public function initiateResetPassword(InitiateResetPasswordCommand $command, string $resetPasswordFormRoute = 'reset_password_form', string $tokenParamKey = 'token'): void
+    {
+        try {
+            $recoveryUrl = $this->urlGenerator->generate(
+                $resetPasswordFormRoute,
+                [$tokenParamKey => 'token_placeholder'],
+                UrlGeneratorInterface::ABSOLUTE_URL
+            );
+            $recoveryUrl = new Uri(str_replace('token_placeholder', '', $recoveryUrl));
+
+            $this->userService->recoverPassword($command->getEmail(), $recoveryUrl);
+        } catch (\Throwable $e) {
+            throw new \Exception('failed to initiate password reset', 500, $e);
+        }
+    }
+
+    public function getInitiateResetPasswordForm(): FormInterface
+    {
+        // the empty name is for backward compatibility
+        return $this->formFactory->createNamed('', InitiateResetPasswordType::class);
     }
 }
