@@ -55,7 +55,6 @@ class AuthenticationServiceTest extends BundleTestCase
         $form->handleRequest($request);
 
         self::assertFalse($form->isSubmitted());
-        self::assertFalse($form->isValid());
         self::assertNull($form->getData());
     }
 

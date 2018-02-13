@@ -9,7 +9,7 @@ declare(strict_types = 1);
 namespace WizaplaceFrontBundle\Service;
 
 use Symfony\Bridge\Twig\TwigEngine;
-use \Wizaplace\SDK\Discussion\DiscussionService as BaseService;
+use Wizaplace\SDK\Discussion\DiscussionService as BaseService;
 
 class ContactService
 {
