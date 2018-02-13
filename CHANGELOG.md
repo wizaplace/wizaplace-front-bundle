@@ -7,6 +7,7 @@
 
 ### New features
 
+ - Added "userFavoriteIds" variable in CategoryController::viewAction
  - Upgraded SDK to v1.14.0
 
 ### Bugfixes
