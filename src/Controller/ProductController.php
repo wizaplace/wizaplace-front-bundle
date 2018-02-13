@@ -18,9 +18,9 @@ use Wizaplace\SDK\Catalog\Product;
 use Wizaplace\SDK\Catalog\ProductCategory;
 use Wizaplace\SDK\Catalog\Review\ReviewService;
 use Wizaplace\SDK\Exception\NotFound;
-use Wizaplace\SDK\Favorite\FavoriteService;
 use Wizaplace\SDK\Seo\SeoService;
 use Wizaplace\SDK\Seo\SlugTargetType;
+use WizaplaceFrontBundle\Service\FavoriteService;
 use WizaplaceFrontBundle\Service\ProductListService;
 use WizaplaceFrontBundle\Service\ProductUrlGenerator;
 
@@ -60,6 +60,9 @@ class ProductController extends Controller
         $this->favoriteService = $favoriteService;
     }
 
+    /**
+     * @deprecated
+     */
     public function viewAction(string $categoryPath, string $slug, Request $request): Response
     {
         $product = $this->getProductFromSlug($slug);
@@ -110,15 +113,13 @@ class ProductController extends Controller
                         'name' => $variant->getName(),
                         'selected' => $isSelected,
                         'url' => $this->productUrlGenerator->generateUrlFromProduct($product, $declinationId),
+                        'image' => $variant->getImage(),
                     ];
                 }, $option->getVariants()),
             ];
         }, $product->getOptions());
 
-        $isFavorite = false;
-        if ($this->getUser() !== null) {
-            $isFavorite = $this->favoriteService->isInFavorites($declinationId);
-        }
+        $isFavorite = $this->favoriteService->isInFavorites($declinationId);
 
         return $this->render('@WizaplaceFront/product/product.html.twig', [
             'product' => $product,

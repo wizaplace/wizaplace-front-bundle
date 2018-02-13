@@ -54,6 +54,18 @@ class ProductUrlGenerator
         );
     }
 
+    public function generateUrlFromProductWithOptions(Product $product, array $optionVariantIds): string
+    {
+        return $this->generateUrl(
+            $product->getSlug(),
+            array_map(static function (ProductCategory $category) : string {
+                return $category->getSlug();
+            }, $product->getCategoryPath()),
+            null,
+            $optionVariantIds
+        );
+    }
+
     public function generateUrlFromProductSummary(ProductSummary $productSummary, ?DeclinationId $declinationId = null): string
     {
         return $this->generateUrl(
@@ -79,7 +91,7 @@ class ProductUrlGenerator
     /**
      * @param string[] $categoryPath
      */
-    private function generateUrl(string $productSlug, array $categoryPath, ?DeclinationId $declinationId = null): string
+    private function generateUrl(string $productSlug, array $categoryPath, ?DeclinationId $declinationId = null, array $optionVariantIds = []): string
     {
         $params = [
             'categoryPath' => join('/', $categoryPath),
@@ -87,6 +99,10 @@ class ProductUrlGenerator
         ];
         if ($declinationId !== null) {
             $params['d'] = (string) $declinationId;
+        } elseif (!empty($optionVariantIds)) {
+            $optionVariantIds = array_values($optionVariantIds);
+            sort($optionVariantIds);
+            $params['options'] = $optionVariantIds;
         }
 
         return $this->urlGenerator->generate('product', $params);

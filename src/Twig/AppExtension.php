@@ -6,14 +6,11 @@
 
 namespace WizaplaceFrontBundle\Twig;
 
-use Psr\Cache\CacheItemPoolInterface;
 use Symfony\Component\Asset\Packages;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Wizaplace\SDK\Catalog\CatalogService;
 use Wizaplace\SDK\Cms\CmsService;
 use Wizaplace\SDK\Image\Image;
 use Wizaplace\SDK\Image\ImageService;
-use Wizaplace\SDK\User\UserService;
 use WizaplaceFrontBundle\Service\AttributeVariantUrlGenerator;
 use WizaplaceFrontBundle\Service\BasketService;
 use WizaplaceFrontBundle\Service\FavoriteService;
@@ -23,18 +20,12 @@ class AppExtension extends \Twig_Extension
 {
     /** @var CatalogService */
     private $catalogService;
-    /** @var SessionInterface */
-    private $session;
-    /** @var UserService */
-    private $userService;
     /** @var BasketService */
     private $basketService;
     /** @var ImageService */
     private $imageService;
     /** @var CmsService */
     private $cmsService;
-    /** @var CacheItemPoolInterface */
-    private $cache;
     /** @var string */
     private $recaptchaKey;
     /** @var Packages */
@@ -48,12 +39,9 @@ class AppExtension extends \Twig_Extension
 
     public function __construct(
         CatalogService $catalogService,
-        SessionInterface $session,
-        UserService $userService,
         BasketService $basketService,
         ImageService $imageService,
         CmsService $cmsService,
-        CacheItemPoolInterface $cache,
         string $recaptchaKey,
         Packages $assets,
         ProductUrlGenerator $productUrlGenerator,
@@ -61,12 +49,9 @@ class AppExtension extends \Twig_Extension
         FavoriteService $favoriteService
     ) {
         $this->catalogService = $catalogService;
-        $this->session = $session;
-        $this->userService = $userService;
         $this->basketService = $basketService;
         $this->imageService = $imageService;
         $this->cmsService = $cmsService;
-        $this->cache = $cache;
         $this->recaptchaKey = $recaptchaKey;
         $this->assets = $assets;
         $this->productUrlGenerator = $productUrlGenerator;
@@ -79,11 +64,11 @@ class AppExtension extends \Twig_Extension
         return [
             //Le service est appelé directement pour pouvoir mettre du cache dessus.
             new \Twig_SimpleFunction('categoryTree', [$this, 'getCategoryTree']),
-            new \Twig_SimpleFunction('currentUser', [$this, 'getCurrentUser']),
             new \Twig_SimpleFunction('basket', [$this->basketService, 'getBasket']),
             new \Twig_SimpleFunction('recaptchaKey', [$this, 'getRecaptchaKey']),
             new \Twig_SimpleFunction('menus', [$this->cmsService, 'getAllMenus']),
             new \Twig_SimpleFunction('isInFavorites', [$this->favoriteService, 'isInFavorites']),
+            new \Twig_SimpleFunction('favoritesCount', [$this, 'getFavoritesCount']),
         ];
     }
 
@@ -115,16 +100,12 @@ class AppExtension extends \Twig_Extension
         return (string) $this->imageService->getImageLink($imageId, $width, $height);
     }
 
+    /**
+     * @throws \Psr\Cache\InvalidArgumentException
+     */
     public function getCategoryTree():array
     {
-        $categoryTree = $this->cache->getItem('categoryTree');
-        if (!$categoryTree->isHit()) {
-            $categoryTree->set($this->catalogService->getCategoryTree());
-            $categoryTree->expiresAfter(3600);
-            $this->cache->save($categoryTree);
-        }
-
-        return $categoryTree->get();
+        return $this->catalogService->getCategoryTree();
     }
 
     public function getRecaptchaKey(): string
@@ -135,5 +116,13 @@ class AppExtension extends \Twig_Extension
     public function formatPrice(float $price): string
     {
         return number_format($price, 2, ',', ' ').'€';
+    }
+
+    /**
+     * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     */
+    public function getFavoritesCount(): int
+    {
+        return count($this->favoriteService->getAll());
     }
 }

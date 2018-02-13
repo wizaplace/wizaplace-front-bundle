@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Http\Logout\LogoutHandlerInterface;
+use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Catalog\DeclinationId;
 use Wizaplace\SDK\Catalog\DeclinationSummary;
 
@@ -23,7 +24,7 @@ class FavoriteService implements LogoutHandlerInterface
     /** @var \Wizaplace\SDK\Favorite\FavoriteService */
     private $baseService;
 
-    /** @var null|array */
+    /** @var null|DeclinationId[] */
     private $favoritesIdsCache;
 
     public function __construct(\Wizaplace\SDK\Favorite\FavoriteService $baseService)
@@ -37,12 +38,17 @@ class FavoriteService implements LogoutHandlerInterface
      */
     public function getAll() : array
     {
-        $result = $this->baseService->getAll();
+        try {
+            $result = $this->baseService->getAll();
+        } catch (AuthenticationRequired $e) {
+            $result = [];
+        }
 
         // re-build cache entirely
-        $this->favoritesIdsCache = array_reverse(array_map(function (DeclinationSummary $declination): string {
-            return (string) $declination->getId();
-        }, $result));
+        $this->favoritesIdsCache = [];
+        foreach ($result as $declination) {
+            $this->favoritesIdsCache[(string) $declination->getId()] = $declination->getId();
+        }
 
         return $result;
     }
@@ -60,18 +66,34 @@ class FavoriteService implements LogoutHandlerInterface
     }
 
     /**
+     * @return DeclinationId[]
+     */
+    public function getFavoriteIds() : array
+    {
+        if (!is_array($this->favoritesIdsCache)) {
+            $this->getAll();
+        }
+
+        return $this->favoritesIdsCache;
+    }
+
+    /**
      * @see \Wizaplace\SDK\Favorite\FavoriteService::addDeclinationToUserFavorites
+     * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     * @throws \Wizaplace\SDK\Favorite\Exception\CannotFavoriteDisabledOrInexistentDeclination
+     * @throws \Wizaplace\SDK\Favorite\Exception\FavoriteAlreadyExist
      */
     public function addDeclinationToUserFavorites(DeclinationId $declinationId) : void
     {
         $this->baseService->addDeclinationToUserFavorites($declinationId);
 
         // add ID to cache
-        $this->favoritesIdsCache[(string) $declinationId] = true;
+        $this->favoritesIdsCache[(string) $declinationId] = $declinationId;
     }
 
     /**
      * @see \Wizaplace\SDK\Favorite\FavoriteService::removeDeclinationToUserFavorites
+     * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
      */
     public function removeDeclinationToUserFavorites(DeclinationId $declinationId) : void
     {

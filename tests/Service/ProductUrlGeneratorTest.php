@@ -23,7 +23,7 @@ class ProductUrlGeneratorTest extends BundleTestCase
 
         $result = $container->get(ProductUrlGenerator::class)->generateProductUrl($product);
 
-        $this->assertSame('/p/informatique/test-product-slug', $result);
+        $this->assertSame('/p/it/test-product-slug', $result);
     }
 
     public function testGeneratingUrlFromProductWithDeclinationId()
@@ -35,7 +35,7 @@ class ProductUrlGeneratorTest extends BundleTestCase
 
         $result = $container->get(ProductUrlGenerator::class)->generateProductUrl($product, $declinationId);
 
-        $this->assertSame('/p/informatique/test-product-slug?d=1_0', $result);
+        $this->assertSame('/p/it/test-product-slug?d=1_0', $result);
     }
 
     public function testGeneratingUrlFromProductSummary()
@@ -45,7 +45,7 @@ class ProductUrlGeneratorTest extends BundleTestCase
 
         $result = $container->get(ProductUrlGenerator::class)->generateProductUrl($product);
 
-        $this->assertSame('/p/informatique/test-product-slug', $result);
+        $this->assertSame('/p/it/test-product-slug', $result);
     }
 
     public function testGeneratingUrlFromDeclinationSummary()
@@ -62,7 +62,7 @@ class ProductUrlGeneratorTest extends BundleTestCase
 
         $result = $container->get(ProductUrlGenerator::class)->generateProductUrl($declinations[0]);
 
-        $this->assertSame('/p/informatique/test-product-slug?d=1_0', $result);
+        $this->assertSame('/p/it/test-product-slug?d=1_0', $result);
     }
 
     public function testGeneratingUrlFromString()

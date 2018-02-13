@@ -23,6 +23,9 @@ class InvoiceService
         $this->orderService = $orderService;
     }
 
+    /**
+     * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     */
     public function downloadPdf(int $orderId, string $filename = "Invoice"): Response
     {
         $pdf = $this->orderService->downloadPdfInvoice($orderId);

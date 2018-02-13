@@ -13,6 +13,7 @@ use Wizaplace\SDK\Catalog\CatalogService;
 use Wizaplace\SDK\Catalog\Category;
 use Wizaplace\SDK\Seo\SeoService;
 use Wizaplace\SDK\Seo\SlugTargetType;
+use WizaplaceFrontBundle\Service\FavoriteService;
 
 class CategoryController extends Controller
 {
@@ -22,10 +23,14 @@ class CategoryController extends Controller
     /** @var CatalogService */
     protected $catalogService;
 
-    public function __construct(SeoService $seoService, CatalogService $catalogService)
+    /** @var FavoriteService */
+    protected $favoriteService;
+
+    public function __construct(SeoService $seoService, CatalogService $catalogService, FavoriteService $favoriteService)
     {
         $this->seoService = $seoService;
         $this->catalogService = $catalogService;
+        $this->favoriteService = $favoriteService;
     }
 
     public function viewAction(string $slug) : Response
@@ -39,13 +44,13 @@ class CategoryController extends Controller
             'categories' => $currentCategory->getId(),
         ];
 
-        return $this->render(
-            '@WizaplaceFront/search/search.html.twig',
-            [
-                'currentCategory' => $currentCategory,
-                'filters' => $filters,
-            ]
-        );
+        $userFavoriteIds = $this->favoriteService->getFavoriteIds();
+
+        return $this->render('@WizaplaceFront/search/search.html.twig', [
+            'currentCategory' => $currentCategory,
+            'filters' => $filters,
+            'userFavoriteIds' => $userFavoriteIds,
+        ]);
     }
 
     protected function getCategoryFromSlug(string $slug): ?Category

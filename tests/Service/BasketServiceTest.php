@@ -7,12 +7,11 @@ declare(strict_types=1);
 
 namespace WizaplaceFrontBundle\Tests\Service;
 
-use Wizaplace\SDK\ApiClient;
 use Wizaplace\SDK\Basket\Basket;
 use Wizaplace\SDK\Catalog\DeclinationId;
 use Wizaplace\SDK\Order\OrderService;
 use Wizaplace\SDK\Order\OrderStatus;
-use WizaplaceFrontBundle\Service\BasketService;
+use WizaplaceFrontBundle\Service\AuthenticationService;
 use WizaplaceFrontBundle\Tests\BundleTestCase;
 
 class BasketServiceTest extends BundleTestCase
@@ -20,11 +19,10 @@ class BasketServiceTest extends BundleTestCase
     public function testFullCheckout()
     {
         $container = self::$kernel->getContainer();
-        $apiClient = $container->get(ApiClient::class);
-        $apiClient->authenticate('customer-1@world-company.com', 'password-customer-1');
+        $container->get(AuthenticationService::class)->authenticate('customer-1@world-company.com', 'password-customer-1');
 
-        $basketService = new BasketService(new \Wizaplace\SDK\Basket\BasketService($apiClient), $container->get('session'));
-        $orderService = new OrderService($apiClient);
+        $basketService = $container->get('test.WizaplaceFrontBundle\Service\BasketService');
+        $orderService = $container->get(OrderService::class);
 
         $basket = $basketService->getBasket();
         self::assertInstanceOf(Basket::class, $basket);
@@ -105,5 +103,68 @@ class BasketServiceTest extends BundleTestCase
         self::assertSame('978020137962', $orderItems[0]->getProductCode());
         self::assertSame(67.9, $orderItems[0]->getPrice());
         self::assertSame(2, $orderItems[0]->getAmount());
+    }
+
+    public function testBasketIsSavedInUserAccount(): void
+    {
+        $container = self::$kernel->getContainer();
+
+        $container->get(AuthenticationService::class)->authenticate('customer-1@world-company.com', 'password-customer-1');
+
+        $basketId =  $container->get('test.WizaplaceFrontBundle\Service\BasketService')->getBasket()->getId();
+
+        // Simulate a new browsing session : reboot the kernel, clear the session
+        self::bootKernel();
+        $container = self::$kernel->getContainer();
+        $container->get('session')->clear();
+
+        $container->get(AuthenticationService::class)->authenticate('customer-1@world-company.com', 'password-customer-1');
+
+        $newBasketId =  $container->get('test.WizaplaceFrontBundle\Service\BasketService')->getBasket()->getId();
+
+        self::assertSame($basketId, $newBasketId);
+    }
+
+    public function testBasketsMergeOnAuthentication(): void
+    {
+        $container = self::$kernel->getContainer();
+
+        // create a basket associated to my account
+        $container->get(AuthenticationService::class)->authenticate('customer-1@world-company.com', 'password-customer-1');
+        $container->get('test.WizaplaceFrontBundle\Service\BasketService')->addProductToBasket(new DeclinationId('1_0'), 1);
+        $container->get('test.WizaplaceFrontBundle\Service\BasketService')->addProductToBasket(new DeclinationId('3_8_7'), 1);
+        $authenticatedBasketId =  $container->get('test.WizaplaceFrontBundle\Service\BasketService')->getBasket()->getId();
+
+        // Simulate a new browsing session : reboot the kernel, clear the session
+        self::bootKernel();
+        $container = self::$kernel->getContainer();
+        $container->get('session')->clear();
+
+        // create a basket without account
+         $container->get('test.WizaplaceFrontBundle\Service\BasketService')->addProductToBasket(new DeclinationId('1_0'), 2);
+         $container->get('test.WizaplaceFrontBundle\Service\BasketService')->addProductToBasket(new DeclinationId('3_8_8'), 1);
+        $anonymousBasketId =  $container->get('test.WizaplaceFrontBundle\Service\BasketService')->getBasket()->getId();
+        self::assertNotEquals($authenticatedBasketId, $anonymousBasketId);
+
+        // login, which should trigger the basket merge
+        $container->get(AuthenticationService::class)->authenticate('customer-1@world-company.com', 'password-customer-1');
+        self::assertSame($authenticatedBasketId, $container->get('test.WizaplaceFrontBundle\Service\BasketService')->getBasket()->getId());
+
+        // check that the authenticated basket was properly affected by the merge
+        $mergedBasket =  $container->get('test.WizaplaceFrontBundle\Service\BasketService')->getBasket();
+        $quantitiesMap = [];
+        foreach ($mergedBasket->getCompanyGroups() as $companyGroup) {
+            foreach ($companyGroup->getShippingGroups() as $shippingGroup) {
+                foreach ($shippingGroup->getItems() as $item) {
+                    $quantitiesMap[(string) $item->getDeclinationId()] = $item->getQuantity();
+                }
+            }
+        }
+
+        self::assertSame([
+            '1_0' => 2,
+            '3_8_7' => 1,
+            '3_8_8' => 1,
+        ], $quantitiesMap);
     }
 }
