@@ -7,6 +7,7 @@
 
 ### New features
 
+ - Upgraded SDK to v1.14.0
  - Added "userFavoriteIds" variable in CategoryController::viewAction
 
 ### Bugfixes
@@ -24,7 +25,7 @@
  - Added `\WizaplaceFrontBundle\Service\DeclinationService::listProductOptionSelectsFromSelectedDeclination`
  - Added `\WizaplaceFrontBundle\Service\DeclinationService::listProductOptionSelectsFromSelectedVariantsIds`
  - Marked `\WizaplaceFrontBundle\Controller\ProductController::viewAction` as deprecated
- - Upgraded SDK to V1.12.0
+ - Upgraded SDK to v1.12.0
 
 ## 0.2.16
 
