@@ -7,15 +7,19 @@
 
 ### New features
 
+### Bugfixes
+
+</details>
+
+## 0.2.18
+
+### New features
+
  - Added "userFavoriteIds" variable in CategoryController::viewAction
  - Upgraded SDK to v1.14.0
  - Added `\WizaplaceFrontBundle\Service\AuthenticationService::getInitiateResetPasswordForm`
  - Added `\WizaplaceFrontBundle\Service\AuthenticationService::initiateResetPassword`
  - Deprecated `\WizaplaceFrontBundle\Controller\AuthController::initiateResetPasswordAction`
-
-### Bugfixes
-
-</details>
 
 ## 0.2.17
 
