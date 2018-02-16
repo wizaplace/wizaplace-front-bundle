@@ -52,7 +52,7 @@ class AuthController extends Controller
     protected $translator;
 
     /** @var AuthenticationService */
-    private $authService;
+    protected $authService;
 
     public function __construct(TranslatorInterface $translator, AuthenticationService $authService)
     {
