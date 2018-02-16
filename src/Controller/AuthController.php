@@ -103,7 +103,7 @@ class AuthController extends Controller
             $message = $this->translator->trans('password_reset_confirmation_message');
             $this->addFlash('success', $message);
         } catch (\Throwable $e) {
-            $this->addFlash('error', $this->translator->trans('@TODO'));
+            $this->addFlash('error', $this->translator->trans('password_reset_error_message'));
         }
 
         return $this->redirect($referer);
