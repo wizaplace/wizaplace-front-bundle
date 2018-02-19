@@ -7,6 +7,8 @@
 
 ### New features
 
+ - `\WizaplaceFrontBundle\Security\User` now forwards getter calls to `\Wizaplace\SDK\User\User` (no need to use `getWizaplaceUser` anymore)
+
 ### Bugfixes
 
 </details>
