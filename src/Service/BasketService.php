@@ -23,6 +23,7 @@ use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Basket\Basket;
 use Wizaplace\SDK\Basket\Comment;
 use Wizaplace\SDK\Basket\PaymentInformation;
+use Wizaplace\SDK\Basket\SetPickupPointCommand;
 use Wizaplace\SDK\Catalog\DeclinationId;
 use WizaplaceFrontBundle\Security\User;
 
@@ -264,6 +265,17 @@ class BasketService implements EventSubscriberInterface, LogoutHandlerInterface
     public function logout(Request $request, Response $response, TokenInterface $token): void
     {
         $this->forgetBasket();
+    }
+
+    public function setPickupPoint(SetPickupPointCommand $command): void
+    {
+        $command->setBasketId($this->getBasketId());
+
+        try {
+            $this->baseService->setPickupPoint($command);
+        } finally {
+            $this->basket = null; // invalidate local cache
+        }
     }
 
     /**
