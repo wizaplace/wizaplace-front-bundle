@@ -7,6 +7,8 @@
 
 ### New features
 
+ - Added `\WizaplaceFrontBundle\Service\BasketService::setPickupPoint`
+
 ### Bugfixes
 
 </details>
