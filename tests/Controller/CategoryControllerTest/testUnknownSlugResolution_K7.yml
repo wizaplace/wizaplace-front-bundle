@@ -5,6 +5,7 @@
         url: 'http://wizaplace.loc/api/v1/seo/slugs?slugs%5B0%5D=404'
         headers:
             Host: wizaplace.loc
+            Accept-Language: fr
             VCR-index: '0'
     response:
         status:
@@ -12,11 +13,12 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 12 Sep 2017 12:40:41 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Thu, 22 Feb 2018 15:23:31 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: ede12d
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ede12d'
+            Content-Language: fr
+            X-Debug-Token: 9e6aa6
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9e6aa6'
             Content-Length: '2'
             Content-Type: application/json
         body: '{}'

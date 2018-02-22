@@ -16,7 +16,7 @@ class ProductControllerTest extends BundleTestCase
 {
     public function testSimpleProductView()
     {
-        $this->client->request('GET', '/p/informatique/ecrans/ecran-pc-full-hd-noir');
+        $this->client->request('GET', '/p/it/screens/ecran-pc-full-hd-noir');
         $this->assertResponseCodeEquals(Response::HTTP_OK, $this->client);
 
         $renderedData = $this->getRenderedData('@WizaplaceFront/product/product.html.twig');
@@ -73,9 +73,9 @@ class ProductControllerTest extends BundleTestCase
     public function testNonCanonicalCategoryPathIsRedirected()
     {
         $this->client->followRedirects(false);
-        $this->client->request('GET', '/p/informatitititique/ecrans/ecran-pc-full-hd-noir');
+        $this->client->request('GET', '/p/informatique/ecrans/ecran-pc-full-hd-noir');
         $response = $this->client->getResponse();
         $this->assertResponseCodeEquals(Response::HTTP_FOUND, $this->client);
-        $this->assertEquals('/p/informatique/ecrans/ecran-pc-full-hd-noir', $response->headers->get('Location'));
+        $this->assertEquals('/p/it/screens/ecran-pc-full-hd-noir', $response->headers->get('Location'));
     }
 }
