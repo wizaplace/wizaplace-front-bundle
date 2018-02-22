@@ -25,7 +25,7 @@ class LocaleSetter implements EventSubscriberInterface
     public static function getSubscribedEvents(): array
     {
         return [
-            KernelEvents::REQUEST => ['processLocale', 15] // must be executed after \Symfony\Component\HttpKernel\EventListener\LocaleListener
+            KernelEvents::REQUEST => ['processLocale', 15], // must be executed after \Symfony\Component\HttpKernel\EventListener\LocaleListener
         ];
     }
 
