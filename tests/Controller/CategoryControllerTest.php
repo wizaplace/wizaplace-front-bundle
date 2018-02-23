@@ -15,7 +15,7 @@ class CategoryControllerTest extends BundleTestCase
 {
     public function testSimpleCategoryView()
     {
-        $this->client->request('GET', '/c/informatique');
+        $this->client->request('GET', '/c/it');
         $this->assertResponseCodeEquals(Response::HTTP_OK, $this->client);
 
         $renderedData = $this->getRenderedData('@WizaplaceFront/search/search.html.twig');
