@@ -34,7 +34,8 @@
     "wizaplace/php-coding-standard": "^1.1"
   },
   "suggest": {
-    "kphoen/sitemap-bundle": "To generate sitemaps"
+    "kphoen/sitemap-bundle": "To generate sitemaps",
+    "jms/i18n-routing-bundle": "To vary routes per language"
   },
   "config" : {
     "sort-packages": true
