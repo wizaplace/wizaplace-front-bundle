@@ -7,12 +7,16 @@
 
 ### New features
 
- - `\WizaplaceFrontBundle\Security\User` now forwards getter calls to `\Wizaplace\SDK\User\User` (no need to use `getWizaplaceUser` anymore)
- - the request's locale is now automatically set into the ApiClient, opening the way for multi-lang
-
 ### Bugfixes
 
 </details>
+
+## 0.2.20
+
+### New features
+
+ - `\WizaplaceFrontBundle\Security\User` now forwards getter calls to `\Wizaplace\SDK\User\User` (no need to use `getWizaplaceUser` anymore)
+ - the request's locale is now automatically set into the ApiClient, opening the way for multi-lang
 
 ## 0.2.19
 
