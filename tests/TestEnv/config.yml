@@ -2,7 +2,7 @@ imports:
     - { resource: security.yml }
 
 parameters:
-    locale: fr
+    locales: [ 'fr' ]
     recaptcha.key: 'dummy_key'
     api.base_url: 'http://wizaplace.loc/api/v1/'
     slug.regexp: !php/const:Wizaplace\SDK\Seo\SeoService::SLUG_REGEXP
@@ -12,7 +12,7 @@ framework:
     test: ~
     #esi: ~
     translator:
-        fallbacks: ["%locale%"]
+        fallbacks: '%locales%'
         paths: ["%kernel.project_dir%/var/translations"]
     secret: 'secret'
     router:
@@ -26,7 +26,7 @@ framework:
     #serializer: { enable_annotations: true }
     templating:
         engines: ['twig']
-    default_locale: '%locale%'
+    default_locale: 'fr'
     trusted_hosts: ~
     session:
         storage_id: session.storage.mock_file

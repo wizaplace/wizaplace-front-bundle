@@ -18,13 +18,13 @@ services:
     WizaplaceFrontBundle\Command\PushTranslationsCommand:
         arguments:
             $translatorBag: '@translator.default'
-            $locales: [ '%locale%' ]
+            $locales: '%locales%'
             $defaultLocale: '%kernel.default_locale%'
             $systemUserPassword: '%wizaplace.system_user_password%'
         public: true
     WizaplaceFrontBundle\Command\PullTranslationsCommand:
         arguments:
-            $locales: [ '%locale%' ]
+            $locales: '%locales%'
             $translationsDir: "%kernel.project_dir%/var/translations"
         public: true
     WizaplaceFrontBundle\Service\AuthenticationService:
