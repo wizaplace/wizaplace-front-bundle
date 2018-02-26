@@ -5,13 +5,17 @@
 
 ### BREAKING CHANGES
 
- - Instead of the `locale` parameter, we now expects a `locales` array parameter containing all available locales
-
 ### New features
 
 ### Bugfixes
 
 </details>
+
+## 0.3.0
+
+### BREAKING CHANGES
+
+ - Instead of the `locale` parameter, we now expects a `locales` array parameter containing all available locales
 
 ## 0.2.20
 
