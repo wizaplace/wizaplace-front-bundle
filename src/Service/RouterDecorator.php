@@ -82,7 +82,7 @@ class RouterDecorator implements RouterInterface
         }
 
         if (is_object($value) && method_exists($value, '__toString')) {
-            return $value->__toString();
+            return (string) $value;
         }
 
         return $value;

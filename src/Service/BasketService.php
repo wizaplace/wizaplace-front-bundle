@@ -209,7 +209,7 @@ class BasketService implements EventSubscriberInterface, LogoutHandlerInterface
     }
 
     /**
-     * @param $comments Comment[]
+     * @param Comment[] $comments
      * @throws \Wizaplace\SDK\Exception\NotFound
      * @throws \Wizaplace\SDK\Exception\SomeParametersAreInvalid
      */
