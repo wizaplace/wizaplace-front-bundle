@@ -236,6 +236,9 @@ class BasketService implements EventSubscriberInterface, LogoutHandlerInterface
 
             $currentBasketId = $this->getCurrentBasketId();
             if (null !== $currentBasketId) {
+                if ($currentBasketId === $userBasketId) {
+                    return; // can't merge a basket with itself
+                }
                 $this->baseService->mergeBaskets($userBasketId, $currentBasketId);
             }
 

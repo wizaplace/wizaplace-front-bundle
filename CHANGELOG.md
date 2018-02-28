@@ -9,6 +9,8 @@
 
 ### Bugfixes
 
+ - Fix a bug causing us to try to merge a basket with itself
+
 </details>
 
 ## 0.3.0
