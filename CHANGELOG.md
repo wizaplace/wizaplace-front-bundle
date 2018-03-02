@@ -7,6 +7,8 @@
 
 ### New features
 
+ - Add cache on `getCategoryTree` which avois loading the tree several times during one request
+
 ### Bugfixes
 
  - Fix a bug causing us to try to merge a basket with itself
