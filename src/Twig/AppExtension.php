@@ -7,6 +7,7 @@
 namespace WizaplaceFrontBundle\Twig;
 
 use Symfony\Component\Asset\Packages;
+use Symfony\Component\Translation\TranslatorInterface;
 use Wizaplace\SDK\Catalog\CatalogService;
 use Wizaplace\SDK\Cms\CmsService;
 use Wizaplace\SDK\Image\Image;
@@ -36,6 +37,8 @@ class AppExtension extends \Twig_Extension
     private $attributeVariantUrlGenerator;
     /** @var FavoriteService */
     private $favoriteService;
+    /** @var TranslatorInterface */
+    private $translator;
 
     public function __construct(
         CatalogService $catalogService,
@@ -46,7 +49,8 @@ class AppExtension extends \Twig_Extension
         Packages $assets,
         ProductUrlGenerator $productUrlGenerator,
         AttributeVariantUrlGenerator $attributeVariantUrlGenerator,
-        FavoriteService $favoriteService
+        FavoriteService $favoriteService,
+        TranslatorInterface $translator
     ) {
         $this->catalogService = $catalogService;
         $this->basketService = $basketService;
@@ -57,6 +61,7 @@ class AppExtension extends \Twig_Extension
         $this->productUrlGenerator = $productUrlGenerator;
         $this->attributeVariantUrlGenerator = $attributeVariantUrlGenerator;
         $this->favoriteService = $favoriteService;
+        $this->translator = $translator;
     }
 
     public function getFunctions()
@@ -115,7 +120,7 @@ class AppExtension extends \Twig_Extension
 
     public function formatPrice(float $price): string
     {
-        return number_format($price, 2, ',', ' ').'€';
+        return number_format($price, 2, ',', ' ').$this->translator->trans('currency');
     }
 
     /**
