@@ -7,6 +7,9 @@
 
 ### New features
 
+ - Update `\WizaplaceFrontBundle\Twig\AppExtension::formatPrice`. 
+ Now use the `currency` translation key instead of `€`.
+
 ### Bugfixes
 
  - Fix a bug causing us to try to merge a basket with itself
