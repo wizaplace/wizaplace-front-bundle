@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace WizaplaceFrontBundle\Service;
 
-use Symfony\Bridge\Twig\TwigEngine;
+use Symfony\Component\Templating\EngineInterface;
 use Wizaplace\SDK\Discussion\DiscussionService as BaseService;
 
 class ContactService
@@ -19,11 +19,11 @@ class ContactService
     private $discussionService;
 
     /**
-     * @var TwigEngine
+     * @var EngineInterface
      */
     private $twigEngine;
 
-    public function __construct(BaseService $baseService, TwigEngine $twigEngine)
+    public function __construct(BaseService $baseService, EngineInterface $twigEngine)
     {
         $this->discussionService = $baseService;
         $this->twigEngine = $twigEngine;
