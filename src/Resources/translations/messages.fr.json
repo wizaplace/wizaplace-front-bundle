@@ -102,5 +102,7 @@
     "add_to_basket": "ajouter au panier",
     "out_of_stock": "rupture de stock",
     "invalid_password_reset_token": "Lien de modification de mot de passe invalide.",
-    "currency": "€"
+    "wfb": {
+        "currency": "€"
+    }
 }
