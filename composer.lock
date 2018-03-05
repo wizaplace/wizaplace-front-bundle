@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ae0387251afe97af4d85d027273c62a0",
+    "content-hash": "49928f62fdc7bd7c1cae46754b9e8c86",
     "packages": [
         {
             "name": "clue/json-stream",
@@ -2128,16 +2128,16 @@
         },
         {
             "name": "wizaplace/sdk",
-            "version": "v1.14.0",
+            "version": "v1.15.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wizaplace/wizaplace-php-sdk.git",
-                "reference": "f003c9c567744b2818c761fc6642a618b81733ac"
+                "reference": "a4585dec0fd418d37f248e165f53fe7d470f96ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wizaplace/wizaplace-php-sdk/zipball/f003c9c567744b2818c761fc6642a618b81733ac",
-                "reference": "f003c9c567744b2818c761fc6642a618b81733ac",
+                "url": "https://api.github.com/repos/wizaplace/wizaplace-php-sdk/zipball/a4585dec0fd418d37f248e165f53fe7d470f96ef",
+                "reference": "a4585dec0fd418d37f248e165f53fe7d470f96ef",
                 "shasum": ""
             },
             "require": {
@@ -2175,7 +2175,7 @@
                 "proprietary"
             ],
             "description": "Wizaplace's PHP SDK",
-            "time": "2018-02-13T10:19:42+00:00"
+            "time": "2018-02-27T13:43:13+00:00"
         }
     ],
     "packages-dev": [
