@@ -9,6 +9,7 @@
 
  - Make `\WizaplaceFrontBundle\Twig\AppExtension::formatPrice` use the `currency` translation key instead of `€`.
  - Upgrade SDK to v1.15.1
+ - Added `\WizaplaceFrontBundle\Service\JsonSearchService`
 
 ### Bugfixes
 
