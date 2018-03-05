@@ -7,8 +7,7 @@
 
 ### New features
 
- - Update `\WizaplaceFrontBundle\Twig\AppExtension::formatPrice`. 
- Now use the `wfb.currency` translation key instead of `€`.
+ - Make `\WizaplaceFrontBundle\Twig\AppExtension::formatPrice` use the `currency` translation key instead of `€`.
 
 ### Bugfixes
 
