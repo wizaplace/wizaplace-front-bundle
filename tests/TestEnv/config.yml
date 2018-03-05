@@ -72,6 +72,7 @@ services:
             - ['setMode', [!php/const:VCR\VCR::MODE_ONCE]]
     WizaplaceFrontBundle\Tests\TestEnv\Service\VcrGuzzleMiddleware:
     test.WizaplaceFrontBundle\Service\BasketService: '@WizaplaceFrontBundle\Service\BasketService'
+    test.WizaplaceFrontBundle\Service\JsonSearchService: '@WizaplaceFrontBundle\Service\JsonSearchService'
     test.WizaplaceFrontBundle\Service\DeclinationService: '@WizaplaceFrontBundle\Service\DeclinationService'
     test.WizaplaceFrontBundle\Service\SitemapGenerator:
         alias: 'WizaplaceFrontBundle\Service\SitemapGenerator'
