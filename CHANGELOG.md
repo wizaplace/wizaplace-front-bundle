@@ -7,6 +7,8 @@
 
 ### New features
 
+ - Upgrade SDK to v1.15.1
+
 ### Bugfixes
 
  - Fix a bug causing us to try to merge a basket with itself
