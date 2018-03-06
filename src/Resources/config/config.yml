@@ -123,9 +123,9 @@ services:
         public: true
     WizaplaceFrontBundle\Service\ContactService:
         public: true
-    WizaplaceFrontBundle\Service\CategoryTreeCacheWrapper:
+    WizaplaceFrontBundle\Service\CategoryTreeCacheDecorator:
         decorates: 'Wizaplace\SDK\Catalog\CatalogServiceInterface'
-        arguments: ['@WizaplaceFrontBundle\Service\CategoryTreeCacheWrapper.inner']
+        arguments: ['@WizaplaceFrontBundle\Service\CategoryTreeCacheDecorator.inner']
     WizaplaceFrontBundle\Twig\AppExtension:
         arguments:
             $recaptchaKey: '%recaptcha.key%'

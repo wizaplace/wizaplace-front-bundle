@@ -9,7 +9,7 @@ namespace WizaplaceFrontBundle\Service;
 
 use Wizaplace\SDK\Catalog\AbstractCatalogServiceDecorator;
 
-class CategoryTreeCacheWrapper extends AbstractCatalogServiceDecorator
+class CategoryTreeCacheDecorator extends AbstractCatalogServiceDecorator
 {
     private $categoryTreeCache;
 
