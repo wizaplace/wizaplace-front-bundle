@@ -8,7 +8,7 @@ namespace WizaplaceFrontBundle\Twig;
 
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\Translation\TranslatorInterface;
-use Wizaplace\SDK\Catalog\CatalogService;
+use Wizaplace\SDK\Catalog\CatalogServiceInterface;
 use Wizaplace\SDK\Cms\CmsService;
 use Wizaplace\SDK\Image\Image;
 use Wizaplace\SDK\Image\ImageService;
@@ -19,7 +19,7 @@ use WizaplaceFrontBundle\Service\ProductUrlGenerator;
 
 class AppExtension extends \Twig_Extension
 {
-    /** @var CatalogService */
+    /** @var CatalogServiceInterface */
     private $catalogService;
     /** @var BasketService */
     private $basketService;
@@ -41,7 +41,7 @@ class AppExtension extends \Twig_Extension
     private $translator;
 
     public function __construct(
-        CatalogService $catalogService,
+        CatalogServiceInterface $catalogService,
         BasketService $basketService,
         ImageService $imageService,
         CmsService $cmsService,
@@ -105,9 +105,6 @@ class AppExtension extends \Twig_Extension
         return (string) $this->imageService->getImageLink($imageId, $width, $height);
     }
 
-    /**
-     * @throws \Psr\Cache\InvalidArgumentException
-     */
     public function getCategoryTree():array
     {
         return $this->catalogService->getCategoryTree();

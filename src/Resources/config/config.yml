@@ -91,6 +91,8 @@ services:
         public: true
     Wizaplace\SDK\Catalog\CatalogService:
         public: true
+    Wizaplace\SDK\Catalog\CatalogServiceInterface:
+        alias: 'Wizaplace\SDK\Catalog\CatalogService'
     Wizaplace\SDK\Catalog\Review\ReviewService:
         public: true
     Wizaplace\SDK\Basket\BasketService:
@@ -121,6 +123,9 @@ services:
         public: true
     WizaplaceFrontBundle\Service\ContactService:
         public: true
+    WizaplaceFrontBundle\Service\CategoryTreeCacheDecorator:
+        decorates: 'Wizaplace\SDK\Catalog\CatalogServiceInterface'
+        arguments: ['@WizaplaceFrontBundle\Service\CategoryTreeCacheDecorator.inner']
     WizaplaceFrontBundle\Twig\AppExtension:
         arguments:
             $recaptchaKey: '%recaptcha.key%'

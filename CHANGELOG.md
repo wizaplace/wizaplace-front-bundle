@@ -7,6 +7,8 @@
 
 ### New features
 
+ - Add cache on `getCategoryTree` which avoids loading the tree several times during a single request
+
 ### Bugfixes
 
 </details>
