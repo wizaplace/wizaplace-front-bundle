@@ -129,6 +129,8 @@ services:
     WizaplaceFrontBundle\Twig\AppExtension:
         arguments:
             $recaptchaKey: '%recaptcha.key%'
+    Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface: '@session.flash_bag'
+    Symfony\Component\Translation\Dumper\XliffFileDumper: '@translation.dumper.xliff'
 
 parameters:
     api.connect_timeout: 3

@@ -11,9 +11,19 @@
 
 ### Bugfixes
 
- - Fix a bug causing us to try to merge a basket with itself
-
 </details>
+
+## 0.3.1
+
+### New features
+
+ - Make `\WizaplaceFrontBundle\Twig\AppExtension::formatPrice` use the `currency` translation key instead of `€`.
+ - Upgrade SDK to v1.15.1
+ - Added `\WizaplaceFrontBundle\Service\JsonSearchService`
+
+### Bugfixes
+
+ - Fix a bug causing us to try to merge a basket with itself
 
 ## 0.3.0
 
