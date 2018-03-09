@@ -136,3 +136,4 @@ parameters:
     api.connect_timeout: 3
     api.read_timeout: 5
     api.timeout: 5
+    locales: ['%kernel.default_locale%']
