@@ -17,6 +17,7 @@
 
  - Add cache on `getCategoryTree` which avoids loading the tree several times during a single request
  - Set `%locales%` default value to `%kernel.default_locale%`, facilitating the transition from version 0.2.* to >=0.3.0
+ - Add `\WizaplaceFrontBundle\Command\WarmCategoryTreeCommand`
 
 ## 0.3.1
 
