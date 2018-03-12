@@ -117,7 +117,7 @@ class AppExtension extends \Twig_Extension
 
     public function formatPrice(float $price): string
     {
-        return number_format($price, 2, ',', ' ').$this->translator->trans('currency');
+        return number_format($price, 2, ',', ' ').$this->translator->trans('price.currency');
     }
 
     /**

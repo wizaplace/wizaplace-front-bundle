@@ -11,6 +11,10 @@
 
 </details>
 
+## 0.3.3
+
+ - Use `price.currency` translation key instead of just `currency`
+
 ## 0.3.2
 
 ### New features
