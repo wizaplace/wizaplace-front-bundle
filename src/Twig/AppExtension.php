@@ -82,7 +82,7 @@ class AppExtension extends \Twig_Extension
         return [
             new \Twig_SimpleFilter('imageUrl', [$this, 'imageUrl']),
             new \Twig_SimpleFilter('productUrl', [$this->productUrlGenerator, 'generateProductUrl']),
-            new \Twig_SimpleFilter('price', [$this, 'formatPrice']),
+            new \Twig_SimpleFilter('price', [$this, 'formatPrice'], array('is_safe' => array('html'))),
             new \Twig_SimpleFilter('brand', [$this->catalogService, 'getBrand']),
             new \Twig_SimpleFilter('brandUrl', [$this->attributeVariantUrlGenerator, 'generateAttributeVariantUrl']),
         ];
