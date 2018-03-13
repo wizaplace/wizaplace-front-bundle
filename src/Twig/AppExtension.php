@@ -119,7 +119,8 @@ class AppExtension extends \Twig_Extension
     {
         $formattedPrice = number_format($price, 2);
         $integerPart = floor($formattedPrice);
-        $decimalPart = $formattedPrice - $integerPart;
+        $decimalPart = ($formattedPrice - $integerPart) !== 0 ? $formattedPrice - $integerPart : '';
+
 
         return '<span class="price__integer-part">'.$integerPart.'</span>'.'<span class="price__delimiter">'.$this->translator->trans('price.delimiter').'</span>'.'<span class="price__decimal-part">'.$decimalPart.'</span>'.'<span class="price__currency">'.$this->translator->trans('price.currency').'</span>';
     }
