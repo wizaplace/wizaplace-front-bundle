@@ -19,6 +19,9 @@ class AppExtensionTest extends BundleTestCase
         // check edge case 0
         $this->assertSame('<span class="price__integer-part">0</span><span class="price__delimiter">,</span><span class="price__decimal-part">00</span><span class="price__currency"> €</span>', $extension->formatPrice(0.));
 
+        // check edge case negative
+        $this->assertSame('<span class="price__integer-part">-1</span><span class="price__delimiter">,</span><span class="price__decimal-part">00</span><span class="price__currency"> €</span>', $extension->formatPrice(-1));
+
         // check standard case 1
         $this->assertSame('<span class="price__integer-part">1</span><span class="price__delimiter">,</span><span class="price__decimal-part">00</span><span class="price__currency"> €</span>', $extension->formatPrice(1.));
 
