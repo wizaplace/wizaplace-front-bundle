@@ -117,11 +117,8 @@ class AppExtension extends \Twig_Extension
 
     public function formatPrice(float $price): string
     {
-        $formattedPrice = number_format($price, 2);
-        $explodedPrice = explode('.', $formattedPrice);
-        $integerPart = $explodedPrice[0];
-        $decimalPart = $explodedPrice[1] ?? '';
-
+        $formattedPrice = number_format($price, 2, '.');
+        [$integerPart, $decimalPart] = explode('.', $formattedPrice, 2);
 
         return '<span class="price__integer-part">'.$integerPart.'</span>'.'<span class="price__delimiter">'.$this->translator->trans('price.delimiter').'</span>'.'<span class="price__decimal-part">'.$decimalPart.'</span>'.'<span class="price__currency">'.$this->translator->trans('price.currency').'</span>';
     }
