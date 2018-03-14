@@ -77,3 +77,4 @@ services:
     test.WizaplaceFrontBundle\Service\SitemapGenerator:
         alias: 'WizaplaceFrontBundle\Service\SitemapGenerator'
         public: true
+    test.WizaplaceFrontBundle\Twig\AppExtension: '@WizaplaceFrontBundle\Twig\AppExtension'
