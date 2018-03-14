@@ -7,6 +7,8 @@
 
 ### New features
 
+ - Update `\WizaplaceFrontBundle\Twig\AppExtension::formatPrice`. It now returns spans and css classes in order to customize the price display.
+
 ### Bugfixes
 
 </details>

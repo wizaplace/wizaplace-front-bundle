@@ -82,7 +82,7 @@ class AppExtension extends \Twig_Extension
         return [
             new \Twig_SimpleFilter('imageUrl', [$this, 'imageUrl']),
             new \Twig_SimpleFilter('productUrl', [$this->productUrlGenerator, 'generateProductUrl']),
-            new \Twig_SimpleFilter('price', [$this, 'formatPrice']),
+            new \Twig_SimpleFilter('price', [$this, 'formatPrice'], array('is_safe' => array('html'))),
             new \Twig_SimpleFilter('brand', [$this->catalogService, 'getBrand']),
             new \Twig_SimpleFilter('brandUrl', [$this->attributeVariantUrlGenerator, 'generateAttributeVariantUrl']),
         ];
@@ -117,7 +117,14 @@ class AppExtension extends \Twig_Extension
 
     public function formatPrice(float $price): string
     {
-        return number_format($price, 2, ',', ' ').$this->translator->trans('price.currency');
+        $decimalSeparator = $this->translator->trans('price.decimal-delimiter');
+        $thousandsSeparator = $this->translator->trans('price.thousands-delimiter');
+        $currency = $this->translator->trans('price.currency');
+
+        $formattedPrice = number_format($price, 2, $decimalSeparator, $thousandsSeparator);
+        [$integerPart, $decimalPart] = explode($decimalSeparator, $formattedPrice, 2);
+
+        return '<span class="price__integer-part">'.$integerPart.'</span><span class="price__delimiter">'.$decimalSeparator.'</span><span class="price__decimal-part">'.$decimalPart.'</span><span class="price__currency">'.$currency.'</span>';
     }
 
     /**
