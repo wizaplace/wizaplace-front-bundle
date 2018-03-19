@@ -7,7 +7,7 @@
 
 ### New features
 
- - Upgrade SDK to v1.17.0
+ - Upgrade SDK to v1.18.0
 
 ### Bugfixes
 
