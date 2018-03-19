@@ -13,6 +13,7 @@ use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
 use Symfony\Component\Serializer\Normalizer\JsonSerializableNormalizer;
 use Symfony\Component\Serializer\Serializer;
 use Wizaplace\SDK\Catalog\CatalogService;
+use Wizaplace\SDK\Catalog\GeoFilter;
 use Wizaplace\SDK\Catalog\SearchResult;
 
 final class JsonSearchService
@@ -31,9 +32,15 @@ final class JsonSearchService
      * @see \Wizaplace\SDK\Catalog\CatalogService::search
      * @return string JSON-encoded \Wizaplace\SDK\Catalog\SearchResult
      */
-    public function search(string $query = '', array $filters = [], array $sorting = [], int $resultsPerPage = 12, int $page = 1): string
-    {
-        $result = $this->catalogService->search($query, $filters, $sorting, $resultsPerPage, $page);
+    public function search(
+        string $query = '',
+        array $filters = [],
+        array $sorting = [],
+        int $resultsPerPage = 12,
+        int $page = 1,
+        ?GeoFilter $geoFilter = null
+    ): string {
+        $result = $this->catalogService->search($query, $filters, $sorting, $resultsPerPage, $page, $geoFilter);
 
         return self::jsonEncodeSearchResult($result);
     }

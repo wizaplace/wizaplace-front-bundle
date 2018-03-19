@@ -8,6 +8,7 @@
 ### New features
 
  - Upgrade SDK to v1.18.0
+ - Add an optional GeoFilter parameter to `\WizaplaceFrontBundle\Service\JsonSearchService::search`
 
 ### Bugfixes
 
