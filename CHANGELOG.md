@@ -7,6 +7,8 @@
 
 ### New features
 
+- Upgrade to Symfony 3.4
+
 ### Bugfixes
 
 </details>

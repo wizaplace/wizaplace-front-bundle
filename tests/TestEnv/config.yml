@@ -5,7 +5,7 @@ parameters:
     locales: [ 'fr' ]
     recaptcha.key: 'dummy_key'
     api.base_url: 'http://wizaplace.loc/api/v1/'
-    slug.regexp: !php/const:Wizaplace\SDK\Seo\SeoService::SLUG_REGEXP
+    slug.regexp: !php/const Wizaplace\SDK\Seo\SeoService::SLUG_REGEXP
     wizaplace.system_user_password: 'FakeSecret'
 
 framework:
@@ -69,7 +69,7 @@ services:
         parent: twig.controller.exception
     VCR\Configuration:
         calls:
-            - ['setMode', [!php/const:VCR\VCR::MODE_ONCE]]
+            - ['setMode', [!php/const VCR\VCR::MODE_ONCE]]
     WizaplaceFrontBundle\Tests\TestEnv\Service\VcrGuzzleMiddleware:
     test.WizaplaceFrontBundle\Service\BasketService: '@WizaplaceFrontBundle\Service\BasketService'
     test.WizaplaceFrontBundle\Service\JsonSearchService: '@WizaplaceFrontBundle\Service\JsonSearchService'
