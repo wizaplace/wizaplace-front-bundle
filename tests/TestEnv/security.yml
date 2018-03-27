@@ -5,6 +5,7 @@ security:
 
     firewalls:
         main:
+            logout_on_user_change: true
             anonymous: ~
             simple_form:
                 authenticator: WizaplaceFrontBundle\Security\FormAuthenticator
