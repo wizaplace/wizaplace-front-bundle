@@ -31,7 +31,7 @@ class PushAndPullTranslationsCommandTest extends BundleTestCase
 
         $application->add(new PushTranslationsCommand(
             $translatorBag,
-            static::$kernel->getContainer()->get('translation.dumper.xliff'),
+            static::$kernel->getContainer()->get('test.translation.dumper.xliff'),
             static::$kernel->getContainer()->get(TranslationService::class),
             static::$kernel->getContainer()->get(AuthenticationService::class),
             [ 'fr' ],
@@ -57,7 +57,7 @@ class PushAndPullTranslationsCommandTest extends BundleTestCase
         $commandTester->execute(['command'  => $pullCommand->getName()]);
 
         $this->assertFileExists($translationsDir.'/messages.fr.xliff');
-        $pulledCatalog = static::$kernel->getContainer()->get('translation.loader.xliff')->load($translationsDir.'/messages.fr.xliff', 'fr');
+        $pulledCatalog = static::$kernel->getContainer()->get('test.translation.loader.xliff')->load($translationsDir.'/messages.fr.xliff', 'fr');
         $this->assertCount(0, $pulledCatalog->all());
     }
 
@@ -80,7 +80,7 @@ class PushAndPullTranslationsCommandTest extends BundleTestCase
 
         $application->add(new PushTranslationsCommand(
             $translatorBag,
-            static::$kernel->getContainer()->get('translation.dumper.xliff'),
+            static::$kernel->getContainer()->get('test.translation.dumper.xliff'),
             static::$kernel->getContainer()->get(TranslationService::class),
             static::$kernel->getContainer()->get(AuthenticationService::class),
             [ 'fr', 'en' ],
@@ -106,7 +106,7 @@ class PushAndPullTranslationsCommandTest extends BundleTestCase
         $commandTester->execute(['command'  => $pullCommand->getName()]);
 
         $this->assertFileExists($translationsDir.'/messages.fr.xliff');
-        $pulledFrCatalog = static::$kernel->getContainer()->get('translation.loader.xliff')->load($translationsDir.'/messages.fr.xliff', 'fr');
+        $pulledFrCatalog = static::$kernel->getContainer()->get('test.translation.loader.xliff')->load($translationsDir.'/messages.fr.xliff', 'fr');
         $this->assertSame([
             'messages' =>
             [
@@ -116,7 +116,7 @@ class PushAndPullTranslationsCommandTest extends BundleTestCase
         ], $pulledFrCatalog->all());
 
         $this->assertFileExists($translationsDir.'/messages.en.xliff');
-        $pulledEnCatalog = static::$kernel->getContainer()->get('translation.loader.xliff')->load($translationsDir.'/messages.en.xliff', 'en');
+        $pulledEnCatalog = static::$kernel->getContainer()->get('test.translation.loader.xliff')->load($translationsDir.'/messages.en.xliff', 'en');
         $this->assertSame([
             'messages' =>
             [
