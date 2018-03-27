@@ -80,7 +80,7 @@ class PushAndPullTranslationsCommandTest extends BundleTestCase
 
         $application->add(new PushTranslationsCommand(
             $translatorBag,
-            static::$kernel->getContainer()->get('translation.dumper.xliff'),
+            static::$kernel->getContainer()->get('test.translation.dumper.xliff'),
             static::$kernel->getContainer()->get(TranslationService::class),
             static::$kernel->getContainer()->get(AuthenticationService::class),
             [ 'fr', 'en' ],
