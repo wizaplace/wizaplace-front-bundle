@@ -13,6 +13,12 @@
 
 </details>
 
+## 0.4.0
+
+### New features
+
+ - Upgrade to Symfony 3.4
+
 ## 0.3.5
 
 ### New features
