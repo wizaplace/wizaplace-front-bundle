@@ -78,3 +78,5 @@ services:
         alias: 'WizaplaceFrontBundle\Service\SitemapGenerator'
         public: true
     test.WizaplaceFrontBundle\Twig\AppExtension: '@WizaplaceFrontBundle\Twig\AppExtension'
+    test.translation.dumper.xliff: '@translation.dumper.xliff'
+    test.translation.loader.xliff: '@translation.loader.xliff'
