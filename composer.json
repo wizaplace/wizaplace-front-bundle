@@ -7,7 +7,7 @@
     "kevinrob/guzzle-cache-middleware": "^3.2",
     "roave/security-advisories": "@dev",
     "symfony/monolog-bundle": "^3.1",
-    "symfony/symfony": "^3.3",
+    "symfony/symfony": "^3.4.6",
     "twig/twig": "^2.4",
     "wizaplace/sdk": "^1.18.0"
   },
