@@ -7,11 +7,17 @@
 
 ### New features
 
-- Upgrade to Symfony 3.4
-
 ### Bugfixes
 
 </details>
+
+## 0.4.1
+
+### New features
+
+- `\WizaplaceFrontBundle\Service\BasketService::addCoupon` now throws detailed exceptions
+- `\WizaplaceFrontBundle\Service\BasketService::checkout` now throws detailed exceptions
+- Upgrade SDK to v1.19.0
 
 ## 0.4.0
 
