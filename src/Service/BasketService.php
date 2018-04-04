@@ -134,8 +134,9 @@ class BasketService implements EventSubscriberInterface, LogoutHandlerInterface
     }
 
     /**
-     * @throws \Wizaplace\SDK\Basket\Exception\CouponAlreadyPresent
-     * @throws \Wizaplace\SDK\Exception\NotFound
+     * @throws \Wizaplace\SDK\Exception\BasketNotFound
+     * @throws \Wizaplace\SDK\Exception\CouponCodeAlreadyApplied
+     * @throws \Wizaplace\SDK\Exception\CouponCodeDoesNotApply
      */
     public function addCoupon(string $coupon): void
     {
@@ -180,7 +181,8 @@ class BasketService implements EventSubscriberInterface, LogoutHandlerInterface
 
     /**
      * @throws AuthenticationRequired
-     * @throws \Wizaplace\SDK\Exception\NotFound
+     * @throws \Wizaplace\SDK\Exception\BasketIsEmpty
+     * @throws \Wizaplace\SDK\Exception\BasketNotFound
      * @throws \Wizaplace\SDK\Exception\SomeParametersAreInvalid
      */
     public function checkout(int $paymentId, bool $acceptTerms, string $redirectUrl): PaymentInformation
@@ -270,6 +272,9 @@ class BasketService implements EventSubscriberInterface, LogoutHandlerInterface
         $this->forgetBasket();
     }
 
+    /**
+     * @throws \Wizaplace\SDK\Exception\SomeParametersAreInvalid
+     */
     public function setPickupPoint(SetPickupPointCommand $command): void
     {
         $command->setBasketId($this->getBasketId());
