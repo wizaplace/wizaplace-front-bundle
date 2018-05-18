@@ -89,6 +89,10 @@ services:
     Wizaplace\SDK\ApiClient:
         arguments: ['@wizaplace.http.client']
         public: true
+        calls:
+            -
+              method: setApplicationToken
+              arguments: ['%wizaplace.application_token%']
     Wizaplace\SDK\Catalog\CatalogService:
         public: true
     Wizaplace\SDK\Catalog\CatalogServiceInterface:
@@ -137,3 +141,4 @@ parameters:
     api.read_timeout: 5
     api.timeout: 5
     locales: ['%kernel.default_locale%']
+    wizaplace.application_token: ~

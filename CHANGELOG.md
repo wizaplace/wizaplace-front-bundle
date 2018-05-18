@@ -7,7 +7,8 @@
 
 ### New features
 
-- Upgrade SDK to v1.24.0
+ - Upgrade SDK to v1.24.0
+ - Add application token support via `%wizaplace.application_token%` Symfony parameter
 
 ### Bugfixes
 
@@ -17,9 +18,9 @@
 
 ### New features
 
-- `\WizaplaceFrontBundle\Service\BasketService::addCoupon` now throws detailed exceptions
-- `\WizaplaceFrontBundle\Service\BasketService::checkout` now throws detailed exceptions
-- Upgrade SDK to v1.19.0
+ - `\WizaplaceFrontBundle\Service\BasketService::addCoupon` now throws detailed exceptions
+ - `\WizaplaceFrontBundle\Service\BasketService::checkout` now throws detailed exceptions
+ - Upgrade SDK to v1.19.0
 
 ## 0.4.0
 
