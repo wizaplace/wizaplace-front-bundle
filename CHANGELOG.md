@@ -5,14 +5,16 @@
 
 ### BREAKING CHANGES
 
+### Bugfixes
+
+</details>
+
+## 0.4.2
+
 ### New features
 
  - Upgrade SDK to v1.24.0
  - Add application token support via `%wizaplace.application_token%` Symfony parameter
-
-### Bugfixes
-
-</details>
 
 ## 0.4.1
 
