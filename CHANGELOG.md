@@ -7,6 +7,8 @@
 
 ### New features
 
+- Upgrade SDK to v1.24.0
+
 ### Bugfixes
 
 </details>

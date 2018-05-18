@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4d03983b0fdd89a5a9d02b8609485e5b",
+    "content-hash": "ec601aae92bceaf7983d6b0eb765193f",
     "packages": [
         {
             "name": "clue/json-stream",
@@ -2143,16 +2143,16 @@
         },
         {
             "name": "wizaplace/sdk",
-            "version": "v1.19.0",
+            "version": "v1.24.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wizaplace/wizaplace-php-sdk.git",
-                "reference": "dacd41beb2ba96fcebbcdc5f0a04e99106fe4371"
+                "reference": "7564ee62f2a224e4346ea7df49585723ac9efadd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wizaplace/wizaplace-php-sdk/zipball/dacd41beb2ba96fcebbcdc5f0a04e99106fe4371",
-                "reference": "dacd41beb2ba96fcebbcdc5f0a04e99106fe4371",
+                "url": "https://api.github.com/repos/wizaplace/wizaplace-php-sdk/zipball/7564ee62f2a224e4346ea7df49585723ac9efadd",
+                "reference": "7564ee62f2a224e4346ea7df49585723ac9efadd",
                 "shasum": ""
             },
             "require": {
@@ -2190,7 +2190,7 @@
                 "proprietary"
             ],
             "description": "Wizaplace's PHP SDK",
-            "time": "2018-03-21T15:58:34+00:00"
+            "time": "2018-05-18T12:54:40+00:00"
         }
     ],
     "packages-dev": [
