@@ -26,7 +26,7 @@ services:
         arguments:
             $locales: '%locales%'
             $translationsDir: "%kernel.project_dir%/var/translations"
-            $cacheDir: "%kernel.cache_dir/translations%"
+            $cacheDir: "%kernel.cache_dir%/translations"
         public: true
     WizaplaceFrontBundle\Service\AuthenticationService:
         public: true
