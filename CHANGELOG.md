@@ -5,13 +5,15 @@
 
 ### New features
 
- - Improve translations pull
-
 ### BREAKING CHANGES
 
 ### Bugfixes
 
 </details>
+
+## 0.4.3
+
+ - Improve translations pull (automated cache clear)
 
 ## 0.4.2
 
