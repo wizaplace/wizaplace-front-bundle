@@ -95,6 +95,9 @@ class PullTranslationsCommand extends Command
             return;
         }
 
+        if (!file_exists($this->cacheDir)) {
+            return;
+        }
         $finder = new Finder();
         $finder
             ->files()
