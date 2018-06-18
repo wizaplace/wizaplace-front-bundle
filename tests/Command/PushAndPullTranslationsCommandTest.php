@@ -39,11 +39,13 @@ class PushAndPullTranslationsCommandTest extends BundleTestCase
             static::$kernel->getContainer()->getParameter('wizaplace.system_user_password')
         ));
         $translationsDir = dirname(stream_get_meta_data(tmpfile())['uri']);
+        $cacheDir = static::$kernel->getCacheDir().'/translations';
         $application->add(new PullTranslationsCommand(
             static::$kernel->getContainer()->get(TranslationService::class),
             static::$kernel->getContainer()->get(AuthenticationService::class),
             [ 'fr' ],
-            $translationsDir
+            $translationsDir,
+            $cacheDir
         ));
 
         $pushCommand = $application->find('wizaplace:translations:push');
@@ -88,11 +90,13 @@ class PushAndPullTranslationsCommandTest extends BundleTestCase
             static::$kernel->getContainer()->getParameter('wizaplace.system_user_password')
         ));
         $translationsDir = dirname(stream_get_meta_data(tmpfile())['uri']);
+        $cacheDir = static::$kernel->getCacheDir().'/translations';
         $application->add(new PullTranslationsCommand(
             static::$kernel->getContainer()->get(TranslationService::class),
             static::$kernel->getContainer()->get(AuthenticationService::class),
             [ 'fr', 'en' ],
-            $translationsDir
+            $translationsDir,
+            $cacheDir
         ));
 
         $pushCommand = $application->find('wizaplace:translations:push');

@@ -3,6 +3,10 @@
 <details>
 <summary>Unreleased</summary>
 
+### New features
+
+ - Improve translations pull
+
 ### BREAKING CHANGES
 
 ### Bugfixes
