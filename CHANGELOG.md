@@ -11,6 +11,11 @@
 
 </details>
 
+## 0.4.4
+
+ - Added `WizaplaceFrontBundle\Controller\OauthController`
+ - Added `WizaplaceFrontBundle\Security\LoginManager`
+ 
 ## 0.4.3
 
  - Improve translations pull (automated cache clear)

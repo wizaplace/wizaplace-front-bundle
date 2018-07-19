@@ -42,7 +42,6 @@ class OauthController extends Controller
     public function loginAction(Request $request): Response
     {
         if ($request->query->has('code')) {
-
             $apiKey = $this->apiClient->oauthAuthenticate($request->query->get('code'));
 
             $this->loginManager->logInUser(
