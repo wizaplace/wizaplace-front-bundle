@@ -14,6 +14,17 @@ login_form:
     defaults: { _controller: WizaplaceFrontBundle:Auth:login }
     methods: [GET]
 
+oauth:
+    path: /oauth
+    defaults: { _controller: WizaplaceFrontBundle:Oauth:login }
+    methods: [GET]
+
+oauth_authorize:
+    path: /oauth-authorize
+    defaults: { _controller: WizaplaceFrontBundle:Oauth:authorize }
+    methods: [GET]
+
+
 logout: # see security.yml
     path: /logout
     methods: [GET]
