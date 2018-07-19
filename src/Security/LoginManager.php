@@ -52,7 +52,7 @@ class LoginManager
         $this->successHandler = $successHandler;
     }
 
-    final public function logInUser($firewallName, UserInterface $user): void
+    final public function logInUser(string $firewallName, UserInterface $user): void
     {
         $this->userChecker->checkPreAuth($user);
 
