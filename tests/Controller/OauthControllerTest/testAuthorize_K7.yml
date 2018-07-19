@@ -1,0 +1,24 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/user/oauth/authorize-url'
+        headers:
+            Host: wizaplace.loc
+            Accept-Language: fr
+            VCR-index: '0'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Thu, 19 Jul 2018 08:05:32 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: fd2a94
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fd2a94'
+            Content-Length: '329'
+            Content-Type: application/json
+        body: '{"url":"https:\/\/secure-auth.preprod.moovapps.com\/edfutur-team\/auth\/oauth2\/authorize?response_type=code\u0026scope=openid\u0026state=66767492-3875-4106-a895-be83093b55cc\u0026nonce=06bea1e9-6a6e-4c14-a6be-73f18a80f11a\u0026client_id=40eab3fc-57c2-4003-aa9e-e31974dbbe4d\u0026redirect_uri=http%3A%2F%2Fwizaplace.loc%2Foauth"}'
