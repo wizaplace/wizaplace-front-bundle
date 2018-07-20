@@ -55,6 +55,10 @@ class OauthController extends Controller
 
     public function authorizeAction(): RedirectResponse
     {
-        return new RedirectResponse($this->apiClient->getOAuthAuthorizationUrl());
+        if (!$this->getUser()) {
+            return new RedirectResponse($this->apiClient->getOAuthAuthorizationUrl());
+        }
+
+        return new RedirectResponse($this->generateUrl('home'));
     }
 }
