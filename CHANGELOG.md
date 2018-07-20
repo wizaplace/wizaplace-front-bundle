@@ -9,7 +9,14 @@
 
 ### Bugfixes
 
+
 </details>
+
+## 0.4.5
+
+### Bugfixes
+
+ - Fix oauth connection bug if the user already logged in
 
 ## 0.4.4
 
