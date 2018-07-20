@@ -13,6 +13,8 @@
 
 ## 0.4.4
 
+### New features
+
  - Added `WizaplaceFrontBundle\Controller\OauthController`
  - Added `WizaplaceFrontBundle\Security\LoginManager`
  
