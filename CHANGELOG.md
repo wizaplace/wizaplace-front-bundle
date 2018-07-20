@@ -9,7 +9,6 @@
 
 ### Bugfixes
 
-
 </details>
 
 ## 0.4.5
