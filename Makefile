@@ -33,7 +33,7 @@ stan:
 	./vendor/bin/phpstan analyse -c phpstan.neon -l 5 src
 
 stan-ci:
-	./vendor/bin/phpstan --no-interaction --no-progress analyse --errorFormat=checkstyle -c phpstan.neon -l 5 src tests > phpstan-checkstyle.xml
+	./vendor/bin/phpstan --no-interaction --no-progress analyse --error-format=checkstyle -c phpstan.neon -l 5 src > phpstan-checkstyle.xml
 
 test: test-phpunit
 
