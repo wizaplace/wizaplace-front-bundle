@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ec601aae92bceaf7983d6b0eb765193f",
+    "content-hash": "4065d073dae1a291e3c519fb82825d7d",
     "packages": [
         {
             "name": "clue/json-stream",
@@ -2457,74 +2457,17 @@
             "time": "2017-11-09T12:15:48+00:00"
         },
         {
-            "name": "kphoen/sitemap-bundle",
-            "version": "2.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sitemap-php/KPhoenSitemapBundle.git",
-                "reference": "1853d178fd3ab9dd7cf1b332da95b411b78e0e12"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sitemap-php/KPhoenSitemapBundle/zipball/1853d178fd3ab9dd7cf1b332da95b411b78e0e12",
-                "reference": "1853d178fd3ab9dd7cf1b332da95b411b78e0e12",
-                "shasum": ""
-            },
-            "require": {
-                "kphoen/sitemap-generator": "^1.0",
-                "php": ">=7.0",
-                "symfony/console": "^2.8|^3.0|^4.0 ",
-                "symfony/framework-bundle": "^2.8|^3.0|^4.0 "
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^6.4",
-                "symfony/browser-kit": "^2.8|^3.0|^4.0 ",
-                "symfony/translation": "^2.8|^3.0|^4.0 ",
-                "symfony/validator": "^2.8|^3.0|^4.0 ",
-                "symfony/yaml": "^2.8|^3.0|^4.0 "
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "KPhoen\\SitemapBundle\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Kévin Gomez",
-                    "email": "contact@kevingomez.fr",
-                    "homepage": "http://www.kevingomez.fr/"
-                }
-            ],
-            "description": "Provides a way to create/generate a sitemap using Doctrine, etc.",
-            "keywords": [
-                "Sitemap",
-                "command",
-                "seo"
-            ],
-            "time": "2017-11-25T13:29:40+00:00"
-        },
-        {
             "name": "kphoen/sitemap-generator",
-            "version": "1.4.0",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sitemap-php/SitemapGenerator.git",
-                "reference": "42b9f0f6bfe737546583397d30a9be3f0712d5a5"
+                "reference": "8f74f3b7fcc3ddd0b94034a87c11d2fe220c5835"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sitemap-php/SitemapGenerator/zipball/42b9f0f6bfe737546583397d30a9be3f0712d5a5",
-                "reference": "42b9f0f6bfe737546583397d30a9be3f0712d5a5",
+                "url": "https://api.github.com/repos/sitemap-php/SitemapGenerator/zipball/8f74f3b7fcc3ddd0b94034a87c11d2fe220c5835",
+                "reference": "8f74f3b7fcc3ddd0b94034a87c11d2fe220c5835",
                 "shasum": ""
             },
             "require-dev": {
@@ -2556,7 +2499,7 @@
                 "generator",
                 "seo"
             ],
-            "time": "2015-01-12T20:03:33+00:00"
+            "time": "2018-01-22T22:56:23+00:00"
         },
         {
             "name": "lookyman/phpstan-symfony",
@@ -2606,6 +2549,7 @@
                 "PHPStan",
                 "symfony"
             ],
+            "abandoned": "phpstan/phpstan-symfony",
             "time": "2018-01-18T10:20:29+00:00"
         },
         {
