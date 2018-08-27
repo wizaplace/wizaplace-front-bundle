@@ -7,3 +7,15 @@ services:
             $locales: '%locales%'
         tags:
             - { name: sitemap.provider }
+
+    sitemap_richxml_formatter:
+        class: SitemapGenerator\Formatter\RichXmlFormatter
+
+    sitemap:
+        class: SitemapGenerator\Sitemap\Sitemap
+        arguments:
+            - "@sitemap_gz_dumper"
+            - "@sitemap_richxml_formatter"
+            - "%sitemap.config.base_host%"
+            - "%sitemap.config.base_host_sitemap%"
+            - "%sitemap.config.limit%"
