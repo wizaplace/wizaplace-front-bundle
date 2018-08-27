@@ -16,7 +16,6 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 class GenerateSitemapCommand extends ContainerAwareCommand
 {
     private $sitemap;
-    private $locales;
 
     public function __construct(Sitemap $sitemap)
     {
