@@ -8,6 +8,10 @@ services:
         tags:
             - { name: sitemap.provider }
 
+    sitemap_gz_dumper:
+        class: SitemapGenerator\Dumper\GzFileDumper
+        arguments: [ "%kernel.root_dir%/../web/sitemap.xml.gz" ]
+
     sitemap_richxml_formatter:
         class: SitemapGenerator\Formatter\RichXmlFormatter
 
@@ -16,6 +20,3 @@ services:
         arguments:
             - "@sitemap_gz_dumper"
             - "@sitemap_richxml_formatter"
-            - "%sitemap.config.base_host%"
-            - "%sitemap.config.base_host_sitemap%"
-            - "%sitemap.config.limit%"
