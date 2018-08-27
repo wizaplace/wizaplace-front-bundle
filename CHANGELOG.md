@@ -5,6 +5,9 @@
 
 ### New features
 
+- Handles multilang sitemap
+- Added command `wizaplace:sitemap:generate` which replaces `sitemap:generate` and uses service dependency injection instead of the container object
+
 ### BREAKING CHANGES
 
 ### Bugfixes
@@ -23,7 +26,7 @@
 
  - Added `WizaplaceFrontBundle\Controller\OauthController`
  - Added `WizaplaceFrontBundle\Security\LoginManager`
- 
+
 ## 0.4.3
 
  - Improve translations pull (automated cache clear)
