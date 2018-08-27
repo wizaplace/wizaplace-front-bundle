@@ -31,7 +31,7 @@ class GenerateSitemapCommand extends ContainerAwareCommand
     {
         $this
             ->setDescription('Generate the sitemap')
-            ->setName('wizaplace:sitemap:generate');
+            ->setName('sitemap:generate');
     }
 
     /**
