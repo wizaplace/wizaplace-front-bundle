@@ -2,5 +2,8 @@ services:
     WizaplaceFrontBundle\Service\SitemapGenerator:
         public: false
         autowire: true
+        arguments:
+            $defaultLocale: '%kernel.default_locale%'
+            $locales: '%locales%'
         tags:
             - { name: sitemap.provider }
