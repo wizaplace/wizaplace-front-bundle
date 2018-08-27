@@ -6,9 +6,10 @@
 ### New features
 
 - Handles multilang sitemap
-- Added command `wizaplace:sitemap:generate` which replaces `sitemap:generate` and uses service dependency injection instead of the container object
 
 ### BREAKING CHANGES
+
+- This bundle now depends on `kphoen/sitemap-generator` for sitemap generation instead of `kphoen/sitemap-bundle`
 
 ### Bugfixes
 
