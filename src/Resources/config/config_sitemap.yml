@@ -15,7 +15,7 @@ services:
     sitemap_richxml_formatter:
         class: SitemapGenerator\Formatter\RichXmlFormatter
 
-    sitemap:
+    sitemap_rich:
         class: SitemapGenerator\Sitemap\Sitemap
         arguments:
             - "@sitemap_gz_dumper"

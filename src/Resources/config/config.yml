@@ -29,6 +29,8 @@ services:
             $cacheDir: "%kernel.cache_dir%/translations"
         public: true
     WizaplaceFrontBundle\Command\GenerateSitemapCommand:
+        arguments:
+            $sitemap: '@sitemap_rich'
         public: true
     WizaplaceFrontBundle\Service\AuthenticationService:
         public: true
