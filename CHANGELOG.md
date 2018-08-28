@@ -5,15 +5,21 @@
 
 ### New features
 
+### BREAKING CHANGES
+
+### Bugfixes
+
+</details>
+
+## 0.5.0
+
+### New features
+
 - Handles multilang sitemap
 
 ### BREAKING CHANGES
 
 - This bundle now depends on `kphoen/sitemap-generator` for sitemap generation instead of `kphoen/sitemap-bundle`
-
-### Bugfixes
-
-</details>
 
 ## 0.4.5
 
