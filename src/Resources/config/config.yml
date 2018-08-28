@@ -28,6 +28,8 @@ services:
             $translationsDir: "%kernel.project_dir%/var/translations"
             $cacheDir: "%kernel.cache_dir%/translations"
         public: true
+    WizaplaceFrontBundle\Command\GenerateSitemapCommand:
+        public: true
     WizaplaceFrontBundle\Service\AuthenticationService:
         public: true
         arguments:

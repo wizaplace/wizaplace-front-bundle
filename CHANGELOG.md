@@ -5,7 +5,11 @@
 
 ### New features
 
+- Handles multilang sitemap
+
 ### BREAKING CHANGES
+
+- This bundle now depends on `kphoen/sitemap-generator` for sitemap generation instead of `kphoen/sitemap-bundle`
 
 ### Bugfixes
 
@@ -23,7 +27,7 @@
 
  - Added `WizaplaceFrontBundle\Controller\OauthController`
  - Added `WizaplaceFrontBundle\Security\LoginManager`
- 
+
 ## 0.4.3
 
  - Improve translations pull (automated cache clear)

@@ -9,7 +9,7 @@ namespace WizaplaceFrontBundle\Service;
 
 use Dpn\XmlSitemapBundle\Sitemap\Entry;
 use Dpn\XmlSitemapBundle\Sitemap\GeneratorInterface;
-use SitemapGenerator\Entity\Url;
+use SitemapGenerator\Entity\RichUrl;
 use SitemapGenerator\Provider\ProviderInterface;
 use SitemapGenerator\Sitemap\Sitemap;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -28,10 +28,24 @@ class SitemapGenerator implements ProviderInterface
     /** @var RouterInterface */
     private $router;
 
-    public function __construct(SeoService $seoService, RouterInterface $router)
+    /** @var string */
+    private $defaultLocale;
+
+    /** @var string[] */
+    private $alternateLocales;
+
+    public function __construct(SeoService $seoService, RouterInterface $router, string $defaultLocale, array $locales)
     {
         $this->seoService = $seoService;
         $this->router = $router;
+        $this->defaultLocale = $defaultLocale;
+
+        // On supprime la locale par défaut des langues alternatives
+        if (false !== $key = array_search($defaultLocale, $locales)) {
+            unset($locales[$key]);
+        }
+
+        $this->alternateLocales = $locales;
     }
 
     /**
@@ -55,8 +69,19 @@ class SitemapGenerator implements ProviderInterface
         $routeCollection = $this->router->getRouteCollection();
         foreach ($routeCollection as $routeName => $route) {
             if ($route->getOption(self::SITEMAP_ROUTE_OPTION_NAME)) {
-                $url = new Url();
-                $url->setLoc($this->router->generate($routeName, [], UrlGeneratorInterface::ABSOLUTE_PATH));
+                $url = new RichUrl();
+                $parameters = [];
+
+                if ($route->hasRequirement('_locale')) {
+                    $parameters['_locale'] = $this->defaultLocale;
+                }
+
+                $url->setLoc($this->router->generate($routeName, $parameters, UrlGeneratorInterface::ABSOLUTE_URL));
+
+                foreach ($this->alternateLocales as $locale) {
+                    $url->addAlternateUrl($locale, $this->router->generate($routeName, ['_locale' => $locale], UrlGeneratorInterface::ABSOLUTE_URL));
+                }
+
                 $sitemap->add($url);
             }
         }
@@ -70,22 +95,22 @@ class SitemapGenerator implements ProviderInterface
      */
     private function populateDynamicEntries(Sitemap $sitemap): void
     {
-        $cmsPageRoute = 'cms_page';
-        $cmsPageRouteExists = $this->router->getRouteCollection()->get($cmsPageRoute) !== null;
+        $cmsPageRouteName = 'cms_page';
+        $cmsPageRoute = $this->router->getRouteCollection()->get($cmsPageRouteName);
 
-        $categoryRoute = 'category';
-        $categoryRouteExists = $this->router->getRouteCollection()->get($categoryRoute) !== null;
+        $categoryRouteName = 'category';
+        $categoryRoute = $this->router->getRouteCollection()->get($categoryRouteName);
 
-        $attrVariantRoute = 'attribute_variant';
-        $attrVariantRouteExists = $this->router->getRouteCollection()->get($attrVariantRoute) !== null;
+        $attrVariantRouteName = 'attribute_variant';
+        $attrVariantRoute = $this->router->getRouteCollection()->get($attrVariantRouteName);
 
-        $companyRoute = 'company';
-        $companyRouteExists = $this->router->getRouteCollection()->get($companyRoute) !== null;
+        $companyRouteName = 'company';
+        $companyRoute = $this->router->getRouteCollection()->get($companyRouteName);
 
-        $productRoute = 'product';
-        $productRouteExists = $this->router->getRouteCollection()->get($productRoute) !== null;
+        $productRouteName = 'product';
+        $productRoute = $this->router->getRouteCollection()->get($productRouteName);
 
-        if (!$cmsPageRouteExists && !$categoryRouteExists && !$attrVariantRouteExists && !$companyRouteExists && !$productRouteExists) {
+        if (is_null($cmsPageRoute) && is_null($categoryRoute) && is_null($attrVariantRoute) && is_null($companyRoute) && is_null($productRoute)) {
             return;
         }
 
@@ -93,26 +118,74 @@ class SitemapGenerator implements ProviderInterface
         foreach ($slugsCatalog as $slugCatalogItem) {
             $type = $slugCatalogItem->getTarget()->getObjectType();
 
-            $url = new Url();
+            $url = new RichUrl();
 
-            if ($cmsPageRouteExists && $type->equals(SlugTargetType::CMS_PAGE())) {
-                $url->setLoc($this->router->generate($cmsPageRoute, ['slug' => $slugCatalogItem->getSlug()], UrlGeneratorInterface::ABSOLUTE_PATH));
-            } elseif ($categoryRouteExists && $type->equals(SlugTargetType::CATEGORY())) {
-                $url->setLoc($this->router->generate($categoryRoute, ['slug' => $slugCatalogItem->getSlug()], UrlGeneratorInterface::ABSOLUTE_PATH));
-            } elseif ($attrVariantRouteExists && $type->equals(SlugTargetType::ATTRIBUTE_VARIANT())) {
-                $url->setLoc($this->router->generate($attrVariantRoute, ['slug' => $slugCatalogItem->getSlug()], UrlGeneratorInterface::ABSOLUTE_PATH));
-            } elseif ($companyRouteExists && $type->equals(SlugTargetType::COMPANY())) {
-                $url->setLoc($this->router->generate($companyRoute, ['slug' => $slugCatalogItem->getSlug()], UrlGeneratorInterface::ABSOLUTE_PATH));
-            } elseif ($productRouteExists && $type->equals(SlugTargetType::PRODUCT())) {
-                $url->setLoc($this->router->generate($productRoute, [
-                    'slug' => $slugCatalogItem->getSlug(),
-                    'categoryPath' => join(
-                        '/',
-                        array_map(function (SlugCatalogItem $data): string {
-                            return $data->getSlug();
-                        }, $slugCatalogItem->getCategoryPath())
-                    ),
-                ], UrlGeneratorInterface::ABSOLUTE_PATH));
+            $parameters = [
+                'slug' => $slugCatalogItem->getSlug(),
+            ];
+
+            if ($cmsPageRoute && $type->equals(SlugTargetType::CMS_PAGE())) {
+                if ($cmsPageRoute->hasRequirement('_locale')) {
+                    $parameters['_locale'] = $this->defaultLocale;
+                }
+
+                $url->setLoc($this->router->generate($cmsPageRouteName, $parameters, UrlGeneratorInterface::ABSOLUTE_URL));
+
+                foreach ($this->alternateLocales as $locale) {
+                    $parameters['_locale'] = $locale;
+                    $url->addAlternateUrl($locale, $this->router->generate($cmsPageRouteName, $parameters, UrlGeneratorInterface::ABSOLUTE_URL));
+                }
+            } elseif ($categoryRoute && $type->equals(SlugTargetType::CATEGORY())) {
+                if ($categoryRoute->hasRequirement('_locale')) {
+                    $parameters['_locale'] = $this->defaultLocale;
+                }
+
+                $url->setLoc($this->router->generate($categoryRouteName, $parameters, UrlGeneratorInterface::ABSOLUTE_URL));
+
+                foreach ($this->alternateLocales as $locale) {
+                    $parameters['_locale'] = $locale;
+                    $url->addAlternateUrl($locale, $this->router->generate($categoryRouteName, $parameters, UrlGeneratorInterface::ABSOLUTE_URL));
+                }
+            } elseif ($attrVariantRoute && $type->equals(SlugTargetType::ATTRIBUTE_VARIANT())) {
+                if ($attrVariantRoute->hasRequirement('_locale')) {
+                    $parameters['_locale'] = $this->defaultLocale;
+                }
+
+                $url->setLoc($this->router->generate($attrVariantRouteName, $parameters, UrlGeneratorInterface::ABSOLUTE_URL));
+
+                foreach ($this->alternateLocales as $locale) {
+                    $parameters['_locale'] = $locale;
+                    $url->addAlternateUrl($locale, $this->router->generate($attrVariantRouteName, $parameters, UrlGeneratorInterface::ABSOLUTE_URL));
+                }
+            } elseif ($companyRoute && $type->equals(SlugTargetType::COMPANY())) {
+                if ($companyRoute->hasRequirement('_locale')) {
+                    $parameters['_locale'] = $this->defaultLocale;
+                }
+
+                $url->setLoc($this->router->generate($companyRouteName, $parameters, UrlGeneratorInterface::ABSOLUTE_URL));
+
+                foreach ($this->alternateLocales as $locale) {
+                    $parameters['_locale'] = $locale;
+                    $url->addAlternateUrl($locale, $this->router->generate($companyRouteName, $parameters, UrlGeneratorInterface::ABSOLUTE_URL));
+                }
+            } elseif ($productRoute && $type->equals(SlugTargetType::PRODUCT())) {
+                if ($productRoute->hasRequirement('_locale')) {
+                    $parameters['_locale'] = $this->defaultLocale;
+                }
+
+                $parameters['categoryPath'] = join(
+                    '/',
+                    array_map(function (SlugCatalogItem $data): string {
+                        return $data->getSlug();
+                    }, $slugCatalogItem->getCategoryPath())
+                );
+
+                $url->setLoc($this->router->generate($productRouteName, $parameters, UrlGeneratorInterface::ABSOLUTE_URL));
+
+                foreach ($this->alternateLocales as $locale) {
+                    $parameters['_locale'] = $locale;
+                    $url->addAlternateUrl($locale, $this->router->generate($productRouteName, $parameters, UrlGeneratorInterface::ABSOLUTE_URL));
+                }
             } else {
                 continue;
             }

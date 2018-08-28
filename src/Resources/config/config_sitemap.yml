@@ -2,5 +2,22 @@ services:
     WizaplaceFrontBundle\Service\SitemapGenerator:
         public: false
         autowire: true
-        tags:
-            - { name: sitemap.provider }
+        arguments:
+            $defaultLocale: '%kernel.default_locale%'
+            $locales: '%locales%'
+
+    sitemap_gz_dumper:
+        class: SitemapGenerator\Dumper\GzFileDumper
+        arguments: [ "%kernel.root_dir%/../web/sitemap.xml.gz" ]
+
+    sitemap_richxml_formatter:
+        class: SitemapGenerator\Formatter\RichXmlFormatter
+
+    SitemapGenerator\Sitemap\Sitemap:
+        arguments:
+            - "@sitemap_gz_dumper"
+            - "@sitemap_richxml_formatter"
+        calls:
+            - method: addProvider
+              arguments:
+                  - '@WizaplaceFrontBundle\Service\SitemapGenerator'
