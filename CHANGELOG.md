@@ -9,6 +9,8 @@
 
 ### Bugfixes
 
+- Do not include non-GET route in the sitemap
+
 </details>
 
 ## 0.5.0
