@@ -68,7 +68,7 @@ class SitemapGenerator implements ProviderInterface
     {
         $routeCollection = $this->router->getRouteCollection();
         foreach ($routeCollection as $routeName => $route) {
-            // Do include non-GET routes in the sitemap
+            // Do not include non-GET routes in the sitemap
             if (!in_array('GET', $route->getMethods())) {
                 continue;
             }
