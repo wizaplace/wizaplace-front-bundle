@@ -132,6 +132,6 @@ class AppExtension extends \Twig_Extension
      */
     public function getFavoritesCount(): int
     {
-        return count($this->favoriteService->getAll());
+        return count($this->favoriteService->getFavoriteIds());
     }
 }

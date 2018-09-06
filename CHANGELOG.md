@@ -11,6 +11,12 @@
 
 </details>
 
+## 0.5.2
+
+### New features
+
+- Use request-scoped cache for favorites count
+
 ## 0.5.1
 
 ### Bugfixes
