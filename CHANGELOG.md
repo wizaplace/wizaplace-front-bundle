@@ -11,6 +11,12 @@
 
 </details>
 
+## 0.5.3
+
+### Bugfixes
+
+- Forcing logout SSO
+
 ## 0.5.2
 
 ### New features

@@ -42,6 +42,7 @@ class OauthController extends Controller
     public function loginAction(Request $request): Response
     {
         if ($request->query->has('code')) {
+            $this->loginManager->logOutUser();
             $apiKey = $this->apiClient->oauthAuthenticate($request->query->get('code'));
 
             $this->loginManager->logInUser(
@@ -55,10 +56,6 @@ class OauthController extends Controller
 
     public function authorizeAction(): RedirectResponse
     {
-        if (!$this->getUser()) {
-            return new RedirectResponse($this->apiClient->getOAuthAuthorizationUrl());
-        }
-
-        return new RedirectResponse($this->generateUrl('home'));
+        return new RedirectResponse($this->apiClient->getOAuthAuthorizationUrl());
     }
 }
