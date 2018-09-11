@@ -31,6 +31,8 @@ jobs:
           - v1-dependencies-{{ checksum "composer.lock" }}
       - run: tests/console --env=test cache:clear --no-interaction
       - run: make -j lint-ci
+      - store_test_results:
+          path: build
   stan:
     docker:
       - image: circleci/php:7.2-apache-node-browsers
@@ -45,6 +47,8 @@ jobs:
           - v1-dependencies-{{ checksum "composer.lock" }}
       - run: tests/console --env=test cache:clear --no-interaction
       - run: make stan-ci
+      - store_test_results:
+          path: build
   test:
     docker:
       - image: circleci/php:7.2-apache-node-browsers
@@ -59,6 +63,8 @@ jobs:
           - v1-dependencies-{{ checksum "composer.lock" }}
       - run: tests/console --env=test cache:clear --no-interaction
       - run: make test-phpunit-ci
+      - store_test_results:
+          path: build
 
 workflows:
   version: 2
