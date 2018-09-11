@@ -71,4 +71,9 @@ class LoginManager
     {
         return new UsernamePasswordToken($user, null, $firewall, $user->getRoles());
     }
+
+    final public function logOutUser() : void
+    {
+        $this->tokenStorage->setToken(null);
+    }
 }
