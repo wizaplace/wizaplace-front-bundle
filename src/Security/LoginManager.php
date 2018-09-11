@@ -76,5 +76,4 @@ class LoginManager
     {
         return new UsernamePasswordToken($user, null, $firewall, $user->getRoles());
     }
-
 }
