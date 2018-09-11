@@ -1,0 +1,83 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/php:7.2-apache-node-browsers
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run: |
+          mkdir -p var/logs var/cache var/translations
+          rm -rf var/logs/* var/cache/* var/translations/*
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "composer.lock" }}
+      - run: composer install --no-progress --prefer-dist
+      - save_cache:
+          paths:
+            - ./vendor
+          key: v1-dependencies-{{ checksum "composer.lock" }}
+  lint:
+    docker:
+      - image: circleci/php:7.2-apache-node-browsers
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run: |
+          mkdir -p var/logs var/cache var/translations
+          rm -rf var/logs/* var/cache/* var/translations/*
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "composer.lock" }}
+      - run: tests/console --env=test cache:clear --no-interaction
+      - run: make -j lint-ci
+      - store_test_results:
+          path: build
+  stan:
+    docker:
+      - image: circleci/php:7.2-apache-node-browsers
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run: |
+          mkdir -p var/logs var/cache var/translations
+          rm -rf var/logs/* var/cache/* var/translations/*
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "composer.lock" }}
+      - run: tests/console --env=test cache:clear --no-interaction
+      - run: make stan-ci
+      - store_test_results:
+          path: build
+  test:
+    docker:
+      - image: circleci/php:7.2-apache-node-browsers
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run: |
+          mkdir -p var/logs var/cache var/translations
+          rm -rf var/logs/* var/cache/* var/translations/*
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "composer.lock" }}
+      - run: tests/console --env=test cache:clear --no-interaction
+      - run: make test-phpunit-ci
+      - store_test_results:
+          path: build
+
+workflows:
+  version: 2
+  commit:
+    jobs:
+      - build
+      - lint:
+          requires:
+            - build
+      - stan:
+          requires:
+            - build
+      - test:
+          requires:
+            - lint
+            - stan

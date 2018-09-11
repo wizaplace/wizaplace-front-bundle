@@ -1,5 +1,8 @@
 all: install
 
+build:
+	mkdir -p build
+
 install: var/translations var/cache var/logs
 	composer install
 	tests/console --env=test cache:clear
@@ -15,8 +18,8 @@ lint-ci: lint-php-ci lint-twig lint-yaml lint-xliff
 lint-php:
 	./vendor/bin/phpcs
 
-lint-php-ci:
-	./vendor/bin/phpcs --report-checkstyle=phpcs-checkstyle.xml --report-full
+lint-php-ci: build
+	./vendor/bin/phpcs --report-checkstyle=build/phpcs-checkstyle.xml --report-full
 
 lint-twig:
 	tests/console lint:twig src tests
@@ -32,17 +35,17 @@ lint-xliff:
 stan:
 	./vendor/bin/phpstan analyse -c phpstan.neon -l 5 src
 
-stan-ci:
-	./vendor/bin/phpstan --no-interaction --no-progress analyse --error-format=checkstyle -c phpstan.neon -l 5 src > phpstan-checkstyle.xml
+stan-ci: build
+	./vendor/bin/phpstan --no-interaction --no-progress analyse --error-format=checkstyle -c phpstan.neon -l 5 src > build/phpstan-checkstyle.xml
 
 test: test-phpunit
 
 test-phpunit: var/cache var/logs var/translations
 	./vendor/bin/phpunit --configuration ./phpunit.xml
 
-test-phpunit-ci: var/cache var/logs var/translations
+test-phpunit-ci: var/cache var/logs var/translations build
 	chmod -R 777 ./var/logs
-	php -dxdebug.coverage_enable=1 ./vendor/bin/phpunit --configuration ./phpunit.xml --log-junit ./phpunit-result.xml --coverage-clover ./clover.xml
+	php -dxdebug.coverage_enable=1 ./vendor/bin/phpunit --configuration ./phpunit.xml --log-junit build/junit.xml --coverage-clover ./clover.xml
 
 var/cache:
 	mkdir -p var/cache
