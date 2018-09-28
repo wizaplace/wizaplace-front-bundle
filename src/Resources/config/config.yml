@@ -124,6 +124,8 @@ services:
         public: true
     Wizaplace\SDK\Favorite\FavoriteService:
         public: true
+    Wizaplace\SDK\Organisation\OrganisationService:
+        public: true
     Wizaplace\SDK\Translation\TranslationService:
         public: true
     WizaplaceFrontBundle\Service\FavoriteService:
