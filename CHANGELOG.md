@@ -11,6 +11,12 @@
 
 </details>
 
+## 0.5.4
+
+### Bugfixes
+
+- Set OrganisationService as public
+
 ## 0.5.3
 
 ### Bugfixes
