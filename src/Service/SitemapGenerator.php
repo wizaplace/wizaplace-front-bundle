@@ -61,7 +61,7 @@ class SitemapGenerator implements ProviderInterface
 
     private function buildUrl(Sitemap $sitemap, Route $route, string $routeName, array $parameters = []): void
     {
-        if ($this->isMultilingual()) {
+        if ($this->isMultiLingual()) {
             foreach ($this->locales as $locale) {
                 $url = new RichUrl();
 
