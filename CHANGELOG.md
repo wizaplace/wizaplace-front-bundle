@@ -9,6 +9,8 @@
 
 ### Bugfixes
 
+- Fix sitemap generation for multilingual projects
+
 </details>
 
 ## 0.5.4
