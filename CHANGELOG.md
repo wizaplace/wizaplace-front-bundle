@@ -9,9 +9,13 @@
 
 ### Bugfixes
 
-- Fix sitemap generation for multilingual projects
-
 </details>
+
+## 0.5.5
+
+### Bugfixes
+
+- Fix sitemap generation for multilingual projects
 
 ## 0.5.4
 
