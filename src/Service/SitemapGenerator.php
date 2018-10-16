@@ -103,7 +103,7 @@ class SitemapGenerator implements ProviderInterface
             }
 
             if ($route->getOption(self::SITEMAP_ROUTE_OPTION_NAME)) {
-                $this->buildUrl($sitemap, $route, $routename);
+                $this->buildUrl($sitemap, $route, $routeName);
             }
         }
     }
