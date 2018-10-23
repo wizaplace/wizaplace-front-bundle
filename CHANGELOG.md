@@ -11,6 +11,12 @@
 
 </details>
 
+## 0.5.6
+
+### Bugfixes
+
+- Add services for BOF pecheur
+
 ## 0.5.5
 
 ### Bugfixes

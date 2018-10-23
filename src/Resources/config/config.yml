@@ -132,6 +132,14 @@ services:
         public: true
     WizaplaceFrontBundle\Service\ContactService:
         public: true
+    Wizaplace\SDK\Vendor\Order\OrderService:
+        public: true
+    Wizaplace\SDK\Pim\Product\ProductService:
+        public: true
+    Wizaplace\SDK\Pim\Attribute\AttributeService:
+        public: true
+    Wizaplace\SDK\Pim\Option\OptionService:
+        public: true
     WizaplaceFrontBundle\Service\CategoryTreeCacheDecorator:
         decorates: 'Wizaplace\SDK\Catalog\CatalogServiceInterface'
         arguments: ['@WizaplaceFrontBundle\Service\CategoryTreeCacheDecorator.inner']
