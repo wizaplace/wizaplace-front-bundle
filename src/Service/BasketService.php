@@ -289,12 +289,12 @@ class BasketService implements EventSubscriberInterface, LogoutHandlerInterface
     /**
      * @throws \Wizaplace\SDK\Exception\SomeParametersAreInvalid
      */
-    public function setMRPickupPoint(SetPickupPointCommand $command): array
+    public function setMondialRelayPickupPoint(SetPickupPointCommand $command): array
     {
         $command->setBasketId($this->getBasketId());
 
         try {
-            return $this->baseService->setMRPickupPoint($command);
+            return $this->baseService->setMondialRelayPickupPoint($command);
         } finally {
             $this->basket = null; // invalidate local cache
         }

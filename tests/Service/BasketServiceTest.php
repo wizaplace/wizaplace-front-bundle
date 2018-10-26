@@ -164,7 +164,7 @@ class BasketServiceTest extends BundleTestCase
         }
 
         self::assertSame([
-            '1_0' => 2,
+            '1_0' => 3,
             '3_3_7' => 1,
             '3_3_8' => 1,
         ], $quantitiesMap);

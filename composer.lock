@@ -895,16 +895,16 @@
         },
         {
             "name": "myclabs/php-enum",
-            "version": "1.6.2",
+            "version": "1.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/php-enum.git",
-                "reference": "ca2f4090a7ecae6f0c67fc9bd07cfb51cdf04219"
+                "reference": "a8284c7c540caf9988e339a404cadcdf1e8b165d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/php-enum/zipball/ca2f4090a7ecae6f0c67fc9bd07cfb51cdf04219",
-                "reference": "ca2f4090a7ecae6f0c67fc9bd07cfb51cdf04219",
+                "url": "https://api.github.com/repos/myclabs/php-enum/zipball/a8284c7c540caf9988e339a404cadcdf1e8b165d",
+                "reference": "a8284c7c540caf9988e339a404cadcdf1e8b165d",
                 "shasum": ""
             },
             "require": {
@@ -935,7 +935,7 @@
             "keywords": [
                 "enum"
             ],
-            "time": "2018-08-01T21:05:54+00:00"
+            "time": "2018-10-27T21:15:22+00:00"
         },
         {
             "name": "ocramius/package-versions",
@@ -2137,12 +2137,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/wizaplace/wizaplace-php-sdk.git",
-                "reference": "5303e4affb9820ceae893419868e9de18abc6297"
+                "reference": "12c01f11f172ee954906f0ad82e3e0cd44b5369b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wizaplace/wizaplace-php-sdk/zipball/5303e4affb9820ceae893419868e9de18abc6297",
-                "reference": "5303e4affb9820ceae893419868e9de18abc6297",
+                "url": "https://api.github.com/repos/wizaplace/wizaplace-php-sdk/zipball/12c01f11f172ee954906f0ad82e3e0cd44b5369b",
+                "reference": "12c01f11f172ee954906f0ad82e3e0cd44b5369b",
                 "shasum": ""
             },
             "require": {
@@ -2185,7 +2185,7 @@
                 "proprietary"
             ],
             "description": "Wizaplace's PHP SDK",
-            "time": "2018-10-26T12:17:49+00:00"
+            "time": "2018-10-30T14:01:48+00:00"
         }
     ],
     "packages-dev": [

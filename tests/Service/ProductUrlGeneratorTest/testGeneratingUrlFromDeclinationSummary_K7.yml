@@ -13,22 +13,23 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 04 Jan 2018 14:59:16 GMT'
+            Date: 'Fri, 26 Oct 2018 12:39:59 GMT'
             Server: 'Apache/2.4.25 (Debian)'
+            X-Protected-By: Sqreen
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: '532917'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/532917'
-            Content-Length: '60'
+            X-Debug-Token: '011294'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/011294'
+            Content-Length: '61'
             Content-Type: application/json
-        body: '{"id":3,"apiKey":"+4epANLHKuP80yHt2Csi0qaY7NTyLiZvraPFIpiW"}'
+        body: '{"id":3,"apiKey":"Ebd1D73YmgG3lVeocKmeh0hWfJBDN5pbbb4s9F\/B"}'
 -
     request:
         method: GET
         url: 'http://wizaplace.loc/api/v1/users/3'
         headers:
             Host: wizaplace.loc
-            Authorization: 'token +4epANLHKuP80yHt2Csi0qaY7NTyLiZvraPFIpiW'
+            Authorization: 'token Ebd1D73YmgG3lVeocKmeh0hWfJBDN5pbbb4s9F/B'
             VCR-index: '1'
     response:
         status:
@@ -36,22 +37,23 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 04 Jan 2018 14:59:16 GMT'
+            Date: 'Fri, 26 Oct 2018 12:39:59 GMT'
             Server: 'Apache/2.4.25 (Debian)'
+            X-Protected-By: Sqreen
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: f7020e
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f7020e'
-            Content-Length: '610'
+            X-Debug-Token: 545b1a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/545b1a'
+            Content-Length: '661'
             Content-Type: application/json
-        body: '{"id":3,"title":"mr","email":"user@wizaplace.com","companyId":null,"firstName":"Paul","lastName":"Martin","birthday":null,"loyaltyIdentifier":null,"addresses":{"billing":{"title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"","zipcode":"69009","city":"Lyon","country":"FR","37":4,"38":4,"40":"","39":""},"shipping":{"title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"","zipcode":"69009","city":"Lyon","country":"FR","37":4,"38":4,"40":"","39":""}}}'
+        body: '{"id":3,"title":"mr","email":"user@wizaplace.com","type":"C","companyId":null,"firstName":"Paul","lastName":"Martin","birthday":null,"loyaltyIdentifier":null,"addresses":{"billing":{"title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","37":4,"38":4,"40":"","39":""},"shipping":{"title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","37":4,"38":4,"40":"","39":""}}}'
 -
     request:
         method: GET
         url: 'http://wizaplace.loc/api/v1/users/3/basket'
         headers:
             Host: wizaplace.loc
-            Authorization: 'token +4epANLHKuP80yHt2Csi0qaY7NTyLiZvraPFIpiW'
+            Authorization: 'token Ebd1D73YmgG3lVeocKmeh0hWfJBDN5pbbb4s9F/B'
             VCR-index: '2'
     response:
         status:
@@ -59,12 +61,13 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 04 Jan 2018 14:59:16 GMT'
+            Date: 'Fri, 26 Oct 2018 12:39:59 GMT'
             Server: 'Apache/2.4.25 (Debian)'
+            X-Protected-By: Sqreen
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 4400c6
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4400c6'
+            X-Debug-Token: '587240'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/587240'
             Content-Length: '11'
             Content-Type: application/json
         body: '{"id":null}'
@@ -74,7 +77,7 @@
         url: 'http://wizaplace.loc/api/v1/basket'
         headers:
             Host: wizaplace.loc
-            Authorization: 'token +4epANLHKuP80yHt2Csi0qaY7NTyLiZvraPFIpiW'
+            Authorization: 'token Ebd1D73YmgG3lVeocKmeh0hWfJBDN5pbbb4s9F/B'
             VCR-index: '3'
     response:
         status:
@@ -82,15 +85,17 @@
             code: '201'
             message: Created
         headers:
-            Date: 'Thu, 04 Jan 2018 14:59:17 GMT'
+            Date: 'Fri, 26 Oct 2018 12:40:00 GMT'
             Server: 'Apache/2.4.25 (Debian)'
+            X-Protected-By: Sqreen
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 1fbb2e
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1fbb2e'
+            X-Debug-Token: e98324
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e98324'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22e98324%22%2C%22route%22%3A%22api_basket_create%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CBasketController%22%2C%22method%22%3A%22createAction%22%2C%22file%22%3A%22%5C%2Fvagrant%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FBasketController.php%22%2C%22line%22%3A42%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
             Content-Length: '38'
             Content-Type: application/json
-        body: '"f49dc59a-6ea3-4f68-ae1c-4aa4c78aed5f"'
+        body: '"e42c556b-1c86-4845-a49f-9dc495e65579"'
 -
     request:
         method: POST
@@ -99,21 +104,22 @@
             Content-Length: '45'
             Content-Type: application/json
             Host: wizaplace.loc
-            Authorization: 'token +4epANLHKuP80yHt2Csi0qaY7NTyLiZvraPFIpiW'
+            Authorization: 'token Ebd1D73YmgG3lVeocKmeh0hWfJBDN5pbbb4s9F/B'
             VCR-index: '4'
-        body: '{"id":"f49dc59a-6ea3-4f68-ae1c-4aa4c78aed5f"}'
+        body: '{"id":"e42c556b-1c86-4845-a49f-9dc495e65579"}'
     response:
         status:
             http_version: '1.1'
             code: '204'
             message: 'No Content'
         headers:
-            Date: 'Thu, 04 Jan 2018 14:59:17 GMT'
+            Date: 'Fri, 26 Oct 2018 12:40:00 GMT'
             Server: 'Apache/2.4.25 (Debian)'
+            X-Protected-By: Sqreen
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: e77e80
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e77e80'
+            X-Debug-Token: 292bfb
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/292bfb'
             Content-Type: 'text/html; charset=UTF-8'
 -
     request:
@@ -121,7 +127,7 @@
         url: 'http://wizaplace.loc/api/v1/user/favorites/declinations/1'
         headers:
             Host: wizaplace.loc
-            Authorization: 'token +4epANLHKuP80yHt2Csi0qaY7NTyLiZvraPFIpiW'
+            Authorization: 'token Ebd1D73YmgG3lVeocKmeh0hWfJBDN5pbbb4s9F/B'
             VCR-index: '5'
     response:
         status:
@@ -129,12 +135,14 @@
             code: '201'
             message: Created
         headers:
-            Date: 'Thu, 04 Jan 2018 14:59:17 GMT'
+            Date: 'Fri, 26 Oct 2018 12:40:00 GMT'
             Server: 'Apache/2.4.25 (Debian)'
+            X-Protected-By: Sqreen
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: ab6aa5
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ab6aa5'
+            X-Debug-Token: 772ba1
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/772ba1'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22772ba1%22%2C%22route%22%3A%22api_favorite_declination_add%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CFavorite%5C%5CDeclinationController%22%2C%22method%22%3A%22addToFavoriteAction%22%2C%22file%22%3A%22%5C%2Fvagrant%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FFavorite%5C%2FDeclinationController.php%22%2C%22line%22%3A83%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
             Content-Length: '2'
             Content-Type: application/json
         body: '""'
@@ -144,7 +152,7 @@
         url: 'http://wizaplace.loc/api/v1/user/favorites/declinations'
         headers:
             Host: wizaplace.loc
-            Authorization: 'token +4epANLHKuP80yHt2Csi0qaY7NTyLiZvraPFIpiW'
+            Authorization: 'token Ebd1D73YmgG3lVeocKmeh0hWfJBDN5pbbb4s9F/B'
             VCR-index: '6'
     response:
         status:
@@ -152,22 +160,23 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 04 Jan 2018 14:59:17 GMT'
+            Date: 'Fri, 26 Oct 2018 12:40:00 GMT'
             Server: 'Apache/2.4.25 (Debian)'
+            X-Protected-By: Sqreen
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: '154599'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/154599'
-            Content-Length: '541'
+            X-Debug-Token: ed57ce
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ed57ce'
+            Content-Length: '602'
             Content-Type: application/json
-        body: '{"total":1,"count":1,"_embedded":{"favorites":[{"id":"1_0","productId":1,"name":"Z11 Plus Bo\u00eetier PC en Acier ATX","isAvailable":true,"slug":"test-product-slug","code":"978020137962","crossedOutPrice":null,"prices":{"priceWithoutVat":66.5,"priceWithTaxes":67.9,"vat":1.4},"amount":9,"affiliateLink":null,"mainImage":null,"options":[],"categoryPath":[{"id":3,"name":"Informatique","slug":"it"}],"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc.","isProfessional":true,"image":null,"averageRating":null}}]}}'
+        body: '{"total":1,"count":1,"_embedded":{"favorites":[{"id":"1_0","productId":1,"name":"Z11 Plus Bo\u00eetier PC en Acier ATX","isAvailable":false,"slug":"test-product-slug","code":"978020137962","crossedOutPrice":null,"shortDescription":"","prices":{"priceWithoutVat":66.5,"priceWithTaxes":67.9,"vat":1.4},"amount":-1,"infiniteStock":false,"affiliateLink":null,"mainImage":null,"isBrandNew":true,"options":[],"categoryPath":[{"id":3,"name":"Informatique","slug":"it"}],"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc.","isProfessional":true,"image":null,"averageRating":5}}]}}'
 -
     request:
         method: DELETE
         url: 'http://wizaplace.loc/api/v1/user/favorites/declinations/1'
         headers:
             Host: wizaplace.loc
-            Authorization: 'token +4epANLHKuP80yHt2Csi0qaY7NTyLiZvraPFIpiW'
+            Authorization: 'token Ebd1D73YmgG3lVeocKmeh0hWfJBDN5pbbb4s9F/B'
             VCR-index: '7'
     response:
         status:
@@ -175,10 +184,11 @@
             code: '204'
             message: 'No Content'
         headers:
-            Date: 'Thu, 04 Jan 2018 14:59:18 GMT'
+            Date: 'Fri, 26 Oct 2018 12:40:01 GMT'
             Server: 'Apache/2.4.25 (Debian)'
+            X-Protected-By: Sqreen
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: a0ad9c
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a0ad9c'
+            X-Debug-Token: 5a5fc4
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5a5fc4'
             Content-Type: 'text/html; charset=UTF-8'
