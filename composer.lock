@@ -2524,16 +2524,16 @@
         },
         {
             "name": "wizaplace/sdk",
-            "version": "v1.43.0",
+            "version": "v1.43.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wizaplace/wizaplace-php-sdk.git",
-                "reference": "e3a8a364aab834f33bc5efb390e042556f70e192"
+                "reference": "19fd1850b468a1b88fd4e0804dcb87e5e9d77d43"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wizaplace/wizaplace-php-sdk/zipball/e3a8a364aab834f33bc5efb390e042556f70e192",
-                "reference": "e3a8a364aab834f33bc5efb390e042556f70e192",
+                "url": "https://api.github.com/repos/wizaplace/wizaplace-php-sdk/zipball/19fd1850b468a1b88fd4e0804dcb87e5e9d77d43",
+                "reference": "19fd1850b468a1b88fd4e0804dcb87e5e9d77d43",
                 "shasum": ""
             },
             "require": {
@@ -2577,7 +2577,7 @@
                 "proprietary"
             ],
             "description": "Wizaplace's PHP SDK",
-            "time": "2018-12-05T10:55:27+00:00"
+            "time": "2018-12-12T15:25:20+00:00"
         }
     ],
     "packages-dev": [
