@@ -140,6 +140,8 @@ services:
         public: true
     Wizaplace\SDK\Pim\Option\OptionService:
         public: true
+    Wizaplace\SDK\Shipping\MondialRelayService:
+        public: true
     WizaplaceFrontBundle\Service\CategoryTreeCacheDecorator:
         decorates: 'Wizaplace\SDK\Catalog\CatalogServiceInterface'
         arguments: ['@WizaplaceFrontBundle\Service\CategoryTreeCacheDecorator.inner']

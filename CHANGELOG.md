@@ -11,6 +11,12 @@
 
 </details>
 
+## 0.5.7
+
+### Bugfixes
+
+- Add MondialRelayService for BOF pecheur
+
 ## 0.5.6
 
 ### Bugfixes
