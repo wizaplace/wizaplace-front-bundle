@@ -11,6 +11,14 @@
 
 </details>
 
+## 0.5.7
+
+### New features
+
+- Add `WizaplaceFrontBundle\Security\FormGuardAuthenticator` which is a refactorisation of `src/Security/FormAuthenticator` to use a Guard for a login form
+- Add `WizaplaceFrontBundle\Security\\TokenGuardAuthenticator` to log users with an crypted API Token
+- Update `README.md`
+
 ## 0.5.6
 
 ### Bugfixes

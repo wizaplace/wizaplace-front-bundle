@@ -148,6 +148,14 @@ services:
             $recaptchaKey: '%recaptcha.key%'
     Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface: '@session.flash_bag'
     Symfony\Component\Translation\Dumper\XliffFileDumper: '@translation.dumper.xliff'
+    wizaplace.blowfish_cross_authentication.cipher:
+        class: phpseclib\Crypt\Blowfish
+        public: true
+        calls:
+            - [setKey, ['%env(CROSS_AUTHENTICATION_KEY)%']]
+    WizaplaceFrontBundle\Security\TokenGuardAuthenticator:
+        arguments:
+            $cipher: '@wizaplace.blowfish_cross_authentication.cipher'
 
 parameters:
     api.connect_timeout: 3

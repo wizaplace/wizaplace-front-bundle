@@ -1,0 +1,55 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/3'
+        headers:
+            Host: wizaplace.loc
+            Accept-Language: fr
+            Authorization: 'token nq/WP1/l4hrAOrcB3C6XCGFSqZOalInkG+tXML78'
+            VCR-index: '0'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.15
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 18 Mar 2019 15:50:34 GMT'
+            Content-Language: fr
+            X-Debug-Token: e490b1
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e490b1'
+            X-Request-Id: b70e976d85746341ad274b7fc6493cb1
+        body: '{"id":3,"title":"mr","email":"user@wizaplace.com","type":"C","lang":"fr","companyId":null,"firstName":"Paul","lastName":"Martin","birthday":null,"loyaltyIdentifier":null,"addresses":{"billing":{"title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","division_code":"","37":4,"38":4,"40":"","39":""},"shipping":{"title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","division_code":"","37":4,"38":4,"40":"","39":""}}}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/3/basket'
+        headers:
+            Host: wizaplace.loc
+            Accept-Language: fr
+            Authorization: 'token nq/WP1/l4hrAOrcB3C6XCGFSqZOalInkG+tXML78'
+            VCR-index: '1'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.15
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 18 Mar 2019 15:50:34 GMT'
+            Content-Language: fr
+            X-Debug-Token: a18f00
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a18f00'
+            X-Request-Id: 2971bb6bde7a37f8140c1ace2c115e9f
+        body: '{"id":"98186ccf-977c-4a01-a465-1f67af93dddb"}'

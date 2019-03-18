@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace WizaplaceFrontBundle\Tests\Controller;
 
+use phpseclib\Crypt\Blowfish;
 use Symfony\Component\HttpFoundation\Response;
 use WizaplaceFrontBundle\Controller\AuthController;
 use WizaplaceFrontBundle\Tests\BundleTestCase;
@@ -90,5 +91,22 @@ class AuthControllerTest extends BundleTestCase
 
         $this->assertResponseCodeEquals(Response::HTTP_FOUND, $this->client);
         $this->assertSame('http://localhost/', $this->client->getResponse()->headers->get('Location'));
+    }
+
+    public function testLoginWithTokenGuard()
+    {
+        // prepare the token
+        $blowfish = static::$kernel->getContainer()->get('wizaplace.blowfish_cross_authentication.cipher');
+        $userId = 3;
+        $apiKey = 'nq/WP1/l4hrAOrcB3C6XCGFSqZOalInkG+tXML78';
+        $xCrossToken = $blowfish->encrypt("$userId:$apiKey");
+
+        // try to access a secure URL with a bad token
+        $this->client->request('GET', '/profil', [], [], ['HTTP_X_CROSS_AUTHENTICATION' => 'bad_token']);
+        $this->assertResponseCodeEquals(403, $this->client);
+
+        // with the right token, access is granted
+        $this->client->request('GET', '/profil', [], [], ['HTTP_X_CROSS_AUTHENTICATION' => $xCrossToken]);
+        $this->assertResponseCodeEquals(200, $this->client);
     }
 }

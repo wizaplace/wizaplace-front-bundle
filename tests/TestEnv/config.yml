@@ -7,6 +7,7 @@ parameters:
     api.base_url: 'http://wizaplace.loc/api/v1/'
     slug.regexp: !php/const Wizaplace\SDK\Seo\SeoService::SLUG_REGEXP
     wizaplace.system_user_password: 'FakeSecret'
+    env(CROSS_AUTHENTICATION_KEY): 'FAKE_AUTH_KEY'
 
 framework:
     test: ~
@@ -80,3 +81,5 @@ services:
     test.WizaplaceFrontBundle\Twig\AppExtension: '@WizaplaceFrontBundle\Twig\AppExtension'
     test.translation.dumper.xliff: '@translation.dumper.xliff'
     test.translation.loader.xliff: '@translation.loader.xliff'
+    Symfony\Component\Security\Http\Authentication\AuthenticationFailureHandlerInterface: '@WizaplaceFrontBundle\Security\AuthenticationFailureHandler'
+    Symfony\Component\Security\Http\Authentication\AuthenticationSuccessHandlerInterface: '@WizaplaceFrontBundle\Security\AuthenticationSuccessHandler'

@@ -5,6 +5,7 @@
   "require": {
     "php": ">=7.1",
     "kevinrob/guzzle-cache-middleware": "^3.2",
+    "phpseclib/phpseclib": "^2.0",
     "roave/security-advisories": "@dev",
     "symfony/monolog-bundle": "^3.1",
     "symfony/symfony": "^3.4.6",
