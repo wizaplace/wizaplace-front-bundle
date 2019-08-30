@@ -117,8 +117,8 @@ class AppExtension extends \Twig_Extension
 
     public function formatPrice(float $price): string
     {
-        $decimalSeparator = $this->translator->trans('price.decimal-delimiter');
-        $thousandsSeparator = $this->translator->trans('price.thousands-delimiter');
+        $decimalSeparator = $this->translator->trans('price.decimal-delimiter') ?: ',';
+        $thousandsSeparator = $this->translator->trans('price.thousands-delimiter') ?: ' ';
         $currency = $this->translator->trans('price.currency');
 
         $formattedPrice = number_format($price, 2, $decimalSeparator, $thousandsSeparator);
