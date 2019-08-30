@@ -11,6 +11,13 @@
 
 </details>
 
+## 0.5.7
+
+### Bugfixes
+
+- Default English translation for number separators
+- Use French separators if their translation is not found
+
 ## 0.5.6
 
 ### Bugfixes
