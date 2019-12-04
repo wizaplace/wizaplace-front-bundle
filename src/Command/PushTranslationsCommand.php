@@ -15,8 +15,8 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Translation\Dumper\XliffFileDumper;
 use Symfony\Component\Translation\MessageCatalogue;
 use Symfony\Component\Translation\TranslatorBagInterface;
-use WizaplaceFrontBundle\Service\AuthenticationService;
 use Wizaplace\SDK\Translation\TranslationService;
+use WizaplaceFrontBundle\Service\AuthenticationService;
 
 class PushTranslationsCommand extends Command
 {
@@ -105,9 +105,11 @@ class PushTranslationsCommand extends Command
         $catalog = $this->translatorBag->getCatalogue($locale);
 
         // Format it as xliff
-        $xliffCatalog = $this->translationDumper->formatCatalogue($catalog, self::CATALOG_DOMAIN, [
-            'default_locale' => $this->defaultLocale,
-            ]);
+        $xliffCatalog = $this->translationDumper->formatCatalogue(
+            $catalog,
+            self::CATALOG_DOMAIN,
+            ['default_locale' => $this->defaultLocale]
+        );
 
         $this->logger->debug(
             self::LOGGER_HEADER,

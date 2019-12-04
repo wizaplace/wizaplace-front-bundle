@@ -13,13 +13,13 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Finder\Finder;
-use WizaplaceFrontBundle\Service\AuthenticationService;
 use Wizaplace\SDK\Translation\TranslationService;
+use WizaplaceFrontBundle\Service\AuthenticationService;
 
 class PullTranslationsCommand extends Command
 {
     /**
-     * hash('sha256', '');
+     * hash('sha256', '');.
      */
     const EMPTY_HASH = 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855';
     private const LOGGER_HEADER = 'Translations:Pull';
@@ -78,7 +78,7 @@ class PullTranslationsCommand extends Command
         $io = new SymfonyStyle($input, $output);
         array_walk(
             $this->locales,
-            function (string $locale) use ($io) : void {
+            function (string $locale) use ($io): void {
                 $io->section("Processing locale '$locale'...");
                 $this->executeLocale($locale);
                 $io->success("'$locale' locale successfully pulled");
@@ -96,7 +96,6 @@ class PullTranslationsCommand extends Command
         if (file_exists($catalogFilePath)) {
             $oldHash = hash_file('sha256', $catalogFilePath);
         }
-
 
         $xliffCatalogContent = $xliffCatalog->getContents();
 
@@ -117,7 +116,7 @@ class PullTranslationsCommand extends Command
                 self::LOGGER_HEADER,
                 [
                     'catalogFilePath' => $catalogFilePath,
-                    'flush' => "xliff hash: old - $oldHash === new - $newHash , no need to flush"
+                    'flush' => "xliff hash: old - $oldHash === new - $newHash , no need to flush",
                 ]
             );
 
