@@ -15,7 +15,7 @@
 
 ### New features
 
-- Debug logs for translations commands (ex.: `bin/console wizaplace:translations:push -vvvv`)
+- Debug logs for translations commands (ex.: `bin/console wizaplace:translations:push -vvv`)
 
 ## 0.5.7
 
