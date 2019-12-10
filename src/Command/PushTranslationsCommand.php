@@ -96,6 +96,9 @@ class PushTranslationsCommand extends Command
             $this->executeLocale($locale);
             $io->success("'$locale' locale successfully pushed");
         });
+
+        $fixedKeys = $this->translationService->fixMissingKeys($this->systemUserPassword);
+        $io->success("$fixedKeys missing translation keys fixed");
     }
 
     private function executeLocale(string $locale)
