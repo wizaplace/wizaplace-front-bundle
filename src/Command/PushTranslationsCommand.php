@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace WizaplaceFrontBundle\Command;
 
+use Psr\Log\LoggerInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -20,6 +21,7 @@ use WizaplaceFrontBundle\Service\AuthenticationService;
 class PushTranslationsCommand extends Command
 {
     private const CATALOG_DOMAIN = 'messages';
+    private const LOGGER_HEADER = 'Translations:Push';
 
     /** @var TranslatorBagInterface */
     private $translatorBag;
@@ -32,6 +34,9 @@ class PushTranslationsCommand extends Command
 
     /** @var AuthenticationService */
     private $authenticationService;
+
+    /** @var LoggerInterface */
+    private $logger;
 
     /** @var string[] */
     private $locales;
@@ -49,7 +54,8 @@ class PushTranslationsCommand extends Command
         AuthenticationService $authenticationService,
         array $locales,
         string $defaultLocale,
-        string $systemUserPassword
+        string $systemUserPassword,
+        LoggerInterface $logger
     ) {
         $this->translatorBag = $translatorBag;
         $this->translationDumper = $translationDumper;
@@ -58,6 +64,7 @@ class PushTranslationsCommand extends Command
         $this->locales = array_unique($locales);
         $this->defaultLocale = $defaultLocale;
         $this->systemUserPassword = $systemUserPassword;
+        $this->logger = $logger;
 
         parent::__construct();
     }
@@ -78,7 +85,13 @@ class PushTranslationsCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $io = new SymfonyStyle($input, $output);
-        array_walk($this->locales, function (string $locale) use ($io) : void {
+
+        $this->logger->debug(
+            self::LOGGER_HEADER,
+            ['available locales' => $this->locales]
+        );
+
+        array_walk($this->locales, function (string $locale) use ($io): void {
             $io->section("Processing locale '$locale'...");
             $this->executeLocale($locale);
             $io->success("'$locale' locale successfully pushed");
@@ -92,9 +105,16 @@ class PushTranslationsCommand extends Command
         $catalog = $this->translatorBag->getCatalogue($locale);
 
         // Format it as xliff
-        $xliffCatalog = $this->translationDumper->formatCatalogue($catalog, self::CATALOG_DOMAIN, [
-            'default_locale' => $this->defaultLocale,
-        ]);
+        $xliffCatalog = $this->translationDumper->formatCatalogue(
+            $catalog,
+            self::CATALOG_DOMAIN,
+            ['default_locale' => $this->defaultLocale]
+        );
+
+        $this->logger->debug(
+            self::LOGGER_HEADER,
+            ['xliff catalog' => $xliffCatalog]
+        );
 
         // Push it to the Wizaplace backend
         $this->translationService->pushXliffCatalog($xliffCatalog, $locale, $this->systemUserPassword);

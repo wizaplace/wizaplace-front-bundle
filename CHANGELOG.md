@@ -11,6 +11,12 @@
 
 </details>
 
+## Next version
+
+### New features
+
+- Debug logs for translations commands (ex.: `bin/console wizaplace:translations:push -vvv`)
+
 ## 0.5.7
 
 ### Bugfixes

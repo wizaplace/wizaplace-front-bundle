@@ -7,20 +7,22 @@ declare(strict_types=1);
 
 namespace WizaplaceFrontBundle\Command;
 
+use Psr\Log\LoggerInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
+use Symfony\Component\Finder\Finder;
 use Wizaplace\SDK\Translation\TranslationService;
 use WizaplaceFrontBundle\Service\AuthenticationService;
-use Symfony\Component\Finder\Finder;
 
 class PullTranslationsCommand extends Command
 {
     /**
-     * hash('sha256', '');
+     * hash('sha256', '');.
      */
     const EMPTY_HASH = 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855';
+    private const LOGGER_HEADER = 'Translations:Pull';
 
     /** @var TranslationService */
     private $translationService;
@@ -34,21 +36,26 @@ class PullTranslationsCommand extends Command
     /** @var string */
     private $translationsDir;
 
-        /** @var string */
+    /** @var string */
     private $cacheDir;
+
+    /** @var LoggerInterface */
+    private $logger;
 
     public function __construct(
         TranslationService $translationService,
         AuthenticationService $authenticationService,
         array $locales,
-        $translationsDir,
-        $cacheDir
+        string $translationsDir,
+        string $cacheDir,
+        LoggerInterface $logger
     ) {
         $this->translationService = $translationService;
         $this->authenticationService = $authenticationService;
         $this->locales = $locales;
         $this->translationsDir = $translationsDir;
         $this->cacheDir = $cacheDir;
+        $this->logger = $logger;
 
         parent::__construct();
     }
@@ -69,11 +76,14 @@ class PullTranslationsCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $io = new SymfonyStyle($input, $output);
-        array_walk($this->locales, function (string $locale) use ($io) : void {
-            $io->section("Processing locale '$locale'...");
-            $this->executeLocale($locale);
-            $io->success("'$locale' locale successfully pulled");
-        });
+        array_walk(
+            $this->locales,
+            function (string $locale) use ($io): void {
+                $io->section("Processing locale '$locale'...");
+                $this->executeLocale($locale);
+                $io->success("'$locale' locale successfully pulled");
+            }
+        );
     }
 
     private function executeLocale(string $locale): void
@@ -87,17 +97,44 @@ class PullTranslationsCommand extends Command
             $oldHash = hash_file('sha256', $catalogFilePath);
         }
 
-        file_put_contents($catalogFilePath, $xliffCatalog->getContents());
+        $xliffCatalogContent = $xliffCatalog->getContents();
+
+        $this->logger->debug(
+            self::LOGGER_HEADER,
+            [
+                'catalogFilePath' => $catalogFilePath,
+                'xliff catalog' => $xliffCatalogContent,
+            ]
+        );
+
+        file_put_contents($catalogFilePath, $xliffCatalogContent);
         $newHash = hash_file('sha256', $catalogFilePath);
 
         // Si le nouveau contenu est identique à l'ancien, pas besoin de flush le cache
         if (hash_equals($oldHash, $newHash)) {
+            $this->logger->debug(
+                self::LOGGER_HEADER,
+                [
+                    'catalogFilePath' => $catalogFilePath,
+                    'flush' => "xliff hash: old - $oldHash === new - $newHash , no need to flush",
+                ]
+            );
+
             return;
         }
 
         if (!file_exists($this->cacheDir)) {
+            $this->logger->debug(
+                self::LOGGER_HEADER,
+                [
+                    'catalogFilePath' => $catalogFilePath,
+                    'flush' => 'cache dir not exist, no need to flush',
+                ]
+            );
+
             return;
         }
+
         $finder = new Finder();
         $finder
             ->files()
@@ -107,7 +144,15 @@ class PullTranslationsCommand extends Command
 
         // On parcours tous les fichiers qui concernent la locale et on les supprime
         foreach ($finder as $file) {
-            unlink($file->getRealPath());
+            $deleted = unlink($file->getRealPath());
+
+            $this->logger->debug(
+                self::LOGGER_HEADER,
+                [
+                    'file' => $file,
+                    'deleted' => $deleted,
+                ]
+            );
         }
     }
 }
