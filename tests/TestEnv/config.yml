@@ -77,6 +77,14 @@ services:
     test.WizaplaceFrontBundle\Service\SitemapGenerator:
         alias: 'WizaplaceFrontBundle\Service\SitemapGenerator'
         public: true
+    test.Multilanguage.WizaplaceFrontBundle\Service\SitemapGenerator:
+        alias: 'WizaplaceFrontBundle\Service\SitemapGenerator'
+        public: true
+        arguments:
+            - '@Wizaplace\SDK\Seo\SeoService'
+            - '@router'
+            - 'FR'
+            - ['FR', 'EN']
     test.WizaplaceFrontBundle\Twig\AppExtension: '@WizaplaceFrontBundle\Twig\AppExtension'
     test.translation.dumper.xliff: '@translation.dumper.xliff'
     test.translation.loader.xliff: '@translation.loader.xliff'
