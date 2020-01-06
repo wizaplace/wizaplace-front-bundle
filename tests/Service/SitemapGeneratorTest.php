@@ -46,7 +46,7 @@ class SitemapGeneratorTest extends BundleTestCase
         /** @var \PHPUnit_Framework_MockObject_MockObject|Sitemap $sitemap */
         $sitemap = $this->createMock(Sitemap::class);
 
-        $spy = self::exactly(29);
+        $spy = self::exactly(88);
         $sitemap->expects($spy)->method('add');
 
         $sitemapGenerator->populate($sitemap);
@@ -56,6 +56,16 @@ class SitemapGeneratorTest extends BundleTestCase
             return $invocation->getParameters()[0]->getLoc();
         }, $spy->getInvocations());
 
-        var_dump($urls);
+        self::assertContains('http://localhost/', $urls); // static URL
+        self::assertContains('http://localhost/a/adidas', $urls); // attribute variant URL
+        self::assertContains('http://localhost/p/it/headsets/casque-corsair-gaming', $urls); // product URL
+        self::assertContains('http://localhost/c/categorie-principale', $urls); // category URL
+        self::assertContains('http://localhost/v/acme', $urls); // company URL
+
+        /** @var string[] $locales */
+        $locales = array_keys($spy->getInvocations()[0]->getParameters()[0]->getAlternateUrls());
+
+        self::assertContains('fr', $locales);
+        self::assertContains('en', $locales);
     }
 }
