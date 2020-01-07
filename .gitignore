@@ -5,3 +5,5 @@
 *-checkstyle.xml
 phpunit-result.xml
 clover.xml
+
+.idea/

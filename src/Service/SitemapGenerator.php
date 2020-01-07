@@ -62,25 +62,24 @@ class SitemapGenerator implements ProviderInterface
     private function buildUrl(Sitemap $sitemap, Route $route, string $routeName, array $parameters = []): void
     {
         if ($this->isMultiLingual()) {
-            foreach ($this->locales as $locale) {
-                $url = new RichUrl();
+            $locale = $this->locales[0];
+            $url = new RichUrl();
 
+            if ($route->hasRequirement('_locale')) {
+                $parameters['_locale'] = $locale;
+            }
+
+            $url->setLoc($this->router->generate($routeName, $parameters, UrlGeneratorInterface::ABSOLUTE_URL));
+
+            foreach ($this->locales as $locale) {
                 if ($route->hasRequirement('_locale')) {
                     $parameters['_locale'] = $locale;
                 }
 
-                $url->setLoc($this->router->generate($routeName, $parameters, UrlGeneratorInterface::ABSOLUTE_URL));
-
-                foreach ($this->locales as $locale) {
-                    if ($route->hasRequirement('_locale')) {
-                        $parameters['_locale'] = $locale;
-                    }
-
-                    $url->addAlternateUrl($locale, $this->router->generate($routeName, $parameters, UrlGeneratorInterface::ABSOLUTE_URL));
-                }
-
-                $sitemap->add($url);
+                $url->addAlternateUrl($locale, $this->router->generate($routeName, $parameters, UrlGeneratorInterface::ABSOLUTE_URL));
             }
+
+            $sitemap->add($url);
         } else {
             $url = new RichUrl();
             $url->setLoc($this->router->generate($routeName, $parameters, UrlGeneratorInterface::ABSOLUTE_URL));
