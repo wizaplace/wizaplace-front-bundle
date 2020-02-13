@@ -114,6 +114,8 @@ services:
         public: true
     Wizaplace\SDK\Seo\SeoService:
         public: true
+    Wizaplace\SDK\Shipping\MondialRelayService:
+        public: true
     Wizaplace\SDK\Cms\CmsService:
         public: true
     Wizaplace\SDK\Company\CompanyService:

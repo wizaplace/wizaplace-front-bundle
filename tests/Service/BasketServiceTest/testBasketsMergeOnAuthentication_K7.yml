@@ -13,22 +13,23 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 23 May 2018 07:59:38 GMT'
+            Date: 'Fri, 26 Oct 2018 12:39:48 GMT'
             Server: 'Apache/2.4.25 (Debian)'
+            X-Protected-By: Sqreen
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: be57b1
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/be57b1'
-            Content-Length: '60'
+            X-Debug-Token: db137f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/db137f'
+            Content-Length: '61'
             Content-Type: application/json
-        body: '{"id":7,"apiKey":"O5DxHswXUO5QDOyAEDaVoxUOHgaK6RnExn9oAXzf"}'
+        body: '{"id":7,"apiKey":"xMrkXIwIthmeCtp4LnpwpuVPOtyV5H9asqjXov\/V"}'
 -
     request:
         method: GET
         url: 'http://wizaplace.loc/api/v1/users/7'
         headers:
             Host: wizaplace.loc
-            Authorization: 'token O5DxHswXUO5QDOyAEDaVoxUOHgaK6RnExn9oAXzf'
+            Authorization: 'token xMrkXIwIthmeCtp4LnpwpuVPOtyV5H9asqjXov/V'
             VCR-index: '1'
     response:
         status:
@@ -36,22 +37,23 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 23 May 2018 07:59:39 GMT'
+            Date: 'Fri, 26 Oct 2018 12:39:48 GMT'
             Server: 'Apache/2.4.25 (Debian)'
+            X-Protected-By: Sqreen
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: ab8c51
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ab8c51'
-            Content-Length: '671'
+            X-Debug-Token: 9e885b
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9e885b'
+            Content-Length: '682'
             Content-Type: application/json
-        body: '{"id":7,"title":"mr","email":"customer-1@world-company.com","companyId":null,"firstName":"Michael","lastName":"Jordan","birthday":"1979-06-19","loyaltyIdentifier":null,"addresses":{"billing":{"title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","37":4,"38":4,"40":"","39":""},"shipping":{"title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","37":4,"38":4,"40":"","39":""}}}'
+        body: '{"id":7,"title":"mr","email":"customer-1@world-company.com","type":"C","companyId":null,"firstName":"Michael","lastName":"Jordan","birthday":"1979-06-19","loyaltyIdentifier":null,"addresses":{"billing":{"title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","37":4,"38":4,"40":"","39":""},"shipping":{"title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","37":4,"38":4,"40":"","39":""}}}'
 -
     request:
         method: GET
         url: 'http://wizaplace.loc/api/v1/users/7/basket'
         headers:
             Host: wizaplace.loc
-            Authorization: 'token O5DxHswXUO5QDOyAEDaVoxUOHgaK6RnExn9oAXzf'
+            Authorization: 'token xMrkXIwIthmeCtp4LnpwpuVPOtyV5H9asqjXov/V'
             VCR-index: '2'
     response:
         status:
@@ -59,73 +61,26 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 23 May 2018 07:59:39 GMT'
+            Date: 'Fri, 26 Oct 2018 12:39:48 GMT'
             Server: 'Apache/2.4.25 (Debian)'
+            X-Protected-By: Sqreen
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 3e335b
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3e335b'
-            Content-Length: '11'
-            Content-Type: application/json
-        body: '{"id":null}'
--
-    request:
-        method: POST
-        url: 'http://wizaplace.loc/api/v1/basket'
-        headers:
-            Host: wizaplace.loc
-            Authorization: 'token O5DxHswXUO5QDOyAEDaVoxUOHgaK6RnExn9oAXzf'
-            VCR-index: '3'
-    response:
-        status:
-            http_version: '1.1'
-            code: '201'
-            message: Created
-        headers:
-            Date: 'Wed, 23 May 2018 07:59:40 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: d1ebad
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d1ebad'
-            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22d1ebad%22%2C%22route%22%3A%22api_basket_create%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CBasketController%22%2C%22method%22%3A%22createAction%22%2C%22file%22%3A%22%5C%2Fvagrant%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FBasketController.php%22%2C%22line%22%3A42%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
-            Content-Length: '38'
-            Content-Type: application/json
-        body: '"ad471563-6745-4bec-a1ae-2e62128e002c"'
--
-    request:
-        method: POST
-        url: 'http://wizaplace.loc/api/v1/users/7/basket'
-        headers:
+            X-Debug-Token: c38913
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c38913'
             Content-Length: '45'
             Content-Type: application/json
-            Host: wizaplace.loc
-            Authorization: 'token O5DxHswXUO5QDOyAEDaVoxUOHgaK6RnExn9oAXzf'
-            VCR-index: '4'
-        body: '{"id":"ad471563-6745-4bec-a1ae-2e62128e002c"}'
-    response:
-        status:
-            http_version: '1.1'
-            code: '204'
-            message: 'No Content'
-        headers:
-            Date: 'Wed, 23 May 2018 07:59:40 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: cee5a3
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/cee5a3'
-            Content-Type: 'text/html; charset=UTF-8'
+        body: '{"id":"df005a05-7d02-4dcd-8f96-4245c4886bbd"}'
 -
     request:
         method: POST
-        url: 'http://wizaplace.loc/api/v1/basket/ad471563-6745-4bec-a1ae-2e62128e002c/add'
+        url: 'http://wizaplace.loc/api/v1/basket/df005a05-7d02-4dcd-8f96-4245c4886bbd/add'
         headers:
             Content-Length: '28'
             Content-Type: application/x-www-form-urlencoded
             Host: wizaplace.loc
-            Authorization: 'token O5DxHswXUO5QDOyAEDaVoxUOHgaK6RnExn9oAXzf'
-            VCR-index: '5'
+            Authorization: 'token xMrkXIwIthmeCtp4LnpwpuVPOtyV5H9asqjXov/V'
+            VCR-index: '3'
         body: 'declinationId=1_0&quantity=1'
     response:
         status:
@@ -133,25 +88,26 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 23 May 2018 07:59:40 GMT'
+            Date: 'Fri, 26 Oct 2018 12:39:48 GMT'
             Server: 'Apache/2.4.25 (Debian)'
+            X-Protected-By: Sqreen
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 77696f
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/77696f'
+            X-Debug-Token: '62e820'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/62e820'
             Content-Length: '14'
             Content-Type: application/json
-        body: '{"quantity":1}'
+        body: '{"quantity":3}'
 -
     request:
         method: POST
-        url: 'http://wizaplace.loc/api/v1/basket/ad471563-6745-4bec-a1ae-2e62128e002c/add'
+        url: 'http://wizaplace.loc/api/v1/basket/df005a05-7d02-4dcd-8f96-4245c4886bbd/add'
         headers:
             Content-Length: '30'
             Content-Type: application/x-www-form-urlencoded
             Host: wizaplace.loc
-            Authorization: 'token O5DxHswXUO5QDOyAEDaVoxUOHgaK6RnExn9oAXzf'
-            VCR-index: '6'
+            Authorization: 'token xMrkXIwIthmeCtp4LnpwpuVPOtyV5H9asqjXov/V'
+            VCR-index: '4'
         body: 'declinationId=3_3_7&quantity=1'
     response:
         status:
@@ -159,70 +115,73 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 23 May 2018 07:59:41 GMT'
+            Date: 'Fri, 26 Oct 2018 12:39:49 GMT'
             Server: 'Apache/2.4.25 (Debian)'
+            X-Protected-By: Sqreen
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 7a4266
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/7a4266'
+            X-Debug-Token: 251b73
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/251b73'
             Content-Length: '14'
             Content-Type: application/json
         body: '{"quantity":1}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/basket/ad471563-6745-4bec-a1ae-2e62128e002c'
+        url: 'http://wizaplace.loc/api/v1/basket/df005a05-7d02-4dcd-8f96-4245c4886bbd'
         headers:
             Host: wizaplace.loc
-            Authorization: 'token O5DxHswXUO5QDOyAEDaVoxUOHgaK6RnExn9oAXzf'
-            VCR-index: '7'
+            Authorization: 'token xMrkXIwIthmeCtp4LnpwpuVPOtyV5H9asqjXov/V'
+            VCR-index: '5'
     response:
         status:
             http_version: '1.1'
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 23 May 2018 07:59:42 GMT'
+            Date: 'Fri, 26 Oct 2018 12:39:49 GMT'
             Server: 'Apache/2.4.25 (Debian)'
+            X-Protected-By: Sqreen
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: ecbe1d
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ecbe1d'
-            Content-Length: '2875'
+            X-Debug-Token: fa0fa3
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fa0fa3'
+            Content-Length: '2995'
             Content-Type: application/json
-        body: '{"id":"ad471563-6745-4bec-a1ae-2e62128e002c","comment":"","coupons":[],"billingAddress":{"title":"","firstname":"","lastname":"","company":"","address":"","address2":"","zipcode":"","city":"","state":"","country":"","phone":"","email":""},"shippingAddress":{"title":"","firstname":"","lastname":"","company":"","address":"","address2":"","zipcode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[{"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc."},"productTotalWithTaxes":83.4,"productTaxes":1.72,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":1.72,"shippingGroups":[{"id":1,"items":[{"declinationId":"1_0","productId":1,"productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productCode":"978020137962","productUrl":"https:\/\/wizaplace.loc\/it\/test-product-slug.html","individualPrice":67.9,"individualTax":1.4,"crossedOutPrice":null,"mainImage":null,"quantity":1,"total":67.9,"options":[],"comment":"","unitPrice":{"priceWithoutVat":66.5,"priceWithTaxes":67.9,"vat":1.4},"totalPrice":{"priceWithoutVat":66.5,"priceWithTaxes":67.9,"vat":1.4}},{"declinationId":"3_3_7","productId":3,"productName":"Ecran PC Full HD Noir","productCode":"size_13","productUrl":"https:\/\/wizaplace.loc\/it\/screens\/ecran-pc-full-hd-noir.html","individualPrice":15.5,"individualTax":0.32,"crossedOutPrice":143.66,"mainImage":null,"quantity":1,"total":15.5,"options":{"3":{"optionId":3,"optionName":"size","variantId":7,"variantName":"13"}},"comment":"","unitPrice":{"priceWithoutVat":15.18,"priceWithTaxes":15.5,"vat":0.32},"totalPrice":{"priceWithoutVat":15.18,"priceWithTaxes":15.5,"vat":0.32}}],"shippings":[{"id":1,"name":"TNT Express","type":"S","price":0,"deliveryTime":"24h","shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":true},{"id":38,"name":"Lettre prioritaire","type":"S","price":0,"deliveryTime":"","shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":false},{"id":39,"name":"Colissmo","type":"S","price":0,"deliveryTime":"","shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":false}],"productTotalWithTaxes":83.4,"productTaxes":1.72,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":1.72,"itemsPrice":{"priceWithoutVat":81.68,"priceWithTaxes":83.4,"vat":1.72},"selectedShippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalPrice":{"priceWithoutVat":81.68,"priceWithTaxes":83.4,"vat":1.72}}]}],"subtotal":83.4,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":1.72,"total":83.4,"totalQuantity":2,"totalItemsPrice":{"priceWithoutVat":81.68,"priceWithTaxes":83.4,"vat":1.72},"totalShippingsPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalGlobalPrice":{"priceWithoutVat":81.68,"priceWithTaxes":83.4,"vat":1.72},"isEligibleToPickupPointsShipping":false,"isPickupPointsShipping":false}'
+        body: '{"id":"df005a05-7d02-4dcd-8f96-4245c4886bbd","comment":"","coupons":[],"billingAddress":{"title":"","firstname":"","lastname":"","company":"","address":"","address2":"","zipcode":"","city":"","state":"","country":"","phone":"","email":"","pickupPointId":""},"shippingAddress":{"title":"","firstname":"","lastname":"","company":"","address":"","address2":"","zipcode":"","city":"","state":"","country":"","phone":"","email":"","pickupPointId":""},"companyGroups":[{"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc."},"productTotalWithTaxes":219.2,"productTaxes":4.51,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":4.51,"shippingGroups":[{"id":1,"items":[{"declinationId":"1_0","productId":1,"productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productCode":"978020137962","productUrl":"https:\/\/wizaplace.loc\/it\/test-product-slug.html","individualPrice":67.9,"individualTax":1.4,"crossedOutPrice":null,"greenTax":0,"mainImage":null,"quantity":3,"total":203.7,"options":[],"comment":"","unitPrice":{"priceWithoutVat":66.5,"priceWithTaxes":67.9,"vat":1.4},"totalPrice":{"priceWithoutVat":199.51,"priceWithTaxes":203.7,"vat":4.19}},{"declinationId":"3_3_7","productId":3,"productName":"Ecran PC Full HD Noir","productCode":"size_13","productUrl":"https:\/\/wizaplace.loc\/it\/screens\/ecran-pc-full-hd-noir.html","individualPrice":15.5,"individualTax":0.32,"crossedOutPrice":143.66,"greenTax":0,"mainImage":null,"quantity":1,"total":15.5,"options":{"3":{"optionId":3,"optionName":"size","variantId":7,"variantName":"13"}},"comment":"","unitPrice":{"priceWithoutVat":15.18,"priceWithTaxes":15.5,"vat":0.32},"totalPrice":{"priceWithoutVat":15.18,"priceWithTaxes":15.5,"vat":0.32}}],"shippings":[{"id":1,"name":"TNT Express","type":"S","price":0,"deliveryTime":"24h","image":null,"shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":true},{"id":38,"name":"Lettre prioritaire","type":"S","price":0,"deliveryTime":"","image":null,"shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":false},{"id":39,"name":"Colissmo","type":"S","price":0,"deliveryTime":"","image":null,"shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":false}],"productTotalWithTaxes":219.2,"productTaxes":4.51,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":4.51,"itemsPrice":{"priceWithoutVat":214.69,"priceWithTaxes":219.2,"vat":4.51},"selectedShippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalPrice":{"priceWithoutVat":214.69,"priceWithTaxes":219.2,"vat":4.51}}]}],"subtotal":219.2,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":4.51,"total":219.2,"totalQuantity":4,"totalItemsPrice":{"priceWithoutVat":214.69,"priceWithTaxes":219.2,"vat":4.51},"totalShippingsPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalGlobalPrice":{"priceWithoutVat":214.69,"priceWithTaxes":219.2,"vat":4.51},"isEligibleToPickupPointsShipping":false,"isPickupPointsShipping":false}'
 -
     request:
         method: POST
         url: 'http://wizaplace.loc/api/v1/basket'
         headers:
             Host: wizaplace.loc
-            VCR-index: '8'
+            VCR-index: '6'
     response:
         status:
             http_version: '1.1'
             code: '201'
             message: Created
         headers:
-            Date: 'Wed, 23 May 2018 07:59:43 GMT'
+            Date: 'Fri, 26 Oct 2018 12:39:50 GMT'
             Server: 'Apache/2.4.25 (Debian)'
+            X-Protected-By: Sqreen
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: '316798'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/316798'
-            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22316798%22%2C%22route%22%3A%22api_basket_create%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CBasketController%22%2C%22method%22%3A%22createAction%22%2C%22file%22%3A%22%5C%2Fvagrant%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FBasketController.php%22%2C%22line%22%3A42%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Debug-Token: 5ac47a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5ac47a'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%225ac47a%22%2C%22route%22%3A%22api_basket_create%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CBasketController%22%2C%22method%22%3A%22createAction%22%2C%22file%22%3A%22%5C%2Fvagrant%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FBasketController.php%22%2C%22line%22%3A42%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
             Content-Length: '38'
             Content-Type: application/json
-        body: '"9cb5efc3-8dcc-44e3-a5b3-afc78d564c5c"'
+        body: '"3a46e35e-2817-4438-8098-c9124a695a8d"'
 -
     request:
         method: POST
-        url: 'http://wizaplace.loc/api/v1/basket/9cb5efc3-8dcc-44e3-a5b3-afc78d564c5c/add'
+        url: 'http://wizaplace.loc/api/v1/basket/3a46e35e-2817-4438-8098-c9124a695a8d/add'
         headers:
             Content-Length: '28'
             Content-Type: application/x-www-form-urlencoded
             Host: wizaplace.loc
-            VCR-index: '9'
+            VCR-index: '7'
         body: 'declinationId=1_0&quantity=2'
     response:
         status:
@@ -230,24 +189,25 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 23 May 2018 07:59:43 GMT'
+            Date: 'Fri, 26 Oct 2018 12:39:50 GMT'
             Server: 'Apache/2.4.25 (Debian)'
+            X-Protected-By: Sqreen
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: be92ff
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/be92ff'
+            X-Debug-Token: 426bfc
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/426bfc'
             Content-Length: '14'
             Content-Type: application/json
         body: '{"quantity":2}'
 -
     request:
         method: POST
-        url: 'http://wizaplace.loc/api/v1/basket/9cb5efc3-8dcc-44e3-a5b3-afc78d564c5c/add'
+        url: 'http://wizaplace.loc/api/v1/basket/3a46e35e-2817-4438-8098-c9124a695a8d/add'
         headers:
             Content-Length: '30'
             Content-Type: application/x-www-form-urlencoded
             Host: wizaplace.loc
-            VCR-index: '10'
+            VCR-index: '8'
         body: 'declinationId=3_3_8&quantity=1'
     response:
         status:
@@ -255,37 +215,39 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 23 May 2018 07:59:43 GMT'
+            Date: 'Fri, 26 Oct 2018 12:39:50 GMT'
             Server: 'Apache/2.4.25 (Debian)'
+            X-Protected-By: Sqreen
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 339d89
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/339d89'
+            X-Debug-Token: 56f97b
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/56f97b'
             Content-Length: '14'
             Content-Type: application/json
         body: '{"quantity":1}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/basket/9cb5efc3-8dcc-44e3-a5b3-afc78d564c5c'
+        url: 'http://wizaplace.loc/api/v1/basket/3a46e35e-2817-4438-8098-c9124a695a8d'
         headers:
             Host: wizaplace.loc
-            VCR-index: '11'
+            VCR-index: '9'
     response:
         status:
             http_version: '1.1'
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 23 May 2018 07:59:44 GMT'
+            Date: 'Fri, 26 Oct 2018 12:39:50 GMT'
             Server: 'Apache/2.4.25 (Debian)'
+            X-Protected-By: Sqreen
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 620c45
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/620c45'
-            Content-Length: '2892'
+            X-Debug-Token: 30cfc9
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/30cfc9'
+            Content-Length: '2995'
             Content-Type: application/json
-        body: '{"id":"9cb5efc3-8dcc-44e3-a5b3-afc78d564c5c","comment":"","coupons":[],"billingAddress":{"title":"","firstname":"","lastname":"","company":"","address":"","address2":"","zipcode":"","city":"","state":"","country":"","phone":"","email":""},"shippingAddress":{"title":"","firstname":"","lastname":"","company":"","address":"","address2":"","zipcode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[{"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc."},"productTotalWithTaxes":151.3,"productTaxes":3.11,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":3.11,"shippingGroups":[{"id":1,"items":[{"declinationId":"1_0","productId":1,"productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productCode":"978020137962","productUrl":"https:\/\/wizaplace.loc\/it\/test-product-slug.html","individualPrice":67.9,"individualTax":1.4,"crossedOutPrice":null,"mainImage":null,"quantity":2,"total":135.8,"options":[],"comment":"","unitPrice":{"priceWithoutVat":66.5,"priceWithTaxes":67.9,"vat":1.4},"totalPrice":{"priceWithoutVat":133.01,"priceWithTaxes":135.8,"vat":2.79}},{"declinationId":"3_3_8","productId":3,"productName":"Ecran PC Full HD Noir","productCode":"size_15","productUrl":"https:\/\/wizaplace.loc\/it\/screens\/ecran-pc-full-hd-noir.html","individualPrice":15.5,"individualTax":0.32,"crossedOutPrice":143.66,"mainImage":null,"quantity":1,"total":15.5,"options":{"3":{"optionId":3,"optionName":"size","variantId":8,"variantName":"15"}},"comment":"","unitPrice":{"priceWithoutVat":15.18,"priceWithTaxes":15.5,"vat":0.32},"totalPrice":{"priceWithoutVat":15.18,"priceWithTaxes":15.5,"vat":0.32}}],"shippings":[{"id":1,"name":"TNT Express","type":"S","price":0,"deliveryTime":"24h","shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":true},{"id":38,"name":"Lettre prioritaire","type":"S","price":0,"deliveryTime":"","shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":false},{"id":39,"name":"Colissmo","type":"S","price":0,"deliveryTime":"","shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":false}],"productTotalWithTaxes":151.3,"productTaxes":3.11,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":3.11,"itemsPrice":{"priceWithoutVat":148.19,"priceWithTaxes":151.3,"vat":3.11},"selectedShippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalPrice":{"priceWithoutVat":148.19,"priceWithTaxes":151.3,"vat":3.11}}]}],"subtotal":151.3,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":3.11,"total":151.3,"totalQuantity":3,"totalItemsPrice":{"priceWithoutVat":148.19,"priceWithTaxes":151.3,"vat":3.11},"totalShippingsPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalGlobalPrice":{"priceWithoutVat":148.19,"priceWithTaxes":151.3,"vat":3.11},"isEligibleToPickupPointsShipping":false,"isPickupPointsShipping":false}'
+        body: '{"id":"3a46e35e-2817-4438-8098-c9124a695a8d","comment":"","coupons":[],"billingAddress":{"title":"","firstname":"","lastname":"","company":"","address":"","address2":"","zipcode":"","city":"","state":"","country":"","phone":"","email":"","pickupPointId":""},"shippingAddress":{"title":"","firstname":"","lastname":"","company":"","address":"","address2":"","zipcode":"","city":"","state":"","country":"","phone":"","email":"","pickupPointId":""},"companyGroups":[{"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc."},"productTotalWithTaxes":151.3,"productTaxes":3.11,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":3.11,"shippingGroups":[{"id":1,"items":[{"declinationId":"1_0","productId":1,"productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productCode":"978020137962","productUrl":"https:\/\/wizaplace.loc\/it\/test-product-slug.html","individualPrice":67.9,"individualTax":1.4,"crossedOutPrice":null,"greenTax":0,"mainImage":null,"quantity":2,"total":135.8,"options":[],"comment":"","unitPrice":{"priceWithoutVat":66.5,"priceWithTaxes":67.9,"vat":1.4},"totalPrice":{"priceWithoutVat":133.01,"priceWithTaxes":135.8,"vat":2.79}},{"declinationId":"3_3_8","productId":3,"productName":"Ecran PC Full HD Noir","productCode":"size_15","productUrl":"https:\/\/wizaplace.loc\/it\/screens\/ecran-pc-full-hd-noir.html","individualPrice":15.5,"individualTax":0.32,"crossedOutPrice":143.66,"greenTax":0,"mainImage":null,"quantity":1,"total":15.5,"options":{"3":{"optionId":3,"optionName":"size","variantId":8,"variantName":"15"}},"comment":"","unitPrice":{"priceWithoutVat":15.18,"priceWithTaxes":15.5,"vat":0.32},"totalPrice":{"priceWithoutVat":15.18,"priceWithTaxes":15.5,"vat":0.32}}],"shippings":[{"id":1,"name":"TNT Express","type":"S","price":0,"deliveryTime":"24h","image":null,"shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":true},{"id":38,"name":"Lettre prioritaire","type":"S","price":0,"deliveryTime":"","image":null,"shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":false},{"id":39,"name":"Colissmo","type":"S","price":0,"deliveryTime":"","image":null,"shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":false}],"productTotalWithTaxes":151.3,"productTaxes":3.11,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":3.11,"itemsPrice":{"priceWithoutVat":148.19,"priceWithTaxes":151.3,"vat":3.11},"selectedShippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalPrice":{"priceWithoutVat":148.19,"priceWithTaxes":151.3,"vat":3.11}}]}],"subtotal":151.3,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":3.11,"total":151.3,"totalQuantity":3,"totalItemsPrice":{"priceWithoutVat":148.19,"priceWithTaxes":151.3,"vat":3.11},"totalShippingsPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalGlobalPrice":{"priceWithoutVat":148.19,"priceWithTaxes":151.3,"vat":3.11},"isEligibleToPickupPointsShipping":false,"isPickupPointsShipping":false}'
 -
     request:
         method: GET
@@ -293,6 +255,54 @@
         headers:
             Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
             Host: wizaplace.loc
+            VCR-index: '10'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Fri, 26 Oct 2018 12:39:51 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            X-Protected-By: Sqreen
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 06eb1c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/06eb1c'
+            Content-Length: '61'
+            Content-Type: application/json
+        body: '{"id":7,"apiKey":"xMrkXIwIthmeCtp4LnpwpuVPOtyV5H9asqjXov\/V"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/7'
+        headers:
+            Host: wizaplace.loc
+            Authorization: 'token xMrkXIwIthmeCtp4LnpwpuVPOtyV5H9asqjXov/V'
+            VCR-index: '11'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Fri, 26 Oct 2018 12:39:51 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            X-Protected-By: Sqreen
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 0d6a65
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0d6a65'
+            Content-Length: '682'
+            Content-Type: application/json
+        body: '{"id":7,"title":"mr","email":"customer-1@world-company.com","type":"C","companyId":null,"firstName":"Michael","lastName":"Jordan","birthday":"1979-06-19","loyaltyIdentifier":null,"addresses":{"billing":{"title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","37":4,"38":4,"40":"","39":""},"shipping":{"title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","37":4,"38":4,"40":"","39":""}}}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/7/basket'
+        headers:
+            Host: wizaplace.loc
+            Authorization: 'token xMrkXIwIthmeCtp4LnpwpuVPOtyV5H9asqjXov/V'
             VCR-index: '12'
     response:
         status:
@@ -300,45 +310,48 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 23 May 2018 07:59:45 GMT'
+            Date: 'Fri, 26 Oct 2018 12:39:51 GMT'
             Server: 'Apache/2.4.25 (Debian)'
+            X-Protected-By: Sqreen
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 736bef
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/736bef'
-            Content-Length: '60'
+            X-Debug-Token: 0d708d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0d708d'
+            Content-Length: '45'
             Content-Type: application/json
-        body: '{"id":7,"apiKey":"O5DxHswXUO5QDOyAEDaVoxUOHgaK6RnExn9oAXzf"}'
+        body: '{"id":"df005a05-7d02-4dcd-8f96-4245c4886bbd"}'
 -
     request:
-        method: GET
-        url: 'http://wizaplace.loc/api/v1/users/7'
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/basket/df005a05-7d02-4dcd-8f96-4245c4886bbd/merge'
         headers:
+            Content-Length: '51'
+            Content-Type: application/json
             Host: wizaplace.loc
-            Authorization: 'token O5DxHswXUO5QDOyAEDaVoxUOHgaK6RnExn9oAXzf'
+            Authorization: 'token xMrkXIwIthmeCtp4LnpwpuVPOtyV5H9asqjXov/V'
             VCR-index: '13'
+        body: '{"basketId":"3a46e35e-2817-4438-8098-c9124a695a8d"}'
     response:
         status:
             http_version: '1.1'
-            code: '200'
-            message: OK
+            code: '204'
+            message: 'No Content'
         headers:
-            Date: 'Wed, 23 May 2018 07:59:45 GMT'
+            Date: 'Fri, 26 Oct 2018 12:39:52 GMT'
             Server: 'Apache/2.4.25 (Debian)'
+            X-Protected-By: Sqreen
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: c30a05
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c30a05'
-            Content-Length: '671'
-            Content-Type: application/json
-        body: '{"id":7,"title":"mr","email":"customer-1@world-company.com","companyId":null,"firstName":"Michael","lastName":"Jordan","birthday":"1979-06-19","loyaltyIdentifier":null,"addresses":{"billing":{"title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","37":4,"38":4,"40":"","39":""},"shipping":{"title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","37":4,"38":4,"40":"","39":""}}}'
+            X-Debug-Token: '6003e1'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6003e1'
+            Content-Type: 'text/html; charset=UTF-8'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/users/7/basket'
+        url: 'http://wizaplace.loc/api/v1/basket/df005a05-7d02-4dcd-8f96-4245c4886bbd'
         headers:
             Host: wizaplace.loc
-            Authorization: 'token O5DxHswXUO5QDOyAEDaVoxUOHgaK6RnExn9oAXzf'
+            Authorization: 'token xMrkXIwIthmeCtp4LnpwpuVPOtyV5H9asqjXov/V'
             VCR-index: '14'
     response:
         status:
@@ -346,83 +359,13 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 23 May 2018 07:59:46 GMT'
+            Date: 'Fri, 26 Oct 2018 12:39:52 GMT'
             Server: 'Apache/2.4.25 (Debian)'
+            X-Protected-By: Sqreen
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 56f305
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/56f305'
-            Content-Length: '45'
+            X-Debug-Token: befd45
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/befd45'
+            Content-Length: '3542'
             Content-Type: application/json
-        body: '{"id":"ad471563-6745-4bec-a1ae-2e62128e002c"}'
--
-    request:
-        method: POST
-        url: 'http://wizaplace.loc/api/v1/basket/ad471563-6745-4bec-a1ae-2e62128e002c/merge'
-        headers:
-            Content-Length: '51'
-            Content-Type: application/json
-            Host: wizaplace.loc
-            Authorization: 'token O5DxHswXUO5QDOyAEDaVoxUOHgaK6RnExn9oAXzf'
-            VCR-index: '15'
-        body: '{"basketId":"9cb5efc3-8dcc-44e3-a5b3-afc78d564c5c"}'
-    response:
-        status:
-            http_version: '1.1'
-            code: '204'
-            message: 'No Content'
-        headers:
-            Date: 'Wed, 23 May 2018 07:59:46 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: 2c0ebb
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/2c0ebb'
-            Content-Type: 'text/html; charset=UTF-8'
--
-    request:
-        method: GET
-        url: 'http://wizaplace.loc/api/v1/basket/ad471563-6745-4bec-a1ae-2e62128e002c'
-        headers:
-            Host: wizaplace.loc
-            Authorization: 'token O5DxHswXUO5QDOyAEDaVoxUOHgaK6RnExn9oAXzf'
-            VCR-index: '16'
-    response:
-        status:
-            http_version: '1.1'
-            code: '200'
-            message: OK
-        headers:
-            Date: 'Wed, 23 May 2018 07:59:46 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: 6da448
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6da448'
-            Content-Length: '3426'
-            Content-Type: application/json
-        body: '{"id":"ad471563-6745-4bec-a1ae-2e62128e002c","comment":"","coupons":[],"billingAddress":{"title":"","firstname":"","lastname":"","company":"","address":"","address2":"","zipcode":"","city":"","state":"","country":"","phone":"","email":""},"shippingAddress":{"title":"","firstname":"","lastname":"","company":"","address":"","address2":"","zipcode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[{"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc."},"productTotalWithTaxes":166.8,"productTaxes":3.43,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":3.43,"shippingGroups":[{"id":1,"items":[{"declinationId":"1_0","productId":1,"productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productCode":"978020137962","productUrl":"https:\/\/wizaplace.loc\/it\/test-product-slug.html","individualPrice":67.9,"individualTax":1.4,"crossedOutPrice":null,"mainImage":null,"quantity":2,"total":135.8,"options":[],"comment":"","unitPrice":{"priceWithoutVat":66.5,"priceWithTaxes":67.9,"vat":1.4},"totalPrice":{"priceWithoutVat":133.01,"priceWithTaxes":135.8,"vat":2.79}},{"declinationId":"3_3_7","productId":3,"productName":"Ecran PC Full HD Noir","productCode":"size_13","productUrl":"https:\/\/wizaplace.loc\/it\/screens\/ecran-pc-full-hd-noir.html","individualPrice":15.5,"individualTax":0.32,"crossedOutPrice":143.66,"mainImage":null,"quantity":1,"total":15.5,"options":{"3":{"optionId":3,"optionName":"size","variantId":7,"variantName":"13"}},"comment":"","unitPrice":{"priceWithoutVat":15.18,"priceWithTaxes":15.5,"vat":0.32},"totalPrice":{"priceWithoutVat":15.18,"priceWithTaxes":15.5,"vat":0.32}},{"declinationId":"3_3_8","productId":3,"productName":"Ecran PC Full HD Noir","productCode":"size_15","productUrl":"https:\/\/wizaplace.loc\/it\/screens\/ecran-pc-full-hd-noir.html","individualPrice":15.5,"individualTax":0.32,"crossedOutPrice":143.66,"mainImage":null,"quantity":1,"total":15.5,"options":{"3":{"optionId":3,"optionName":"size","variantId":8,"variantName":"15"}},"comment":"","unitPrice":{"priceWithoutVat":15.18,"priceWithTaxes":15.5,"vat":0.32},"totalPrice":{"priceWithoutVat":15.18,"priceWithTaxes":15.5,"vat":0.32}}],"shippings":[{"id":1,"name":"TNT Express","type":"S","price":0,"deliveryTime":"24h","shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":true},{"id":38,"name":"Lettre prioritaire","type":"S","price":0,"deliveryTime":"","shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":false},{"id":39,"name":"Colissmo","type":"S","price":0,"deliveryTime":"","shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":false}],"productTotalWithTaxes":166.8,"productTaxes":3.43,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":3.43,"itemsPrice":{"priceWithoutVat":163.37,"priceWithTaxes":166.8,"vat":3.43},"selectedShippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalPrice":{"priceWithoutVat":163.37,"priceWithTaxes":166.8,"vat":3.43}}]}],"subtotal":166.8,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":3.43,"total":166.8,"totalQuantity":4,"totalItemsPrice":{"priceWithoutVat":163.37,"priceWithTaxes":166.8,"vat":3.43},"totalShippingsPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalGlobalPrice":{"priceWithoutVat":163.37,"priceWithTaxes":166.8,"vat":3.43},"isEligibleToPickupPointsShipping":false,"isPickupPointsShipping":false}'
--
-    request:
-        method: POST
-        url: 'http://wizaplace.loc/api/v1/users/7/basket'
-        headers:
-            Content-Length: '11'
-            Content-Type: application/json
-            Host: wizaplace.loc
-            Authorization: 'token O5DxHswXUO5QDOyAEDaVoxUOHgaK6RnExn9oAXzf'
-            VCR-index: '17'
-        body: '{"id":null}'
-    response:
-        status:
-            http_version: '1.1'
-            code: '204'
-            message: 'No Content'
-        headers:
-            Date: 'Wed, 23 May 2018 07:59:47 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: 3a39b8
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3a39b8'
-            Content-Type: 'text/html; charset=UTF-8'
+        body: '{"id":"df005a05-7d02-4dcd-8f96-4245c4886bbd","comment":"","coupons":[],"billingAddress":{"title":"","firstname":"","lastname":"","company":"","address":"","address2":"","zipcode":"","city":"","state":"","country":"","phone":"","email":"","pickupPointId":""},"shippingAddress":{"title":"","firstname":"","lastname":"","company":"","address":"","address2":"","zipcode":"","city":"","state":"","country":"","phone":"","email":"","pickupPointId":""},"companyGroups":[{"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc."},"productTotalWithTaxes":234.7,"productTaxes":4.83,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":4.83,"shippingGroups":[{"id":1,"items":[{"declinationId":"1_0","productId":1,"productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productCode":"978020137962","productUrl":"https:\/\/wizaplace.loc\/it\/test-product-slug.html","individualPrice":67.9,"individualTax":1.4,"crossedOutPrice":null,"greenTax":0,"mainImage":null,"quantity":3,"total":203.7,"options":[],"comment":"","unitPrice":{"priceWithoutVat":66.5,"priceWithTaxes":67.9,"vat":1.4},"totalPrice":{"priceWithoutVat":199.51,"priceWithTaxes":203.7,"vat":4.19}},{"declinationId":"3_3_7","productId":3,"productName":"Ecran PC Full HD Noir","productCode":"size_13","productUrl":"https:\/\/wizaplace.loc\/it\/screens\/ecran-pc-full-hd-noir.html","individualPrice":15.5,"individualTax":0.32,"crossedOutPrice":143.66,"greenTax":0,"mainImage":null,"quantity":1,"total":15.5,"options":{"3":{"optionId":3,"optionName":"size","variantId":7,"variantName":"13"}},"comment":"","unitPrice":{"priceWithoutVat":15.18,"priceWithTaxes":15.5,"vat":0.32},"totalPrice":{"priceWithoutVat":15.18,"priceWithTaxes":15.5,"vat":0.32}},{"declinationId":"3_3_8","productId":3,"productName":"Ecran PC Full HD Noir","productCode":"size_15","productUrl":"https:\/\/wizaplace.loc\/it\/screens\/ecran-pc-full-hd-noir.html","individualPrice":15.5,"individualTax":0.32,"crossedOutPrice":143.66,"greenTax":0,"mainImage":null,"quantity":1,"total":15.5,"options":{"3":{"optionId":3,"optionName":"size","variantId":8,"variantName":"15"}},"comment":"","unitPrice":{"priceWithoutVat":15.18,"priceWithTaxes":15.5,"vat":0.32},"totalPrice":{"priceWithoutVat":15.18,"priceWithTaxes":15.5,"vat":0.32}}],"shippings":[{"id":1,"name":"TNT Express","type":"S","price":0,"deliveryTime":"24h","image":null,"shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":true},{"id":38,"name":"Lettre prioritaire","type":"S","price":0,"deliveryTime":"","image":null,"shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":false},{"id":39,"name":"Colissmo","type":"S","price":0,"deliveryTime":"","image":null,"shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":false}],"productTotalWithTaxes":234.7,"productTaxes":4.83,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":4.83,"itemsPrice":{"priceWithoutVat":229.87,"priceWithTaxes":234.7,"vat":4.83},"selectedShippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalPrice":{"priceWithoutVat":229.87,"priceWithTaxes":234.7,"vat":4.83}}]}],"subtotal":234.7,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":4.83,"total":234.7,"totalQuantity":5,"totalItemsPrice":{"priceWithoutVat":229.87,"priceWithTaxes":234.7,"vat":4.83},"totalShippingsPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalGlobalPrice":{"priceWithoutVat":229.87,"priceWithTaxes":234.7,"vat":4.83},"isEligibleToPickupPointsShipping":false,"isPickupPointsShipping":false}'

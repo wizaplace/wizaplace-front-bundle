@@ -47,6 +47,9 @@ test-phpunit-ci: var/cache var/logs var/translations build
 	chmod -R 777 ./var/logs
 	php -dxdebug.coverage_enable=1 ./vendor/bin/phpunit --configuration ./phpunit.xml --log-junit build/junit.xml --coverage-clover ./clover.xml
 
+delete-all-cassettes:
+	cd tests/ && find . -name "*.yml" -type f -delete
+
 var/cache:
 	mkdir -p var/cache
 
