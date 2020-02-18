@@ -13,7 +13,12 @@
 
 ## Next version
 
-### New features
+### 0.5.9
+
+- Use PHPCS [wizaplace/phpcs](https://github.com/wizaplace/phpcs)
+- Update PHPStan
+
+### 0.5.8
 
 - Debug logs for translations commands (ex.: `bin/console wizaplace:translations:push -vvv`)
 
