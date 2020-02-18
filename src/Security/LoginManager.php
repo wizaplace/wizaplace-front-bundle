@@ -1,9 +1,11 @@
 <?php
+
 /**
  * Copied from https://github.com/FriendsOfSymfony/FOSUserBundle/blob/007fd9bd48a17d23b1c38b01115db202db7d989c/Security/LoginManager.php
  * @copyright   FriendsOfSymfony <http://friendsofsymfony.github.com/>
  * @license     MIT https://github.com/FriendsOfSymfony/FOSUserBundle/blob/007fd9bd48a17d23b1c38b01115db202db7d989c/LICENSE
  */
+
 declare(strict_types=1);
 
 namespace WizaplaceFrontBundle\Security;
@@ -67,7 +69,7 @@ class LoginManager
         $this->tokenStorage->setToken($token);
     }
 
-    final public function logOutUser() : void
+    final public function logOutUser(): void
     {
         $this->tokenStorage->setToken(null);
     }

@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace WizaplaceFrontBundle\Form;
@@ -22,12 +24,14 @@ class InitiateResetPasswordType extends AbstractType
 
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class'      => InitiateResetPasswordCommand::class,
-            'csrf_protection' => true,
-            'csrf_field_name' => 'csrf_token',
+        $resolver->setDefaults(
+            array(
+                'data_class'      => InitiateResetPasswordCommand::class,
+                'csrf_protection' => true,
+                'csrf_field_name' => 'csrf_token',
             // a unique key to help generate the secret token
-            'csrf_token_id'   => 'password_token',
-        ));
+                'csrf_token_id'   => 'password_token',
+            )
+        );
     }
 }

@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace WizaplaceFrontBundle\Tests\Service;
@@ -163,11 +165,14 @@ class BasketServiceTest extends BundleTestCase
             }
         }
 
-        self::assertSame([
-            '1_0' => 2,
-            '3_3_7' => 1,
-            '3_3_8' => 1,
-        ], $quantitiesMap);
+        self::assertSame(
+            [
+                '1_0' => 2,
+                '3_3_7' => 1,
+                '3_3_8' => 1,
+            ],
+            $quantitiesMap
+        );
 
         // Check that forgetting the basket empties it completely
         $basketService->forgetBasket();

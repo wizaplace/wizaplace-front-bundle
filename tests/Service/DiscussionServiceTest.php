@@ -1,10 +1,11 @@
 <?php
+
 /**
  * @copyright   Copyright (c) Wizacha
  * @license     Proprietary
  */
-declare(strict_types = 1);
 
+declare(strict_types=1);
 
 namespace WizaplaceFrontBundle\Tests\Service;
 
@@ -19,10 +20,15 @@ class DiscussionServiceTest extends BundleTestCase
 
         $discussionService = $container->get(ContactService::class);
 
-        $discussionService->contact('john.doe@email.com', 'I have a request', 'I would like to contact an admin', [
-            'firstName' => 'John',
-            'lastName' => 'Doe',
-        ]);
+        $discussionService->contact(
+            'john.doe@email.com',
+            'I have a request',
+            'I would like to contact an admin',
+            [
+                'firstName' => 'John',
+                'lastName' => 'Doe',
+            ]
+        );
 
         $this->assertTrue(true);
     }

@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace WizaplaceFrontBundle\Controller;
@@ -31,8 +33,11 @@ class CmsController extends Controller
             throw $this->createNotFoundException("Page '${slug}' Not Found");
         }
 
-        return $this->render('@WizaplaceFront/cms/page.html.twig', [
-            'page' => $page,
-        ]);
+        return $this->render(
+            '@WizaplaceFront/cms/page.html.twig',
+            [
+                'page' => $page,
+            ]
+        );
     }
 }

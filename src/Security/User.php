@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace WizaplaceFrontBundle\Security;
@@ -81,10 +83,12 @@ class User implements UserInterface, \Serializable
 
     public function serialize()
     {
-        return \serialize([
-            'apiKey' => $this->apiKey,
-            'wUser' => $this->wizaplaceUser,
-        ]);
+        return \serialize(
+            [
+                'apiKey' => $this->apiKey,
+                'wUser' => $this->wizaplaceUser,
+            ]
+        );
     }
 
     public function unserialize($serialized)
@@ -186,7 +190,7 @@ class User implements UserInterface, \Serializable
 
     private function refreshWizaplaceUser(): void
     {
-        if (is_null($this->userService)) {
+        if (\is_null($this->userService)) {
             return;
         }
         $this->wizaplaceUser = $this->userService->getProfileFromId($this->wizaplaceUser->getId());

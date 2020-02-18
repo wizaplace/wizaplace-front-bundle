@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright   Copyright (c) Wizacha
  * @license     Proprietary
  */
+
 declare(strict_types=1);
 
 namespace WizaplaceFrontBundle\Service;
@@ -55,11 +57,17 @@ class DeclinationService
     {
         $variantIdByOptionId = [];
         foreach ($product->getOptions() as $option) {
-            $intersection = array_intersect($selectedVariantsIds, array_map(static function (OptionVariant $variant): int {
-                return $variant->getId();
-            }, $option->getVariants()));
+            $intersection = array_intersect(
+                $selectedVariantsIds,
+                array_map(
+                    static function (OptionVariant $variant): int {
+                        return $variant->getId();
+                    },
+                    $option->getVariants()
+                )
+            );
 
-            if (count($intersection) !== 1) {
+            if (\count($intersection) !== 1) {
                 throw new \Exception('each option should have exactly 1 variant selected');
             }
 
@@ -74,32 +82,38 @@ class DeclinationService
      */
     private function listProductOptionSelects(Product $product, array $variantIdByOptionId): array
     {
-        return array_map(function (Option $option) use ($product, $variantIdByOptionId) : ProductOptionSelect {
-            $items = array_map(function (OptionVariant $variant) use ($product, $option, $variantIdByOptionId) : ProductOptionSelectItem {
-                $isSelected = false;
-                if (isset($variantIdByOptionId[$option->getId()])) {
-                    $isSelected = $variantIdByOptionId[$option->getId()] === $variant->getId();
-                }
-                $variantIdByOptionId[$option->getId()] = $variant->getId();
-                try {
-                    $declinationId = $product->getDeclinationFromOptions($variantIdByOptionId)->getId();
-                    $url = $this->productUrlGenerator->generateUrlFromProduct($product, $declinationId);
-                    $declinationExists = true;
-                } catch (NotFound $e) {
-                    $url = $this->productUrlGenerator->generateUrlFromProductWithOptions($product, $variantIdByOptionId);
-                    $declinationExists = false;
-                }
+        return array_map(
+            function (Option $option) use ($product, $variantIdByOptionId): ProductOptionSelect {
+                $items = array_map(
+                    function (OptionVariant $variant) use ($product, $option, $variantIdByOptionId): ProductOptionSelectItem {
+                        $isSelected = false;
+                        if (isset($variantIdByOptionId[$option->getId()])) {
+                            $isSelected = $variantIdByOptionId[$option->getId()] === $variant->getId();
+                        }
+                        $variantIdByOptionId[$option->getId()] = $variant->getId();
+                        try {
+                            $declinationId = $product->getDeclinationFromOptions($variantIdByOptionId)->getId();
+                            $url = $this->productUrlGenerator->generateUrlFromProduct($product, $declinationId);
+                            $declinationExists = true;
+                        } catch (NotFound $e) {
+                            $url = $this->productUrlGenerator->generateUrlFromProductWithOptions($product, $variantIdByOptionId);
+                            $declinationExists = false;
+                        }
 
-                return new ProductOptionSelectItem(
-                    $option,
-                    $variant,
-                    $url,
-                    $isSelected,
-                    $declinationExists
+                        return new ProductOptionSelectItem(
+                            $option,
+                            $variant,
+                            $url,
+                            $isSelected,
+                            $declinationExists
+                        );
+                    },
+                    $option->getVariants()
                 );
-            }, $option->getVariants());
 
-            return new ProductOptionSelect($option, ...$items);
-        }, $product->getOptions());
+                return new ProductOptionSelect($option, ...$items);
+            },
+            $product->getOptions()
+        );
     }
 }

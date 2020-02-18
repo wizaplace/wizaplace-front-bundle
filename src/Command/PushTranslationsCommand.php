@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace WizaplaceFrontBundle\Command;
@@ -91,11 +93,16 @@ class PushTranslationsCommand extends Command
             ['available locales' => $this->locales]
         );
 
-        array_walk($this->locales, function (string $locale) use ($io): void {
-            $io->section("Processing locale '$locale'...");
-            $this->executeLocale($locale);
-            $io->success("'$locale' locale successfully pushed");
-        });
+        array_walk(
+            $this->locales,
+            function (string $locale) use ($io): void {
+                $io->section("Processing locale '$locale'...");
+                $this->executeLocale($locale);
+                $io->success("'$locale' locale successfully pushed");
+            }
+        );
+
+        return 0;
     }
 
     private function executeLocale(string $locale)

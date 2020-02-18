@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace WizaplaceFrontBundle\Command;
@@ -43,5 +45,7 @@ class GenerateSitemapCommand extends ContainerAwareCommand
         $io->section("Generating the sitemap...");
         $io->text($this->sitemap->build());
         $io->success("Sitemap successfully generated!");
+
+        return 0;
     }
 }

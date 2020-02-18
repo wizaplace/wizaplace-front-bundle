@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
@@ -105,7 +106,7 @@ class AppExtension extends \Twig_Extension
         return (string) $this->imageService->getImageLink($imageId, $width, $height);
     }
 
-    public function getCategoryTree():array
+    public function getCategoryTree(): array
     {
         return $this->catalogService->getCategoryTree();
     }
@@ -124,7 +125,7 @@ class AppExtension extends \Twig_Extension
         $formattedPrice = number_format($price, 2, $decimalSeparator, $thousandsSeparator);
         [$integerPart, $decimalPart] = explode($decimalSeparator, $formattedPrice, 2);
 
-        return '<span class="price__integer-part">'.$integerPart.'</span><span class="price__delimiter">'.$decimalSeparator.'</span><span class="price__decimal-part">'.$decimalPart.'</span><span class="price__currency">'.$currency.'</span>';
+        return '<span class="price__integer-part">' . $integerPart . '</span><span class="price__delimiter">' . $decimalSeparator . '</span><span class="price__decimal-part">' . $decimalPart . '</span><span class="price__currency">' . $currency . '</span>';
     }
 
     /**
@@ -132,6 +133,6 @@ class AppExtension extends \Twig_Extension
      */
     public function getFavoritesCount(): int
     {
-        return count($this->favoriteService->getFavoriteIds());
+        return \count($this->favoriteService->getFavoriteIds());
     }
 }

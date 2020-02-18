@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace WizaplaceFrontBundle\Service;
@@ -36,7 +38,7 @@ class FavoriteService implements LogoutHandlerInterface
      * @see \Wizaplace\SDK\Favorite\FavoriteService::getAll
      * @return DeclinationSummary[]
      */
-    public function getAll() : array
+    public function getAll(): array
     {
         try {
             $result = $this->baseService->getAll();
@@ -56,9 +58,9 @@ class FavoriteService implements LogoutHandlerInterface
     /**
      * @see \Wizaplace\SDK\Favorite\FavoriteService::isInFavorites
      */
-    public function isInFavorites(DeclinationId $declinationId) : bool
+    public function isInFavorites(DeclinationId $declinationId): bool
     {
-        if (!is_array($this->favoritesIdsCache)) {
+        if (!\is_array($this->favoritesIdsCache)) {
             $this->getAll();
         }
 
@@ -68,9 +70,9 @@ class FavoriteService implements LogoutHandlerInterface
     /**
      * @return DeclinationId[]
      */
-    public function getFavoriteIds() : array
+    public function getFavoriteIds(): array
     {
-        if (!is_array($this->favoritesIdsCache)) {
+        if (!\is_array($this->favoritesIdsCache)) {
             $this->getAll();
         }
 
@@ -83,7 +85,7 @@ class FavoriteService implements LogoutHandlerInterface
      * @throws \Wizaplace\SDK\Favorite\Exception\CannotFavoriteDisabledOrInexistentDeclination
      * @throws \Wizaplace\SDK\Favorite\Exception\FavoriteAlreadyExist
      */
-    public function addDeclinationToUserFavorites(DeclinationId $declinationId) : void
+    public function addDeclinationToUserFavorites(DeclinationId $declinationId): void
     {
         $this->baseService->addDeclinationToUserFavorites($declinationId);
 
@@ -95,7 +97,7 @@ class FavoriteService implements LogoutHandlerInterface
      * @see \Wizaplace\SDK\Favorite\FavoriteService::removeDeclinationToUserFavorites
      * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
      */
-    public function removeDeclinationToUserFavorites(DeclinationId $declinationId) : void
+    public function removeDeclinationToUserFavorites(DeclinationId $declinationId): void
     {
         $this->baseService->removeDeclinationToUserFavorites($declinationId);
 

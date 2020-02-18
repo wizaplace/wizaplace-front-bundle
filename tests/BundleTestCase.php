@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace WizaplaceFrontBundle\Tests;
@@ -30,7 +32,7 @@ abstract class BundleTestCase extends WebTestCase
     protected function setUp()
     {
         parent::setUp();
-        self::$cassetteName = (new \ReflectionClass(static::class))->getShortName().DIRECTORY_SEPARATOR.$this->getName().'_K7.yml';
+        self::$cassetteName = (new \ReflectionClass(static::class))->getShortName() . DIRECTORY_SEPARATOR . $this->getName() . '_K7.yml';
         $this->client = static::createClient();
     }
 
@@ -41,7 +43,7 @@ abstract class BundleTestCase extends WebTestCase
         self::$kernel->getContainer()->get(VcrGuzzleMiddleware::class)->resetRequestIndex();
         $vcr = self::$kernel->getContainer()->get(VcrGuzzleMiddleware::class)->getVcr();
 
-        $vcr->configure()->setCassettePath(dirname((new \ReflectionClass(static::class))->getFileName()));
+        $vcr->configure()->setCassettePath(\dirname((new \ReflectionClass(static::class))->getFileName()));
         $vcr->configure()->enableLibraryHooks([]);
 
         $vcr->turnOn();
@@ -109,7 +111,7 @@ MSG;
         $csrfToken = $client->getContainer()->get('security.csrf.token_manager')->refreshToken($tokenId)->getValue();
 
         // Put the token in the client's session
-        $client->getRequest()->getSession()->set(SessionTokenStorage::SESSION_NAMESPACE.'/'.$tokenId, $csrfToken);
+        $client->getRequest()->getSession()->set(SessionTokenStorage::SESSION_NAMESPACE . '/' . $tokenId, $csrfToken);
         $client->getRequest()->getSession()->save();
 
         return $csrfToken;

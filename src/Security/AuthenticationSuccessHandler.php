@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace WizaplaceFrontBundle\Security;
@@ -22,7 +24,7 @@ class AuthenticationSuccessHandler extends DefaultAuthenticationSuccessHandler
     /** @var TranslatorInterface */
     private $translator;
 
-    public function __construct(HttpUtils $httpUtils, array $options = array(), FlashBagInterface $flashBag, TranslatorInterface $translator)
+    public function __construct(HttpUtils $httpUtils, array $options, FlashBagInterface $flashBag, TranslatorInterface $translator)
     {
         $this->flashBag = $flashBag;
         $this->translator = $translator;

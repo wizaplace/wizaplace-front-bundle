@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace WizaplaceFrontBundle\Controller;
@@ -33,7 +35,7 @@ class CategoryController extends Controller
         $this->favoriteService = $favoriteService;
     }
 
-    public function viewAction(string $slug) : Response
+    public function viewAction(string $slug): Response
     {
         $currentCategory = $this->getCategoryFromSlug($slug);
         if (!$currentCategory) {
@@ -46,17 +48,20 @@ class CategoryController extends Controller
 
         $userFavoriteIds = $this->favoriteService->getFavoriteIds();
 
-        return $this->render('@WizaplaceFront/search/search.html.twig', [
-            'currentCategory' => $currentCategory,
-            'filters' => $filters,
-            'userFavoriteIds' => $userFavoriteIds,
-        ]);
+        return $this->render(
+            '@WizaplaceFront/search/search.html.twig',
+            [
+                'currentCategory' => $currentCategory,
+                'filters' => $filters,
+                'userFavoriteIds' => $userFavoriteIds,
+            ]
+        );
     }
 
     protected function getCategoryFromSlug(string $slug): ?Category
     {
         $slugTarget = $this->seoService->resolveSlug($slug);
-        if (is_null($slugTarget) || !$slugTarget->getObjectType()->equals(SlugTargetType::CATEGORY())) {
+        if (\is_null($slugTarget) || !$slugTarget->getObjectType()->equals(SlugTargetType::CATEGORY())) {
             return null;
         }
         $categoryId = (int) $slugTarget->getObjectId();

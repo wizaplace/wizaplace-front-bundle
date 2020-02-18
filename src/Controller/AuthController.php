@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace WizaplaceFrontBundle\Controller;
@@ -72,9 +74,12 @@ class AuthController extends Controller
         // logging in requires an existing session
         $this->get('session')->start();
 
-        return $this->render('@WizaplaceFront/auth/login.html.twig', [
-            'redirectUrl' => $redirectUrl,
-        ]);
+        return $this->render(
+            '@WizaplaceFront/auth/login.html.twig',
+            [
+                'redirectUrl' => $redirectUrl,
+            ]
+        );
     }
 
     /**
@@ -111,9 +116,12 @@ class AuthController extends Controller
 
     public function resetPasswordFormAction(string $token)
     {
-        return $this->render('@WizaplaceFront/auth/reset-password.html.twig', [
-            'token' => $token,
-        ]);
+        return $this->render(
+            '@WizaplaceFront/auth/reset-password.html.twig',
+            [
+                'token' => $token,
+            ]
+        );
     }
 
     public function submitResetPasswordAction(Request $request)

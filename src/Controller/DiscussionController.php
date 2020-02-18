@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace WizaplaceFrontBundle\Controller;
@@ -92,8 +94,11 @@ class DiscussionController extends Controller
         $notification = $this->translator->trans('message_sent_success_notification');
         $this->addFlash('success', $notification);
 
-        return $this->redirectToRoute('profile_discussion', [
-            'id' => $discussionId,
-        ]);
+        return $this->redirectToRoute(
+            'profile_discussion',
+            [
+                'id' => $discussionId,
+            ]
+        );
     }
 }
