@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace WizaplaceFrontBundle\Tests\TestEnv\Service;
@@ -37,9 +39,12 @@ class VcrGuzzleMiddleware
             $vcrRequest = new Request(
                 $request->getMethod(),
                 (string) $request->getUri(),
-                array_map(static function (array $headers) : string {
-                    return reset($headers);
-                }, $request->getHeaders())
+                array_map(
+                    static function (array $headers): string {
+                        return reset($headers);
+                    },
+                    $request->getHeaders()
+                )
             );
             if ($request->getBody()->getSize() > 0) {
                 $vcrRequest->setBody($request->getBody()->getContents());

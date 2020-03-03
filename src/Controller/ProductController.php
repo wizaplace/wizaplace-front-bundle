@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace WizaplaceFrontBundle\Controller;
@@ -77,9 +79,15 @@ class ProductController extends Controller
             $declinationId = new DeclinationId($request->query->get('d'));
         }
 
-        $realCategoryPath = implode('/', array_map(function (ProductCategory $category) : string {
-            return $category->getSlug();
-        }, $product->getCategoryPath()));
+        $realCategoryPath = implode(
+            '/',
+            array_map(
+                function (ProductCategory $category): string {
+                    return $category->getSlug();
+                },
+                $product->getCategoryPath()
+            )
+        );
         if ($categoryPath !== $realCategoryPath) {
             return $this->redirect($this->productUrlGenerator->generateUrlFromProduct($product));
         }
@@ -96,39 +104,48 @@ class ProductController extends Controller
             $variantIdByOptionId[$option->getId()] = $option->getVariantId();
         }
 
-        $options = array_map(function (Option $option) use ($product, $variantIdByOptionId) : array {
-            return [
-                'id' => $option->getId(),
-                'name' => $option->getName(),
-                'variants' => array_map(function (OptionVariant $variant) use ($product, $option, $variantIdByOptionId) : array {
-                    $isSelected = false;
-                    if (isset($variantIdByOptionId[$option->getId()])) {
-                        $isSelected = $variantIdByOptionId[$option->getId()] === $variant->getId();
-                    }
-                    $variantIdByOptionId[$option->getId()] = $variant->getId();
-                    $declinationId = $product->getDeclinationFromOptions($variantIdByOptionId)->getId();
+        $options = array_map(
+            function (Option $option) use ($product, $variantIdByOptionId): array {
+                return [
+                    'id' => $option->getId(),
+                    'name' => $option->getName(),
+                    'variants' => array_map(
+                        function (OptionVariant $variant) use ($product, $option, $variantIdByOptionId): array {
+                            $isSelected = false;
+                            if (isset($variantIdByOptionId[$option->getId()])) {
+                                $isSelected = $variantIdByOptionId[$option->getId()] === $variant->getId();
+                            }
+                            $variantIdByOptionId[$option->getId()] = $variant->getId();
+                            $declinationId = $product->getDeclinationFromOptions($variantIdByOptionId)->getId();
 
-                    return [
-                        'id' => $variant->getId(),
-                        'name' => $variant->getName(),
-                        'selected' => $isSelected,
-                        'url' => $this->productUrlGenerator->generateUrlFromProduct($product, $declinationId),
-                        'image' => $variant->getImage(),
-                    ];
-                }, $option->getVariants()),
-            ];
-        }, $product->getOptions());
+                            return [
+                                'id' => $variant->getId(),
+                                'name' => $variant->getName(),
+                                'selected' => $isSelected,
+                                'url' => $this->productUrlGenerator->generateUrlFromProduct($product, $declinationId),
+                                'image' => $variant->getImage(),
+                            ];
+                        },
+                        $option->getVariants()
+                    ),
+                ];
+            },
+            $product->getOptions()
+        );
 
         $isFavorite = $this->favoriteService->isInFavorites($declinationId);
 
-        return $this->render('@WizaplaceFront/product/product.html.twig', [
-            'product' => $product,
-            'latestProducts' => $latestProducts,
-            'reviews' => $reviews,
-            'declination' => $declination,
-            'options' => $options,
-            'isFavorite' => $isFavorite,
-        ]);
+        return $this->render(
+            '@WizaplaceFront/product/product.html.twig',
+            [
+                'product' => $product,
+                'latestProducts' => $latestProducts,
+                'reviews' => $reviews,
+                'declination' => $declination,
+                'options' => $options,
+                'isFavorite' => $isFavorite,
+            ]
+        );
     }
 
     public function previewAction(string $productId)
@@ -145,7 +162,7 @@ class ProductController extends Controller
     protected function getProductFromSlug(string $slug): ?Product
     {
         $slugTarget = $this->seoService->resolveSlug($slug);
-        if (is_null($slugTarget) || !$slugTarget->getObjectType()->equals(SlugTargetType::PRODUCT())) {
+        if (\is_null($slugTarget) || !$slugTarget->getObjectType()->equals(SlugTargetType::PRODUCT())) {
             return null;
         }
         $productId = $slugTarget->getObjectId();

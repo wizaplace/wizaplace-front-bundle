@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace WizaplaceFrontBundle\Command;
@@ -84,6 +86,8 @@ class PullTranslationsCommand extends Command
                 $io->success("'$locale' locale successfully pulled");
             }
         );
+
+        return 0;
     }
 
     private function executeLocale(string $locale): void

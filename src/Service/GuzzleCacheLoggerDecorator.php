@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace WizaplaceFrontBundle\Service;
@@ -43,22 +45,24 @@ class GuzzleCacheLoggerDecorator
             /** @var Promise $promise */
             $promise = $handler($request, $options);
 
-            return $promise->then(function (ResponseInterface $response) use ($request): ResponseInterface {
-                if ($response->hasHeader(CacheMiddleware::HEADER_CACHE_INFO)) {
-                    $cacheHeader = $response->getHeaderLine(CacheMiddleware::HEADER_CACHE_INFO);
-                    $requestInfo = $request->getMethod().' '.$request->getRequestTarget();
-                    switch ($cacheHeader) {
-                        case CacheMiddleware::HEADER_CACHE_HIT:
-                            $this->logger->info('Cache hit for request: '.$requestInfo);
-                            break;
-                        case CacheMiddleware::HEADER_CACHE_STALE:
-                            $this->logger->info('Stale response served from cache for request: '.$requestInfo);
-                            break;
+            return $promise->then(
+                function (ResponseInterface $response) use ($request): ResponseInterface {
+                    if ($response->hasHeader(CacheMiddleware::HEADER_CACHE_INFO)) {
+                        $cacheHeader = $response->getHeaderLine(CacheMiddleware::HEADER_CACHE_INFO);
+                        $requestInfo = $request->getMethod() . ' ' . $request->getRequestTarget();
+                        switch ($cacheHeader) {
+                            case CacheMiddleware::HEADER_CACHE_HIT:
+                                $this->logger->info('Cache hit for request: ' . $requestInfo);
+                                break;
+                            case CacheMiddleware::HEADER_CACHE_STALE:
+                                $this->logger->info('Stale response served from cache for request: ' . $requestInfo);
+                                break;
+                        }
                     }
-                }
 
-                return $response;
-            });
+                    return $response;
+                }
+            );
         };
     }
 }

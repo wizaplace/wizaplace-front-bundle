@@ -3,3 +3,6 @@ includes:
 parameters:
 	symfony:
 		container_xml_path: %rootDir%/../../../var/cache/TestEnvTestDebugProjectContainer.xml
+	ignoreErrors:
+		- '#Unreachable statement - code above always terminates.#'
+	inferPrivatePropertyTypeFromConstructor: true

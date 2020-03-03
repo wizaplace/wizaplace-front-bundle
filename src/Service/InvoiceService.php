@@ -1,10 +1,11 @@
 <?php
+
 /**
  * @copyright   Copyright (c) Wizacha
  * @license     Proprietary
  */
-declare(strict_types = 1);
 
+declare(strict_types=1);
 
 namespace WizaplaceFrontBundle\Service;
 
@@ -32,7 +33,7 @@ class InvoiceService
 
         $response = new Response($pdf->getContents());
         $response->headers->set('Content-Type', 'application/pdf');
-        $response->headers->set('Content-Disposition', 'attachment; filename: "'.$filename.'.pdf"');
+        $response->headers->set('Content-Disposition', 'attachment; filename: "' . $filename . '.pdf"');
 
         return $response;
     }

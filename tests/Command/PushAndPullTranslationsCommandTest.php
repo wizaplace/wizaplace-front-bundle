@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace WizaplaceFrontBundle\Tests\Command;
@@ -37,26 +39,30 @@ class PushAndPullTranslationsCommandTest extends BundleTestCase
 
         $logger = $this->createMock(LoggerInterface::class);
 
-        $application->add(new PushTranslationsCommand(
-            $translatorBag,
-            static::$kernel->getContainer()->get('test.translation.dumper.xliff'),
-            static::$kernel->getContainer()->get(TranslationService::class),
-            static::$kernel->getContainer()->get(AuthenticationService::class),
-            ['fr'],
-            'en',
-            static::$kernel->getContainer()->getParameter('wizaplace.system_user_password'),
-            $logger
-        ));
-        $translationsDir = dirname(stream_get_meta_data(tmpfile())['uri']);
-        $cacheDir = static::$kernel->getCacheDir().'/translations';
-        $application->add(new PullTranslationsCommand(
-            static::$kernel->getContainer()->get(TranslationService::class),
-            static::$kernel->getContainer()->get(AuthenticationService::class),
-            ['fr'],
-            $translationsDir,
-            $cacheDir,
-            $logger
-        ));
+        $application->add(
+            new PushTranslationsCommand(
+                $translatorBag,
+                static::$kernel->getContainer()->get('test.translation.dumper.xliff'),
+                static::$kernel->getContainer()->get(TranslationService::class),
+                static::$kernel->getContainer()->get(AuthenticationService::class),
+                ['fr'],
+                'en',
+                static::$kernel->getContainer()->getParameter('wizaplace.system_user_password'),
+                $logger
+            )
+        );
+        $translationsDir = \dirname(stream_get_meta_data(tmpfile())['uri']);
+        $cacheDir = static::$kernel->getCacheDir() . '/translations';
+        $application->add(
+            new PullTranslationsCommand(
+                static::$kernel->getContainer()->get(TranslationService::class),
+                static::$kernel->getContainer()->get(AuthenticationService::class),
+                ['fr'],
+                $translationsDir,
+                $cacheDir,
+                $logger
+            )
+        );
 
         $pushCommand = $application->find('wizaplace:translations:push');
         $commandTester = new CommandTester($pushCommand);
@@ -68,11 +74,11 @@ class PushAndPullTranslationsCommandTest extends BundleTestCase
 
         $commandTester->execute(['command' => $pullCommand->getName()]);
 
-        $this->assertFileExists($translationsDir.'/messages.fr.xliff');
+        $this->assertFileExists($translationsDir . '/messages.fr.xliff');
         $pulledCatalog = static::$kernel
             ->getContainer()
             ->get('test.translation.loader.xliff')
-            ->load($translationsDir.'/messages.fr.xliff', 'fr')
+            ->load($translationsDir . '/messages.fr.xliff', 'fr')
         ;
         $this->assertCount(0, $pulledCatalog->all());
     }
@@ -96,26 +102,30 @@ class PushAndPullTranslationsCommandTest extends BundleTestCase
             ->withConsecutive(['fr'], ['en'])
             ->willReturnOnConsecutiveCalls($catalogFr, $catalogEn);
 
-        $application->add(new PushTranslationsCommand(
-            $translatorBag,
-            static::$kernel->getContainer()->get('test.translation.dumper.xliff'),
-            static::$kernel->getContainer()->get(TranslationService::class),
-            static::$kernel->getContainer()->get(AuthenticationService::class),
-            ['fr', 'en'],
-            'en',
-            static::$kernel->getContainer()->getParameter('wizaplace.system_user_password'),
-            $logger
-        ));
-        $translationsDir = dirname(stream_get_meta_data(tmpfile())['uri']);
-        $cacheDir = static::$kernel->getCacheDir().'/translations';
-        $application->add(new PullTranslationsCommand(
-            static::$kernel->getContainer()->get(TranslationService::class),
-            static::$kernel->getContainer()->get(AuthenticationService::class),
-            ['fr', 'en'],
-            $translationsDir,
-            $cacheDir,
-            $logger
-        ));
+        $application->add(
+            new PushTranslationsCommand(
+                $translatorBag,
+                static::$kernel->getContainer()->get('test.translation.dumper.xliff'),
+                static::$kernel->getContainer()->get(TranslationService::class),
+                static::$kernel->getContainer()->get(AuthenticationService::class),
+                ['fr', 'en'],
+                'en',
+                static::$kernel->getContainer()->getParameter('wizaplace.system_user_password'),
+                $logger
+            )
+        );
+        $translationsDir = \dirname(stream_get_meta_data(tmpfile())['uri']);
+        $cacheDir = static::$kernel->getCacheDir() . '/translations';
+        $application->add(
+            new PullTranslationsCommand(
+                static::$kernel->getContainer()->get(TranslationService::class),
+                static::$kernel->getContainer()->get(AuthenticationService::class),
+                ['fr', 'en'],
+                $translationsDir,
+                $cacheDir,
+                $logger
+            )
+        );
 
         $pushCommand = $application->find('wizaplace:translations:push');
         $commandTester = new CommandTester($pushCommand);
@@ -127,30 +137,36 @@ class PushAndPullTranslationsCommandTest extends BundleTestCase
 
         $commandTester->execute(['command' => $pullCommand->getName()]);
 
-        $this->assertFileExists($translationsDir.'/messages.fr.xliff');
+        $this->assertFileExists($translationsDir . '/messages.fr.xliff');
         $pulledFrCatalog = static::$kernel
             ->getContainer()
             ->get('test.translation.loader.xliff')
-            ->load($translationsDir.'/messages.fr.xliff', 'fr')
+            ->load($translationsDir . '/messages.fr.xliff', 'fr')
         ;
-        $this->assertSame([
-            'messages' => [
-                'food_cheese' => 'fromage',
-                'test_message' => 'bonjour',
+        $this->assertSame(
+            [
+                'messages' => [
+                    'food_cheese' => 'fromage',
+                    'test_message' => 'bonjour',
+                ],
             ],
-        ], $pulledFrCatalog->all());
+            $pulledFrCatalog->all()
+        );
 
-        $this->assertFileExists($translationsDir.'/messages.en.xliff');
+        $this->assertFileExists($translationsDir . '/messages.en.xliff');
         $pulledEnCatalog = static::$kernel
             ->getContainer()
             ->get('test.translation.loader.xliff')
-            ->load($translationsDir.'/messages.en.xliff', 'en')
+            ->load($translationsDir . '/messages.en.xliff', 'en')
         ;
-        $this->assertSame([
-            'messages' => [
-                'food_meat' => 'meat',
-                'test_message' => 'hello',
+        $this->assertSame(
+            [
+                'messages' => [
+                    'food_meat' => 'meat',
+                    'test_message' => 'hello',
+                ],
             ],
-        ], $pulledEnCatalog->all());
+            $pulledEnCatalog->all()
+        );
     }
 }

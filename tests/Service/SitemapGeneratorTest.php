@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace WizaplaceFrontBundle\Tests\Service;
@@ -27,9 +29,12 @@ class SitemapGeneratorTest extends BundleTestCase
         $sitemapGenerator->populate($sitemap);
 
         /** @var string[] $urls */
-        $urls = array_map(function (ObjectInvocation $invocation): string {
-            return $invocation->getParameters()[0]->getLoc();
-        }, $spy->getInvocations());
+        $urls = array_map(
+            function (ObjectInvocation $invocation): string {
+                return $invocation->getParameters()[0]->getLoc();
+            },
+            $spy->getInvocations()
+        );
 
         self::assertContains('http://localhost/', $urls); // static URL
         self::assertContains('http://localhost/a/adidas', $urls); // attribute variant URL
@@ -39,7 +44,7 @@ class SitemapGeneratorTest extends BundleTestCase
         self::assertContains('http://localhost/faq', $urls); // CMS page URL
     }
 
-    public function testGenerateMultilangual() : void
+    public function testGenerateMultilangual(): void
     {
         $sitemapGenerator = self::$kernel->getContainer()->get('test.Multilanguage.WizaplaceFrontBundle\Service\SitemapGenerator');
 
@@ -52,9 +57,12 @@ class SitemapGeneratorTest extends BundleTestCase
         $sitemapGenerator->populate($sitemap);
 
         /** @var string[] $urls */
-        $urls = array_map(function (ObjectInvocation $invocation): string {
-            return $invocation->getParameters()[0]->getLoc();
-        }, $spy->getInvocations());
+        $urls = array_map(
+            function (ObjectInvocation $invocation): string {
+                return $invocation->getParameters()[0]->getLoc();
+            },
+            $spy->getInvocations()
+        );
 
         self::assertContains('http://localhost/', $urls); // static URL
         self::assertContains('http://localhost/a/adidas', $urls); // attribute variant URL

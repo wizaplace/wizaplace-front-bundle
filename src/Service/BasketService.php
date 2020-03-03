@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace WizaplaceFrontBundle\Service;
 
@@ -247,9 +249,13 @@ class BasketService implements EventSubscriberInterface, LogoutHandlerInterface
             $this->setCurrentBasketId($userBasketId);
         } catch (\Throwable $e) {
             // We just log the exception, we don't want this to cause an error page.
-            $this->logger->log(LogLevel::ERROR, 'Failed to load or merge the user\'s basket ID', [
-                'exception' => $e,
-            ]);
+            $this->logger->log(
+                LogLevel::ERROR,
+                'Failed to load or merge the user\'s basket ID',
+                [
+                    'exception' => $e,
+                ]
+            );
         }
     }
 

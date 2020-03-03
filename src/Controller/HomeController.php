@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace WizaplaceFrontBundle\Controller;
@@ -41,10 +43,13 @@ class HomeController extends Controller
         $desktopBanners = $this->bannerService->getHomepageBanners("desktop");
         $mobileBanners = $this->bannerService->getHomepageBanners("mobile");
 
-        return $this->render('@WizaplaceFront/home/home.html.twig', [
-            'latestProducts' => $latestProducts,
-            'desktopBanners' => $desktopBanners,
-            'mobileBanners' => $mobileBanners,
-        ]);
+        return $this->render(
+            '@WizaplaceFront/home/home.html.twig',
+            [
+                'latestProducts' => $latestProducts,
+                'desktopBanners' => $desktopBanners,
+                'mobileBanners' => $mobileBanners,
+            ]
+        );
     }
 }

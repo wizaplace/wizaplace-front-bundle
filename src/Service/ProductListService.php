@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace WizaplaceFrontBundle\Service;
@@ -25,7 +27,7 @@ class ProductListService
      *
      * @return ProductSummary[]
      */
-    public function getLatestProducts(int $maxProductCount = 6) : array
+    public function getLatestProducts(int $maxProductCount = 6): array
     {
         if ($maxProductCount === 0) {
             return [];

@@ -1,10 +1,12 @@
 <?php
+
 /**
  * @author      Wizacha DevTeam <dev@wizacha.com>
  * @copyright   Copyright (c) Wizacha
  * @license     Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace WizaplaceFrontBundle\Service;
 
@@ -48,10 +50,13 @@ class ContactService
         array $extraData = [],
         string $templateName = '@WizaplaceFront/contact_template.html.twig'
     ): void {
-        $message = $this->twigEngine->render($templateName, [
-            'extraData' => $extraData,
-            'message' => $message,
-        ]);
+        $message = $this->twigEngine->render(
+            $templateName,
+            [
+                'extraData' => $extraData,
+                'message' => $message,
+            ]
+        );
 
         $this->discussionService->submitContactRequest($email, $subject, $message);
     }

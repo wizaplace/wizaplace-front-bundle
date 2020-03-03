@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace WizaplaceFrontBundle\Service;
@@ -29,7 +31,7 @@ class CmsPageService
     public function getCmsPageFromSlug(string $slug): ?Page
     {
         $slugTarget = $this->seoService->resolveSlug($slug);
-        if (is_null($slugTarget) || !$slugTarget->getObjectType()->equals(SlugTargetType::CMS_PAGE())) {
+        if (\is_null($slugTarget) || !$slugTarget->getObjectType()->equals(SlugTargetType::CMS_PAGE())) {
             return null;
         }
 

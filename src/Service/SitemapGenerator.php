@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace WizaplaceFrontBundle\Service;
@@ -45,7 +47,7 @@ class SitemapGenerator implements ProviderInterface
 
     public function isMultiLingual(): bool
     {
-        return count($this->locales) > 1;
+        return \count($this->locales) > 1;
     }
 
     /**
@@ -97,7 +99,7 @@ class SitemapGenerator implements ProviderInterface
         $routeCollection = $this->router->getRouteCollection();
         foreach ($routeCollection as $routeName => $route) {
             // Do not include non-GET routes in the sitemap
-            if (!in_array('GET', $route->getMethods())) {
+            if (!\in_array('GET', $route->getMethods())) {
                 continue;
             }
 
@@ -130,7 +132,7 @@ class SitemapGenerator implements ProviderInterface
         $productRouteName = 'product';
         $productRoute = $this->router->getRouteCollection()->get($productRouteName);
 
-        if (is_null($cmsPageRoute) && is_null($categoryRoute) && is_null($attrVariantRoute) && is_null($companyRoute) && is_null($productRoute)) {
+        if (\is_null($cmsPageRoute) && \is_null($categoryRoute) && \is_null($attrVariantRoute) && \is_null($companyRoute) && \is_null($productRoute)) {
             return;
         }
 
@@ -152,9 +154,12 @@ class SitemapGenerator implements ProviderInterface
             } elseif ($productRoute && $type->equals(SlugTargetType::PRODUCT())) {
                 $parameters['categoryPath'] = join(
                     '/',
-                    array_map(function (SlugCatalogItem $data): string {
-                        return $data->getSlug();
-                    }, $slugCatalogItem->getCategoryPath())
+                    array_map(
+                        function (SlugCatalogItem $data): string {
+                            return $data->getSlug();
+                        },
+                        $slugCatalogItem->getCategoryPath()
+                    )
                 );
 
                 $this->buildUrl($sitemap, $productRoute, $productRouteName, $parameters);

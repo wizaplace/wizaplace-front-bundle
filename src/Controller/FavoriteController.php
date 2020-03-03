@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace WizaplaceFrontBundle\Controller;
@@ -25,11 +27,14 @@ class FavoriteController extends Controller
         } catch (FavoriteAlreadyExist $e) {
 //            $this->get('logger')->warn("Declination added twice in favorites'", ['declinationId' => $declinationId]); TODO: Re-activate when isInFavorites works in search pages
 
-            return new JsonResponse([
-                'error' => [
-                    'message' => 'already in favorites',
+            return new JsonResponse(
+                [
+                    'error' => [
+                        'message' => 'already in favorites',
+                    ],
                 ],
-            ], Response::HTTP_BAD_REQUEST);
+                Response::HTTP_BAD_REQUEST
+            );
         }
 
         return new JsonResponse($declinationId);

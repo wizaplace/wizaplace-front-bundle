@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace WizaplaceFrontBundle\Service;
@@ -47,9 +49,12 @@ class ProductUrlGenerator
     {
         return $this->generateUrl(
             $product->getSlug(),
-            array_map(static function (ProductCategory $category) : string {
-                return $category->getSlug();
-            }, $product->getCategoryPath()),
+            array_map(
+                static function (ProductCategory $category): string {
+                    return $category->getSlug();
+                },
+                $product->getCategoryPath()
+            ),
             $declinationId
         );
     }
@@ -58,9 +63,12 @@ class ProductUrlGenerator
     {
         return $this->generateUrl(
             $product->getSlug(),
-            array_map(static function (ProductCategory $category) : string {
-                return $category->getSlug();
-            }, $product->getCategoryPath()),
+            array_map(
+                static function (ProductCategory $category): string {
+                    return $category->getSlug();
+                },
+                $product->getCategoryPath()
+            ),
             null,
             $optionVariantIds
         );
@@ -70,9 +78,12 @@ class ProductUrlGenerator
     {
         return $this->generateUrl(
             $productSummary->getSlug(),
-            array_map(static function (SearchCategoryPath $category) : string {
-                return $category->getSlug();
-            }, $productSummary->getCategoryPath()),
+            array_map(
+                static function (SearchCategoryPath $category): string {
+                    return $category->getSlug();
+                },
+                $productSummary->getCategoryPath()
+            ),
             $declinationId
         );
     }
@@ -81,9 +92,12 @@ class ProductUrlGenerator
     {
         return $this->generateUrl(
             $declinationSummary->getSlug(),
-            array_map(static function (ProductCategory $category) : string {
-                return $category->getSlug();
-            }, $declinationSummary->getCategoryPath()),
+            array_map(
+                static function (ProductCategory $category): string {
+                    return $category->getSlug();
+                },
+                $declinationSummary->getCategoryPath()
+            ),
             $declinationSummary->getId()
         );
     }

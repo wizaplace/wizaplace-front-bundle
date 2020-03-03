@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace WizaplaceFrontBundle\Controller;
@@ -51,9 +53,12 @@ class ProfileController extends Controller
 
     public function viewAction(): Response
     {
-        return $this->render('@WizaplaceFront/profile/profile.html.twig', [
-            'profile' => $this->getUser()->getWizaplaceUser(),
-        ]);
+        return $this->render(
+            '@WizaplaceFront/profile/profile.html.twig',
+            [
+                'profile' => $this->getUser()->getWizaplaceUser(),
+            ]
+        );
     }
 
     public function addressesAction(): Response
@@ -63,21 +68,27 @@ class ProfileController extends Controller
         $addressesAreIdentical = $user->getBillingAddress() == $user->getShippingAddress();
         $countries = Intl::getRegionBundle()->getCountryNames();
 
-        return $this->render('@WizaplaceFront/profile/addresses.html.twig', [
-            'profile' => $user,
-            'addressesAreIdentical' => $addressesAreIdentical,
-            'countries' => $countries,
-        ]);
+        return $this->render(
+            '@WizaplaceFront/profile/addresses.html.twig',
+            [
+                'profile' => $user,
+                'addressesAreIdentical' => $addressesAreIdentical,
+                'countries' => $countries,
+            ]
+        );
     }
 
     public function ordersAction(): Response
     {
         $orders = $this->get(OrderService::class)->getOrders();
 
-        return $this->render('@WizaplaceFront/profile/orders.html.twig', [
-            'profile' => $this->getUser()->getWizaplaceUser(),
-            'orders' => $orders,
-        ]);
+        return $this->render(
+            '@WizaplaceFront/profile/orders.html.twig',
+            [
+                'profile' => $this->getUser()->getWizaplaceUser(),
+                'orders' => $orders,
+            ]
+        );
     }
 
     public function returnsAction(): Response
@@ -85,17 +96,23 @@ class ProfileController extends Controller
         $orderService = $this->get(OrderService::class);
         $orders = $orderService->getOrders();
 
-        $validOrders = array_filter($orders, function (Order $order) {
-            return ($order->getStatus()->equals(OrderStatus::PROCESSING_SHIPPING()) || $order->getStatus()->equals(OrderStatus::PROCESSED()));
-        });
+        $validOrders = array_filter(
+            $orders,
+            function (Order $order) {
+                return ($order->getStatus()->equals(OrderStatus::PROCESSING_SHIPPING()) || $order->getStatus()->equals(OrderStatus::PROCESSED()));
+            }
+        );
         $reasons = $orderService->getReturnReasons();
         $returns = $orderService->getOrderReturns();
 
-        return $this->render('@WizaplaceFront/profile/returns.html.twig', [
-            'orders' => $validOrders,
-            'reasons' => $reasons,
-            'returns' => $returns,
-        ]);
+        return $this->render(
+            '@WizaplaceFront/profile/returns.html.twig',
+            [
+                'orders' => $validOrders,
+                'reasons' => $reasons,
+                'returns' => $returns,
+            ]
+        );
     }
 
     public function returnAction(int $orderReturnId): Response
@@ -104,10 +121,13 @@ class ProfileController extends Controller
         $orderReturn = $orderService->getOrderReturn($orderReturnId);
         $returnReasons = $orderService->getReturnReasons();
 
-        return $this->render('@WizaplaceFront/profile/return.html.twig', [
-            'orderReturn' => $orderReturn,
-            'returnReasons' => $returnReasons,
-        ]);
+        return $this->render(
+            '@WizaplaceFront/profile/return.html.twig',
+            [
+                'orderReturn' => $orderReturn,
+                'returnReasons' => $returnReasons,
+            ]
+        );
     }
 
     public function createOrderReturnAction(Request $request)
@@ -120,7 +140,7 @@ class ProfileController extends Controller
 
         foreach ($order->getOrderItems() as $orderItem) {
             $id = $orderItem->getDeclinationId();
-            if (in_array((string) $id, $selectedItems)) {
+            if (\in_array((string) $id, $selectedItems)) {
                 $createOrderReturn->addItem($id, (int) $selectedReasons[(string) $id], $orderItem->getAmount());
             }
         }
@@ -170,22 +190,31 @@ class ProfileController extends Controller
         }
 
         $orders = $this->get(OrderService::class)->getOrders();
-        $completedOrders = array_filter($orders, function (Order $order): bool {
-            return $order->getStatus()->equals(OrderStatus::COMPLETED());
-        });
+        $completedOrders = array_filter(
+            $orders,
+            function (Order $order): bool {
+                return $order->getStatus()->equals(OrderStatus::COMPLETED());
+            }
+        );
 
-        return $this->render('@WizaplaceFront/profile/after-sales-service.html.twig', [
-            'orders' => $completedOrders,
-        ]);
+        return $this->render(
+            '@WizaplaceFront/profile/after-sales-service.html.twig',
+            [
+                'orders' => $completedOrders,
+            ]
+        );
     }
 
     public function favoritesAction(): Response
     {
         $favorites = $this->get(FavoriteService::class)->getAll();
 
-        return $this->render('@WizaplaceFront/profile/favorites.html.twig', [
-            'favorites' => $favorites,
-        ]);
+        return $this->render(
+            '@WizaplaceFront/profile/favorites.html.twig',
+            [
+                'favorites' => $favorites,
+            ]
+        );
     }
 
     public function updateProfileAction(Request $request)
@@ -233,7 +262,7 @@ class ProfileController extends Controller
             $newPassword = $data['password']['new'];
 
             // check new password corresponds to password rules
-            if (strlen($newPassword) < static::PASSWORD_MINIMUM_LENGTH) {
+            if (\strlen($newPassword) < static::PASSWORD_MINIMUM_LENGTH) {
                 $message = $this->translator->trans('update_new_password_error_message', ['%n%' => static::PASSWORD_MINIMUM_LENGTH]);
                 $this->addFlash('danger', $message);
 
@@ -279,10 +308,13 @@ class ProfileController extends Controller
         $discussionService = $this->get(DiscussionService::class);
         $discussions = $discussionService->getDiscussions();
 
-        return $this->render('@WizaplaceFront/profile/discussions.html.twig', [
-            'profile' => $this->getUser()->getWizaplaceUser(),
-            'discussions' => $discussions,
-        ]);
+        return $this->render(
+            '@WizaplaceFront/profile/discussions.html.twig',
+            [
+                'profile' => $this->getUser()->getWizaplaceUser(),
+                'discussions' => $discussions,
+            ]
+        );
     }
 
     public function discussionAction(int $id): Response
@@ -292,11 +324,14 @@ class ProfileController extends Controller
         $discussion = $discussionService->getDiscussion($id);
         $messages = $discussionService->getMessages($id);
 
-        return $this->render('@WizaplaceFront/profile/discussion.html.twig', [
-            'discussion' => $discussion,
-            'messages' => $messages,
-            'profile' => $this->getUser()->getWizaplaceUser(),
-        ]);
+        return $this->render(
+            '@WizaplaceFront/profile/discussion.html.twig',
+            [
+                'discussion' => $discussion,
+                'messages' => $messages,
+                'profile' => $this->getUser()->getWizaplaceUser(),
+            ]
+        );
     }
 
     public function newsletterAction(): Response
@@ -304,9 +339,12 @@ class ProfileController extends Controller
         $mailingListService = $this->get(MailingListService::class);
         $userIsSubscribed = $mailingListService->isSubscribed(static::DEFAULT_MAILING_LIST_ID);
 
-        return $this->render('@WizaplaceFront/profile/newsletter.html.twig', [
-            'userIsSubscribed' => $userIsSubscribed,
-        ]);
+        return $this->render(
+            '@WizaplaceFront/profile/newsletter.html.twig',
+            [
+                'userIsSubscribed' => $userIsSubscribed,
+            ]
+        );
     }
 
     // This method sole purpose is the return type hint.

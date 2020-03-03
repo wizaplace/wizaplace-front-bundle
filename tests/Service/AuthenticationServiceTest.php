@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace WizaplaceFrontBundle\Tests\Service;
@@ -22,10 +24,14 @@ class AuthenticationServiceTest extends BundleTestCase
 
         $csrfToken = $form->createView()['csrf_token']->vars['value'];
 
-        $request = Request::create('does-not-matter', 'POST', [
-            'csrf_token' => $csrfToken,
-            'email' => 'user@wizaplace.com',
-        ]);
+        $request = Request::create(
+            'does-not-matter',
+            'POST',
+            [
+                'csrf_token' => $csrfToken,
+                'email' => 'user@wizaplace.com',
+            ]
+        );
 
         $form = $authService->getInitiateResetPasswordForm();
 
@@ -46,9 +52,13 @@ class AuthenticationServiceTest extends BundleTestCase
 
         $csrfToken = $form->createView()['csrf_token']->vars['value'];
 
-        $request = Request::create('does-not-matter', 'POST', [
-            'csrf_token' => $csrfToken,
-        ]);
+        $request = Request::create(
+            'does-not-matter',
+            'POST',
+            [
+                'csrf_token' => $csrfToken,
+            ]
+        );
 
         $form = $authService->getInitiateResetPasswordForm();
 
@@ -65,9 +75,13 @@ class AuthenticationServiceTest extends BundleTestCase
 
         $form = $authService->getInitiateResetPasswordForm();
 
-        $request = Request::create('does-not-matter', 'POST', [
-            'email' => 'user@wizaplace.com',
-        ]);
+        $request = Request::create(
+            'does-not-matter',
+            'POST',
+            [
+                'email' => 'user@wizaplace.com',
+            ]
+        );
 
         $form = $authService->getInitiateResetPasswordForm();
 

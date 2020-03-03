@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace WizaplaceFrontBundle\Tests\Service;
@@ -20,9 +22,12 @@ class RouterDecoratorTest extends KernelTestCase
         $kernel = self::bootKernel();
         $container = $kernel->getContainer();
 
-        $url = $container->get('router')->generate('home', [
-            'd' => new DeclinationId('1_0'),
-        ]);
+        $url = $container->get('router')->generate(
+            'home',
+            [
+                'd' => new DeclinationId('1_0'),
+            ]
+        );
 
         self::assertSame('/?d=1_0', $url);
     }

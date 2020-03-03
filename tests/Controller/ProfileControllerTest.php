@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
@@ -21,16 +22,20 @@ class ProfileControllerTest extends BundleTestCase
     {
         $this->login('user@wizaplace.com', 'password');
 
-        $this->client->request('POST', '/update-user', [
-            'return_url' => '/profil',
-            'csrf_token' => $this->generateCsrfToken('profile_update_token', $this->client),
-            'user' => [
-                'email' => 'user@wizaplace.com',
-                'firstName' => 'Janet',
-                'lastName' => 'Jackson',
-                'title' => UserTitle::MRS()->getValue(),
-            ],
-        ]);
+        $this->client->request(
+            'POST',
+            '/update-user',
+            [
+                'return_url' => '/profil',
+                'csrf_token' => $this->generateCsrfToken('profile_update_token', $this->client),
+                'user' => [
+                    'email' => 'user@wizaplace.com',
+                    'firstName' => 'Janet',
+                    'lastName' => 'Jackson',
+                    'title' => UserTitle::MRS()->getValue(),
+                ],
+            ]
+        );
 
         $this->assertResponseCodeEquals(Response::HTTP_FOUND, $this->client);
         $this->clearRenderedData();
@@ -51,31 +56,35 @@ class ProfileControllerTest extends BundleTestCase
     {
         $this->login('user@wizaplace.com', 'password');
 
-        $this->client->request('POST', '/update-user', [
-            'return_url' => '/profil',
-            'csrf_token' => $this->generateCsrfToken('profile_update_token', $this->client),
-            'addresses_are_identical' => true,
-            'user' => [
-                'email' => 'user@wizaplace.com',
-                'firstName' => 'Janet',
-                'lastName' => 'Jackson',
-                'title' => UserTitle::MRS()->getValue(),
-                'addresses' => [
-                    'billing' => [
-                        'firstName' => 'Janet',
-                        'lastName' => 'Jackson',
-                        'title' => UserTitle::MRS()->getValue(),
-                        'company' => 'Acme Inc',
-                        'phone' => '0123456798',
-                        'address' => '24 rue de la Gare',
-                        'address_2' => '1er étage',
-                        'zipcode' => '69009',
-                        'city' => 'Lyon',
-                        'country' => 'FR',
+        $this->client->request(
+            'POST',
+            '/update-user',
+            [
+                'return_url' => '/profil',
+                'csrf_token' => $this->generateCsrfToken('profile_update_token', $this->client),
+                'addresses_are_identical' => true,
+                'user' => [
+                    'email' => 'user@wizaplace.com',
+                    'firstName' => 'Janet',
+                    'lastName' => 'Jackson',
+                    'title' => UserTitle::MRS()->getValue(),
+                    'addresses' => [
+                        'billing' => [
+                            'firstName' => 'Janet',
+                            'lastName' => 'Jackson',
+                            'title' => UserTitle::MRS()->getValue(),
+                            'company' => 'Acme Inc',
+                            'phone' => '0123456798',
+                            'address' => '24 rue de la Gare',
+                            'address_2' => '1er étage',
+                            'zipcode' => '69009',
+                            'city' => 'Lyon',
+                            'country' => 'FR',
+                        ],
                     ],
                 ],
-            ],
-        ]);
+            ]
+        );
 
         $this->assertResponseCodeEquals(Response::HTTP_FOUND, $this->client);
         $this->clearRenderedData();
@@ -113,12 +122,16 @@ class ProfileControllerTest extends BundleTestCase
         $this->assertResponseCodeEquals(Response::HTTP_OK, $this->client);
 
         // submit the login form
-        $this->client->request('POST', '/login', [
-            AuthController::EMAIL_FIELD_NAME => 'user@wizaplace.com',
-            AuthController::PASSWORD_FIELD_NAME => 'password',
-            AuthController::REDIRECT_URL_FIELD_NAME => '/',
-            AuthController::CSRF_FIELD_NAME => $this->generateCsrfToken(AuthController::CSRF_LOGIN_ID, $this->client),
-        ]);
+        $this->client->request(
+            'POST',
+            '/login',
+            [
+                AuthController::EMAIL_FIELD_NAME => $email,
+                AuthController::PASSWORD_FIELD_NAME => $password,
+                AuthController::REDIRECT_URL_FIELD_NAME => '/',
+                AuthController::CSRF_FIELD_NAME => $this->generateCsrfToken(AuthController::CSRF_LOGIN_ID, $this->client),
+            ]
+        );
 
         $this->assertResponseCodeEquals(Response::HTTP_FOUND, $this->client);
     }

@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace WizaplaceFrontBundle\Tests\Controller;
@@ -26,9 +28,12 @@ class CategoryControllerTest extends BundleTestCase
         $this->assertInstanceOf(Category::class, $renderedData['currentCategory']);
         $this->assertSame(3, $renderedData['currentCategory']->getId());
 
-        $this->assertSame([
-            'categories' => 3,
-        ], $renderedData['filters']);
+        $this->assertSame(
+            [
+                'categories' => 3,
+            ],
+            $renderedData['filters']
+        );
     }
 
     public function testValidProductSlugResolution()

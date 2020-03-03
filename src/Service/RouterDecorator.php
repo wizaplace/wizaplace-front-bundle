@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace WizaplaceFrontBundle\Service;
@@ -69,19 +71,20 @@ class RouterDecorator implements RouterInterface
         return $this->decorated->match($pathinfo);
     }
 
+    /** @return mixed */
     public function __call(string $name, array $arguments)
     {
         // forwards all unknown methods calls to decorated object
-        return call_user_func_array([$this->decorated, $name], $arguments);
+        return \call_user_func_array([$this->decorated, $name], $arguments);
     }
 
     private static function stringifyRecursively($value)
     {
-        if (is_array($value) || $value instanceof \Traversable) {
+        if (\is_array($value) || $value instanceof \Traversable) {
             return array_map([self::class, 'stringifyRecursively'], $value);
         }
 
-        if (is_object($value) && method_exists($value, '__toString')) {
+        if (\is_object($value) && method_exists($value, '__toString')) {
             return (string) $value;
         }
 

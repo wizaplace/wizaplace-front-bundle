@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace WizaplaceFrontBundle\Tests\TestEnv;
@@ -40,15 +42,19 @@ class TestKernel extends Kernel
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
         // We don't need that Environment stuff, just one config
-        $loader->load(__DIR__.'/config.yml');
-        $loader->load(function (ContainerBuilder $containerBuilder): void {
-            $containerBuilder->addCompilerPass(new class() implements CompilerPassInterface {
-                public function process(ContainerBuilder $container)
-                {
-                    $container->getDefinition('wizaplace.guzzle.handler')->addMethodCall('push', [$container->getDefinition('WizaplaceFrontBundle\Tests\TestEnv\Service\VcrGuzzleMiddleware'), 'vcr']);
-                }
-            });
-        });
+        $loader->load(__DIR__ . '/config.yml');
+        $loader->load(
+            function (ContainerBuilder $containerBuilder): void {
+                $containerBuilder->addCompilerPass(
+                    new class () implements CompilerPassInterface {
+                        public function process(ContainerBuilder $container)
+                        {
+                            $container->getDefinition('wizaplace.guzzle.handler')->addMethodCall('push', [$container->getDefinition('WizaplaceFrontBundle\Tests\TestEnv\Service\VcrGuzzleMiddleware'), 'vcr']);
+                        }
+                    }
+                );
+            }
+        );
     }
 
     public function getRootDir()
@@ -58,16 +64,16 @@ class TestKernel extends Kernel
 
     public function getProjectDir()
     {
-        return __DIR__.'/../../';
+        return __DIR__ . '/../../';
     }
 
     public function getCacheDir()
     {
-        return $this->getProjectDir().'var/cache';
+        return $this->getProjectDir() . 'var/cache';
     }
 
     public function getLogDir()
     {
-        return $this->getProjectDir().'var/logs';
+        return $this->getProjectDir() . 'var/logs';
     }
 }

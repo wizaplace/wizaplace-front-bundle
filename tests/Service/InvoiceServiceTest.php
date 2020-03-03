@@ -1,10 +1,11 @@
 <?php
+
 /**
  * @copyright   Copyright (c) Wizacha
  * @license     Proprietary
  */
-declare(strict_types=1);
 
+declare(strict_types=1);
 
 namespace WizaplaceFrontBundle\Tests\Service;
 
@@ -53,6 +54,6 @@ class InvoiceServiceTest extends BundleTestCase
         $pdfHeader = '%PDF-1.4';
         $pdfContent = $response->getContent();
         self::assertStringStartsWith($pdfHeader, $pdfContent);
-        self::assertGreaterThan(strlen($pdfHeader), strlen($pdfContent));
+        self::assertGreaterThan(\strlen($pdfHeader), \strlen($pdfContent));
     }
 }
