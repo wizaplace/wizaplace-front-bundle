@@ -12,34 +12,16 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 30 Oct 2017 09:36:39 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: ee7371
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ee7371'
-            Content-Length: '3841'
+            Server: nginx
             Content-Type: application/json
-        body: '{"id":5,"code":"32094574920","supplierReference":"TEST-ATTRIBUTES","name":"Product with complex attributes","url":"http:\/\/wizaplace.loc\/special-category-dedicated-to-specific-tests\/product-with-complex-attributes.html","shortDescription":"","description":"","slug":"product-with-complex-attributes","minPrice":15,"greenTax":0,"isTransactional":true,"weight":1.23,"averageRating":null,"shippings":[{"name":"TNT Express","image":null,"firstRate":0,"nextRate":0,"deliveryTime":"24h"},{"name":"Lettre prioritaire","image":null,"firstRate":0,"nextRate":0,"deliveryTime":"24h"},{"name":"Colissmo","image":null,"firstRate":0,"nextRate":0,"deliveryTime":"24h"}],"companies":[{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc.","isProfessional":true,"image":null,"averageRating":null}],"categoryPath":[{"id":5,"name":"Special category dedicated to specific tests","slug":"special-category-dedicated-to-specific-tests"}],"geolocation":null,"infiniteStock":false,"video":null,"declinations":[{"id":"5_0","code":"32094574920","isAvailable":true,"supplierReference":"TEST-ATTRIBUTES","price":15,"originalPrice":15,"crossedOutPrice":null,"prices":{"priceWithTaxes":15,"priceWithoutVat":14.69,"vat":0.31},"greenTax":0,"amount":15,"affiliateLink":null,"images":[],"options":[],"isBrandNew":true,"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc.","isProfessional":true,"image":null,"averageRating":null}}],"attributes":[{"id":3,"name":"Commentaire","value":"Commentaire #12M%M_\u00b009\u00a3*\/.?","valueIds":[],"children":[],"subfeatures":[],"imageUrls":[],"type":"FREE_TEXT"},{"id":1,"name":"Couleur","value":["Blanc","Rouge"],"valueIds":[2,3],"children":[],"subfeatures":[],"imageUrls":[],"type":"CHECKBOX_MULTIPLE"},{"id":4,"name":"Groupe attributs","value":null,"valueIds":[],"children":[{"id":7,"name":"Compl\u00e9ment adresse","value":"Compl\u00e9ment d\u0027adresse pour la stepo","valueIds":[],"children":[],"subfeatures":[],"imageUrls":[],"type":"FREE_TEXT"},{"id":5,"name":"Couleur secondaire","value":["Orange"],"valueIds":[9],"children":[],"subfeatures":[],"imageUrls":[],"type":"CHECKBOX_MULTIPLE"},{"id":6,"name":"Pointure","value":["44"],"valueIds":[17],"children":[],"subfeatures":[],"imageUrls":[],"type":"LIST_TEXT"}],"subfeatures":[{"id":7,"name":"Compl\u00e9ment adresse","value":"Compl\u00e9ment d\u0027adresse pour la stepo","valueIds":[],"children":[],"subfeatures":[],"imageUrls":[],"type":"FREE_TEXT"},{"id":5,"name":"Couleur secondaire","value":["Orange"],"valueIds":[9],"children":[],"subfeatures":[],"imageUrls":[],"type":"CHECKBOX_MULTIPLE"},{"id":6,"name":"Pointure","value":["44"],"valueIds":[17],"children":[],"subfeatures":[],"imageUrls":[],"type":"LIST_TEXT"}],"imageUrls":[],"type":"GROUP"},{"id":9,"name":"Marque","value":["Puma"],"valueIds":[20],"children":[],"subfeatures":[],"imageUrls":[],"type":"LIST_BRAND"},{"id":2,"name":"Taille","value":["M"],"valueIds":[5],"children":[],"subfeatures":[],"imageUrls":[],"type":"LIST_TEXT"},{"id":null,"name":"Free attribute multiple","value":["r\u00e9ponse - 1 #","r\u00e9ponse - 2 @",4985],"valueIds":[],"children":[],"subfeatures":[],"imageUrls":null,"type":"FREE"},{"id":null,"name":"Free attribute simple","value":["valeur simple du free attribute #12M%M_\u00b009\u00a3*\/.?"],"valueIds":[],"children":[],"subfeatures":[],"imageUrls":null,"type":"FREE"},{"id":null,"name":"Free attribute simple mais en tableau","value":["une bien belle valeur d\u00e9j\u00e0 encapsul\u00e9e"],"valueIds":[],"children":[],"subfeatures":[],"imageUrls":null,"type":"FREE"},{"id":null,"name":"Free attribute integer ?","value":[92254094],"valueIds":[],"children":[],"subfeatures":[],"imageUrls":null,"type":"FREE"},{"id":null,"name":"Free attribute integer mais en tableau","value":["la m\u00eame histoire par ici"],"valueIds":[],"children":[],"subfeatures":[],"imageUrls":null,"type":"FREE"}],"options":[],"attachments":[]}'
--
-    request:
-        method: GET
-        url: 'http://wizaplace.loc/api/v1/catalog/attributes/variants/20'
-        headers:
-            Host: wizaplace.loc
-            VCR-index: '1'
-    response:
-        status:
-            http_version: '1.1'
-            code: '200'
-            message: OK
-        headers:
-            Date: 'Mon, 30 Oct 2017 09:36:39 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
             Cache-Control: 'no-cache, private'
+            Date: 'Wed, 17 Jun 2020 14:44:17 GMT'
             Content-Language: fr
-            X-Debug-Token: a17343
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a17343'
-            Content-Length: '83'
-            Content-Type: application/json
-        body: '{"id":20,"attributeId":9,"name":"Puma","slug":"puma","description":"","image":null}'
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: f7e824
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f7e824'
+            X-Request-Id: 2c0d525ae8d7380ee169496351058a27
+        body: '{"id":5,"code":"7531596248952","supplierReference":"LOGITECH-CASQUE-GAMING","name":"Logitech G430 Casque Gaming pour PC Gaming, PS4, Xbox One with 7.1 Dolby Surround","url":"http:\/\/wizaplace.loc\/it\/headsets\/casque-logitech-gaming.html","shortDescription":"","description":"","slug":"casque-logitech-gaming","minPrice":61.5,"maxPriceAdjustment":null,"greenTax":0,"isTransactional":true,"weight":1.23,"averageRating":0,"averageRatingFloat":0,"shippings":[{"shipping_id":38,"name":"Lettre prioritaire","image":null,"firstRate":0,"nextRate":0,"position":0,"deliveryTime":"","carriagePaidThreshold":null},{"shipping_id":39,"name":"Colissmo","image":null,"firstRate":0,"nextRate":0,"position":0,"deliveryTime":"","carriagePaidThreshold":null},{"shipping_id":1,"name":"TNT Express","image":null,"firstRate":0,"nextRate":0,"position":40,"deliveryTime":"24h","carriagePaidThreshold":null}],"companies":[{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","isProfessional":true,"image":null,"averageRating":null}],"categoryPath":[{"id":3,"name":"Informatique","slug":"it"},{"id":5,"name":"Casques","slug":"headsets"}],"geolocation":null,"createdAt":"2020-06-17T14:31:44+00:00","updatedAt":"2020-06-17T14:31:44+00:00","availableSince":"2013-12-06T09:00:00+01:00","infiniteStock":false,"video":null,"seoData":{"title":"Micro-Casque Logitech Gaming","description":"","keywords":""},"declinations":[{"id":"5_0","code":"7531596248952","isAvailable":true,"supplierReference":"LOGITECH-CASQUE-GAMING","price":61.5,"maxPriceAdjustment":null,"originalPrice":61.5,"crossedOutPrice":null,"prices":{"priceWithTaxes":61.5,"priceWithoutVat":60.24,"vat":1.26},"greenTax":0,"amount":15,"infiniteStock":false,"affiliateLink":null,"images":[],"options":[],"isBrandNew":true,"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","isProfessional":true,"image":null,"averageRating":null},"priceTiers":[{"lowerLimit":0,"includingTaxes":61.5,"excludingTaxes":60.24,"taxes":1.26}]}],"offers":[{"productId":5,"companyId":3,"price":61.5,"status":"A","divisions":[],"priceTiers":[{"lowerLimit":0,"includingTaxes":61.5,"excludingTaxes":60.24,"taxes":1.26}]}],"attributes":[],"options":[],"attachments":[],"images":[],"productTemplateType":"product","features":[],"isSubscription":false,"isRenewable":false}'
