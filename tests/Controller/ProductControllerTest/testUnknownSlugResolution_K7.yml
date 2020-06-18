@@ -13,12 +13,16 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 22 Feb 2018 15:29:36 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: a105b9
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a105b9'
-            Content-Length: '2'
+            Server: nginx
             Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 18 Jun 2020 08:38:23 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: a45a42
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a45a42'
+            X-Request-Id: 180658f13c8932f02d686d2ad6c7ab38
         body: '{}'
