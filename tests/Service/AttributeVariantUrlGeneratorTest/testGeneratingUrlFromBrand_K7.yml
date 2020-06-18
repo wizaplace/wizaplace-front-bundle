@@ -2,7 +2,7 @@
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/catalog/products/5'
+        url: 'http://wizaplace.loc/api/v1/catalog/products/18'
         headers:
             Host: wizaplace.loc
             VCR-index: '0'
@@ -18,10 +18,36 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.29
             Cache-Control: 'no-cache, private'
-            Date: 'Wed, 17 Jun 2020 14:44:17 GMT'
+            Date: 'Thu, 18 Jun 2020 08:16:45 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: f7e824
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f7e824'
-            X-Request-Id: 2c0d525ae8d7380ee169496351058a27
-        body: '{"id":5,"code":"7531596248952","supplierReference":"LOGITECH-CASQUE-GAMING","name":"Logitech G430 Casque Gaming pour PC Gaming, PS4, Xbox One with 7.1 Dolby Surround","url":"http:\/\/wizaplace.loc\/it\/headsets\/casque-logitech-gaming.html","shortDescription":"","description":"","slug":"casque-logitech-gaming","minPrice":61.5,"maxPriceAdjustment":null,"greenTax":0,"isTransactional":true,"weight":1.23,"averageRating":0,"averageRatingFloat":0,"shippings":[{"shipping_id":38,"name":"Lettre prioritaire","image":null,"firstRate":0,"nextRate":0,"position":0,"deliveryTime":"","carriagePaidThreshold":null},{"shipping_id":39,"name":"Colissmo","image":null,"firstRate":0,"nextRate":0,"position":0,"deliveryTime":"","carriagePaidThreshold":null},{"shipping_id":1,"name":"TNT Express","image":null,"firstRate":0,"nextRate":0,"position":40,"deliveryTime":"24h","carriagePaidThreshold":null}],"companies":[{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","isProfessional":true,"image":null,"averageRating":null}],"categoryPath":[{"id":3,"name":"Informatique","slug":"it"},{"id":5,"name":"Casques","slug":"headsets"}],"geolocation":null,"createdAt":"2020-06-17T14:31:44+00:00","updatedAt":"2020-06-17T14:31:44+00:00","availableSince":"2013-12-06T09:00:00+01:00","infiniteStock":false,"video":null,"seoData":{"title":"Micro-Casque Logitech Gaming","description":"","keywords":""},"declinations":[{"id":"5_0","code":"7531596248952","isAvailable":true,"supplierReference":"LOGITECH-CASQUE-GAMING","price":61.5,"maxPriceAdjustment":null,"originalPrice":61.5,"crossedOutPrice":null,"prices":{"priceWithTaxes":61.5,"priceWithoutVat":60.24,"vat":1.26},"greenTax":0,"amount":15,"infiniteStock":false,"affiliateLink":null,"images":[],"options":[],"isBrandNew":true,"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","isProfessional":true,"image":null,"averageRating":null},"priceTiers":[{"lowerLimit":0,"includingTaxes":61.5,"excludingTaxes":60.24,"taxes":1.26}]}],"offers":[{"productId":5,"companyId":3,"price":61.5,"status":"A","divisions":[],"priceTiers":[{"lowerLimit":0,"includingTaxes":61.5,"excludingTaxes":60.24,"taxes":1.26}]}],"attributes":[],"options":[],"attachments":[],"images":[],"productTemplateType":"product","features":[],"isSubscription":false,"isRenewable":false}'
+            X-Debug-Token: fa069c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fa069c'
+            X-Request-Id: da42b2c3fff87ede8cfabdc944ff4461
+        body: '{"id":18,"code":"5296505822604","supplierReference":"","name":"amet voluptatibus odio sint","url":"http:\/\/wizaplace.loc\/informatique\/ordinateurs-portables\/amet-voluptatibus-odio-sint.html","shortDescription":"","description":"","slug":"amet-voluptatibus-odio-sint","minPrice":299,"maxPriceAdjustment":null,"greenTax":0,"isTransactional":true,"weight":9.28,"averageRating":0,"averageRatingFloat":0,"shippings":[{"shipping_id":1,"name":"TNT Express","image":null,"firstRate":0,"nextRate":0,"position":40,"deliveryTime":"24h","carriagePaidThreshold":null}],"companies":[{"id":1,"name":"Marchand de test","slug":"marchand-de-test","isProfessional":false,"image":null,"averageRating":null}],"categoryPath":[{"id":7,"name":"Informatique","slug":"informatique"},{"id":8,"name":"Ordinateurs portables","slug":"ordinateurs-portables"}],"geolocation":null,"createdAt":"1970-01-01T00:00:01+00:00","updatedAt":"2020-06-18T08:15:49+00:00","availableSince":"2013-12-06T00:00:00+01:00","infiniteStock":false,"video":null,"seoData":{"title":"","description":"","keywords":""},"declinations":[{"id":"18_0","code":"5296505822604","isAvailable":true,"supplierReference":"","price":299,"maxPriceAdjustment":null,"originalPrice":299,"crossedOutPrice":483,"prices":{"priceWithTaxes":299,"priceWithoutVat":292.85,"vat":6.15},"greenTax":0,"amount":3,"infiniteStock":false,"affiliateLink":null,"images":[],"options":[],"isBrandNew":true,"company":{"id":1,"name":"Marchand de test","slug":"marchand-de-test","isProfessional":false,"image":null,"averageRating":null},"priceTiers":[{"lowerLimit":0,"includingTaxes":299,"excludingTaxes":292.85,"taxes":6.15}]}],"offers":[{"productId":18,"companyId":1,"price":299,"status":"A","divisions":[],"priceTiers":[{"lowerLimit":0,"includingTaxes":299,"excludingTaxes":292.85,"taxes":6.15}]}],"attributes":[{"id":9,"name":"Marque","values":[{"id":20,"attributeId":9,"name":"Puma","slug":"puma","image":null}],"value":["Puma"],"valueIds":[20],"children":[],"subfeatures":[],"imageUrls":[],"type":"LIST_BRAND","isUsedForRecommendations":false}],"options":[],"attachments":[],"images":[],"productTemplateType":"product","features":[{"feature_id":"9","value":"","value_int":null,"variant_id":"20","feature_type":"E","description":"Marque","variant":"Puma","parent_id":"0","variants":{"20":{"value":"","value_int":null,"variant_id":"20","variant":"Puma"}}}],"isSubscription":false,"isRenewable":false}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/attributes/variants/20'
+        headers:
+            Host: wizaplace.loc
+            VCR-index: '1'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 18 Jun 2020 08:16:45 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 61bc49
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/61bc49'
+            X-Request-Id: d833ec0bb051d5ae396fb41044912e10
+        body: '{"id":20,"attributeId":9,"name":"Puma","slug":"puma","description":"","image":null,"seoData":{"title":"","description":""}}'

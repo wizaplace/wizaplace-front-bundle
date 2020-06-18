@@ -12,12 +12,16 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 30 Oct 2017 09:36:39 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: e709bd
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e709bd'
-            Content-Length: '84'
+            Server: nginx
             Content-Type: application/json
-        body: '{"id":2,"attributeId":1,"name":"Blanc","slug":"blanc","description":"","image":null}'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 18 Jun 2020 08:16:45 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 8c0942
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8c0942'
+            X-Request-Id: 54269c8d613ef984b11c91e7492ba1f9
+        body: '{"id":2,"attributeId":1,"name":"Blanc","slug":"blanc-2","description":"","image":null,"seoData":{"title":"","description":""}}'
