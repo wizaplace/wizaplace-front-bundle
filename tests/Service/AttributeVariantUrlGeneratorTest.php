@@ -19,7 +19,7 @@ class AttributeVariantUrlGeneratorTest extends BundleTestCase
     {
         $container = self::$kernel->getContainer();
         $catalogService = $container->get(CatalogService::class);
-        $brand = $catalogService->getBrand($catalogService->getProductById('5'));
+        $brand = $catalogService->getBrand($catalogService->getProductById('18'));
 
         $result = $container->get(AttributeVariantUrlGenerator::class)->generateAttributeVariantUrl($brand);
 

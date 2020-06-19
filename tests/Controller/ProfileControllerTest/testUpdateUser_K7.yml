@@ -14,15 +14,19 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 22 Feb 2018 15:29:27 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: 1e1a31
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1e1a31'
-            Content-Length: '61'
+            Server: nginx
             Content-Type: application/json
-        body: '{"id":3,"apiKey":"TSJaeeHMjAdtt6\/DGh4JZ91vQO85e3uM+R4WUm6K"}'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 18 Jun 2020 13:33:31 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: fd4b7f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fd4b7f'
+            X-Request-Id: 8f09a2afc21b5b64e3179ba2a7ae531c
+        body: '{"id":3,"apiKey":"H9+4yIIKDYLLQ1cxk3r4BehBbiam+BDEBxcQKVQL"}'
 -
     request:
         method: GET
@@ -30,7 +34,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Language: fr
-            Authorization: 'token TSJaeeHMjAdtt6/DGh4JZ91vQO85e3uM+R4WUm6K'
+            Authorization: 'token H9+4yIIKDYLLQ1cxk3r4BehBbiam+BDEBxcQKVQL'
             VCR-index: '1'
     response:
         status:
@@ -38,15 +42,19 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 22 Feb 2018 15:29:27 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: 127a9e
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/127a9e'
-            Content-Length: '650'
+            Server: nginx
             Content-Type: application/json
-        body: '{"id":3,"title":"mr","email":"user@wizaplace.com","companyId":null,"firstName":"Paul","lastName":"Martin","birthday":null,"loyaltyIdentifier":null,"addresses":{"billing":{"title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","37":4,"38":4,"40":"","39":""},"shipping":{"title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","37":4,"38":4,"40":"","39":""}}}'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 18 Jun 2020 13:33:31 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: bd41dc
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/bd41dc'
+            X-Request-Id: 945312b0d2c6fac8d395cf93f1798763
+        body: '{"id":3,"title":"mr","email":"user@wizaplace.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"Paul","lastName":"Martin","phone":"01234567890","birthday":null,"currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","division_code":"FR-03","37":4,"38":4,"40":"","39":""},"shipping":{"title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","division_code":"FR-03","37":4,"38":4,"40":"","39":""}},"externalIdentifier":"","isProfessional":false,"intraEuropeanCommunityVAT":"","company":"","jobTitle":"","comment":"","legalIdentifier":""}'
 -
     request:
         method: GET
@@ -54,7 +62,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Language: fr
-            Authorization: 'token TSJaeeHMjAdtt6/DGh4JZ91vQO85e3uM+R4WUm6K'
+            Authorization: 'token H9+4yIIKDYLLQ1cxk3r4BehBbiam+BDEBxcQKVQL'
             VCR-index: '2'
     response:
         status:
@@ -62,14 +70,18 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 22 Feb 2018 15:29:27 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: dd923f
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/dd923f'
-            Content-Length: '11'
+            Server: nginx
             Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 18 Jun 2020 13:33:31 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: '27e487'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/27e487'
+            X-Request-Id: 65001c638aef600ddc02eebc688708ed
         body: '{"id":null}'
 -
     request:
@@ -78,7 +90,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Language: fr
-            Authorization: 'token TSJaeeHMjAdtt6/DGh4JZ91vQO85e3uM+R4WUm6K'
+            Authorization: 'token H9+4yIIKDYLLQ1cxk3r4BehBbiam+BDEBxcQKVQL'
             VCR-index: '3'
     response:
         status:
@@ -86,15 +98,20 @@
             code: '201'
             message: Created
         headers:
-            Date: 'Thu, 22 Feb 2018 15:29:28 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: 5d174c
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5d174c'
-            Content-Length: '38'
+            Server: nginx
             Content-Type: application/json
-        body: '"7160a48a-d3af-4bdc-bd76-597df4d9b90a"'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 18 Jun 2020 13:33:31 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 83b3d3
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/83b3d3'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%2283b3d3%22%2C%22route%22%3A%22api_basket_create%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CBasketController%22%2C%22method%22%3A%22createAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FBasketController.php%22%2C%22line%22%3A81%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: b6b188ab77fd0417ab30e9753e764173
+        body: '"c4ec3bb6-4b6d-4af4-af92-280c092cd3cb"'
 -
     request:
         method: POST
@@ -104,22 +121,26 @@
             Content-Type: application/json
             Host: wizaplace.loc
             Accept-Language: fr
-            Authorization: 'token TSJaeeHMjAdtt6/DGh4JZ91vQO85e3uM+R4WUm6K'
+            Authorization: 'token H9+4yIIKDYLLQ1cxk3r4BehBbiam+BDEBxcQKVQL'
             VCR-index: '4'
-        body: '{"id":"7160a48a-d3af-4bdc-bd76-597df4d9b90a"}'
+        body: '{"id":"c4ec3bb6-4b6d-4af4-af92-280c092cd3cb"}'
     response:
         status:
             http_version: '1.1'
             code: '204'
             message: 'No Content'
         headers:
-            Date: 'Thu, 22 Feb 2018 15:29:28 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: 90c0e1
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/90c0e1'
+            Server: nginx
             Content-Type: 'text/html; charset=UTF-8'
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 18 Jun 2020 13:33:31 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: b8d8ea
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b8d8ea'
+            X-Request-Id: 9fe577b7dc8e3b8a6a6bf85cf8d74ec5
 -
     request:
         method: GET
@@ -127,7 +148,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Language: fr
-            Authorization: 'token TSJaeeHMjAdtt6/DGh4JZ91vQO85e3uM+R4WUm6K'
+            Authorization: 'token H9+4yIIKDYLLQ1cxk3r4BehBbiam+BDEBxcQKVQL'
             VCR-index: '5'
     response:
         status:
@@ -135,42 +156,50 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 22 Feb 2018 15:29:28 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: 1fcde3
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1fcde3'
-            Content-Length: '650'
+            Server: nginx
             Content-Type: application/json
-        body: '{"id":3,"title":"mr","email":"user@wizaplace.com","companyId":null,"firstName":"Paul","lastName":"Martin","birthday":null,"loyaltyIdentifier":null,"addresses":{"billing":{"title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","37":4,"38":4,"40":"","39":""},"shipping":{"title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","37":4,"38":4,"40":"","39":""}}}'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 18 Jun 2020 13:33:31 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: ec8446
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ec8446'
+            X-Request-Id: 9f93738022291b798fc84dbbd69d735e
+        body: '{"id":3,"title":"mr","email":"user@wizaplace.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"Paul","lastName":"Martin","phone":"01234567890","birthday":null,"currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","division_code":"FR-03","37":4,"38":4,"40":"","39":""},"shipping":{"title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","division_code":"FR-03","37":4,"38":4,"40":"","39":""}},"externalIdentifier":"","isProfessional":false,"intraEuropeanCommunityVAT":"","company":"","jobTitle":"","comment":"","legalIdentifier":""}'
 -
     request:
         method: PUT
         url: 'http://wizaplace.loc/api/v1/users/3'
         headers:
-            Content-Length: '69'
-            Content-Type: application/x-www-form-urlencoded
+            Content-Length: '85'
+            Content-Type: application/json
             Host: wizaplace.loc
             Accept-Language: fr
-            Authorization: 'token TSJaeeHMjAdtt6/DGh4JZ91vQO85e3uM+R4WUm6K'
+            Authorization: 'token H9+4yIIKDYLLQ1cxk3r4BehBbiam+BDEBxcQKVQL'
             VCR-index: '6'
-        body: 'email=user%40wizaplace.com&title=mrs&firstName=Janet&lastName=Jackson'
+        body: '{"email":"user@wizaplace.com","title":"mrs","firstName":"Janet","lastName":"Jackson"}'
     response:
         status:
             http_version: '1.1'
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 22 Feb 2018 15:29:28 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: f9cf22
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f9cf22'
-            Content-Length: '653'
+            Server: nginx
             Content-Type: application/json
-        body: '{"id":3,"title":"mrs","email":"user@wizaplace.com","companyId":null,"firstName":"Janet","lastName":"Jackson","birthday":null,"loyaltyIdentifier":null,"addresses":{"billing":{"title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","37":4,"38":4,"40":"","39":""},"shipping":{"title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","37":4,"38":4,"40":"","39":""}}}'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 18 Jun 2020 13:33:31 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 5653fc
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5653fc'
+            X-Request-Id: 6604da0f2150b82677fa08ae96d32a76
+        body: '{"id":3,"title":"mrs","email":"user@wizaplace.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"Janet","lastName":"Jackson","phone":"01234567890","birthday":null,"currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","division_code":"FR-03","37":4,"38":4,"40":"","39":""},"shipping":{"title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","division_code":"FR-03","37":4,"38":4,"40":"","39":""}},"externalIdentifier":"","isProfessional":false,"intraEuropeanCommunityVAT":"","company":"","jobTitle":"","comment":"","legalIdentifier":""}'
 -
     request:
         method: GET
@@ -178,7 +207,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Language: fr
-            Authorization: 'token TSJaeeHMjAdtt6/DGh4JZ91vQO85e3uM+R4WUm6K'
+            Authorization: 'token H9+4yIIKDYLLQ1cxk3r4BehBbiam+BDEBxcQKVQL'
             VCR-index: '7'
     response:
         status:
@@ -186,12 +215,16 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 22 Feb 2018 15:29:29 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: 197bd6
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/197bd6'
-            Content-Length: '653'
+            Server: nginx
             Content-Type: application/json
-        body: '{"id":3,"title":"mrs","email":"user@wizaplace.com","companyId":null,"firstName":"Janet","lastName":"Jackson","birthday":null,"loyaltyIdentifier":null,"addresses":{"billing":{"title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","37":4,"38":4,"40":"","39":""},"shipping":{"title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","37":4,"38":4,"40":"","39":""}}}'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 18 Jun 2020 13:33:31 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: dcc950
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/dcc950'
+            X-Request-Id: b71edec4f4d543058fa5c6dd6550a06f
+        body: '{"id":3,"title":"mrs","email":"user@wizaplace.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"Janet","lastName":"Jackson","phone":"01234567890","birthday":null,"currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","division_code":"FR-03","37":4,"38":4,"40":"","39":""},"shipping":{"title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","division_code":"FR-03","37":4,"38":4,"40":"","39":""}},"externalIdentifier":"","isProfessional":false,"intraEuropeanCommunityVAT":"","company":"","jobTitle":"","comment":"","legalIdentifier":""}'

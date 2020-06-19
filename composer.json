@@ -24,6 +24,7 @@
   },
   "require-dev": {
     "bmancone/guzzle-stopwatch-middleware": "^1.0",
+    "dg/bypass-finals": "^1.2",
     "kphoen/sitemap-generator": "^1.4",
     "php-vcr/php-vcr": "^1.4",
     "phpstan/phpstan": "^0.12.11",

@@ -137,7 +137,8 @@ class SitemapGenerator implements ProviderInterface
         }
 
         $slugsCatalog = $this->seoService->listSlugs();
-        foreach ($slugsCatalog as $slugCatalogItem) {
+
+        foreach ($slugsCatalog['items'] as $slugCatalogItem) {
             $type = $slugCatalogItem->getTarget()->getObjectType();
             $parameters = [
                 'slug' => $slugCatalogItem->getSlug(),
