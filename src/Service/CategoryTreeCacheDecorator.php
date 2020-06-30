@@ -10,6 +10,8 @@ declare(strict_types=1);
 namespace WizaplaceFrontBundle\Service;
 
 use Wizaplace\SDK\Catalog\AbstractCatalogServiceDecorator;
+use Wizaplace\SDK\Catalog\CategorySortCriteria;
+use Wizaplace\SDK\SortDirection;
 
 class CategoryTreeCacheDecorator extends AbstractCatalogServiceDecorator
 {
@@ -18,10 +20,10 @@ class CategoryTreeCacheDecorator extends AbstractCatalogServiceDecorator
     /**
      * @inheritdoc
      */
-    public function getCategoryTree(): array
+    public function getCategoryTree(string $criteria = CategorySortCriteria::POSITION, string $direction = SortDirection::ASC): array
     {
         if (!isset($this->categoryTreeCache)) {
-            $this->categoryTreeCache = parent::getCategoryTree();
+            $this->categoryTreeCache = parent::getCategoryTree($criteria, $direction);
         }
 
         return $this->categoryTreeCache;

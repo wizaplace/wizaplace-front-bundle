@@ -13,14 +13,18 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 23 May 2018 08:06:41 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: b5d23e
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b5d23e'
-            Content-Length: '61'
+            Server: nginx
             Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 18 Jun 2020 15:27:01 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: a02b65
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a02b65'
+            X-Request-Id: cf32408bdf45cd80d355033db08af245
         body: '{"id":7,"apiKey":"MnXBu+pPpl4PCBLcGZdTh0+sn\/nnEL9RkfAvBdnJ"}'
 -
     request:
@@ -36,15 +40,19 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 23 May 2018 08:06:42 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: c921a2
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c921a2'
-            Content-Length: '671'
+            Server: nginx
             Content-Type: application/json
-        body: '{"id":7,"title":"mr","email":"customer-1@world-company.com","companyId":null,"firstName":"Michael","lastName":"Jordan","birthday":"1979-06-19","loyaltyIdentifier":null,"addresses":{"billing":{"title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","37":4,"38":4,"40":"","39":""},"shipping":{"title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","37":4,"38":4,"40":"","39":""}}}'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 18 Jun 2020 15:27:01 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: c3ac37
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c3ac37'
+            X-Request-Id: adcc2c253c17fe6ce9401668686cac8f
+        body: '{"id":7,"title":"mr","email":"customer-1@world-company.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"Michael","lastName":"Jordan","phone":"01234567890","birthday":"1979-06-19","currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","division_code":"FR-03","37":4,"38":4,"40":"","39":""},"shipping":{"title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","division_code":"FR-03","37":4,"38":4,"40":"","39":""}},"externalIdentifier":"","isProfessional":false,"intraEuropeanCommunityVAT":"","company":"","jobTitle":"","comment":"","legalIdentifier":""}'
 -
     request:
         method: GET
@@ -59,19 +67,23 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 23 May 2018 08:06:42 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: b8f637
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b8f637'
-            Content-Length: '11'
+            Server: nginx
             Content-Type: application/json
-        body: '{"id":null}'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 18 Jun 2020 15:27:01 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: af56d0
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/af56d0'
+            X-Request-Id: 1abd016bc1f5da3063d56fb5d1787cca
+        body: '{"id":"a0b9ee99-b977-42c6-952a-b1319273346d"}'
 -
     request:
-        method: POST
-        url: 'http://wizaplace.loc/api/v1/basket'
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/basket/a0b9ee99-b977-42c6-952a-b1319273346d'
         headers:
             Host: wizaplace.loc
             Authorization: 'token MnXBu+pPpl4PCBLcGZdTh0+sn/nnEL9RkfAvBdnJ'
@@ -79,47 +91,56 @@
     response:
         status:
             http_version: '1.1'
-            code: '201'
-            message: Created
+            code: '200'
+            message: OK
         headers:
-            Date: 'Wed, 23 May 2018 08:06:43 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: '725388'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/725388'
-            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22725388%22%2C%22route%22%3A%22api_basket_create%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CBasketController%22%2C%22method%22%3A%22createAction%22%2C%22file%22%3A%22%5C%2Fvagrant%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FBasketController.php%22%2C%22line%22%3A42%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
-            Content-Length: '38'
+            Server: nginx
             Content-Type: application/json
-        body: '"241fe013-23ee-4b3a-bc6b-07f039d45e6d"'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 18 Jun 2020 15:27:01 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 15fc7b
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/15fc7b'
+            X-Request-Id: fb421aeea16b12f46cdfd9051f3f6115
+        body: '{"id":"a0b9ee99-b977-42c6-952a-b1319273346d","comment":"","coupons":[],"billingAddress":{"title":"","firstname":"","lastname":"","company":"","address":"","address2":"","zipcode":"","city":"","state":"","country":"","phone":"","email":"","division":"","pickupPointId":""},"shippingAddress":{"title":"","firstname":"","lastname":"","company":"","address":"","address2":"","zipcode":"","city":"","state":"","country":"","phone":"","email":"","division":"","pickupPointId":""},"companyGroups":[{"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc"},"productTotalWithTaxes":135.8,"productTaxes":2.79,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":2.79,"shippingGroups":[{"id":1,"items":[{"declinationId":"1_0","productId":1,"productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productCode":"978020137962","productUrl":"https:\/\/wizaplace.loc\/it\/test-product-slug.html","individualPrice":67.9,"individualTax":1.4,"crossedOutPrice":null,"greenTax":0,"mainImage":null,"quantity":2,"total":135.8,"options":[],"comment":"","divisions":[],"unitPrice":{"priceWithoutVat":66.5,"priceWithTaxes":67.9,"vat":1.4},"totalPrice":{"priceWithoutVat":133.01,"priceWithTaxes":135.8,"vat":2.79}}],"shippings":[{"id":38,"name":"Lettre prioritaire","type":"S","price":0,"deliveryTime":"","image":null,"shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"carriagePaidThreshold":null,"carriagePaid":false,"originalPrice":0,"selected":true},{"id":39,"name":"Colissmo","type":"S","price":0,"deliveryTime":"","image":null,"shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"carriagePaidThreshold":null,"carriagePaid":false,"originalPrice":0,"selected":false},{"id":1,"name":"TNT Express","type":"S","price":0,"deliveryTime":"24h","image":null,"shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"carriagePaidThreshold":null,"carriagePaid":false,"originalPrice":0,"selected":false}],"carriagePaid":false,"productTotalWithTaxes":135.8,"productTaxes":2.79,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":2.79,"itemsPrice":{"priceWithoutVat":133.01,"priceWithTaxes":135.8,"vat":2.79},"selectedShippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalPrice":{"priceWithoutVat":133.01,"priceWithTaxes":135.8,"vat":2.79}}]}],"subtotal":135.8,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":2.79,"total":135.8,"totalMarketplaceDiscount":0,"totalQuantity":2,"totalItemsPrice":{"priceWithoutVat":133.01,"priceWithTaxes":135.8,"vat":2.79},"totalShippingsPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalGlobalPrice":{"priceWithoutVat":133.01,"priceWithTaxes":135.8,"vat":2.79},"isEligibleToPickupPointsShipping":false,"isPickupPointsShipping":false}'
 -
     request:
         method: POST
-        url: 'http://wizaplace.loc/api/v1/users/7/basket'
+        url: 'http://wizaplace.loc/api/v1/basket/a0b9ee99-b977-42c6-952a-b1319273346d/add'
         headers:
-            Content-Length: '45'
-            Content-Type: application/json
+            Content-Length: '26'
+            Content-Type: application/x-www-form-urlencoded
             Host: wizaplace.loc
             Authorization: 'token MnXBu+pPpl4PCBLcGZdTh0+sn/nnEL9RkfAvBdnJ'
             VCR-index: '4'
-        body: '{"id":"241fe013-23ee-4b3a-bc6b-07f039d45e6d"}'
+        body: 'declinationId=1&quantity=1'
     response:
         status:
             http_version: '1.1'
-            code: '204'
-            message: 'No Content'
+            code: '200'
+            message: OK
         headers:
-            Date: 'Wed, 23 May 2018 08:06:43 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
             Cache-Control: 'no-cache, private'
+            Date: 'Thu, 18 Jun 2020 15:27:01 GMT'
             Content-Language: fr
-            X-Debug-Token: 640a0e
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/640a0e'
-            Content-Type: 'text/html; charset=UTF-8'
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 72a81c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/72a81c'
+            X-Request-Id: fc53999502cf3365e3cb4c5461ff5d36
+        body: '{"quantity":3,"added":1}'
 -
     request:
         method: POST
-        url: 'http://wizaplace.loc/api/v1/basket/241fe013-23ee-4b3a-bc6b-07f039d45e6d/add'
+        url: 'http://wizaplace.loc/api/v1/basket/a0b9ee99-b977-42c6-952a-b1319273346d/add'
         headers:
             Content-Length: '26'
             Content-Type: application/x-www-form-urlencoded
@@ -133,75 +154,57 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 23 May 2018 08:06:44 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: e1487d
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e1487d'
-            Content-Length: '14'
+            Server: nginx
             Content-Type: application/json
-        body: '{"quantity":1}'
--
-    request:
-        method: POST
-        url: 'http://wizaplace.loc/api/v1/basket/241fe013-23ee-4b3a-bc6b-07f039d45e6d/add'
-        headers:
-            Content-Length: '26'
-            Content-Type: application/x-www-form-urlencoded
-            Host: wizaplace.loc
-            Authorization: 'token MnXBu+pPpl4PCBLcGZdTh0+sn/nnEL9RkfAvBdnJ'
-            VCR-index: '6'
-        body: 'declinationId=1&quantity=1'
-    response:
-        status:
-            http_version: '1.1'
-            code: '200'
-            message: OK
-        headers:
-            Date: 'Wed, 23 May 2018 08:06:44 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
             Cache-Control: 'no-cache, private'
+            Date: 'Thu, 18 Jun 2020 15:27:01 GMT'
             Content-Language: fr
-            X-Debug-Token: 6995ba
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6995ba'
-            Content-Length: '14'
-            Content-Type: application/json
-        body: '{"quantity":2}'
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 72a81c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/72a81c'
+            X-Request-Id: fc53999502cf3365e3cb4c5461ff5d36
+        body: '{"quantity":2,"added":1}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/basket/241fe013-23ee-4b3a-bc6b-07f039d45e6d'
+        url: 'http://wizaplace.loc/api/v1/basket/a0b9ee99-b977-42c6-952a-b1319273346d'
         headers:
             Host: wizaplace.loc
             Authorization: 'token MnXBu+pPpl4PCBLcGZdTh0+sn/nnEL9RkfAvBdnJ'
-            VCR-index: '7'
+            VCR-index: '6'
     response:
         status:
             http_version: '1.1'
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 23 May 2018 08:06:45 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: 5b20f2
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5b20f2'
-            Content-Length: '2358'
+            Server: nginx
             Content-Type: application/json
-        body: '{"id":"241fe013-23ee-4b3a-bc6b-07f039d45e6d","comment":"","coupons":[],"billingAddress":{"title":"","firstname":"","lastname":"","company":"","address":"","address2":"","zipcode":"","city":"","state":"","country":"","phone":"","email":""},"shippingAddress":{"title":"","firstname":"","lastname":"","company":"","address":"","address2":"","zipcode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[{"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc."},"productTotalWithTaxes":135.8,"productTaxes":2.79,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":2.79,"shippingGroups":[{"id":1,"items":[{"declinationId":"1_0","productId":1,"productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productCode":"978020137962","productUrl":"https:\/\/wizaplace.loc\/it\/test-product-slug.html","individualPrice":67.9,"individualTax":1.4,"crossedOutPrice":null,"mainImage":null,"quantity":2,"total":135.8,"options":[],"comment":"","unitPrice":{"priceWithoutVat":66.5,"priceWithTaxes":67.9,"vat":1.4},"totalPrice":{"priceWithoutVat":133.01,"priceWithTaxes":135.8,"vat":2.79}}],"shippings":[{"id":1,"name":"TNT Express","type":"S","price":0,"deliveryTime":"24h","shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":true},{"id":38,"name":"Lettre prioritaire","type":"S","price":0,"deliveryTime":"","shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":false},{"id":39,"name":"Colissmo","type":"S","price":0,"deliveryTime":"","shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":false}],"productTotalWithTaxes":135.8,"productTaxes":2.79,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":2.79,"itemsPrice":{"priceWithoutVat":133.01,"priceWithTaxes":135.8,"vat":2.79},"selectedShippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalPrice":{"priceWithoutVat":133.01,"priceWithTaxes":135.8,"vat":2.79}}]}],"subtotal":135.8,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":2.79,"total":135.8,"totalQuantity":2,"totalItemsPrice":{"priceWithoutVat":133.01,"priceWithTaxes":135.8,"vat":2.79},"totalShippingsPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalGlobalPrice":{"priceWithoutVat":133.01,"priceWithTaxes":135.8,"vat":2.79},"isEligibleToPickupPointsShipping":false,"isPickupPointsShipping":false}'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 18 Jun 2020 15:27:01 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 15fc7b
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/15fc7b'
+            X-Request-Id: fb421aeea16b12f46cdfd9051f3f6115
+        body: '{"id":"a0b9ee99-b977-42c6-952a-b1319273346d","comment":"","coupons":[],"billingAddress":{"title":"","firstname":"","lastname":"","company":"","address":"","address2":"","zipcode":"","city":"","state":"","country":"","phone":"","email":"","division":"","pickupPointId":""},"shippingAddress":{"title":"","firstname":"","lastname":"","company":"","address":"","address2":"","zipcode":"","city":"","state":"","country":"","phone":"","email":"","division":"","pickupPointId":""},"companyGroups":[{"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc"},"productTotalWithTaxes":135.8,"productTaxes":2.79,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":2.79,"shippingGroups":[{"id":1,"items":[{"declinationId":"1_0","productId":1,"productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productCode":"978020137962","productUrl":"https:\/\/wizaplace.loc\/it\/test-product-slug.html","individualPrice":67.9,"individualTax":1.4,"crossedOutPrice":null,"greenTax":0,"mainImage":null,"quantity":2,"total":135.8,"options":[],"comment":"","divisions":[],"unitPrice":{"priceWithoutVat":66.5,"priceWithTaxes":67.9,"vat":1.4},"totalPrice":{"priceWithoutVat":133.01,"priceWithTaxes":135.8,"vat":2.79}}],"shippings":[{"id":38,"name":"Lettre prioritaire","type":"S","price":0,"deliveryTime":"","image":null,"shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"carriagePaidThreshold":null,"carriagePaid":false,"originalPrice":0,"selected":true},{"id":39,"name":"Colissmo","type":"S","price":0,"deliveryTime":"","image":null,"shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"carriagePaidThreshold":null,"carriagePaid":false,"originalPrice":0,"selected":false},{"id":1,"name":"TNT Express","type":"S","price":0,"deliveryTime":"24h","image":null,"shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"carriagePaidThreshold":null,"carriagePaid":false,"originalPrice":0,"selected":false}],"carriagePaid":false,"productTotalWithTaxes":135.8,"productTaxes":2.79,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":2.79,"itemsPrice":{"priceWithoutVat":133.01,"priceWithTaxes":135.8,"vat":2.79},"selectedShippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalPrice":{"priceWithoutVat":133.01,"priceWithTaxes":135.8,"vat":2.79}}]}],"subtotal":135.8,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":2.79,"total":135.8,"totalMarketplaceDiscount":0,"totalQuantity":2,"totalItemsPrice":{"priceWithoutVat":133.01,"priceWithTaxes":135.8,"vat":2.79},"totalShippingsPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalGlobalPrice":{"priceWithoutVat":133.01,"priceWithTaxes":135.8,"vat":2.79},"isEligibleToPickupPointsShipping":false,"isPickupPointsShipping":false}'
 -
     request:
         method: POST
-        url: 'http://wizaplace.loc/api/v1/basket/241fe013-23ee-4b3a-bc6b-07f039d45e6d/shippings'
+        url: 'http://wizaplace.loc/api/v1/basket/a0b9ee99-b977-42c6-952a-b1319273346d/shippings'
         headers:
-            Content-Length: '27'
+            Content-Length: '26'
             Content-Type: application/json
             Host: wizaplace.loc
             Authorization: 'token MnXBu+pPpl4PCBLcGZdTh0+sn/nnEL9RkfAvBdnJ'
-            VCR-index: '8'
-        body: '{"shippingGroups":{"1":39}}'
+            VCR-index: '7'
+        body: '{"shippingGroups":{"1":1}}'
     response:
         status:
             http_version: '1.1'
@@ -218,11 +221,11 @@
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/basket/241fe013-23ee-4b3a-bc6b-07f039d45e6d/payments'
+        url: 'http://wizaplace.loc/api/v1/basket/a0b9ee99-b977-42c6-952a-b1319273346d/payments'
         headers:
             Host: wizaplace.loc
             Authorization: 'token MnXBu+pPpl4PCBLcGZdTh0+sn/nnEL9RkfAvBdnJ'
-            VCR-index: '9'
+            VCR-index: '8'
     response:
         status:
             http_version: '1.1'
@@ -241,13 +244,13 @@
 -
     request:
         method: POST
-        url: 'http://wizaplace.loc/api/v1/basket/241fe013-23ee-4b3a-bc6b-07f039d45e6d/order'
+        url: 'http://wizaplace.loc/api/v1/basket/a0b9ee99-b977-42c6-952a-b1319273346d/order'
         headers:
             Content-Length: '91'
             Content-Type: application/x-www-form-urlencoded
             Host: wizaplace.loc
             Authorization: 'token MnXBu+pPpl4PCBLcGZdTh0+sn/nnEL9RkfAvBdnJ'
-            VCR-index: '10'
+            VCR-index: '9'
         body: 'paymentId=1&acceptTermsAndConditions=1&redirectUrl=https%3A%2F%2Fdemo.loc%2Forder%2Fconfirm'
     response:
         status:
@@ -263,15 +266,15 @@
             X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/468bc1'
             Content-Length: '21'
             Content-Type: application/json
-        body: '{"orders":[{"id":7}]}'
+        body: '{"parentOrderId":14,"orders":[{"id":14}]}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/user/orders/7'
+        url: 'http://wizaplace.loc/api/v1/user/orders/14'
         headers:
             Host: wizaplace.loc
             Authorization: 'token MnXBu+pPpl4PCBLcGZdTh0+sn/nnEL9RkfAvBdnJ'
-            VCR-index: '11'
+            VCR-index: '10'
     response:
         status:
             http_version: '1.1'
@@ -286,4 +289,4 @@
             X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/adedb1'
             Content-Length: '858'
             Content-Type: application/json
-        body: '{"id":7,"basketId":"241fe013-23ee-4b3a-bc6b-07f039d45e6d","companyId":3,"total":135.8,"taxTotal":2.79,"subtotal":135.8,"timestamp":1527062806,"status":"STANDBY_BILLING","shippingName":"Colissmo","customerComment":"","declineReason":null,"shippingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":""},"billingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":""},"items":[{"declinationId":"1_0","productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productCode":"978020137962","price":67.9,"amount":2,"options":[],"customerComment":""}],"payment":{"type":"manual","processorName":null}}'
+        body: '{"id":14,"basketId":"0452ed84-cfe5-4125-b0e6-39a7c4b4db66","companyId":3,"companyName":"The World Company Inc.","total":135.8,"taxTotal":2.79,"subtotal":135.8,"customerTotal":135.8,"marketplaceDiscountTotal":0,"timestamp":1592405298,"status":"STANDBY_BILLING","workflow":"workflow_manual_payment_pending_manual_payment_processing","shippingName":"TNT Express","customerComment":"","declineReason":null,"shippingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":"","phone":"01234567890","pickupPointId":null},"billingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":"","phone":"01234567890","pickupPointId":null},"items":[{"itemId":"2085640488","declinationId":"1_0","productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productCode":"978020137962","productImageId":null,"price":67.9,"maxPriceAdjustment":null,"amount":2,"options":[],"customerComment":"","greenTax":0,"supplierRef":"INFO-001","isSubscription":false,"isRenewable":false}],"payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{},"externalReference":null},"shippingCost":0,"discount":0,"subscriptionId":null,"isSubscriptionInitiator":false,"isPaid":false,"carriagePaid":false}'

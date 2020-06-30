@@ -31,7 +31,7 @@ class BasketServiceTest extends BundleTestCase
         self::assertNotEmpty($basket->getId());
 
         $newQuantity = $basketService->addProductToBasket(new DeclinationId('1'), 1);
-        self::assertSame(1, $newQuantity);
+        self::assertSame(3, $newQuantity);
 
         $newQuantity = $basketService->addProductToBasket(new DeclinationId('1'), 1);
         self::assertSame(2, $newQuantity);
@@ -91,7 +91,7 @@ class BasketServiceTest extends BundleTestCase
         $order = $orderService->getOrder($orders[0]->getId());
         self::assertSame($orders[0]->getId(), $order->getId());
         self::assertSame(3, $order->getCompanyId());
-        self::assertSame('Colissmo', $order->getShippingName());
+        self::assertSame('TNT Express', $order->getShippingName());
         self::assertEquals(OrderStatus::STANDBY_BILLING(), $order->getStatus());
         self::assertGreaterThan(1500000000, $order->getTimestamp()->getTimestamp());
         self::assertSame(135.8, $order->getTotal());
@@ -167,7 +167,7 @@ class BasketServiceTest extends BundleTestCase
 
         self::assertSame(
             [
-                '1_0' => 2,
+                '1_0' => 4,
                 '3_3_7' => 1,
                 '3_3_8' => 1,
             ],
