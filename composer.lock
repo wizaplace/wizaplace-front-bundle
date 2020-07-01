@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b4d60604d579ddeb9996ef2fa0ccdee6",
+    "content-hash": "29324b96a022dccb328b7dc815830f8c",
     "packages": [
         {
             "name": "clue/json-stream",
