@@ -13,6 +13,13 @@
 
 ## Next version
 
+### 0.6.1
+- Update the Wizaplace PHP-SDK to accept any 1.x version.
+
+### 0.6.0
+- Update the Wizaplace PHP-SDK
+- Update the Sitemap generator component to follow the SDK update.
+
 ### 0.5.9
 
 - Use PHPCS [wizaplace/phpcs](https://github.com/wizaplace/phpcs)

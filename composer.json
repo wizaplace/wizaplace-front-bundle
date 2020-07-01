@@ -10,7 +10,7 @@
     "symfony/monolog-bundle": "^3.1",
     "symfony/symfony": "^3.4.6",
     "twig/twig": "^2.4",
-    "wizaplace/sdk": "1.108.4"
+    "wizaplace/sdk": "~1"
   },
   "autoload": {
     "psr-4": {
