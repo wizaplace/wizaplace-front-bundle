@@ -14,7 +14,7 @@
 ## Next version
 
 ### 0.6.1
-- Update the Wizaplace PHP-SDK to accept any 1.x version.
+- Update the Wizaplace PHP-SDK to accept at least the 1.108.28 version.
 
 ### 0.6.0
 - Update the Wizaplace PHP-SDK
