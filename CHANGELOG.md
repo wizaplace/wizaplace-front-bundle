@@ -13,6 +13,9 @@
 
 ## Next version
 
+### 0.6.2
+- Update Doctrine cache.
+
 ### 0.6.1
 - Update the Wizaplace PHP-SDK to accept at least the 1.108.28 version.
 
