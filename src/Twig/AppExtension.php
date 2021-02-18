@@ -12,7 +12,7 @@ use Symfony\Component\Translation\TranslatorInterface;
 use Wizaplace\SDK\Catalog\CatalogServiceInterface;
 use Wizaplace\SDK\Cms\CmsService;
 use Wizaplace\SDK\Image\Image;
-use Wizaplace\SDK\Image\ImageService;
+use Wizaplace\SDK\Image\ImageServiceInterface;
 use WizaplaceFrontBundle\Service\AttributeVariantUrlGenerator;
 use WizaplaceFrontBundle\Service\BasketService;
 use WizaplaceFrontBundle\Service\FavoriteService;
@@ -24,7 +24,7 @@ class AppExtension extends \Twig_Extension
     private $catalogService;
     /** @var BasketService */
     private $basketService;
-    /** @var ImageService */
+    /** @var ImageServiceInterface */
     private $imageService;
     /** @var CmsService */
     private $cmsService;
