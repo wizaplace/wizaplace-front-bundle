@@ -44,7 +44,7 @@ class AppExtension extends \Twig_Extension
     public function __construct(
         CatalogServiceInterface $catalogService,
         BasketService $basketService,
-        ImageService $imageService,
+        ImageServiceInterface $imageService,
         CmsService $cmsService,
         string $recaptchaKey,
         Packages $assets,
