@@ -57,3 +57,8 @@ var/translations:
 	mkdir -p var/translations
 
 .PHONY: all install install-ci lint lint-ci lint-php lint-php-ci lint-yaml lint-twig lint-xliff stan stan-ci test test-phpunit test-phpunit-ci
+
+composer-update:
+	docker pull composer
+	docker run --rm --interactive --tty --volume $PWD:/app composer update
+

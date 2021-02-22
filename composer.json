@@ -6,11 +6,10 @@
     "php": ">=7.1",
     "doctrine/cache": "^1.10",
     "kevinrob/guzzle-cache-middleware": "^3.2",
-    "roave/security-advisories": "@dev",
     "symfony/monolog-bundle": "^3.1",
     "symfony/symfony": "^3.4.6",
     "twig/twig": "^2.4",
-    "wizaplace/sdk": "^1.108.28"
+    "wizaplace/sdk": "^1.116.1"
   },
   "autoload": {
     "psr-4": {
@@ -39,6 +38,9 @@
     "jms/i18n-routing-bundle": "To vary routes per language"
   },
   "config" : {
-    "sort-packages": true
+    "sort-packages": true,
+    "platform": {
+      "php": "7.2.34"
+    }
   }
 }
