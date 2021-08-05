@@ -80,9 +80,9 @@ class PullTranslationsCommand extends Command
         $io = new SymfonyStyle($input, $output);
         array_walk(
             $this->locales,
-            function (string $locale, int $info) use ($io): void {
+            function (string $locale) use ($io): void {
                 $io->section("Processing locale '$locale'...");
-                $infoVal = $this->executeLocale($locale, $info);
+                $infoVal = $this->executeLocale($locale);
                 if ($infoVal === '0') {
                     $io->success("'$locale' locale successfully pulled");
                 } elseif ($infoVal === '1') {
@@ -94,9 +94,8 @@ class PullTranslationsCommand extends Command
         return 0;
     }
 
-    private function executeLocale(string $locale, int $info): string
+    private function executeLocale(string $locale): string
     {
-        $info = '0';
         $xliffCatalog = $this->translationService->getXliffCatalog($locale);
 
         if (!empty($xliffCatalog)) {
@@ -130,7 +129,7 @@ class PullTranslationsCommand extends Command
                     ]
                 );
 
-                return $info;
+                return '0';
             }
 
             if (!file_exists($this->cacheDir)) {
@@ -142,7 +141,7 @@ class PullTranslationsCommand extends Command
                     ]
                 );
 
-                return $info;
+                return '0';
             }
 
             $finder = new Finder();
@@ -163,10 +162,9 @@ class PullTranslationsCommand extends Command
                     ]
                 );
             }
-            return $info;
+            return '0';
         } else {
-            $info = '1';
-            return $info;
+            return '1';
         }
     }
 }
