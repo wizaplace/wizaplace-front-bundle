@@ -94,69 +94,71 @@ class PullTranslationsCommand extends Command
     {
         $xliffCatalog = $this->translationService->getXliffCatalog($locale);
 
-        $catalogFilePath = "{$this->translationsDir}/messages.{$locale}.xliff";
-        $oldHash = self::EMPTY_HASH;
+        if (!empty($xliffCatalog)) {
 
-        if (file_exists($catalogFilePath)) {
-            $oldHash = hash_file('sha256', $catalogFilePath);
-        }
+            $catalogFilePath = "{$this->translationsDir}/messages.{$locale}.xliff";
+            $oldHash = self::EMPTY_HASH;
 
-        $xliffCatalogContent = $xliffCatalog->getContents();
+            if (file_exists($catalogFilePath)) {
+                $oldHash = hash_file('sha256', $catalogFilePath);
+            }
 
-        $this->logger->debug(
-            self::LOGGER_HEADER,
-            [
-                'catalogFilePath' => $catalogFilePath,
-                'xliff catalog' => $xliffCatalogContent,
-            ]
-        );
+            $xliffCatalogContent = $xliffCatalog->getContents();
 
-        file_put_contents($catalogFilePath, $xliffCatalogContent);
-        $newHash = hash_file('sha256', $catalogFilePath);
-
-        // Si le nouveau contenu est identique à l'ancien, pas besoin de flush le cache
-        if (hash_equals($oldHash, $newHash)) {
             $this->logger->debug(
                 self::LOGGER_HEADER,
                 [
                     'catalogFilePath' => $catalogFilePath,
-                    'flush' => "xliff hash: old - $oldHash === new - $newHash , no need to flush",
+                    'xliff catalog' => $xliffCatalogContent,
                 ]
             );
 
-            return;
-        }
+            file_put_contents($catalogFilePath, $xliffCatalogContent);
+            $newHash = hash_file('sha256', $catalogFilePath);
 
-        if (!file_exists($this->cacheDir)) {
-            $this->logger->debug(
-                self::LOGGER_HEADER,
-                [
-                    'catalogFilePath' => $catalogFilePath,
-                    'flush' => 'cache dir not exist, no need to flush',
-                ]
-            );
+            // Si le nouveau contenu est identique à l'ancien, pas besoin de flush le cache
+            if (hash_equals($oldHash, $newHash)) {
+                $this->logger->debug(
+                    self::LOGGER_HEADER,
+                    [
+                        'catalogFilePath' => $catalogFilePath,
+                        'flush' => "xliff hash: old - $oldHash === new - $newHash , no need to flush",
+                    ]
+                );
 
-            return;
-        }
+                return;
+            }
 
-        $finder = new Finder();
-        $finder
-            ->files()
-            ->in($this->cacheDir)
-            ->name("catalogue.{$locale}.*")
-        ;
+            if (!file_exists($this->cacheDir)) {
+                $this->logger->debug(
+                    self::LOGGER_HEADER,
+                    [
+                        'catalogFilePath' => $catalogFilePath,
+                        'flush' => 'cache dir not exist, no need to flush',
+                    ]
+                );
 
-        // On parcours tous les fichiers qui concernent la locale et on les supprime
-        foreach ($finder as $file) {
-            $deleted = unlink($file->getRealPath());
+                return;
+            }
 
-            $this->logger->debug(
-                self::LOGGER_HEADER,
-                [
-                    'file' => $file,
-                    'deleted' => $deleted,
-                ]
-            );
+            $finder = new Finder();
+            $finder
+                ->files()
+                ->in($this->cacheDir)
+                ->name("catalogue.{$locale}.*");
+
+            // On parcours tous les fichiers qui concernent la locale et on les supprime
+            foreach ($finder as $file) {
+                $deleted = unlink($file->getRealPath());
+
+                $this->logger->debug(
+                    self::LOGGER_HEADER,
+                    [
+                        'file' => $file,
+                        'deleted' => $deleted,
+                    ]
+                );
+            }
         }
     }
 }
