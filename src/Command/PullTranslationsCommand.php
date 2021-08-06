@@ -83,9 +83,9 @@ class PullTranslationsCommand extends Command
             function (string $locale) use ($io): void {
                 $io->section("Processing locale '$locale'...");
                 $infoVal = $this->executeLocale($locale);
-                if ($infoVal === '0') {
+                if ($infoVal === 'succes') {
                     $io->success("'$locale' locale successfully pulled");
-                } elseif ($infoVal === '1') {
+                } elseif ($infoVal === 'error') {
                     $io->error("'$locale' locale unsuccessfully pulled");
                 }
             }
@@ -129,7 +129,7 @@ class PullTranslationsCommand extends Command
                     ]
                 );
 
-                return '0';
+                return 'succes';
             }
 
             if (!file_exists($this->cacheDir)) {
@@ -141,7 +141,7 @@ class PullTranslationsCommand extends Command
                     ]
                 );
 
-                return '0';
+                return 'succes';
             }
 
             $finder = new Finder();
@@ -162,9 +162,9 @@ class PullTranslationsCommand extends Command
                     ]
                 );
             }
-            return '0';
+            return 'succes';
         } else {
-            return '1';
+            return 'error';
         }
     }
 }
