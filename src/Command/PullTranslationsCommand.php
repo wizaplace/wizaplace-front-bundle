@@ -83,9 +83,9 @@ class PullTranslationsCommand extends Command
             function (string $locale) use ($io): void {
                 $io->section("Processing locale '$locale'...");
                 $infoVal = $this->executeLocale($locale);
-                if ($infoVal === 'succes') {
+                if ($infoVal === true) {
                     $io->success("'$locale' locale successfully pulled");
-                } elseif ($infoVal === 'error') {
+                } elseif ($infoVal === false) {
                     $io->error("'$locale' locale unsuccessfully pulled");
                 }
             }
@@ -94,14 +94,13 @@ class PullTranslationsCommand extends Command
         return 0;
     }
 
-    private function executeLocale(string $locale): string
+    private function executeLocale(string $locale): bool
     {
         $xliffCatalog = $this->translationService->getXliffCatalog($locale);
+        $catalogFilePath = "{$this->translationsDir}/messages.{$locale}.xliff";
+        $oldHash = self::EMPTY_HASH;
 
         if (!empty($xliffCatalog)) {
-            $catalogFilePath = "{$this->translationsDir}/messages.{$locale}.xliff";
-            $oldHash = self::EMPTY_HASH;
-
             if (file_exists($catalogFilePath)) {
                 $oldHash = hash_file('sha256', $catalogFilePath);
             }
@@ -129,7 +128,7 @@ class PullTranslationsCommand extends Command
                     ]
                 );
 
-                return 'succes';
+                return true;
             }
 
             if (!file_exists($this->cacheDir)) {
@@ -141,7 +140,7 @@ class PullTranslationsCommand extends Command
                     ]
                 );
 
-                return 'succes';
+                return true;
             }
 
             $finder = new Finder();
@@ -162,9 +161,9 @@ class PullTranslationsCommand extends Command
                     ]
                 );
             }
-            return 'succes';
+            return true;
         } else {
-            return 'error';
+            return false;
         }
     }
 }
