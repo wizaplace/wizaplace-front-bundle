@@ -100,7 +100,9 @@ class PullTranslationsCommand extends Command
         $catalogFilePath = "{$this->translationsDir}/messages.{$locale}.xliff";
         $oldHash = self::EMPTY_HASH;
 
-        if (!empty($xliffCatalog)) {
+        if (empty($xliffCatalog)) {
+            return false;
+        } else {
             if (file_exists($catalogFilePath)) {
                 $oldHash = hash_file('sha256', $catalogFilePath);
             }
@@ -162,8 +164,6 @@ class PullTranslationsCommand extends Command
                 );
             }
             return true;
-        } else {
-            return false;
         }
     }
 }
