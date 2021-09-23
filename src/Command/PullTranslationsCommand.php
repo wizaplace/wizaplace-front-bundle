@@ -167,5 +167,6 @@ class PullTranslationsCommand extends Command
             );
         }
         return true;
+
     }
 }
