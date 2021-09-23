@@ -82,17 +82,25 @@ class PullTranslationsCommand extends Command
             $this->locales,
             function (string $locale) use ($io): void {
                 $io->section("Processing locale '$locale'...");
-                $this->executeLocale($locale);
-                $io->success("'$locale' locale successfully pulled");
+                $infoVal = $this->executeLocale($locale);
+                if ($infoVal === true) {
+                    $io->success("'$locale' locale successfully pulled");
+                } elseif ($infoVal === false) {
+                    $io->error("'$locale' locale unsuccessfully pulled");
+                }
             }
         );
 
         return 0;
     }
 
-    private function executeLocale(string $locale): void
+    private function executeLocale(string $locale): bool
     {
         $xliffCatalog = $this->translationService->getXliffCatalog($locale);
+
+        if (empty($xliffCatalog)) {
+            return false;
+        }
 
         $catalogFilePath = "{$this->translationsDir}/messages.{$locale}.xliff";
         $oldHash = self::EMPTY_HASH;
@@ -124,7 +132,7 @@ class PullTranslationsCommand extends Command
                 ]
             );
 
-            return;
+            return true;
         }
 
         if (!file_exists($this->cacheDir)) {
@@ -136,7 +144,7 @@ class PullTranslationsCommand extends Command
                 ]
             );
 
-            return;
+            return true;
         }
 
         $finder = new Finder();
@@ -158,5 +166,6 @@ class PullTranslationsCommand extends Command
                 ]
             );
         }
+        return true;
     }
 }
