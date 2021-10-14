@@ -138,6 +138,22 @@ class SitemapGenerator implements ProviderInterface
 
         $slugsCatalog = $this->seoService->listSlugs();
 
+        //Get all pages
+        if ($slugsCatalog['total'] > $slugsCatalog['limit']) {
+            $pagesNumber = (int) ($slugsCatalog['total'] / $slugsCatalog['limit']);
+            if ($slugsCatalog['total'] % $slugsCatalog['limit'] > 0) {
+                $pagesNumber++;
+            }
+            for ($i = 1; $i < $pagesNumber; $i++) {
+                $offset = $i * $slugsCatalog['limit'];
+                foreach ($this->seoService->listSlugs($offset, (int) $slugsCatalog['limit'])['items'] as $item) {
+                    $slugsCatalog['items'][] = $item;
+                }
+            }
+            $slugsCatalog['total'] = \count($slugsCatalog['items']);
+            $slugsCatalog['limit'] = null;
+        }
+
         foreach ($slugsCatalog['items'] as $slugCatalogItem) {
             $type = $slugCatalogItem->getTarget()->getObjectType();
             $parameters = [
