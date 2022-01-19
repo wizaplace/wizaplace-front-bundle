@@ -13,7 +13,7 @@
 
 ## Next version
 
-### 0.6.3
+### 0.8.0
 - Update the PHP SDK to 1.146
 
 ### 0.6.2
