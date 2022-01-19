@@ -13,6 +13,9 @@
 
 ## Next version
 
+### 0.6.3
+- Update the PHP SDK to 1.146
+
 ### 0.6.2
 - Update Doctrine cache.
 

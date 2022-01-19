@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cb6286055af0fc99ec7d752bbeb6d1ff",
+    "content-hash": "2b798440c30842620e716611bded9d41",
     "packages": [
         {
             "name": "clue/json-stream",
@@ -2911,16 +2911,16 @@
         },
         {
             "name": "wizaplace/sdk",
-            "version": "1.116.1",
+            "version": "1.146.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wizaplace/wizaplace-php-sdk.git",
-                "reference": "7485454ee03470549bb8830fdf7006791e97c0c9"
+                "reference": "1fd1434d58c916c3b078f81a6178b3b187f32b51"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wizaplace/wizaplace-php-sdk/zipball/7485454ee03470549bb8830fdf7006791e97c0c9",
-                "reference": "7485454ee03470549bb8830fdf7006791e97c0c9",
+                "url": "https://api.github.com/repos/wizaplace/wizaplace-php-sdk/zipball/1fd1434d58c916c3b078f81a6178b3b187f32b51",
+                "reference": "1fd1434d58c916c3b078f81a6178b3b187f32b51",
                 "shasum": ""
             },
             "require": {
@@ -2929,7 +2929,7 @@
                 "doctrine/cache": "^1.8",
                 "guzzlehttp/guzzle": "^6.3.0",
                 "guzzlehttp/psr7": "^1.4",
-                "jean85/pretty-package-versions": "^1.0",
+                "jean85/pretty-package-versions": "^1.5 || ^2.0",
                 "myclabs/php-enum": "^1.5",
                 "php": ">=7.1.3",
                 "psr/log": "^1.0",
@@ -2964,9 +2964,10 @@
             ],
             "description": "Wizaplace's PHP SDK",
             "support": {
-                "source": "https://github.com/wizaplace/wizaplace-php-sdk/tree/1.116.1"
+                "issues": "https://github.com/wizaplace/wizaplace-php-sdk/issues",
+                "source": "https://github.com/wizaplace/wizaplace-php-sdk/tree/1.146.3"
             },
-            "time": "2021-02-22T08:40:53+00:00"
+            "time": "2022-01-04T11:05:20+00:00"
         }
     ],
     "packages-dev": [
@@ -5856,5 +5857,5 @@
     "platform-overrides": {
         "php": "7.2.34"
     },
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.1.0"
 }
