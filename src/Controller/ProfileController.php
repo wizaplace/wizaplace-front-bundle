@@ -336,15 +336,24 @@ class ProfileController extends Controller
 
     public function newsletterAction(): Response
     {
-        $mailingListService = $this->get(MailingListService::class);
-        $userIsSubscribed = $mailingListService->isSubscribed(static::DEFAULT_MAILING_LIST_ID);
+        try {
+            $mailingListService = $this->get(MailingListService::class);
+            $userIsSubscribed = $mailingListService->isSubscribed(static::DEFAULT_MAILING_LIST_ID);
 
-        return $this->render(
-            '@WizaplaceFront/profile/newsletter.html.twig',
-            [
-                'userIsSubscribed' => $userIsSubscribed,
-            ]
-        );
+            return $this->render(
+                '@WizaplaceFront/profile/newsletter.html.twig',
+                [
+                    'userIsSubscribed' => $userIsSubscribed,
+                ]
+            );
+        } catch (\Exception $e) {
+            return $this->render(
+                '@WizaplaceFront/profile/newsletter.html.twig',
+                [
+                    'userIsSubscribed' => null,
+                ]
+            );
+        }
     }
 
     // This method sole purpose is the return type hint.
